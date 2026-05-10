@@ -1,5 +1,4 @@
-import { TerminalHero } from "@/components/TerminalHero";
-import { HeroTextSection } from "@/components/sections/HeroTextSection";
+import { ApexFinalHero } from "@/components/ApexFinalHero";
 import { ProblemSection } from "@/components/sections/ProblemSection";
 import { SolutionSection } from "@/components/sections/SolutionSection";
 import { SystemFlowSection } from "@/components/sections/SystemFlowSection";
@@ -57,11 +56,8 @@ export default async function Home() {
         }}
       />
       <section className="relative">
-        {/* ── Hero: Cinematic CLI Experience ── */}
-        <TerminalHero />
-        
-        {/* ── Hero Text ── */}
-        <HeroTextSection />
+        {/* ── Production Hero ── */}
+        <ApexFinalHero />
 
         {/* ── Page Content ── */}
         <div className="relative bg-[linear-gradient(180deg,#06080a_0%,#080a0d_45%,#06080a_100%)]">
