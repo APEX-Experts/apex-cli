@@ -7,8 +7,8 @@ import { motion, useReducedMotion } from "framer-motion";
 const SERVICES = [
   {
     id: "01",
-    title: "AI & Process Automation",
-    desc: "Automating repeatable workflows with AI agents, RPA, and human approval where risk is high.",
+    title: "AI Integration Services",
+    desc: "We embed AI natively into workflows, databases, and APEX environments. ASKLYZE delivers natural language reporting directly inside Oracle APEX. Implementations are governed by role-based access controls and strict data permissions.",
     tags: ["Agentic AI", "RPA", "Workflow Optimization"],
     icon: (reduced: boolean) => (
       <div className="relative w-12 h-12">
@@ -37,8 +37,8 @@ const SERVICES = [
   },
   {
     id: "02",
-    title: "Oracle APEX development",
-    desc: "Building Oracle APEX applications for data entry, approvals, dashboards, reporting, and internal operations.",
+    title: "Oracle APEX Services",
+    desc: "We build and optimize Oracle APEX applications for internal operations, data entry, approvals, reporting, and Oracle Forms migration. Every implementation is architected for performance, security, and long-term maintainability.",
     tags: ["Low-Code Elite", "Database Design", "Oracle Cloud"],
     icon: (reduced: boolean) => (
       <div className="relative w-14 h-14">
@@ -101,7 +101,7 @@ const SERVICES = [
   {
     id: "03",
     title: "Web Development",
-    desc: "Building fast, polished websites and web apps with Next.js, React, and clean backend integrations.",
+    desc: "We engineer robust web systems for SaaS platforms, client portals, and high-density operational dashboards. Deep integration with CRM, ERP, payment gateways, and enterprise authentication systems.",
     tags: ["Next.js", "React", "Scalable UI"],
     icon: (reduced: boolean) => (
       <div className="relative w-12 h-12">
@@ -129,7 +129,7 @@ const SERVICES = [
   {
     id: "04",
     title: "Mobile Development",
-    desc: "Building iOS, Android, and cross-platform apps with clear UX, secure APIs, and reliable performance",
+    desc: "We build native and cross-platform mobile applications for field teams, approval workflows, and workforce management, fully integrated with Oracle APEX backends and enterprise APIs.",
     tags: ["iOS/Android", "React Native", "Secure Mobile"],
     icon: (reduced: boolean) => (
       <div className="relative w-12 h-12">

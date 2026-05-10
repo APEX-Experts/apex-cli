@@ -1,6 +1,10 @@
 import { TerminalHero } from "@/components/TerminalHero";
+import { HeroTextSection } from "@/components/sections/HeroTextSection";
+import { ProblemSection } from "@/components/sections/ProblemSection";
+import { SystemFlowSection } from "@/components/sections/SystemFlowSection";
+import { UseCasesSection } from "@/components/sections/UseCasesSection";
+import { WhyApexSection } from "@/components/sections/WhyApexSection";
 import { SectionReveal } from "@/components/SectionReveal";
-import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -53,13 +57,24 @@ export default async function Home() {
       <section className="relative">
         {/* ── Hero: Cinematic CLI Experience ── */}
         <TerminalHero />
+        
+        {/* ── Hero Text ── */}
+        <HeroTextSection />
 
         {/* ── Page Content ── */}
         <div className="relative bg-[linear-gradient(180deg,#06080a_0%,#080a0d_45%,#06080a_100%)]">
           <div className="apex-container-wide relative">
-            {/* ── About ── */}
+            
+            {/* ── Problem Section ── */}
             <SectionReveal>
-              <AboutSection />
+              <ProblemSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
+
+            {/* ── System Flow ── */}
+            <SectionReveal>
+              <SystemFlowSection />
             </SectionReveal>
 
             <div className="section-separator my-0" aria-hidden="true" />
@@ -67,6 +82,20 @@ export default async function Home() {
             {/* ── Services ── */}
             <SectionReveal>
               <ServicesSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
+
+            {/* ── Use Cases ── */}
+            <SectionReveal>
+              <UseCasesSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
+
+            {/* ── Why APEX Experts ── */}
+            <SectionReveal>
+              <WhyApexSection />
             </SectionReveal>
 
             <div className="section-separator my-0" aria-hidden="true" />
