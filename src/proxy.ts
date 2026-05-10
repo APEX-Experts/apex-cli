@@ -5,7 +5,7 @@ function createContentSecurityPolicy(nonce: string) {
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'unsafe-inline' 'strict-dynamic' https://challenges.cloudflare.com https://www.googletagmanager.com https://www.google-analytics.com;
     frame-src 'self' https://challenges.cloudflare.com;
-    connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com;
+    connect-src 'self' https://challenges.cloudflare.com https://www.google-analytics.com https://region1.google-analytics.com https://region1.analytics.google.com https://analytics.google.com https://www.google.com https://stats.g.doubleclick.net https://google-analytics.com;
     style-src 'self' 'unsafe-inline';
     img-src 'self' blob: data: cdn.simpleicons.org www.transparenttextures.com grainy-gradients.vercel.app https://www.google-analytics.com https://www.googletagmanager.com;
     font-src 'self' data:;
