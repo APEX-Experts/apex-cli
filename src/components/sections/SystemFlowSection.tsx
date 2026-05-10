@@ -49,7 +49,10 @@ export function SystemFlowSection() {
         <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl mb-4">
           We Don’t Build Features. <span className="text-sinai-glow-soft">We Build Systems.</span>
         </h2>
-        <p className="text-lg text-zinc-400 font-mono tracking-widest uppercase">Our System Landscape</p>
+        <div className="mb-6 inline-flex items-center justify-center rounded-full border border-sinai-glow-orange/20 bg-sinai-glow-orange/5 px-4 py-2 text-[10px] font-mono tracking-widest text-sinai-glow-orange uppercase">
+          User → Application → API Layer → Data Sources → Response / Workflow Executi
+        </div>
+        <p className="text-lg text-zinc-400 font-mono tracking-widest uppercase mt-4">Our System Landscape</p>
       </div>
 
       <div className="relative mx-auto max-w-3xl">

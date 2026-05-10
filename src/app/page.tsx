@@ -1,6 +1,7 @@
 import { TerminalHero } from "@/components/TerminalHero";
 import { HeroTextSection } from "@/components/sections/HeroTextSection";
 import { ProblemSection } from "@/components/sections/ProblemSection";
+import { SolutionSection } from "@/components/sections/SolutionSection";
 import { SystemFlowSection } from "@/components/sections/SystemFlowSection";
 import { UseCasesSection } from "@/components/sections/UseCasesSection";
 import { WhyApexSection } from "@/components/sections/WhyApexSection";
@@ -11,6 +12,7 @@ import { ContactSection } from "@/components/sections/ContactSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { BlogSection } from "@/components/sections/BlogSection";
+import { CtaSection } from "@/components/sections/CtaSection";
 import { getCspNonce } from "@/lib/csp";
 
 export default async function Home() {
@@ -72,6 +74,13 @@ export default async function Home() {
 
             <div className="section-separator my-0" aria-hidden="true" />
 
+            {/* ── Solution Section ── */}
+            <SectionReveal>
+              <SolutionSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
+
             {/* ── System Flow ── */}
             <SectionReveal>
               <SystemFlowSection />
@@ -124,6 +133,13 @@ export default async function Home() {
             {/* ── Blog ── */}
             <SectionReveal>
               <BlogSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
+
+            {/* ── CTA Block ── */}
+            <SectionReveal>
+              <CtaSection />
             </SectionReveal>
 
             <div className="section-separator my-0" aria-hidden="true" />

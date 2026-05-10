@@ -7,7 +7,7 @@ export function ContactSection() {
       <div className="apex-ambient-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-55" />
 
       <div className="section-label">
-        06 // Contact
+        09 // Contact
       </div>
 
       <div className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-10">

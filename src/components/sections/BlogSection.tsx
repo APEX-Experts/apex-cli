@@ -19,7 +19,7 @@ export function BlogSection() {
         <div className="flex items-center gap-4 mb-6">
           <div className="h-px w-12 bg-sinai-glow-orange" />
           <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
-            05 // Insights
+            08 // Insights
           </span>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">

@@ -99,7 +99,7 @@ export function ProjectsSection() {
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-sinai-glow-orange" />
               <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
-                04 // Selected Works
+                06 // Selected Works
               </span>
             </div>
             <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">

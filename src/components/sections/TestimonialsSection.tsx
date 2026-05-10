@@ -53,7 +53,7 @@ export function TestimonialsSection() {
         <div className="flex items-center gap-4 mb-4">
           <div className="h-px w-8 bg-sinai-glow-orange" />
           <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-            05 // Client Testimonials
+            07 // Client Testimonials
           </span>
           <div className="h-px w-8 bg-sinai-glow-orange" />
         </div>

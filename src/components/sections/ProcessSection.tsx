@@ -89,7 +89,7 @@ export function ProcessSection() {
         <div className="flex items-center gap-4 mb-6">
           <div className="h-px w-8 bg-sinai-glow-orange" />
           <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-            03 // Our Process
+            05 // Our Process
           </span>
           <div className="h-px w-8 bg-sinai-glow-orange" />
         </div>
