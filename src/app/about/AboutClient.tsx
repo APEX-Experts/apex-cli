@@ -63,240 +63,61 @@ export default function AboutClient() {
   return (
     <div className="overflow-hidden bg-sinai-bg-base text-white selection:bg-sinai-glow-orange selection:text-black">
       
-      {/* CEO Hero Section */}
+      {/* Hero Section & Story */}
       <section className="relative overflow-hidden px-4 pb-14 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
-        {/* Abstract Background Glows */}
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-sinai-glow-orange/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sinai-glow-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
             
-            {/* Left: Founder Image */}
-            <motion.div 
-              initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, x: -50 }}
-              animate={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="relative group"
-            >
-              <div className="relative aspect-[4/5] md:aspect-square lg:aspect-[4/5] rounded-3xl overflow-hidden border border-white/10 bg-zinc-900 shadow-2xl">
-                {/* Decorative Frame Elements */}
-                <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl z-10" />
-                <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-sinai-glow-orange/30 rounded-br-3xl z-10" />
-                
-                <Image 
-                  src="/images/avatars/ahmed.png"
-                  alt="Ahmed Al-Saied - Founder & CEO"
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-                  className="object-cover scale-[1.02] group-hover:scale-110 transition-transform duration-[3s] ease-out grayscale hover:grayscale-0"
-                  priority
-                />
-                
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60" />
-                
-                {/* Name Tag HUD */}
-                <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                  <div className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase mb-1">Architect & Visionary</div>
-                  <h3 className="text-2xl font-black uppercase tracking-normal">Ahmed Al-Saied</h3>
-                  <div className="w-12 h-[2px] bg-sinai-glow-orange mt-3" />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Right: CEO Message */}
             <motion.div
               initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 }}
               animate={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-7"
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-8"
             >
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-3">
                   <div className="w-8 h-[1px] bg-sinai-glow-orange" />
-                  <span className="text-xs font-mono text-sinai-glow-orange tracking-[0.5em] uppercase">Leadership Message</span>
+                  <span className="text-xs font-mono text-sinai-glow-orange tracking-[0.5em] uppercase">About Us</span>
                 </div>
-                <h1 className="text-4xl font-black uppercase leading-[0.92] tracking-normal md:text-6xl">
-                  Word from <br/>
-                  <span className="apex-gradient-text">The Founder</span>
+                <h1 className="text-4xl font-black uppercase leading-[1.1] tracking-normal md:text-5xl lg:text-6xl">
+                  Engineering systems where business operations <br />
+                  <span className="apex-gradient-text">actually happen</span>
                 </h1>
-              </div>
-
-              <div className="space-y-5 text-zinc-400 text-lg md:text-xl leading-relaxed font-light italic">
-                <p className="relative">
-                  <span className="absolute -left-8 -top-4 text-6xl font-serif text-sinai-glow-orange/20">&quot;</span>
-                  At APEX Experts, we don&apos;t just build software; we build software for teams that need AI, data, and business workflows to work together reliably. Our mission is to bridge the gap between complex AI capabilities and real-world enterprise scalability.
+                <p className="text-xl text-zinc-400 font-medium">
+                  APEX Experts AI Solutions is a founder-led engineering practice specializing in Oracle APEX, AI integration, and enterprise application development. We build systems that operate inside real business workflows, not alongside them.
                 </p>
-                <p>
-                  Every line of code we write, every model we train, and every interface we design is driven by a single obsession: <span className="text-white font-medium">clear thinking, careful engineering, and maintainable delivery.</span>
-                </p>
-                <p className="relative">
-                  We are here to help clients turn a clear operational need into useful software. in their industries.<span className="absolute -right-8 -bottom-4 text-6xl font-serif text-sinai-glow-orange/20 rotate-180">&quot;</span>
-                </p>
-              </div>
-
-              <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1 hover:border-sinai-glow-orange/30 transition-colors group/card">
-                  <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">17+</span>
-                  <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest leading-tight">Years<br/>Experience</span>
-                </div>
-                <div className="px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1 hover:border-sinai-glow-orange/30 transition-colors group/card">
-                  <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">Oracle</span>
-                  <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest leading-tight">APEX<br/>Specialist</span>
-                </div>
-                <div className="px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1 hover:border-sinai-glow-orange/30 transition-colors group/card">
-                  <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">Data</span>
-                  <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest leading-tight">Driven<br/>Logic</span>
-                </div>
-                <div className="px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1 hover:border-sinai-glow-orange/30 transition-colors group/card">
-                  <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">AI</span>
-                  <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest leading-tight">Native<br/>Philosophy</span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-6 pt-8">
-                <div className="h-[1px] flex-1 bg-white/10" />
-                <div className="flex flex-col items-end">
-                  <div className="text-sm font-mono text-white tracking-widest uppercase">Ahmed Al-Saied</div>
-                  <div className="text-[10px] font-mono text-zinc-500 tracking-widest uppercase">Founder & CEO</div>
-                </div>
               </div>
             </motion.div>
+
+            <motion.div
+              initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, x: 30 }}
+              animate={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="relative p-8 rounded-3xl border border-white/10 bg-white/[0.02] backdrop-blur-xl"
+            >
+              <h2 className="mb-6 text-2xl font-bold text-white">Built from the Inside of Enterprise Systems</h2>
+              <div className="space-y-4 text-zinc-400 leading-relaxed">
+                <p>
+                  Our practice was founded by an enterprise Oracle engineer with 17+ years of hands-on experience designing and delivering decision support systems, Oracle APEX applications, and data warehouse architectures for organizations across Egypt, the UAE, and the GCC.
+                </p>
+                <p>
+                  That background shapes how we work. We begin every engagement by understanding your existing infrastructure, your data environment, your security constraints, and your operational goals, before writing a single line of code.
+                </p>
+                <p>
+                  APEX Experts operates across four core capabilities: Oracle APEX development, AI integration, web development, and mobile development. These are not isolated service lines. They are connected engineering disciplines that allow us to address the full complexity of an enterprise system.
+                </p>
+              </div>
+            </motion.div>
+
           </div>
         </div>
       </section>
 
-      {/* Experimental Vision & Mission: The Neural Spine */}
-      <section className="section-shell-lg relative overflow-hidden bg-sinai-bg-base px-4 sm:px-6">
-        {/* Background Architectural Grid */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-             style={{ backgroundImage: 'radial-gradient(circle, #f2a24b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-        
-        <div className="max-w-7xl mx-auto relative">
-          
-          {/* Central Logical Spine */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-sinai-glow-orange/30 to-transparent hidden md:block">
-            <motion.div 
-              animate={effectiveReduceMotion ? {} : { top: ["0%", "100%"] }}
-              transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-              className="absolute w-1 h-20 bg-sinai-glow-orange shadow-[0_0_15px_#f2a24b] -left-[1.5px]"
-            />
-          </div>
-
-          <div className="space-y-12 lg:space-y-16">
-            
-            {/* Vision Node */}
-            <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-10">
-              <div className="relative order-2 md:order-1">
-                <motion.div
-                  initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, x: -100 }}
-                  whileInView={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-6 relative z-10"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] uppercase">Phase_01</span>
-                    <div className="h-px w-20 bg-sinai-glow-orange/20" />
-                  </div>
-                  <h2 className="absolute -left-10 -top-10 select-none text-6xl font-black uppercase leading-[0.85] tracking-normal opacity-10 lg:text-8xl">Vision</h2>
-                  <h3 className="text-left text-4xl font-black uppercase leading-none tracking-normal lg:text-6xl">
-                    Architecting <br/>
-                    <span className="text-sinai-glow-orange">The Future</span>
-                  </h3>
-                  <p className="text-zinc-400 text-lg lg:text-xl leading-relaxed max-w-md font-light italic text-left">
-                    To be a trusted engineering partner for practical AI, Oracle APEX, and custom software projects., redefining how businesses interact with data through the lens of technical mastery.
-                  </p>
-                  <div className="flex items-center gap-6 pt-4">
-                    <div className="w-12 h-12 rounded-full border border-sinai-glow-orange/20 flex items-center justify-center group-hover:border-sinai-glow-orange transition-colors">
-                      <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-ping'}`} />
-                    </div>
-                    <span className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest">Global_Standard_Protocol</span>
-                  </div>
-                </motion.div>
-              </div>
-              
-              <div className="hidden md:flex justify-center order-1 md:order-2">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 1.5 }}
-                  className="w-80 h-80 relative"
-                >
-                  <div className={`absolute inset-0 border-[0.5px] border-sinai-glow-orange/20 rounded-full ${effectiveReduceMotion ? '' : 'animate-[spin_20s_linear_infinite]'}`} />
-                  <div className={`absolute inset-10 border-[0.5px] border-white/10 rounded-full ${effectiveReduceMotion ? '' : 'animate-[spin_15s_linear_infinite_reverse]'}`} />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-40 h-40 bg-sinai-glow-orange/5 rounded-full blur-3xl" />
-                    <span className="text-sinai-glow-orange font-mono text-xs tracking-widest uppercase text-center">Target_Vision</span>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-
-            {/* Mission Node */}
-            <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-10">
-              <div className="hidden md:flex justify-center">
-                <motion.div 
-                  initial={{ scale: 0.8, opacity: 0 }}
-                  whileInView={{ scale: 1, opacity: 1 }}
-                  transition={{ duration: 1.5 }}
-                  className="w-80 h-80 relative"
-                >
-                  <div className={`absolute inset-0 border-t border-l border-white/10 rounded-3xl rotate-45 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                  <div className="absolute inset-10 border-b border-r border-sinai-glow-orange/20 rounded-3xl -rotate-45" />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-40 h-40 bg-white/5 rounded-full blur-3xl" />
-                    <span className="text-white font-mono text-xs tracking-widest uppercase text-center">Execution_Core</span>
-                  </div>
-                </motion.div>
-              </div>
-
-              <div className="relative">
-                <motion.div
-                  initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, x: 100 }}
-                  whileInView={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-6 relative z-10 text-right md:text-left md:pl-16"
-                >
-                  <div className="flex items-center gap-4 justify-end md:justify-start">
-                    <div className="h-px w-20 bg-white/20" />
-                    <span className="text-white font-mono text-[10px] tracking-[0.5em] uppercase">Phase_02</span>
-                  </div>
-                  <h2 className="absolute -right-10 -top-10 select-none text-6xl font-black uppercase leading-[0.85] tracking-normal opacity-10 md:-left-10 lg:text-8xl">Mission</h2>
-                  <h3 className="text-right text-4xl font-black uppercase leading-none tracking-normal md:text-left lg:text-6xl">
-                    Engineering <br/>
-                    <span className="text-white">The Impact</span>
-                  </h3>
-                  <p className="text-zinc-400 text-lg lg:text-xl leading-relaxed max-w-md ml-auto md:ml-0 font-light italic text-right md:text-left">
-                    Helping teams replace slow manual work with reliable software, clear dashboards, and safer automation.
-                  </p>
-                  <div className="flex items-center gap-6 pt-4 justify-end md:justify-start">
-                    <span className="text-[9px] font-mono text-zinc-600 uppercase tracking-widest">Active_Deployment_Logic</span>
-                    <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center">
-                      <div className={`w-2 h-2 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-        
-        {/* Floating Background Labels */}
-        <div className="absolute top-1/2 left-10 -translate-y-1/2 text-[15vh] font-black text-white/[0.02] uppercase tracking-[0.5em] select-none vertical-text hidden lg:block">
-          Evolution
-        </div>
-        <div className="absolute top-1/2 right-10 -translate-y-1/2 text-[15vh] font-black text-sinai-glow-orange/[0.02] uppercase tracking-[0.5em] select-none vertical-text hidden lg:block">
-          Architecture
-        </div>
-      </section>
-
-      {/* Experimental Engineering DNA: The Architectural Schematics */}
+      {/* Strategic Pillars */}
       <section className="section-shell-lg relative overflow-hidden bg-[#080a0d] px-4 sm:px-6">
-        {/* Background Mesh Grid */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
              style={{ backgroundImage: 'linear-gradient(#f2a24b 0.5px, transparent 0.5px), linear-gradient(90deg, #f2a24b 0.5px, transparent 0.5px)', backgroundSize: '100px 100px' }} />
         
@@ -308,18 +129,16 @@ export default function AboutClient() {
               className="flex items-center gap-4"
             >
               <div className="w-12 h-px bg-sinai-glow-orange" />
-              <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase text-left">Strategic_DNA // Schema_v2.0</span>
+              <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase text-left">Strategic_Pillars</span>
             </motion.div>
             <h2 className="text-left text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
-              Engineering <br/>
-              <span className="apex-gradient-text">Foundations</span>
+              What Guides Our <br/>
+              <span className="apex-gradient-text">Engineering Practice</span>
             </h2>
           </div>
 
-          {/* The Schematic Grid */}
           <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-y-16 items-center">
             
-            {/* Visual Logic Bridge (The Lines) */}
             <div className="absolute inset-0 hidden lg:block pointer-events-none">
               <svg className="w-full h-full opacity-10">
                 <motion.path 
@@ -338,12 +157,11 @@ export default function AboutClient() {
               </svg>
             </div>
 
-            {/* DNA Nodes */}
             {[
-              { id: "01", title: "Precision", col: "lg:col-span-5", align: "left", desc: "Clear structure, tested flows, and fewer fragile shortcuts.", tech: "ERR_TOLERANCE: 0.0001%" },
-              { id: "02", title: "Intelligence", col: "lg:col-span-5 lg:col-start-8", align: "right", desc: "AI used where it can safely support decisions.", tech: "NEURAL_SYNAPSE: 4.2ms" },
-              { id: "03", title: "Precision", col: "lg:col-span-5", align: "left", desc: "Enterprise-grade Oracle database supremacy.", tech: "QUERY_PRECISION: NANO" },
-              { id: "04", title: "Cinematic", col: "lg:col-span-5 lg:col-start-8", align: "right", desc: "The intersection of high-engineering and art.", tech: "MOTION_FIDELITY: 120fps" }
+              { id: "01", title: "Practical AI", col: "lg:col-span-5", align: "left", desc: "We operationalize AI into workflows with strict data permissions. Every implementation must function reliably within your existing security architecture.", tech: "AI_OPERATIONAL" },
+              { id: "02", title: "Engineering Excellence", col: "lg:col-span-5 lg:col-start-8", align: "right", desc: "We deliver production applications, secure, maintainable, and fully integrated. Not prototypes, not MVPs handed off without a support path.", tech: "PROD_GRADE" },
+              { id: "03", title: "Data Sovereignty", col: "lg:col-span-5", align: "left", desc: "Clients retain complete control and visibility over their data. No AI implementation we build requires data to leave your infrastructure.", tech: "DATA_SECURE" },
+              { id: "04", title: "Product-Grade Delivery", col: "lg:col-span-5 lg:col-start-8", align: "right", desc: "We build bespoke systems with the scalability and reliability standards of enterprise SaaS.", tech: "SAAS_SCALE" }
             ].map((node, i) => (
               <motion.div
                 key={node.id}
@@ -373,7 +191,6 @@ export default function AboutClient() {
                   </div>
                 </div>
 
-                {/* Floating Meta-Data */}
                 <div className="absolute -top-10 -right-10 opacity-0 group-hover:opacity-100 transition-all duration-700 pointer-events-none">
                   <div className="text-[8px] font-mono text-sinai-glow-orange/40 p-4 border-l border-t border-sinai-glow-orange/20">
                     <TelemetryData />
@@ -383,373 +200,150 @@ export default function AboutClient() {
             ))}
           </div>
         </div>
-
-        {/* Global HUD Decorations */}
-        <div className="absolute top-20 left-10 text-white/5 font-mono text-[10px] tracking-widest hidden lg:block uppercase select-none">
-          Blueprint_Archive // Sec_09
-        </div>
-        <div className="absolute bottom-20 right-10 text-white/5 font-mono text-[10px] tracking-widest hidden lg:block uppercase select-none">
-          Architecture_Verified // 2024
-        </div>
       </section>
 
-      {/* Experimental Tech Ecosystem: The Kinetic Matrix */}
-      <section className="section-shell-lg relative overflow-hidden bg-sinai-bg-base px-4 sm:px-6">
-        {/* Animated Neural Background (CSS-based) */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
-          <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,#f2a24b_1px,transparent_1px)] bg-[size:100px_100px] ${effectiveReduceMotion ? '' : 'animate-[pulse_8s_infinite]'}`} />
-        </div>
-
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
-            
-            {/* Left Side: Tech Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              className="space-y-8"
-            >
-              <div className="space-y-6">
-                <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/10">
-                  <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                  <span className="text-[10px] font-mono text-zinc-500 tracking-[0.4em] uppercase">Tech_Ecosystem // Integrated</span>
-                </div>
-                <h2 className="text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
-                  Tools <br/>
-                  <span className="text-sinai-glow-orange">We</span> Use
-                </h2>
-                <p className="text-zinc-400 text-xl leading-relaxed max-w-lg font-light italic">
-                  We don&apos;t just use tools; we engineer ecosystems. We choose tools based on the project: reliability, maintainability, security, and speed of delivery.
-                </p>
-              </div>
-
-              {/* Live System Telemetry List */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {[
-                  { label: "AI_CORE", val: "ANTHROPIC_CLAUDE", status: "STABLE" },
-                  { label: "DB_ENGINE", val: "ORACLE_26", status: "NEXT_GEN" },
-                  { label: "FRONTEND", val: "NEXT.JS", status: "OPTIMIZED" },
-                  { label: "BACKEND", val: "NODE_PRO_MAX", status: "SCALABLE" }
-                ].map((item) => (
-                  <div key={item.label} className="p-5 rounded-2xl bg-white/[0.02] border border-white/5 space-y-2 group hover:border-sinai-glow-orange/30 transition-all duration-500">
-                    <div className="flex justify-between items-center">
-                      <span className="text-[8px] font-mono text-zinc-600 tracking-widest uppercase">{item.label}</span>
-                      <span className="text-[8px] font-mono text-sinai-glow-orange uppercase tracking-widest">{item.status}</span>
-                    </div>
-                    <div className="text-sm font-bold text-white group-hover:text-sinai-glow-orange transition-colors">{item.val}</div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Right Side: The Neural Core Visual (Upgraded with Tech Galaxy) */}
-            <div className="relative aspect-square flex items-center justify-center">
-              <div className="relative w-full h-full flex items-center justify-center scale-90 lg:scale-100">
-                {/* Outer Orbital Rings */}
-                <motion.div 
-                  animate={effectiveReduceMotion ? {} : { rotate: 360 }}
-                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 border border-sinai-glow-orange/10 rounded-full border-dashed"
-                />
-                <motion.div 
-                  animate={effectiveReduceMotion ? {} : { rotate: -360 }}
-                  transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-16 border border-white/5 rounded-full border-dashed"
-                />
-                
-                {/* Central Glass Sphere */}
-                <div className="relative z-10 w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
-                  <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
-                  
-                  <motion.div 
-                    animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute w-40 h-40 lg:w-56 lg:h-56 rounded-full bg-sinai-glow-orange/20 blur-[60px]"
-                  />
-
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/40 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
-                      <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black flex items-center gap-2">
-                        <span className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                        POWER_MATRIX_v3.0
-                      </div>
-                    </div>
-
-                    <div className="relative">
-                      <h3 className="flex flex-col items-center text-4xl font-black leading-none tracking-normal text-white lg:text-5xl">
-                        <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
-                        <span className="text-[8px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
-                      </h3>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Orbiting Tech Logos Galaxy */}
-                {[
-                  { id: "oracle", slug: "oracle", color: "#F80000", status: "CORE_ENGINE", version: "v23c" },
-                  { id: "anthropic", slug: "anthropic", color: "#D19A66", status: "AI_LLM", version: "CLAUDE_3.5" },
-                  { id: "nextdotjs", slug: "nextdotjs", color: "#FFFFFF", status: "FRAMEWORK", version: "v14.2" },
-                  { id: "react", slug: "react", color: "#61DAFB", status: "UI_LIBRARY", version: "v18.3" },
-                  { id: "nodedotjs", slug: "nodedotjs", color: "#339933", status: "RUNTIME", version: "LTS" },
-                  { id: "python", slug: "python", color: "#3776AB", status: "LOGIC_CORE", version: "v3.12" },
-                  { id: "tailwindcss", slug: "tailwindcss", color: "#06B6D4", status: "STYLING", version: "v3.4" },
-                  { id: "openai", slug: "openai", color: "#FFFFFF", status: "AI_ORCHESTRATOR", version: "GPT-4o" }
-                ].map((tech, i) => {
-                  const angle = (i / 8) * Math.PI * 2;
-                  const radius = 280; // Distance from center
-                  return (
-                    <div
-                      key={tech.id}
-                      className="absolute inset-0 pointer-events-none"
-                    >
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: i * 0.1 }}
-                        style={{ 
-                          left: `calc(50% + ${Math.cos(angle) * radius}px)`,
-                          top: `calc(50% + ${Math.sin(angle) * radius}px)`
-                        }}
-                        className="absolute -translate-x-1/2 -translate-y-1/2 w-14 h-14 lg:w-16 lg:h-16 rounded-xl bg-[#0a0a0a]/80 backdrop-blur-md border border-white/10 flex items-center justify-center p-3 pointer-events-auto hover:border-sinai-glow-orange/50 transition-all group shadow-2xl z-20"
-                      >
-                        <div className="relative w-12 h-12">
-                          <Image 
-                            src={`/images/tech/${tech.slug}.svg`} 
-                            className="w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0"
-                            alt={tech.id}
-                            style={{ filter: `drop-shadow(0 0 10px ${tech.color}44)` }}
-                            fill
-                            priority
-                          />
-                        </div>
-                        
-                        {/* Premium Tooltip Reveal */}
-                        <div className="absolute bottom-full mb-6 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none z-50 translate-y-4 group-hover:translate-y-0">
-                          <div className="p-4 rounded-2xl bg-black/80 backdrop-blur-2xl border border-sinai-glow-orange/30 shadow-[0_0_40px_rgba(242,162,75,0.15)] min-w-[160px] relative">
-                            {/* Decorative Corner */}
-                            <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-black border-r border-b border-sinai-glow-orange/30 rotate-45" />
-                            
-                            <div className="space-y-3">
-                              <div className="flex items-center justify-between gap-4">
-                                <div className="text-[8px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase whitespace-nowrap">Node_{tech.id}</div>
-                                <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                              </div>
-                              
-                              <div className="space-y-1">
-                                <h4 className="text-sm font-black uppercase tracking-normal text-white">{tech.id.replace('dotjs', '')}</h4>
-                                <div className="flex items-center gap-2">
-                                  <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest">{tech.status}</span>
-                                  <span className="w-1 h-1 rounded-full bg-white/10" />
-                                  <span className="text-[7px] font-mono text-sinai-glow-orange uppercase">{tech.version}</span>
-                                </div>
-                              </div>
-
-                              <div className="h-px w-full bg-white/5" />
-                              <div className="text-[6px] font-mono text-zinc-600 tracking-widest uppercase">Connectivity: Nominal</div>
-                            </div>
-                          </div>
-                        </div>
-                      </motion.div>
-                    </div>
-                  );
-                })}
-
-                {/* Floating Scanning Ring */}
-                <motion.div 
-                  animate={effectiveReduceMotion ? { opacity: 0.1, scale: 1 } : { scale: [0.8, 1.3, 0.8], opacity: [0, 0.4, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute w-[500px] h-[500px] lg:w-[650px] lg:h-[650px] border border-sinai-glow-orange/20 rounded-full"
-                />
-              </div>
+      {/* Company Facts Section */}
+      <section className="section-shell relative py-24 border-y border-white/5">
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <h2 className="text-3xl sm:text-4xl font-bold leading-tight">
+            A dual-entity operation spanning Egypt and the UAE, built to serve enterprise clients across the GCC with localized execution and global engineering depth.
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+              <div className="text-sinai-glow-orange font-mono text-xs mb-2">Founded & Experience</div>
+              <div className="text-white">2025 | Operating with 17+ years of accumulated enterprise engineering experience</div>
             </div>
-
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+              <div className="text-sinai-glow-orange font-mono text-xs mb-2">Legal Entities & Hubs</div>
+              <div className="text-white">APEX Experts AI Solutions L.L.C (Alexandria, Egypt) & Active Hubs in Dubai, UAE</div>
+            </div>
+            <div className="p-6 rounded-2xl bg-white/[0.02] border border-white/10">
+              <div className="text-sinai-glow-orange font-mono text-xs mb-2">Contact & Operations</div>
+              <div className="text-white">info@apexexperts.net<br />+20 102 203 4499 | +971 58 580 3977</div>
+            </div>
           </div>
         </div>
       </section>
-      {/* Human Intelligence Nexus: The Elite Collective - SUPER PREMIUM */}
-      <section className="section-shell-lg relative overflow-hidden border-t border-white/5 bg-[#080a0d] px-4 sm:px-6">
-        {/* Cinematic Ambient Background */}
-        <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f2a24b_1px,transparent_1px)] bg-[size:60px_60px]" />
-        </div>
 
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-16 space-y-5 lg:mb-20">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-sinai-glow-orange/5 border border-sinai-glow-orange/20"
-            >
-              <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-              <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase font-black">Human_Capital // Strategic_Assets</span>
-            </motion.div>
-            <h2 className="text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
-              The Team
+      {/* Proprietary Products Section */}
+      <section className="section-shell relative py-24 bg-[linear-gradient(180deg,#06080a_0%,#080a0d_100%)]">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <div className="max-w-3xl space-y-6">
+            <h2 className="text-4xl md:text-5xl font-black uppercase">
+              Built Once. Proven at Product Scale. <span className="text-sinai-glow-orange">Delivered to Enterprises.</span>
             </h2>
-            <p className="text-zinc-500 text-lg max-w-2xl mx-auto font-light">
-              The people who design, build, test, and support APEX Experts projects
+            <p className="text-xl text-zinc-400">
+              Our SaaS products are not side projects, they are the direct outcome of the same engineering discipline we apply to enterprise clients, proving our ability to design, build, and scale production-grade AI and APEX systems.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
-              { id: "01", name: "Amr Mohamed", role: "TEAM LEADER", img: "/images/avatars/Amr.png", skills: ["Architecture", "Leadership", "Neural Sync"], cluster: "TECHNICAL" },
-              { id: "02", name: "Asma Ali", role: "MARKETING MANAGER", img: "/images/avatars/asma.png", skills: ["Growth", "Branding", "Market_IQ"], cluster: "BUSINESS" },
-              { id: "03", name: "Hesham Abdelwahed", role: "SALES MANAGER", img: "/images/avatars/hesham.png", skills: ["Enterprise", "Scale", "Relations"], cluster: "BUSINESS" },
-              { id: "04", name: "Micheal Magdy", role: "SR. SOFTWARE ENG.", img: "/images/avatars/mich.png", skills: ["Backend", "Cloud Scale", "Logic"], cluster: "TECHNICAL" },
-              { id: "05", name: "Abdelrahman Ibrahim", role: "SR. SOFTWARE ENG.", img: "/images/avatars/abd.png", skills: ["Frontend", "UX Engine", "Motion"], cluster: "TECHNICAL" },
-              { id: "06", name: "Mario Milad", role: "PRODUCT DESIGNER", img: "/images/avatars/mario.png", skills: ["Visuals", "Human Proxy", "Design"], cluster: "CREATIVE" },
-              { id: "07", name: "Reham Samer", role: "QUALITY ENGINEERING", img: "/images/avatars/reham.png", skills: ["Stability", "QA_Core", "Compliance"], cluster: "TECHNICAL" },
-              { id: "08", name: "Maha Salam", role: "SYSTEM ADMIN", img: "/images/avatars/maha.png", skills: ["Infrastructure", "Sec_Ops", "Kernel"], cluster: "TECHNICAL" }
-            ].map((member, i) => (
-              <motion.div
-                key={member.id}
-                initial={{ opacity: 0, y: 30 }}
+              { name: "MyQuery", desc: "Standalone natural language analytics platform for enterprise data warehouses." },
+              { name: "ASKLYZE", desc: "Oracle APEX-native AI analytics plugin, natural language reporting inside APEX, zero data movement." },
+              { name: "Tasto", desc: "SaaS ERP platform unifying CRM, accounting, HR, and project operations." }
+            ].map((prod, i) => (
+              <motion.div 
+                key={prod.name}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="group relative h-[500px] rounded-[2.5rem] overflow-hidden border border-white/5 bg-zinc-900/40 backdrop-blur-xl transition-all duration-700 hover:border-sinai-glow-orange/30 hover:shadow-[0_0_50px_rgba(242,162,75,0.1)]"
+                className="group p-8 rounded-3xl bg-black/40 border border-white/10 hover:border-sinai-glow-orange/50 transition-colors"
               >
-                {/* Holographic Background Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/90 z-10" />
-                
-                {/* Member Identity Image */}
-                <div className="absolute inset-0 z-0">
-                  <Image 
-                    src={member.img}
-                    alt={member.name}
-                    fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                    className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 opacity-60 group-hover:opacity-100"
-                  />
+                <div className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-sinai-glow-orange/20 transition-colors">
+                  <div className="text-xl font-black">{prod.name.charAt(0)}</div>
                 </div>
-
-                {/* Biometric Scan Line */}
-                <motion.div 
-                  animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "linear", delay: i * 0.5 }}
-                  className="absolute left-0 right-0 h-16 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
-                />
-
-                {/* Card Content Overlay */}
-                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                  <div className="space-y-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
-                    {/* Header: ID & Cluster */}
-                    <div className="flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity delay-100">
-                      <span className="text-[8px] font-mono text-sinai-glow-orange tracking-[0.4em]">NODE_{member.id}</span>
-                      <span className="px-2 py-0.5 rounded-full bg-white/5 border border-white/10 text-[6px] font-mono text-zinc-500 uppercase tracking-widest">{member.cluster}</span>
-                    </div>
-
-                    {/* Name & Role */}
-                    <div className="space-y-1">
-                      <h3 className="text-2xl font-black uppercase leading-none tracking-normal text-white transition-colors group-hover:text-sinai-glow-soft">{member.name}</h3>
-                      <p className="text-[9px] font-mono text-zinc-400 tracking-[0.2em] uppercase">{member.role}</p>
-                    </div>
-
-                    {/* Technical Skills: Only on Hover */}
-                    <div className="flex flex-wrap gap-2 pt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-200">
-                      {member.skills.map(skill => (
-                        <span key={skill} className="px-2 py-1 rounded-sm bg-sinai-glow-orange/10 border border-sinai-glow-orange/20 text-[7px] font-mono text-sinai-glow-orange uppercase">
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Footer: Authorization */}
-                    <div className="pt-4 flex items-center justify-between border-t border-white/5 opacity-0 group-hover:opacity-100 transition-opacity delay-300">
-                      <span className="text-[7px] font-mono text-zinc-600 uppercase tracking-widest leading-none">Level_04 Authorization</span>
-                      <div className={`w-1.5 h-1.5 rounded-full bg-green-500/40 ${effectiveReduceMotion ? '' : 'shadow-[0_0_10px_rgba(34,197,94,0.4)]'}`} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Decorative Elements */}
-                <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-white/10 rounded-tr-xl group-hover:border-sinai-glow-orange/40 transition-colors" />
-                <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-white/10 rounded-bl-xl group-hover:border-sinai-glow-orange/40 transition-colors" />
+                <h3 className="text-2xl font-bold mb-3">{prod.name}</h3>
+                <p className="text-zinc-400">{prod.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
+      </section>
 
-        {/* Cinematic Particles Fallback */}
-        <div className="absolute inset-0 pointer-events-none opacity-20">
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              animate={effectiveReduceMotion ? { opacity: 0.2 } : { y: ["100vh", "-10vh"], opacity: [0, 1, 0] }}
-              transition={{ duration: 10 + i * 5, repeat: Infinity, ease: "linear", delay: i * 2 }}
-              className="absolute w-px h-20 bg-gradient-to-t from-transparent via-sinai-glow-orange to-transparent"
-              style={{ left: `${20 * i}%` }}
-            />
-          ))}
+      {/* What We Build & How We Deliver */}
+      <section className="section-shell relative py-24">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16">
+          
+          <div className="space-y-8">
+            <h2 className="text-3xl font-bold">What We Build</h2>
+            <p className="text-zinc-400">
+              Our enterprise-grade engineering system connects data, streamlines operations, and enables intelligent workflows, built with a structured engineering approach from architecture to deployment.
+            </p>
+            <div className="space-y-4">
+              {[
+                { domain: "Enterprise Systems", focus: "Internal tools, dashboards, and workflow automation" },
+                { domain: "Digital Platforms", focus: "SaaS products, portals, and business applications" },
+                { domain: "AI Enablement", focus: "Intelligent assistants, automation layers, and data interaction systems" },
+                { domain: "System Integration", focus: "APIs, middleware, and cross-system connectivity" }
+              ].map((item, i) => (
+                <div key={i} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-white/[0.02] border border-white/5 gap-4">
+                  <div className="font-bold text-sinai-glow-orange w-1/3">{item.domain}</div>
+                  <div className="text-sm text-zinc-300 w-2/3">{item.focus}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-8">
+            <h2 className="text-3xl font-bold">How We Deliver Systems</h2>
+            <p className="text-zinc-400">
+              Our delivery approach is structured, technical, and focused on eliminating uncertainty at every stage of implementation.
+            </p>
+            <div className="relative space-y-6 before:absolute before:inset-y-0 before:left-[19px] before:w-px before:bg-white/10">
+              {[
+                "Analyze existing system architecture and dependencies",
+                "Identify bottlenecks, inefficiencies, and operational constraints",
+                "Design scalable workflows and integration architecture",
+                "Build and deploy production-ready systems"
+              ].map((step, i) => (
+                <div key={i} className="relative flex items-center gap-6">
+                  <div className="w-10 h-10 rounded-full bg-black border border-sinai-glow-orange flex items-center justify-center font-mono text-sinai-glow-orange text-xs z-10">
+                    0{i + 1}
+                  </div>
+                  <div className="flex-1 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                    {step}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
-      {/* Final CTA Section - Cinematic Masterpiece */}
+
+      {/* Final CTA Section */}
       <section className="section-shell-lg relative overflow-hidden border-t border-white/5 bg-sinai-bg-base">
-        {/* Background Ambient Layers */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
         
-        {/* Technical HUD Frame */}
-        <div className="absolute inset-20 border border-white/[0.03] pointer-events-none hidden md:block">
-          <div className="absolute top-0 left-0 w-20 h-px bg-sinai-glow-orange/30" />
-          <div className="absolute top-0 left-0 w-px h-20 bg-sinai-glow-orange/30" />
-          <div className="absolute bottom-0 right-0 w-20 h-px bg-sinai-glow-orange/30" />
-          <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
-        </div>
-
         <div className="apex-container relative z-10">
           <SectionReveal delay={0}>
             <div className="mx-auto max-w-5xl space-y-10 text-center lg:space-y-12">
-              {/* Top Branding Tag */}
-              <div className="flex justify-center">
-                <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
-                  <span className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                  <span className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.4em] font-black uppercase">Engagement_Initialization // APEX_NODE_V24.1</span>
-                </div>
-              </div>
-
               <div className="space-y-8">
                 <h2 className="text-5xl font-black leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
-                  Ready to <br />
-                  <span className="apex-gradient-text">Scale Your Vision?</span>
+                  Ready to assess your <br />
+                  <span className="apex-gradient-text">system architecture?</span>
                 </h2>
                 <p className="mx-auto max-w-3xl text-lg font-light leading-relaxed text-zinc-500 md:text-2xl">
-                  Join forces with <span className="text-white font-bold">APEX Experts</span> to engineer the next generation of enterprise excellence.
+                  Start with a 30-minute technical call. We will review your environment, identify constraints, and define whether and how we can help.
                 </p>
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-4">
                 <Link href="/contact" className="group relative overflow-hidden rounded-full bg-sinai-glow-orange px-10 py-5 text-sm font-black uppercase tracking-[0.28em] text-white transition-all duration-300 hover:bg-sinai-glow-soft hover:text-black hover:shadow-[0_0_48px_rgba(217,130,47,0.22)] active:scale-95 sm:px-14 sm:py-6">
-                  <span className="relative z-10">Initialize Project</span>
+                  <span className="relative z-10">Schedule Technical Call</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
-                  
-                  {/* Internal Shimmer */}
-                  <motion.div 
-                    animate={effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
-                  />
                 </Link>
 
-                <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
-                  <span className="flex items-center gap-2">
-                    <div className={`w-1 h-1 rounded-full bg-green-500/50 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                    Secure_Node: Active
-                  </span>
-                  <span className="w-px h-4 bg-white/10" />
-                  <span>Available for Q3-Q4 2026</span>
+                <div className="flex flex-col items-center gap-2 text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
+                  <span>Operating from Alexandria and Dubai.</span>
+                  <span>Serving enterprise clients across Egypt, UAE, and the GCC.</span>
                 </div>
               </div>
             </div>
           </SectionReveal>
-        </div>
-
-        {/* Floating Data Decor */}
-        <div className="absolute bottom-12 right-12 text-[8px] font-mono text-zinc-800 tracking-widest hidden lg:block uppercase">
-          Apex_Experts_Oracle_Studio<br />
-          System_Build_Hash: 0xAPEX_5A11
         </div>
       </section>
     </div>
