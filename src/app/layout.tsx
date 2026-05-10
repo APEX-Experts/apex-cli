@@ -150,15 +150,20 @@ export default async function RootLayout({
           strategy="afterInteractive"
           nonce={nonce}
         />
-        <Script id="google-analytics" strategy="afterInteractive" nonce={nonce}>
-          {\`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          nonce={nonce}
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
 
-            gtag('config', 'G-W8EQJ9KESW');
-          \`}
-        </Script>
+              gtag('config', 'G-W8EQJ9KESW');
+            `,
+          }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-md focus:bg-sinai-glow-soft focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-black"
