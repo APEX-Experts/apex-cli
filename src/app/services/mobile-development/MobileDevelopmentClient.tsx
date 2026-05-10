@@ -107,7 +107,7 @@ const TechSingularityNode = ({ item, index, total, active }: { item: MobileTechI
           className={`absolute left-1/2 top-1/2 h-px transition-all duration-1000 ${active ? 'bg-gradient-to-r from-sinai-glow-orange to-transparent opacity-80' : 'bg-white/5 opacity-10'} pointer-events-none`}
         />
 
-        <div className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? 'bg-sinai-glow-orange/10 border-sinai-glow-orange/50 shadow-[0_0_60px_rgba(242,162,75,0.3)] rotate-[10deg]' : 'bg-white/[0.02] border-white/5 group-hover:border-white/20'}`}>
+        <div className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? 'bg-sinai-glow-orange/[0.08] border-sinai-glow-orange/35 shadow-[0_0_44px_rgba(217,130,47,0.09)] rotate-[10deg]' : 'bg-white/[0.02] border-white/5 group-hover:border-white/20'}`}>
           <div className={`relative w-12 h-12 transition-all duration-500 ${active ? 'scale-125' : 'opacity-40 group-hover:opacity-100 group-hover:scale-110'}`}>
             <Image 
               src={`https://cdn.simpleicons.org/${item.slug}/white`} 
@@ -119,7 +119,7 @@ const TechSingularityNode = ({ item, index, total, active }: { item: MobileTechI
           </div>
 
           <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center transition-all duration-500 ${active ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'}`}>
-            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_100px_rgba(255,255,255,0.2)]">{item.name}</div>
+            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_36px_rgba(244,239,231,0.08)]">{item.name}</div>
             <div className="text-[7px] font-mono text-sinai-glow-orange/60 tracking-widest uppercase">{item.desc}</div>
           </div>
         </div>
@@ -141,14 +141,14 @@ const TechSingularity = () => {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <div className="relative w-full min-h-[1000px] flex items-center justify-center py-20 overflow-visible bg-black">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
+    <div className="relative w-full min-h-[680px] lg:min-h-[760px] flex items-center justify-center py-14 overflow-visible bg-sinai-bg-base">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
       
       <div className="relative z-20 flex items-center justify-center scale-125 lg:scale-150">
         <motion.div animate={effectiveReduceMotion ? {} : { rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute w-64 h-64 border border-sinai-glow-orange/20 rounded-full border-dashed" />
         
-        <div className="relative w-48 h-48 rounded-full bg-black/40 backdrop-blur-3xl border border-white/10 flex items-center justify-center overflow-hidden group shadow-[0_0_80px_rgba(242,162,75,0.2)]">
-          <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 4, repeat: Infinity }} className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.3)_0%,transparent_70%)]" />
+        <div className="relative w-48 h-48 rounded-full bg-sinai-bg-base/40 backdrop-blur-3xl border border-white/10 flex items-center justify-center overflow-hidden group shadow-[0_0_56px_rgba(217,130,47,0.075)]">
+          <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 4, repeat: Infinity }} className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.105)_0%,transparent_70%)]" />
           <div className="relative z-10 flex flex-col items-center">
             <Smartphone className={`w-12 h-12 text-sinai-glow-orange mb-3 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
             <div className="text-[10px] font-mono text-white tracking-[0.5em] font-black uppercase">Mobile</div>
@@ -209,11 +209,11 @@ const NeuralCore = () => {
     <div className="relative w-[500px] h-[500px] flex items-center justify-center">
       <motion.div animate={effectiveReduceMotion ? {} : { rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border border-sinai-glow-orange/10 rounded-full border-dashed" />
       <motion.div animate={effectiveReduceMotion ? {} : { rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute inset-16 border border-white/5 rounded-full border-dashed" />
-      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
-        <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/20 blur-[60px]" />
+        <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/[0.08] blur-[60px]" />
         <div className="relative z-10 flex flex-col items-center">
-          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/40 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
+          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/25 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
             <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black flex items-center gap-2">
               <span className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
               MOBILE_ENGINE_V3.0
@@ -221,14 +221,14 @@ const NeuralCore = () => {
             <motion.div animate={effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="absolute top-0 bottom-0 w-8 bg-white/20 skew-x-12 -translate-x-full" />
           </div>
           <div className="relative">
-            <h3 className="text-6xl font-black tracking-[-0.05em] text-white flex flex-col items-center leading-none">
+            <h3 className="text-6xl font-black tracking-normal text-white flex flex-col items-center leading-none">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
               <span className="text-[10px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
             </h3>
           </div>
         </div>
       </div>
-      <motion.div animate={effectiveReduceMotion ? { opacity: 0.1, scale: 1 } : { scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/30 rounded-full" />
+      <motion.div animate={effectiveReduceMotion ? { opacity: 0.1, scale: 1 } : { scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/25 rounded-full" />
     </div>
   );
 };
@@ -241,7 +241,7 @@ const OrbitalNode = ({ cap, index, total, active, onEnter, onLeave }: { cap: Mob
   return (
     <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: active ? 1.2 : 1, left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }} transition={{ delay: index * 0.1, duration: 0.4 }} className="absolute -translate-x-1/2 -translate-y-1/2 group pointer-events-auto" onMouseEnter={onEnter} onMouseLeave={onLeave}>
       <div className="relative w-28 h-28 flex items-center justify-center cursor-pointer">
-        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(242,162,75,0.3)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
+        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(217,130,47,0.09)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
         <div className={`relative z-10 transition-colors duration-500 ${active ? 'text-sinai-glow-orange scale-110' : 'text-zinc-500 group-hover:text-white'}`}>{cap.icon}</div>
       </div>
       <div className={`absolute top-full mt-6 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ${active ? 'opacity-100 translate-y-2' : 'opacity-20 group-hover:opacity-60'}`}>
@@ -263,9 +263,9 @@ const CapabilityDetailView = ({ cap }: { cap: MobileCapability }) => {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-12 rounded-[4rem] relative overflow-hidden group">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-6 lg:p-8 rounded-[2rem] relative overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-50" />
-      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl z-10">
+      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.28)] z-10">
         <Image 
           src={cap.image} 
           alt={cap.title} 
@@ -276,9 +276,9 @@ const CapabilityDetailView = ({ cap }: { cap: MobileCapability }) => {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
       <div className="space-y-8 relative z-10 text-left">
-        <div className="flex items-center gap-4"><div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">Mobile_Capability // {cap.id}</div><div className="h-px flex-1 bg-white/5" /></div>
-        <div className="space-y-6"><h3 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">{cap.title}</h3><p className="text-xl text-zinc-400 font-light leading-relaxed"><StreamingText text={cap.desc} delay={100} /></p></div>
-        <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600"><span className="flex items-center gap-2"><div className={`w-1.5 h-1.5 rounded-full bg-green-500/50 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />ENGINE_SYNC: ACTIVE</span><span className="w-px h-4 bg-white/10" /><span>ARM_V9: COMPATIBLE</span></div>
+        <div className="flex items-center gap-4"><div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">Mobile_Capability // {cap.id}</div><div className="h-px flex-1 bg-white/5" /></div>
+        <div className="space-y-6"><h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight">{cap.title}</h3><p className="text-xl text-zinc-400 font-light leading-relaxed"><StreamingText text={cap.desc} delay={100} /></p></div>
+        <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600"><span className="flex items-center gap-2"><div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/55 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />ENGINE_SYNC: ACTIVE</span><span className="w-px h-4 bg-white/10" /><span>ARM_V9: COMPATIBLE</span></div>
       </div>
     </div>
   );
@@ -344,23 +344,26 @@ const MobileHero = () => {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-black">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(242,162,75,0.08)_0%,transparent_50%)]" />
-    <div className="container mx-auto px-6 relative z-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="space-y-12 text-left">
+    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
+    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
+    <div className="apex-ambient-grid" />
+    <div className="apex-container-wide relative z-10">
+      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
+        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left">
           <div className="space-y-6">
-            <div className="flex items-center gap-4 mb-4"><div className="h-px w-12 bg-sinai-glow-orange/30" /><span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">MOBILE_ENGINEERING // SOL_04</span></div>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white">Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">Mobile App Development.</span></h1>
-            <p className="text-xl md:text-2xl text-zinc-400 max-w-xl font-light leading-relaxed">We engineer high-performance native and cross-platform mobile experiences that prioritize fluid motion, advanced security, and clear UX and reliable performance.</p>
+            <div className="flex flex-wrap items-center gap-3 mb-4 sm:gap-4"><div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" /><span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">MOBILE_ENGINEERING // SOL_04</span></div>
+            <h1 className="max-w-full text-balance text-4xl font-black tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">Mobile App <br className="sm:hidden" />Development.</span></h1>
+            <p className="text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl max-w-full font-light">We engineer high-performance native and cross-platform mobile experiences that prioritize fluid motion, advanced security, and clear UX and reliable performance.</p>
           </div>
           <div className="flex flex-wrap gap-6 pt-4">
-            <Link href="/#contact" className="group relative px-12 py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_50px_rgba(242,162,75,0.4)]"><span className="relative z-10">Initialize Project</span><div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" /></Link>
-            <Link href="#capabilities" className="px-12 py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.3em] uppercase hover:bg-white/[0.08] hover:border-white/20 transition-all">Capability Registry</Link>
+            <Link href="/#contact" className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)]"><span className="relative z-10">Initialize Project</span><div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" /></Link>
+            <Link href="#capabilities" className="inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] hover:bg-white/[0.08] hover:border-white/20 transition-all">Capability Registry</Link>
           </div>
         </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2 }} className="relative">
-          <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.15)] group">
+        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2 }} className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl">
+          <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group">
             <Image 
               src="/images/mobile-dev-hero.png" 
               alt="Mobile Excellence" 
@@ -375,6 +378,7 @@ const MobileHero = () => {
       </div>
     </div>
     <div className="absolute inset-0 pointer-events-none"><Particles count={8} /></div>
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
   </section>
   );
 };
@@ -393,16 +397,16 @@ export default function MobileDevelopmentClient() {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <div className="relative bg-[#050505] text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans">
+    <div className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans">
       <MobileHero />
       
       {/* Capability Hub */}
-      <section id="capabilities" className="py-48 relative overflow-hidden bg-[#030303] min-h-[1000px]">
-        <div className="container mx-auto px-6">
+      <section id="capabilities" className="py-16 lg:py-24 relative overflow-hidden bg-[#080a0d] min-h-[760px] lg:min-h-[860px]">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="text-center mb-32">
+            <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8"><div className="w-8 h-px bg-sinai-glow-orange/50" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Mobile_Orchestrator // V3.0</span><div className="w-8 h-px bg-sinai-glow-orange/50" /></div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tight leading-none text-white">The Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Capability Hub</span></h2>
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none text-white">The Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Capability Hub</span></h2>
             </div>
           </SectionReveal>
           <div className="relative max-w-7xl mx-auto h-[700px] flex items-center justify-center">
@@ -424,19 +428,19 @@ export default function MobileDevelopmentClient() {
       {/* --- Deep Dive Sections (Mirroring Web Page Style) --- */}
 
       {/* 01: Custom Mobile App Development */}
-      <section className="pt-64 pb-32 relative bg-[#050505] overflow-hidden border-t border-white/5">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+      <section className="pt-20 lg:pt-28 pb-16 lg:pb-20 relative bg-sinai-bg-base overflow-hidden border-t border-white/5">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <SectionReveal>
-              <div className="space-y-16 text-left">
+              <div className="space-y-8 text-left">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 01</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-white">Custom Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">App Development</span></h2>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">Custom Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">App Development</span></h2>
                 </div>
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Custom Mobile Apps</h3>
                     <p className="text-zinc-400 leading-relaxed font-light text-lg">We engineer bespoke mobile applications that combine native performance with cinematic design. From enterprise solutions to customer-facing apps, we build for impact.</p>
                   </div>
@@ -450,35 +454,35 @@ export default function MobileDevelopmentClient() {
                       { title: "Support", desc: "support, monitoring, and improvements", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-tighter">{service.desc}</p></div></Link>
+                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">{service.desc}</p></div>
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
                       )
                     ))}
                   </div>
                 </div>
               </div>
             </SectionReveal>
-            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group"><Image src="/images/mobile-dev-hero.png" alt="Custom Mobile App Development" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-dev-hero.png" alt="Custom Mobile App Development" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
           </div>
         </div>
       </section>
 
       {/* 02: UI/UX for Mobile Apps */}
-      <section className="py-32 relative bg-[#030303] overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group"><Image src="/images/mobile-uiux.png" alt="UI/UX Mastery" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+      <section className="py-16 lg:py-20 relative bg-[#080a0d] overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-uiux.png" alt="UI/UX Mastery" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
             <SectionReveal>
-              <div className="space-y-16 text-left order-1 lg:order-2">
+              <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 02</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-white">UI/UX for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">Mobile Apps</span></h2>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">UI/UX for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">Mobile Apps</span></h2>
                 </div>
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/30 rounded-tr-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Immersive Experiences</h3>
                     <p className="text-zinc-400 leading-relaxed font-light text-lg">We design interfaces that feel alive. Our focus on fluid motion, intuitive patterns, and haptic feedback ensures your app is not just used, but enjoyed.</p>
                   </div>
@@ -492,9 +496,9 @@ export default function MobileDevelopmentClient() {
                       { title: "Support", desc: "Continuous design evolution.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-tighter">{service.desc}</p></div></Link>
+                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">{service.desc}</p></div>
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
                       )
                     ))}
                   </div>
@@ -506,19 +510,19 @@ export default function MobileDevelopmentClient() {
       </section>
 
       {/* 03: Backend & API Integration */}
-      <section className="py-32 relative bg-[#050505] overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+      <section className="py-16 lg:py-20 relative bg-sinai-bg-base overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <SectionReveal>
-              <div className="space-y-16 text-left">
+              <div className="space-y-8 text-left">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 03</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-white text-balance">Backend & <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">API Integration</span></h2>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">Backend & <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">API Integration</span></h2>
                 </div>
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Backend & API Integration</h3>
                     <p className="text-zinc-400 leading-relaxed font-light text-lg">We build the infrastructure that powers your app. From complex API orchestrations to secure user authentication, our backends are engineered for scale and speed.</p>
                   </div>
@@ -532,35 +536,35 @@ export default function MobileDevelopmentClient() {
                       { title: "Support", desc: "support, monitoring, and improvements", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-tighter">{service.desc}</p></div></Link>
+                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">{service.desc}</p></div>
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
                       )
                     ))}
                   </div>
                 </div>
               </div>
             </SectionReveal>
-            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group"><Image src="/images/mobile-backend.png" alt="Backend Core" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-backend.png" alt="Backend Core" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
           </div>
         </div>
       </section>
 
       {/* 04: Mobile App Maintenance & Enhancement */}
-      <section className="py-32 relative bg-[#030303] overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_70%)] pointer-events-none" />
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group"><Image src="/images/mobile-dev-hero.png" alt="Maintenance Hub" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+      <section className="py-16 lg:py-20 relative bg-[#080a0d] overflow-hidden">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-dev-hero.png" alt="Maintenance Hub" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
             <SectionReveal>
-              <div className="space-y-16 text-left order-1 lg:order-2">
+              <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 04</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-white text-balance">Maintenance <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">& Enhancement</span></h2>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">Maintenance <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">& Enhancement</span></h2>
                 </div>
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/30 rounded-tr-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Life Cycle Excellence</h3>
                     <p className="text-zinc-400 leading-relaxed font-light text-lg">Apps require constant care. We provide continuous monitoring, performance tuning, and feature updates to ensure your product remains at the cutting edge of the market.</p>
                   </div>
@@ -574,9 +578,9 @@ export default function MobileDevelopmentClient() {
                       { title: "Support", desc: "Engagement initialization.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-tighter">{service.desc}</p></div></Link>
+                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">{service.desc}</p></div>
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
                       )
                     ))}
                   </div>
@@ -588,16 +592,16 @@ export default function MobileDevelopmentClient() {
       </section>
 
       {/* Tech Stack Section */}
-      <section className="py-48 relative overflow-hidden bg-black border-t border-white/5">
-        <div className="container mx-auto px-6">
+      <section className="py-16 lg:py-24 relative overflow-hidden bg-sinai-bg-base border-t border-white/5">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="text-center mb-32">
+            <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
                 <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Singularity // STACK</span>
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
               </div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tight leading-none text-white">
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none text-white">
                 The Mobile <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Tech Stack</span>
               </h2>
@@ -609,9 +613,9 @@ export default function MobileDevelopmentClient() {
       </section>
 
       {/* Final CTA Section - Cinematic Masterpiece */}
-      <section className="py-64 relative overflow-hidden bg-black">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-sinai-bg-base">
         {/* Background Ambient Layers */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.055)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
         
         {/* Technical HUD Frame */}
@@ -622,9 +626,9 @@ export default function MobileDevelopmentClient() {
           <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container-wide relative z-10">
           <SectionReveal>
-            <div className="max-w-5xl mx-auto text-center space-y-16">
+            <div className="max-w-5xl mx-auto text-center space-y-8">
               {/* Top Branding Tag */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
@@ -634,7 +638,7 @@ export default function MobileDevelopmentClient() {
               </div>
 
               <div className="space-y-8">
-                <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white">
+                <h2 className="text-7xl md:text-[10rem] font-black tracking-normal leading-[0.8] text-white">
                   Ready to <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
                 </h2>
@@ -644,7 +648,7 @@ export default function MobileDevelopmentClient() {
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/#contact" className="group relative px-24 py-10 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
+                <Link href="/#contact" className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_54px_rgba(217,130,47,0.16)] hover:scale-105 active:scale-95 duration-500">
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   
@@ -658,7 +662,7 @@ export default function MobileDevelopmentClient() {
 
                 <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
                   <span className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-green-500/50" />
+                    <div className="w-1 h-1 rounded-full bg-sinai-glow-orange/55" />
                     Secure_Node: Active
                   </span>
                   <span className="w-px h-4 bg-white/10" />

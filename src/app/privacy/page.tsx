@@ -874,7 +874,7 @@ import OfficialStamp from "@/components/OfficialStamp";
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#06080a] text-zinc-400 font-mono text-[10px] pt-48 pb-32 px-6">
+    <div className="min-h-screen bg-[#06080a] text-zinc-400 font-mono text-[10px] pt-28 pb-20 px-6 lg:pt-32 lg:pb-24">
       {/* Background Subtle Elements */}
       <div className="fixed inset-0 pointer-events-none opacity-[0.03] overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
@@ -894,7 +894,7 @@ export default function PrivacyPage() {
         </div>
 
         {/* The Main Document Container */}
-        <div className="bg-white/[0.01] border border-white/10 rounded-sm p-12 backdrop-blur-sm shadow-2xl relative overflow-hidden">
+        <div className="bg-white/[0.01] border border-white/10 rounded-sm p-6 lg:p-8 backdrop-blur-sm shadow-2xl relative overflow-hidden">
           {/* Decorative Corner Accents */}
           <div className="absolute top-0 left-0 w-8 h-8 border-t border-l border-sinai-glow-orange/30" />
           <div className="absolute top-0 right-0 w-8 h-8 border-t border-r border-sinai-glow-orange/30" />
@@ -905,7 +905,7 @@ export default function PrivacyPage() {
           <div className="prose prose-invert max-w-none prose-p:text-[10px] prose-headings:text-white prose-strong:text-sinai-glow-orange prose-a:text-sinai-glow-orange prose-a:no-underline hover:prose-a:underline prose-li:text-[10px]">
             <ReactMarkdown
               components={{
-                h1: ({ ...props }) => <h1 className="text-xl font-bold mb-8 uppercase tracking-tighter border-b border-white/10 pb-4" {...props} />,
+                h1: ({ ...props }) => <h1 className="text-xl font-bold mb-8 uppercase tracking-normal border-b border-white/10 pb-4" {...props} />,
                 h2: ({ ...props }) => <h2 className="text-sm font-bold mt-12 mb-4 uppercase tracking-widest text-white/90" {...props} />,
                 h3: ({ ...props }) => <h3 className="text-[10px] font-bold mt-8 mb-3 uppercase tracking-wider text-white/80 border-l-2 border-sinai-glow-orange pl-3" {...props} />,
                 p: ({ ...props }) => <p className="mb-4 leading-relaxed text-zinc-400" {...props} />,

@@ -44,18 +44,15 @@ export function AboutSection() {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <section id="about" className="scroll-mt-28 py-32 border-t border-white/5">
+    <section id="about" className="section-shell scroll-mt-28">
       {/* Section label */}
-      <div className="flex items-center gap-4 mb-20">
-        <div className="h-px w-12 bg-gradient-to-r from-sinai-glow-orange to-transparent" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-          01 // About
-        </span>
+      <div className="section-label">
+        01 // About
       </div>
 
-      <div className="grid lg:grid-cols-5 gap-20 items-start">
+      <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-10">
         {/* Main copy (Left side) — changes based on hover */}
-        <div className="lg:col-span-3 min-h-[400px] flex flex-col justify-center">
+        <div className="flex min-h-[260px] flex-col justify-center lg:col-span-3">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIdx}
@@ -63,17 +60,17 @@ export function AboutSection() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: effectiveReduceMotion ? 0 : -20 }}
               transition={{ duration: 0.5, ease: "circOut" }}
-              className="space-y-10"
+              className="space-y-7"
             >
-              <h1 className="text-5xl sm:text-7xl font-bold leading-[0.9] tracking-tight text-balance">
+              <h2 className="text-balance text-4xl font-bold leading-[0.94] tracking-normal sm:text-6xl">
                 {POSITIONS[activeIdx].header}
                 <br />
-                <span className="opacity-40 text-4xl sm:text-6xl font-medium">
+                <span className="text-3xl font-medium text-white/42 sm:text-5xl">
                   {POSITIONS[activeIdx].subHeader}
                 </span>
-              </h1>
+              </h2>
 
-              <div className="space-y-6 text-xl leading-relaxed max-w-2xl opacity-70">
+              <div className="max-w-2xl space-y-5 text-lg leading-relaxed sm:text-xl">
                 <p>{POSITIONS[activeIdx].description}</p>
               </div>
             </motion.div>
@@ -82,11 +79,11 @@ export function AboutSection() {
 
         {/* Side panel — The Hover Controls (Right side) */}
         <div className="lg:col-span-2">
-          <div className="bg-white/[0.02] border border-white/10 rounded-[2rem] p-10 backdrop-blur-3xl relative overflow-hidden group">
+          <div className="apex-panel relative overflow-hidden rounded-[1.5rem] p-5 sm:p-6 lg:p-8 group">
             {/* Ambient Background Glow */}
-            <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/[0.03] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-            
-            <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-sinai-glow-orange font-bold mb-10 relative">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_0%,rgba(217,130,47,0.06),transparent_44%)] opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+
+            <h3 className="font-mono text-[10px] uppercase tracking-[0.3em] text-sinai-glow-orange font-bold mb-7 relative">
               Our Core Positions
             </h3>
 
@@ -95,28 +92,26 @@ export function AboutSection() {
                 <div
                   key={pos.id}
                   onMouseEnter={() => setActiveIdx(i)}
-                  className={`relative p-6 rounded-2xl transition-all duration-500 cursor-pointer group/item ${
-                    activeIdx === i 
-                      ? "bg-white/[0.04] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)]" 
+                  className={`relative cursor-pointer rounded-xl p-4 transition-all duration-300 group/item ${activeIdx === i
+                      ? "bg-white/[0.04] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                       : "opacity-40 hover:opacity-100 border border-transparent"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-4 mb-3">
-                    <span className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
-                      activeIdx === i ? "bg-sinai-glow-orange scale-150" : "bg-white/20"
-                    }`} />
-                    <h4 className="text-base font-bold text-white tracking-tight">
+                    <span className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${activeIdx === i ? "bg-sinai-glow-orange scale-150" : "bg-white/20"
+                      }`} />
+                    <h4 className="text-base font-bold tracking-normal text-white">
                       {pos.title}
                     </h4>
                   </div>
                   <p className="text-sm leading-relaxed opacity-70">
                     {pos.short}
                   </p>
-                  
+
                   {/* Progress Indicator line for active item */}
                   {activeIdx === i && (
                     <>
-                      <motion.div 
+                      <motion.div
                         layoutId={effectiveReduceMotion ? undefined : "activePosition"}
                         className="absolute left-0 top-0 bottom-0 w-1 bg-sinai-glow-orange rounded-full"
                       />
@@ -128,7 +123,7 @@ export function AboutSection() {
                         <Link href="/about" className="inline-flex items-center gap-3 text-[10px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase hover:text-white transition-all group/btn">
                           Explore_Full_Record
                           <div className={`h-px bg-sinai-glow-orange transition-all duration-500 ${effectiveReduceMotion ? 'w-6' : 'w-6 group-hover/btn:w-10'}`} />
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`transform transition-transform ${effectiveReduceMotion ? '' : 'group-hover/btn:translate-x-1'}`}><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`transform transition-transform ${effectiveReduceMotion ? '' : 'group-hover/btn:translate-x-1'}`}><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                         </Link>
                       </motion.div>
                     </>

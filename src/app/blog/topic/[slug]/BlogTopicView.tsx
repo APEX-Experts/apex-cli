@@ -27,16 +27,16 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
   }
 
   return (
-    <div className="min-h-screen bg-[#06080a] text-white pt-40 pb-20 overflow-hidden relative selection:bg-sinai-glow-orange selection:text-black">
+    <div className="min-h-screen bg-[#06080a] text-white pt-28 pb-20 overflow-hidden relative selection:bg-sinai-glow-orange selection:text-black lg:pt-32">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-[600px] pointer-events-none overflow-hidden opacity-30">
         <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-sinai-glow-orange/10 blur-[150px] rounded-full" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="apex-container-wide relative z-10">
         {/* Breadcrumb / Back */}
         <SectionReveal>
-          <div className="mb-12">
+          <div className="mb-8">
             <Link href="/blog" className="group flex items-center gap-4 text-[10px] font-mono tracking-[0.5em] text-zinc-500 hover:text-white transition-colors uppercase">
               <div className="w-8 h-8 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:bg-sinai-glow-orange group-hover:border-sinai-glow-orange transition-all">
                 <ArrowLeft className="w-4 h-4 text-white" />
@@ -48,12 +48,12 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
 
         {/* Topic Header */}
         <SectionReveal>
-          <div className="max-w-5xl mb-32 space-y-8">
+          <div className="max-w-5xl mb-16 space-y-6 lg:mb-20">
             <div className="flex items-center gap-4">
               <Hash className="w-10 h-10 text-sinai-glow-orange opacity-50" />
               <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] font-black uppercase">Taxonomy_Node // Topics</span>
             </div>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.8] uppercase">
+            <h1 className="text-7xl md:text-9xl font-black tracking-normal leading-[0.8] uppercase">
               {topicName}<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40 italic">Registry.</span>
             </h1>
@@ -64,11 +64,11 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
         </SectionReveal>
 
         {/* Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {filteredPosts.map((post) => (
             <SectionReveal key={post.id}>
-              <Link href={`/blog/${post.slug}`} className="group block space-y-8 relative">
-                <div className="aspect-[4/3] relative rounded-[3rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl transition-all duration-700 group-hover:border-sinai-glow-orange/30">
+              <Link href={`/blog/${post.slug}`} className="group block space-y-6 relative">
+                <div className="aspect-[4/3] relative rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl transition-all duration-700 group-hover:border-sinai-glow-orange/30">
                   <Image
                     src={post.mainImage}
                     alt={post.title}
@@ -85,7 +85,7 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
                   </div>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-5">
                   <div className="flex items-center gap-4">
                     <div className="px-3 py-1 rounded-sm bg-white/[0.03] border border-white/10 text-[8px] font-mono text-zinc-600 uppercase tracking-widest">
                       ID: 0x{post.id.slice(-4)}
@@ -93,7 +93,7 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
                     <div className="h-px flex-1 bg-white/5" />
                   </div>
                   
-                  <h3 className="text-3xl font-black tracking-tighter uppercase leading-tight text-white group-hover:text-sinai-glow-orange transition-colors duration-500">
+                  <h3 className="text-3xl font-black tracking-normal uppercase leading-tight text-white group-hover:text-sinai-glow-orange transition-colors duration-500">
                     {post.title}
                   </h3>
                   
@@ -101,7 +101,7 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
                     {post.excerpt}
                   </p>
 
-                  <div className="flex items-center gap-8 pt-4 text-[9px] font-mono text-zinc-700 uppercase tracking-[0.2em] font-bold">
+                  <div className="flex items-center gap-6 pt-3 text-[9px] font-mono text-zinc-700 uppercase tracking-[0.2em] font-bold">
                     <span>{new Date(post.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
                     <span className="w-1.5 h-1.5 rounded-full bg-zinc-800" />
                     <span>{post.author.name}</span>
@@ -113,8 +113,8 @@ export default function BlogTopicPage({ params }: { params: Promise<{ slug: stri
         </div>
 
         {/* Global Footer System Status */}
-        <div className="mt-64 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="flex items-center gap-12">
+        <div className="mt-16 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 lg:mt-20">
+          <div className="flex items-center gap-8">
             <div className="flex flex-col">
               <span className="text-[8px] font-mono text-zinc-700 uppercase tracking-widest mb-1">Taxonomy</span>
               <div className="flex items-center gap-2">

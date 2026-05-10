@@ -125,42 +125,41 @@ export function ContactInterface() {
   }
 
   return (
-    <div className="relative min-h-screen pt-32 pb-20 px-6 md:px-12 overflow-hidden bg-[#050505] flex flex-col justify-center">
+    <div className="relative flex min-h-[calc(100svh-4rem)] flex-col justify-start overflow-hidden bg-sinai-bg-base px-4 pb-14 pt-24 sm:px-6 lg:pb-20 lg:pt-28">
       
       {/* ── Background Atmosphere (Matching About) ── */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className={`absolute top-0 left-1/4 w-[800px] h-[800px] bg-sinai-glow-orange/[0.05] blur-[150px] ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-        <div className="absolute bottom-0 right-1/4 w-[800px] h-[800px] bg-sinai-glow-orange/[0.03] blur-[150px]" />
-        <div className="absolute inset-0 opacity-[0.03]" 
-             style={{ backgroundImage: 'radial-gradient(circle, #f2a24b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
+        <div className={`apex-ambient-glow left-1/4 top-0 opacity-50 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+        <div className="apex-ambient-glow bottom-0 right-1/4 opacity-35" />
+        <div className="apex-ambient-grid" />
       </div>
 
       <motion.div 
         variants={containerVariants}
         initial="hidden"
         animate={mounted ? "visible" : "hidden"}
-        className="max-w-7xl mx-auto relative z-10 w-full"
+        className="apex-container-wide relative z-10"
       >
-        <div className="grid lg:grid-cols-12 gap-16 items-center">
+        <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
           
           {/* ── Left Side: Brand & Identity ── */}
-          <div className="lg:col-span-5 space-y-12">
-            <motion.div variants={itemVariants} className="space-y-8">
+          <div className="space-y-8 lg:col-span-5">
+            <motion.div variants={itemVariants} className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="h-px w-12 bg-sinai-glow-orange" />
-                <span className="text-[11px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase font-black">Link_Initialization_V4.0</span>
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.34em] text-sinai-glow-soft">Link_Initialization_V4.0</span>
               </div>
-              <h1 className="text-7xl md:text-9xl font-black text-white tracking-tighter leading-[0.85] uppercase">
+              <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
                 Start <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/20">a Project.</span>
+                <span className="apex-gradient-text">a Project.</span>
               </h1>
-              <p className="text-zinc-500 text-xl md:text-2xl font-light leading-relaxed max-w-md border-l-2 border-sinai-glow-orange/20 pl-8 italic">
+              <p className="max-w-md border-l-2 border-sinai-glow-orange/20 pl-6 text-lg font-light leading-relaxed text-zinc-500 sm:text-xl">
                 Tell us what you’re trying to build, what systems it needs to connect to, and where you need help.
               </p>
             </motion.div>
 
             {/* Real Contact Data HUD */}
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-x-12 gap-y-6 pt-4 opacity-70">
+            <motion.div variants={itemVariants} className="flex flex-wrap gap-x-10 gap-y-5 pt-2 opacity-75">
               <div className="space-y-1">
                 <div className="text-[8px] font-mono text-zinc-600 tracking-widest uppercase font-black">Digital_Mail</div>
                 <div className="text-[10px] font-mono text-white tracking-widest font-bold">info@apexexperts.net</div>
@@ -180,7 +179,7 @@ export function ContactInterface() {
           <div className="lg:col-span-7 relative">
             <motion.div 
               variants={itemVariants}
-              className="glass p-10 md:p-14 rounded-[3.5rem] border border-white/10 shadow-2xl relative overflow-hidden"
+              className="apex-panel relative overflow-hidden rounded-[1.5rem] p-5 sm:p-6 lg:p-8"
             >
               <AnimatePresence mode="wait">
                 {isSuccess ? (
@@ -188,13 +187,13 @@ export function ContactInterface() {
                     key="success"
                     initial={{ opacity: 0, scale: effectiveReduceMotion ? 1 : 0.9, filter: effectiveReduceMotion ? "none" : "blur(10px)" }}
                     animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    className="py-20 text-center space-y-8"
+                    className="space-y-6 py-12 text-center"
                   >
                     <div className="w-24 h-24 bg-sinai-glow-orange/20 rounded-full flex items-center justify-center mx-auto border border-sinai-glow-orange/30">
                       <Check className="w-12 h-12 text-sinai-glow-orange" strokeWidth={3} />
                     </div>
                     <div className="space-y-4">
-                      <h2 className="text-4xl font-black text-white uppercase tracking-tight">Message Sent</h2>
+                      <h2 className="text-4xl font-black uppercase tracking-normal text-white">Message Sent</h2>
                       <p className="text-zinc-500 text-lg max-w-sm mx-auto">
                         Thanks. We received your message and will get back to you soon.
                       </p>
@@ -211,10 +210,10 @@ export function ContactInterface() {
                     key="form"
                     exit={{ opacity: 0, scale: effectiveReduceMotion ? 1 : 0.95, filter: effectiveReduceMotion ? "none" : "blur(10px)" }}
                     onSubmit={handleSubmit}
-                    className="relative z-10 space-y-8"
+                    className="relative z-10 space-y-5"
                   >
                     {/* Identity Group */}
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid gap-5 md:grid-cols-2">
                       <PremiumField 
                         id="full_name"
                         name="name" 
@@ -235,7 +234,7 @@ export function ContactInterface() {
                     </div>
 
                     {/* Professional Context */}
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid gap-5 md:grid-cols-2">
                       <PremiumField 
                         id="job_title"
                         name="job_title" 
@@ -253,7 +252,7 @@ export function ContactInterface() {
                     </div>
 
                     {/* Geographic & Direct Link */}
-                    <div className="grid md:grid-cols-2 gap-8 relative">
+                    <div className="relative grid gap-5 md:grid-cols-2">
                       <div className={`space-y-3 relative transition-all ${isCountryOpen ? 'z-[110]' : 'z-10'}`} ref={countryRef}>
                         <label 
                           htmlFor="country-trigger" 
@@ -274,11 +273,11 @@ export function ContactInterface() {
                               if (!isSubmitting) setIsCountryOpen(!isCountryOpen);
                             }
                           }}
-                          className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-white/[0.06] transition-all relative z-10 focus:ring-2 focus:ring-sinai-glow-orange/30 outline-none"
+                          className="relative z-10 flex w-full cursor-pointer items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] px-5 py-4 transition-all hover:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-sinai-glow-orange/30"
                         >
                           <div className="flex items-center gap-3">
                             <span className="text-xl">{selectedCountry.flag}</span>
-                            <span className="text-white text-sm font-bold tracking-tight">{selectedCountry.name}</span>
+                            <span className="text-sm font-bold tracking-normal text-white">{selectedCountry.name}</span>
                           </div>
                           <ChevronDown className={`w-4 h-4 text-zinc-500 transition-transform ${isCountryOpen ? 'rotate-180' : ''}`} />
                         </div>
@@ -291,7 +290,7 @@ export function ContactInterface() {
                                 initial="hidden"
                                 animate="visible"
                                 exit="exit"
-                                className="mt-4 bg-[#0f0f0f] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+                                className="mt-3 overflow-hidden rounded-xl border border-white/10 bg-[#0b0d10] shadow-[0_20px_50px_rgba(0,0,0,0.42)]"
                               >
                                 <div className="p-4 border-b border-white/5 flex items-center gap-3 bg-white/[0.02]">
                                   <Search className="w-4 h-4 text-zinc-500" />
@@ -307,7 +306,7 @@ export function ContactInterface() {
                                     onChange={(e) => setCountrySearch(e.target.value)}
                                   />
                                 </div>
-                                <div className="max-h-56 overflow-y-auto custom-scrollbar bg-[#0f0f0f]" role="listbox">
+                                <div className="max-h-56 overflow-y-auto bg-[#0b0d10] custom-scrollbar" role="listbox">
                                   {filteredCountries.map((country) => (
                                     <div 
                                       key={country.name}
@@ -321,7 +320,7 @@ export function ContactInterface() {
                                           handleCountrySelect(country);
                                         }
                                       }}
-                                      className="px-8 py-4 flex items-center justify-between hover:bg-sinai-glow-orange/10 cursor-pointer transition-colors group outline-none focus:bg-sinai-glow-orange/20"
+                                      className="group flex cursor-pointer items-center justify-between px-5 py-3.5 outline-none transition-colors hover:bg-sinai-glow-orange/10 focus:bg-sinai-glow-orange/20"
                                     >
                                       <div className="flex items-center gap-4">
                                         <span className="text-xl">{country.flag}</span>
@@ -356,7 +355,7 @@ export function ContactInterface() {
                             autoComplete="tel"
                             disabled={isSubmitting}
                             placeholder="Mobile connection"
-                            className="w-full bg-white/[0.03] border border-white/5 rounded-2xl pl-16 pr-6 py-4 text-white text-base focus:outline-none focus:border-sinai-glow-orange/30 transition-all placeholder:text-white/20 disabled:opacity-50"
+                            className="w-full rounded-xl border border-white/5 bg-white/[0.03] py-4 pl-16 pr-5 text-base text-white transition-all placeholder:text-white/20 focus:border-sinai-glow-orange/30 focus:outline-none disabled:opacity-50"
                           />
                         </div>
                       </div>
@@ -383,7 +382,7 @@ export function ContactInterface() {
                             if (!isSubmitting) setIsServiceOpen(!isServiceOpen);
                           }
                         }}
-                        className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 flex items-center justify-between cursor-pointer hover:bg-white/[0.06] transition-all focus:ring-2 focus:ring-sinai-glow-orange/30 outline-none"
+                        className="flex w-full cursor-pointer items-center justify-between rounded-xl border border-white/5 bg-white/[0.03] px-5 py-4 transition-all hover:bg-white/[0.06] focus:outline-none focus:ring-2 focus:ring-sinai-glow-orange/30"
                       >
                         <div className="flex items-center gap-3">
                           {selectedService ? (
@@ -391,12 +390,12 @@ export function ContactInterface() {
                               <span className="text-sinai-glow-orange/60">
                                 {SERVICES.find(s => s.name === selectedService)?.icon}
                               </span>
-                              <span className="text-sm font-bold tracking-tight text-white">
+                              <span className="text-sm font-bold tracking-normal text-white">
                                 {selectedService}
                               </span>
                             </>
                           ) : (
-                            <span className="text-sm font-bold tracking-tight text-white/20">
+                            <span className="text-sm font-bold tracking-normal text-white/20">
                               Select relevant service...
                             </span>
                           )}
@@ -412,7 +411,7 @@ export function ContactInterface() {
                               initial="hidden"
                               animate="visible"
                               exit="exit"
-                              className="mt-4 bg-[#0f0f0f] border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
+                              className="mt-3 overflow-hidden rounded-xl border border-white/10 bg-[#0b0d10] shadow-[0_20px_50px_rgba(0,0,0,0.42)]"
                               role="listbox"
                             >
                               {SERVICES.map((service) => (
@@ -429,7 +428,7 @@ export function ContactInterface() {
                                       setIsServiceOpen(false);
                                     }
                                   }}
-                                  className="px-8 py-4 flex items-center justify-between hover:bg-sinai-glow-orange/10 cursor-pointer transition-colors group outline-none focus:bg-sinai-glow-orange/20"
+                                  className="group flex cursor-pointer items-center justify-between px-5 py-3.5 outline-none transition-colors hover:bg-sinai-glow-orange/10 focus:bg-sinai-glow-orange/20"
                                 >
                                   <div className="flex items-center gap-4">
                                     <span className="text-zinc-500 group-hover:text-sinai-glow-orange transition-colors">
@@ -461,7 +460,7 @@ export function ContactInterface() {
                         required
                         disabled={isSubmitting}
                         placeholder="Briefly describe your requirements or vision..."
-                        className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-base focus:outline-none focus:border-sinai-glow-orange/30 transition-all placeholder:text-white/20 resize-none font-bold tracking-tight disabled:opacity-50"
+                        className="w-full resize-none rounded-xl border border-white/5 bg-white/[0.03] px-5 py-4 text-base font-bold tracking-normal text-white transition-all placeholder:text-white/20 focus:border-sinai-glow-orange/30 focus:outline-none disabled:opacity-50"
                       />
                     </div>
 
@@ -487,7 +486,7 @@ export function ContactInterface() {
                     </div>
 
                     {/* Submission Block */}
-                    <div className="pt-6 space-y-4">
+                    <div className="space-y-4 pt-3">
                       {formError && (
                         <div className="bg-red-500/10 border border-red-500/20 rounded-xl p-4 text-red-400 text-xs font-mono tracking-widest text-center uppercase">
                           [ Error: {formError} ]
@@ -495,7 +494,7 @@ export function ContactInterface() {
                       )}
                       <button 
                         disabled={isSubmitting}
-                        className="btn-premium w-full py-8 text-lg font-black uppercase tracking-[0.5em] hover:scale-[1.01] active:scale-[0.99] transition-all relative overflow-hidden group disabled:opacity-50 disabled:hover:scale-100"
+                        className="btn-premium group relative w-full overflow-hidden py-5 text-sm font-black uppercase tracking-[0.34em] transition-all active:scale-[0.99] disabled:opacity-50 disabled:hover:scale-100 sm:text-base"
                       >
                         <div className="relative z-10 flex items-center justify-center gap-4">
                           {isSubmitting ? (
@@ -508,7 +507,7 @@ export function ContactInterface() {
                           )}
                         </div>
                       </button>
-                      <div className="mt-8 flex justify-center items-center gap-6 text-[8px] font-mono text-zinc-700 tracking-[0.3em] uppercase">
+                      <div className="mt-6 flex items-center justify-center gap-4 text-center text-[8px] font-mono uppercase tracking-[0.24em] text-zinc-700 sm:gap-6">
                         <span>Protocol: Stable</span>
                         <span className="w-px h-3 bg-white/5" />
                         <span className={(isSubmitting && !effectiveReduceMotion) ? "animate-pulse text-sinai-glow-orange" : "text-sinai-glow-orange/60"}>
@@ -555,7 +554,7 @@ const PremiumField = ({ label, placeholder, name, id, type = "text", required = 
       required={required}
       autoComplete={autoComplete}
       placeholder={placeholder}
-      className="w-full bg-white/[0.03] border border-white/5 rounded-2xl px-6 py-4 text-white text-base focus:outline-none focus:border-sinai-glow-orange/30 transition-all placeholder:text-white/20 font-bold tracking-tight disabled:opacity-50"
+      className="w-full rounded-xl border border-white/5 bg-white/[0.03] px-5 py-4 text-base font-bold tracking-normal text-white transition-all placeholder:text-white/20 focus:border-sinai-glow-orange/30 focus:outline-none disabled:opacity-50"
     />
   </div>
 );
@@ -564,10 +563,10 @@ const PremiumField = ({ label, placeholder, name, id, type = "text", required = 
 const HUDDecor = () => (
   <>
     <div className="absolute top-1/2 left-4 -translate-y-1/2 text-[18vh] font-black tracking-[0.8em] select-none vertical-text hidden lg:block pointer-events-none">
-      <span className="text-transparent bg-clip-text bg-gradient-to-b from-white/[0.08] via-white/[0.02] to-transparent">
+      <span className="bg-gradient-to-b from-white/[0.06] via-white/[0.018] to-transparent bg-clip-text text-transparent">
         APEX Experts
       </span>
-      <div className="absolute inset-0 blur-[40px] bg-sinai-glow-orange/[0.05] -z-10" />
+      <div className="absolute inset-0 -z-10 bg-sinai-glow-orange/[0.035] blur-[40px]" />
     </div>
   </>
 );

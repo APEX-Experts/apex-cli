@@ -11,21 +11,21 @@ export function BlogSection() {
   const others = BLOG_POSTS.slice(1, 3);
 
   return (
-    <section id="blog" className="py-40 relative">
+    <section id="blog" className="section-shell-lg relative overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="apex-ambient-glow left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 opacity-50" />
 
-      <div className="max-w-6xl mx-auto px-6 mb-24 relative z-10">
-        <div className="flex items-center gap-4 mb-8">
+      <div className="apex-container relative z-10 mb-10 lg:mb-14">
+        <div className="flex items-center gap-4 mb-6">
           <div className="h-px w-12 bg-sinai-glow-orange" />
           <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
             05 // Insights
           </span>
         </div>
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white uppercase leading-[0.85]">
+          <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-normal text-white md:text-7xl">
             Practical AI <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white opacity-90 italic">Notes.</span>
+            <span className="apex-gradient-text italic">Notes.</span>
           </h2>
           <p className="text-zinc-500 font-mono text-[9px] leading-relaxed tracking-widest uppercase max-w-xs lg:text-right">
             Short guides on AI, Oracle APEX, product delivery, and technical SEO.
@@ -33,12 +33,12 @@ export function BlogSection() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 relative z-10">
+      <div className="apex-container-wide relative z-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
         
         {/* Featured Post - Large Cinematic Card */}
         <div className="lg:col-span-7 group">
-          <Link href={`/blog/${featured.slug}`} className="block space-y-10">
-            <div className="relative aspect-[16/10] rounded-[3rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl group">
+          <Link href={`/blog/${featured.slug}`} className="block space-y-7">
+            <div className="group relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-950 shadow-2xl">
               <Image 
                 src={featured.mainImage} 
                 alt={featured.title} 
@@ -60,7 +60,7 @@ export function BlogSection() {
               <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-sinai-glow-orange/10 to-transparent pointer-events-none" />
             </div>
 
-            <div className="space-y-6 px-4 relative">
+            <div className="relative space-y-5 px-1 sm:px-3">
               <div className="flex items-center gap-6">
                 <div className="flex gap-3">
                   {featured.categories.map(cat => (
@@ -71,7 +71,7 @@ export function BlogSection() {
                 <span className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest">{new Date(featured.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
               </div>
               
-              <h3 className="text-4xl md:text-5xl font-black tracking-tighter text-white group-hover:text-sinai-glow-orange transition-colors duration-500 leading-tight uppercase">
+              <h3 className="text-3xl font-black uppercase leading-tight tracking-normal text-white transition-colors duration-500 group-hover:text-sinai-glow-soft md:text-4xl">
                 {featured.title}
               </h3>
               
@@ -90,10 +90,10 @@ export function BlogSection() {
         </div>
 
         {/* Other Posts - Refined Technical List */}
-        <div className="lg:col-span-5 flex flex-col gap-16 lg:pt-4">
+        <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-3">
           {others.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`} className="group block pb-12 border-b border-white/5 last:border-0 relative">
-              <div className="flex gap-8 items-start">
+            <Link key={post.id} href={`/blog/${post.slug}`} className="group block pb-8 border-b border-white/5 last:border-0 relative">
+              <div className="flex gap-6 items-start">
                 <div className="relative w-32 h-32 flex-shrink-0 rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950">
                   <Image 
                     src={post.mainImage} 
@@ -109,7 +109,7 @@ export function BlogSection() {
                     <span className="w-1 h-1 bg-zinc-800 rounded-full" />
                     <span>0x{post.id.slice(-4)}</span>
                   </div>
-                  <h4 className="text-2xl font-bold text-white group-hover:text-sinai-glow-orange transition-colors duration-300 leading-tight uppercase tracking-tighter">
+                  <h4 className="text-2xl font-bold uppercase leading-tight tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-soft">
                     {post.title}
                   </h4>
                   <div className="flex items-center gap-4 pt-1">
@@ -122,7 +122,7 @@ export function BlogSection() {
           ))}
 
           {/* CTA: View All */}
-          <div className="pt-8">
+          <div className="pt-4">
             <Link href="/blog" className="group relative px-12 py-5 rounded-full border border-white/10 overflow-hidden inline-flex items-center gap-6 hover:border-sinai-glow-orange/50 transition-all duration-500">
               <div className="absolute inset-0 bg-sinai-glow-orange/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.5em] text-white">

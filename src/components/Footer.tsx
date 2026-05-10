@@ -18,31 +18,32 @@ export function Footer() {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <footer className="relative pt-32 pb-16 px-6 md:px-12 border-t border-white/5 bg-[#06080a] overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-white/5 bg-sinai-bg-base px-4 py-12 sm:px-6 lg:py-16">
       {/* Massive Background Branding (Watermark) */}
       {/* Massive Background Branding (Watermark) - Removed to focus on clean logo */}
 
 
       {/* Cinematic Glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-sinai-glow-orange/[0.02] blur-[120px] pointer-events-none" />
+      <div className="apex-ambient-glow left-1/4 top-0 opacity-35" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-32">
+      <div className="apex-container-wide relative z-10">
+        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8">
           
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-10">
-            <Link href="/" className="inline-block transition-all duration-500 hover:scale-105">
-              <div className="relative w-[450px] h-32">
+          <div className="space-y-6 lg:col-span-4">
+            <Link href="/" className="inline-block transition-transform duration-300 hover:scale-[1.02]">
+              <div className="relative h-20 w-64 max-w-full sm:h-24 sm:w-80">
                 <Image 
                   src="/images/logo-footer.png" 
                   alt="APEX Experts AI Solutions" 
                   fill 
+                  sizes="(max-width: 640px) 256px, 320px"
                   className="object-contain object-left" 
                   priority
                 />
               </div>
             </Link>
-            <p className="text-lg text-zinc-500 max-w-sm leading-relaxed text-balance">
+            <p className="max-w-sm text-base leading-relaxed text-zinc-500 sm:text-lg">
               Architecting the next generation of production-grade AI systems with technical precision and strategic depth.
             </p>
             
@@ -54,7 +55,7 @@ export function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-12">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8 lg:gap-10">
             <FooterLinkGroup 
               title="Navigation" 
               links={[
@@ -83,7 +84,7 @@ export function Footer() {
               ]} 
             />
             
-            <div className="space-y-6">
+            <div className="space-y-4">
               <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] font-bold">HQ_LOC</h4>
               <div className="space-y-3">
                 <div className="text-xs text-zinc-400 font-mono leading-relaxed">
@@ -100,13 +101,13 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.3em]">
+        <div className="flex flex-col items-start justify-between gap-6 border-t border-white/5 pt-8 md:flex-row md:items-center">
+          <div className="text-[10px] font-mono uppercase tracking-[0.24em] text-zinc-700">
             © {currentYear} APEX Experts AI Solutions. Engineered with absolute precision.
           </div>
-          <div className="flex gap-10">
-            <Link href="/privacy" className="text-[10px] font-mono text-zinc-700 hover:text-white transition-colors uppercase tracking-[0.3em]">Privacy_Protocol</Link>
-            <Link href="/terms" className="text-[10px] font-mono text-zinc-700 hover:text-white transition-colors uppercase tracking-[0.3em]">Terms_Of_Service</Link>
+          <div className="flex flex-wrap gap-6 sm:gap-8">
+            <Link href="/privacy" className="text-[10px] font-mono uppercase tracking-[0.24em] text-zinc-700 transition-colors hover:text-white">Privacy_Protocol</Link>
+            <Link href="/terms" className="text-[10px] font-mono uppercase tracking-[0.24em] text-zinc-700 transition-colors hover:text-white">Terms_Of_Service</Link>
           </div>
         </div>
       </div>
@@ -116,7 +117,7 @@ export function Footer() {
 
 function FooterLinkGroup({ title, links }: { title: string; links: { name: string; href: string }[] }) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-4">
       <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] font-bold">{title}</h4>
       <div className="flex flex-col gap-3">
         {links.map((link) => (
@@ -160,4 +161,3 @@ const GitHubIcon = () => (
     <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
   </svg>
 );
-

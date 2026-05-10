@@ -44,9 +44,9 @@ const SERVICES = [
       <div className="relative w-14 h-14">
         <svg viewBox="0 0 24 24" fill="none" className="w-full h-full drop-shadow-[0_0_10px_rgba(242,162,75,0.2)]">
           {/* Ruler (Back Layer) - Top-Left to Bottom-Right (\) - THICKER */}
-          <path 
-            d="M5.5 2.5 L2.5 5.5 L18.5 21.5 L21.5 18.5 Z" 
-            fill="url(#apexGradRuler)" 
+          <path
+            d="M5.5 2.5 L2.5 5.5 L18.5 21.5 L21.5 18.5 Z"
+            fill="url(#apexGradRuler)"
           />
           {/* Ruler Hole */}
           <circle cx="6.5" cy="6.5" r="1.5" fill="#000" fillOpacity="0.4" />
@@ -54,10 +54,10 @@ const SERVICES = [
           <line x1="10" y1="10" x2="12" y2="8" stroke="#000" strokeOpacity="0.3" strokeWidth="0.8" />
           <line x1="13" y1="13" x2="15" y2="11" stroke="#000" strokeOpacity="0.3" strokeWidth="0.8" />
           <line x1="16" y1="16" x2="18" y2="14" stroke="#000" strokeOpacity="0.3" strokeWidth="0.8" />
-          
+
           {/* Pencil (Front Layer) - Bottom-Left to Top-Right (/) - THICKER */}
           <motion.g
-            animate={reduced ? {} : { 
+            animate={reduced ? {} : {
               y: [-0.5, 0.5, -0.5],
               rotate: [-1, 1, -1]
             }}
@@ -144,7 +144,7 @@ const SERVICES = [
             </linearGradient>
           </defs>
         </svg>
-        <div className="absolute inset-0 bg-sinai-glow-orange/10 blur-xl rounded-full" />
+        <div className="absolute inset-0 rounded-full bg-sinai-glow-orange/5 blur-xl" />
       </div>
     ),
     diagram: (reduced: boolean) => (
@@ -169,34 +169,29 @@ export function ServicesSection() {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <section id="services" className="scroll-mt-28 py-32 border-t border-white/5 relative">
+    <section id="services" className="section-shell relative scroll-mt-28 overflow-hidden">
       {/* Dynamic Background Grid */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-        style={{ backgroundImage: "linear-gradient(#F2A24B 1px, transparent 1px), linear-gradient(90deg, #F2A24B 1px, transparent 1px)", backgroundSize: "60px 60px" }} 
-      />
+      <div className="apex-ambient-grid" />
 
-      <div className="flex items-center gap-4 mb-20 relative z-10">
-        <div className="h-px w-12 bg-gradient-to-r from-sinai-glow-orange to-transparent" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-          02 // Solutions
-        </span>
+      <div className="section-label relative z-10">
+        02 // Solutions
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+      <div className="relative z-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:gap-6">
         {SERVICES.map((service) => (
           <Link
             key={service.id}
             href={
-              service.id === "01" ? "/services/ai-automation" : 
-              service.id === "02" ? "/services/oracle-apex" : 
-              service.id === "03" ? "/services/web-development" : 
-              service.id === "04" ? "/services/mobile-development" : 
-              "#"
+              service.id === "01" ? "/services/ai-automation" :
+                service.id === "02" ? "/services/oracle-apex" :
+                  service.id === "03" ? "/services/web-development" :
+                    service.id === "04" ? "/services/mobile-development" :
+                      "#"
             }
-            className="group relative rounded-[3rem] p-12 overflow-hidden transition-all duration-500 bg-white/[0.02] border border-white/10 hover:border-sinai-glow-orange/40 hover:bg-white/[0.04] flex flex-col min-h-[420px]"
+            className="apex-panel apex-panel-hover group relative flex min-h-[300px] flex-col overflow-hidden rounded-[1.5rem] p-5 sm:p-6 lg:min-h-[330px] lg:p-8"
           >
             {/* Technical Corner ID */}
-            <div className="absolute top-10 right-12 font-mono text-[10px] text-zinc-600 group-hover:text-sinai-glow-orange transition-colors">
+            <div className="absolute right-6 top-6 font-mono text-[10px] text-zinc-600 transition-colors group-hover:text-sinai-glow-soft sm:right-8 sm:top-8">
               [ SOL_{service.id} ]
             </div>
 
@@ -204,25 +199,25 @@ export function ServicesSection() {
             {typeof service.diagram === 'function' ? service.diagram(!!effectiveReduceMotion) : service.diagram}
 
             {/* Icon & Content */}
-            <div className="relative z-10 space-y-10 h-full flex flex-col">
-              <div className="w-24 h-24 rounded-[2rem] bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:border-sinai-glow-orange/20 transition-all duration-500 shadow-2xl overflow-hidden relative">
+            <div className="relative z-10 flex h-full flex-col space-y-6">
+              <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.03] shadow-2xl transition-all duration-300 group-hover:border-sinai-glow-orange/20">
                 <div className="absolute inset-0 bg-gradient-to-br from-white/[0.05] to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 {typeof service.icon === 'function' ? service.icon(!!effectiveReduceMotion) : service.icon}
               </div>
 
-              <div className="space-y-6">
-                <h3 className="text-4xl font-bold tracking-tight text-white group-hover:translate-x-2 transition-transform duration-500">
+              <div className="space-y-4">
+                <h3 className="text-3xl font-bold tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-soft lg:text-4xl">
                   {service.title}
                 </h3>
-                <p className="text-xl text-zinc-500 group-hover:text-zinc-400 transition-colors leading-relaxed">
+                <p className="text-base leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-400 sm:text-lg">
                   {service.desc}
                 </p>
               </div>
 
               {/* Technical Tags */}
-              <div className="pt-8 mt-auto flex flex-wrap gap-3">
+              <div className="mt-auto flex flex-wrap gap-2.5 pt-5">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/5 text-[10px] uppercase tracking-[0.2em] text-zinc-500 group-hover:text-zinc-300 group-hover:border-white/10 transition-all font-bold">
+                  <span key={tag} className="rounded-full border border-white/5 bg-white/[0.03] px-3.5 py-1.5 text-[10px] font-bold uppercase tracking-[0.16em] text-zinc-500 transition-all group-hover:border-white/10 group-hover:text-zinc-300">
                     {tag}
                   </span>
                 ))}
@@ -230,15 +225,15 @@ export function ServicesSection() {
             </div>
 
             {/* Hover Glow */}
-            <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-sinai-glow-orange/15 blur-[120px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+            <div className="pointer-events-none absolute -bottom-24 -right-24 h-72 w-72 bg-sinai-glow-orange/10 opacity-0 blur-[110px] transition-opacity duration-700 group-hover:opacity-100" />
           </Link>
         ))}
       </div>
 
       {/* Footer System Status */}
-      <div className="mt-20 flex justify-between items-center text-[9px] font-mono text-zinc-700 uppercase tracking-[0.3em]">
+      <div className="mt-10 flex flex-col justify-between gap-4 text-[9px] font-mono uppercase tracking-[0.24em] text-zinc-700 sm:flex-row sm:items-center">
         <span>{"// Operation Units Online"}</span>
-        <div className="flex gap-4 text-zinc-500">
+        <div className="flex flex-wrap gap-4 text-zinc-500">
           <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-green-500/40" /> SYSTEM: STABLE</span>
           <span className="flex items-center gap-1.5"><span className="w-1 h-1 rounded-full bg-sinai-glow-orange/40" /> NODES: ACTIVE</span>
         </div>

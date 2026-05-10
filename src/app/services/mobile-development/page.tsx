@@ -36,6 +36,7 @@ export default async function MobileDevelopmentPage() {
     <>
       <script
         nonce={nonce}
+        suppressHydrationWarning
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({

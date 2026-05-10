@@ -36,6 +36,7 @@ export default async function OracleApexPage() {
     <>
       <script
         nonce={nonce}
+        suppressHydrationWarning
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({

@@ -355,7 +355,7 @@ https://cdnjs.cloudflare.com/ajax/libs/jspdf/3.0.3/jspdf.umd.min.js`;
 
 function SectionTitle({ number, title }: { number: string; title: string }) {
   return (
-    <h2 className="text-xl font-bold text-white uppercase mt-12 mb-4 tracking-tight flex items-center gap-3">
+    <h2 className="text-xl font-bold text-white uppercase mt-12 mb-4 tracking-normal flex items-center gap-3">
       <span className="text-sinai-glow-orange/30 font-mono text-sm">{number}</span>
       {title}
     </h2>
@@ -497,8 +497,8 @@ function ResultGallery() {
 
 export default function AIReportDesignerPage() {
   return (
-    <article className="min-h-screen bg-[#06080a] text-zinc-300 pt-32 pb-32">
-      <div className="container mx-auto px-6">
+    <article className="min-h-screen bg-[#06080a] text-zinc-300 pt-28 pb-20 lg:pt-32 lg:pb-24">
+      <div className="apex-container-wide">
         <div className="max-w-4xl mx-auto flex items-center justify-between mb-12">
           <Link
             href="/blog"
@@ -524,7 +524,7 @@ export default function AIReportDesignerPage() {
               </span>
             ))}
           </div>
-          <h1 className="text-4xl md:text-5xl font-black text-white leading-[1.1] mb-6 tracking-tighter uppercase">
+          <h1 className="text-4xl md:text-5xl font-black text-white leading-[1.1] mb-6 tracking-normal uppercase">
             Building an AI-Powered PDF Report Designer in Oracle APEX
           </h1>
           <p className="text-zinc-400 text-lg leading-relaxed mb-6">
@@ -771,7 +771,7 @@ Google Gemini;GOOGLE`}</CodeBlock>
           </p>
 
           <footer className="mt-20 pt-12 border-t border-white/5">
-            <h2 className="text-xl font-bold text-white uppercase mb-6 tracking-tight">Final result</h2>
+            <h2 className="text-xl font-bold text-white uppercase mb-6 tracking-normal">Final result</h2>
             <p className="text-zinc-400 mb-0 leading-snug">
               This experiment shows that Oracle APEX can be more than a place to build forms and dashboards. It can also become a workspace where users generate designed business documents from live data, without leaving their application.
             </p>

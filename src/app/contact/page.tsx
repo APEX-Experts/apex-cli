@@ -33,9 +33,10 @@ export default async function ContactPage() {
   const nonce = await getCspNonce();
 
   return (
-    <div className="bg-[#050505] min-h-screen selection:bg-sinai-glow-orange/30 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen overflow-x-hidden bg-sinai-bg-base selection:bg-sinai-glow-orange/30 selection:text-white">
       <script
         nonce={nonce}
+        suppressHydrationWarning
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({

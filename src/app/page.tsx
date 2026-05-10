@@ -44,6 +44,7 @@ export default async function Home() {
     <>
       <script
         nonce={nonce}
+        suppressHydrationWarning
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
@@ -54,56 +55,56 @@ export default async function Home() {
         <TerminalHero />
 
         {/* ── Page Content ── */}
-        <div className="relative">
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative bg-[linear-gradient(180deg,#06080a_0%,#080a0d_45%,#06080a_100%)]">
+          <div className="apex-container-wide relative">
             {/* ── About ── */}
             <SectionReveal>
               <AboutSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Services ── */}
             <SectionReveal>
               <ServicesSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Process ── */}
             <SectionReveal>
               <ProcessSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Projects ── */}
             <SectionReveal>
               <ProjectsSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Testimonials ── */}
             <SectionReveal>
               <TestimonialsSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Blog ── */}
             <SectionReveal>
               <BlogSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Contact ── */}
             <SectionReveal>
               <ContactSection />
             </SectionReveal>
 
-            <div className="h-24" />
+            <div className="h-10 sm:h-12" />
           </div>
         </div>
       </section>

@@ -160,54 +160,52 @@ export function Header() {
   };
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-        scrolled ? "py-4" : "py-8"
-      }`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${scrolled ? "py-3" : "py-4 sm:py-6"
+        }`}
     >
-      <div className="max-w-7xl mx-auto px-6">
-        <div className={`relative flex items-center justify-between p-2 rounded-2xl border transition-all duration-500 ${
-          scrolled 
-            ? "bg-black/60 backdrop-blur-xl border-white/10 shadow-2xl" 
+      <div className="apex-container-wide">
+        <div className={`relative flex items-center justify-between rounded-[1.25rem] border p-1.5 transition-all duration-500 ${scrolled
+            ? "apex-panel"
             : "bg-transparent border-transparent"
-        }`}>
+          }`}>
           {/* Logo Area */}
-          <Link href="/" className="flex items-center group pl-4">
-            <div className="relative w-48 h-12 transition-all duration-500 group-hover:scale-105">
-              <Image 
-                src="/images/logo.png" 
-                alt="APEX Experts AI Solutions" 
-                fill 
-                className="object-contain object-left" 
+          <Link href="/" className="group flex items-center pl-2 sm:pl-3">
+            <div className="relative h-10 w-40 transition-transform duration-300 group-hover:scale-[1.02] sm:h-11 sm:w-44">
+              <Image
+                src="/images/logo.png"
+                alt="APEX Experts AI Solutions"
+                fill
+                sizes="(max-width: 640px) 160px, 176px"
+                className="object-contain object-left"
                 priority
               />
             </div>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-0.5">
             {NAV_LINKS.map((link) => {
               const active = isActive(link.href, link.label);
-              
+
               if (link.label === "SERVICES") {
                 return (
-                  <div 
+                  <div
                     key={link.label}
                     onMouseEnter={() => setIsServicesOpen(true)}
                     onMouseLeave={() => setIsServicesOpen(false)}
                     className="relative"
                   >
-                    <button 
+                    <button
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                       aria-haspopup="true"
                       aria-expanded={isServicesOpen}
-                      className={`px-5 py-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative ${
-                        active || isServicesOpen ? "text-sinai-glow-orange" : "text-zinc-400 hover:text-white"
-                      }`}
+                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${active || isServicesOpen ? "text-sinai-glow-soft" : "text-zinc-400 hover:text-white"
+                        }`}
                     >
                       {link.label}
                       {(active || isServicesOpen) && (
-                        <motion.div 
+                        <motion.div
                           layoutId="nav-dot"
                           className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-sinai-glow-orange rounded-full"
                         />
@@ -216,17 +214,17 @@ export function Header() {
 
                     <AnimatePresence>
                       {isServicesOpen && (
-                        <div className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[90vw] max-w-6xl z-50">
+                        <div className="absolute left-1/2 top-[calc(100%+8px)] z-50 w-[90vw] max-w-5xl -translate-x-1/2">
                           <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
                             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                            className="bg-[#0a0a0a]/95 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden"
+                            className="overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-[linear-gradient(180deg,rgba(13,15,18,0.98),rgba(6,8,10,0.96))] shadow-[0_34px_120px_rgba(0,0,0,0.72),0_0_46px_rgba(217,130,47,0.06)] backdrop-blur-2xl"
                           >
-                            <div className="grid grid-cols-1 lg:grid-cols-5 h-full min-h-[500px]">
+                            <div className="grid h-full min-h-[360px] grid-cols-1 lg:grid-cols-5">
                               {/* Left Column: Services List */}
-                              <div className="lg:col-span-3 p-10 lg:p-14 border-r border-white/5 space-y-12 text-left">
+                              <div className="space-y-6 border-r border-white/5 p-6 text-left lg:col-span-3 lg:p-8">
                                 <div className="flex items-center gap-4 text-zinc-500">
                                   <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-left">Service_Registry // SOL_04</span>
                                   <div className="h-px flex-1 bg-white/5" />
@@ -234,7 +232,7 @@ export function Header() {
 
                                 <div className="grid gap-2 text-left">
                                   {SERVICES_DATA.map((service) => (
-                                    <Link 
+                                    <Link
                                       key={service.id}
                                       href={service.href}
                                       onClick={() => setIsServicesOpen(false)}
@@ -243,32 +241,28 @@ export function Header() {
                                         setIsServicesOpen(true);
                                         setHoveredService(service);
                                       }}
-                                      className={`group/item flex items-start gap-6 p-6 rounded-2xl transition-all duration-500 text-left outline-none ${
-                                        hoveredService.id === service.id ? "bg-white/[0.03] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" : "hover:bg-white/[0.01] focus:bg-white/[0.02]"
-                                      }`}
+                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-300 ${hoveredService.id === service.id ? "bg-white/[0.06] shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]" : "hover:bg-white/[0.035] focus:bg-white/[0.04]"
+                                        }`}
                                     >
-                                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 border ${
-                                        hoveredService.id === service.id ? "bg-sinai-glow-orange text-white border-sinai-glow-orange shadow-[0_0_20px_rgba(242,162,75,0.3)]" : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
-                                      }`}>
+                                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${hoveredService.id === service.id ? "border-sinai-glow-soft/60 bg-sinai-glow-orange/85 text-white shadow-[0_0_22px_rgba(217,130,47,0.18)]" : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
+                                        }`}>
                                         {service.icon}
                                       </div>
                                       <div className="space-y-2 flex-1 text-left">
-                                        <h3 className={`text-xl font-bold tracking-tight transition-colors duration-500 text-left ${
-                                          hoveredService.id === service.id ? "text-white" : "text-zinc-500 group-hover/item:text-zinc-300"
-                                        }`}>
+                                        <h3 className={`text-lg font-bold tracking-normal transition-colors duration-300 text-left ${hoveredService.id === service.id ? "text-white" : "text-zinc-500 group-hover/item:text-zinc-300"
+                                          }`}>
                                           {service.title}
                                         </h3>
-                                        <p className={`text-sm leading-relaxed transition-colors duration-500 max-w-md text-left ${
-                                          hoveredService.id === service.id ? "text-zinc-400" : "text-zinc-600 line-clamp-1"
-                                        }`}>
+                                        <p className={`text-sm leading-relaxed transition-colors duration-500 max-w-md text-left ${hoveredService.id === service.id ? "text-zinc-300" : "text-zinc-500 line-clamp-1"
+                                          }`}>
                                           {service.desc}
                                         </p>
                                       </div>
-                                      <motion.div 
+                                      <motion.div
                                         animate={{ x: hoveredService.id === service.id ? 0 : -10, opacity: hoveredService.id === service.id ? 1 : 0 }}
                                         className="text-sinai-glow-orange pt-1"
                                       >
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                       </motion.div>
                                     </Link>
                                   ))}
@@ -276,7 +270,7 @@ export function Header() {
                               </div>
 
                               {/* Right Column: Dynamic Preview */}
-                              <div className="lg:col-span-2 relative bg-black/40 overflow-hidden flex flex-col">
+                              <div className="lg:col-span-2 relative bg-sinai-bg-base/95 overflow-hidden flex flex-col">
                                 <AnimatePresence mode="wait">
                                   <motion.div
                                     key={hoveredService.id}
@@ -284,28 +278,28 @@ export function Header() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="flex-1 flex flex-col p-12 lg:p-16 relative"
+                                    className="relative flex flex-1 flex-col p-6 lg:p-8"
                                   >
                                     <div className="absolute inset-0 z-0">
-                                      <Image 
-                                        src={hoveredService.image} 
+                                      <Image
+                                        src={hoveredService.image}
                                         alt=""
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 40vw"
-                                        className="object-cover opacity-20 blur-sm scale-110"
+                                        className="object-cover opacity-[0.16] blur-sm scale-110"
                                       />
-                                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/50" />
+                                      <div className="absolute inset-0 bg-gradient-to-t from-sinai-bg-base via-sinai-bg-base/72 to-sinai-bg-base/80" />
                                     </div>
 
                                     <div className="relative z-10 flex-1 flex flex-col justify-between">
-                                      <div className="space-y-8">
+                                      <div className="space-y-5">
                                         <div className="inline-block px-3 py-1 rounded-sm bg-sinai-glow-orange/10 border border-sinai-glow-orange/20">
                                           <span className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase">Technical_Preview</span>
                                         </div>
-                                        
-                                        <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                                          <Image 
-                                            src={hoveredService.image} 
+
+                                        <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.34)]">
+                                          <Image
+                                            src={hoveredService.image}
                                             alt={hoveredService.title}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 40vw"
@@ -315,8 +309,8 @@ export function Header() {
                                         </div>
                                       </div>
 
-                                      <div className="space-y-4 pt-10">
-                                        <div className="flex flex-col gap-6">
+                                      <div className="space-y-4 pt-6">
+                                        <div className="flex flex-col gap-5">
                                           <div className="flex items-center gap-3">
                                             {hoveredService?.tech?.map((slug: string) => (
                                               <div key={slug} className="group/tech relative">
@@ -334,8 +328,8 @@ export function Header() {
                                                       <path d="M24.235 6.519l-16.47-0.004 0.266 3.277 12.653 0.002-0.319 3.394h-8.298l0.3 3.215h7.725l-0.457 4.403-3.636 1.005-3.694-1.012-0.235-2.637h-3.262l0.362 4.817 6.829 2.128 6.714-1.912 1.521-16.675zM2.879 1.004h26.242l-2.387 26.946-10.763 3.045-10.703-3.047z" />
                                                     </svg>
                                                   ) : (
-                                                    <Image 
-                                                      src={`https://cdn.simpleicons.org/${slug}/fff`} 
+                                                    <Image
+                                                      src={`https://cdn.simpleicons.org/${slug}/fff`}
                                                       alt={slug}
                                                       width={20}
                                                       height={20}
@@ -344,7 +338,7 @@ export function Header() {
                                                     />
                                                   )}
                                                 </div>
-                                                
+
                                                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
                                                   <div className="text-[8px] font-mono text-white tracking-widest uppercase whitespace-nowrap">
                                                     {slug.replace('dotjs', '.js').replace('tailwindcss', 'Tailwind').replace('nextdotjs', 'Next.js').replace('nodedotjs', 'Node.js').replace('postgresql', 'Postgres').replace('greensock', 'GSAP').replace('huggingface', 'Hugging Face').replace('openai', 'OpenAI').replace('googleplay', 'Google Play').replace('anthropic', 'Claude AI')}
@@ -356,7 +350,7 @@ export function Header() {
                                           </div>
                                           <div className="space-y-2">
                                             <div className="text-[10px] font-mono text-zinc-500 tracking-[0.5em] uppercase">{hoveredService.detail}</div>
-                                            <h4 className="text-3xl font-black tracking-tighter text-white uppercase leading-none">{hoveredService.title}</h4>
+                                            <h4 className="text-2xl font-black tracking-normal text-white uppercase leading-none">{hoveredService.title}</h4>
                                           </div>
                                         </div>
                                       </div>
@@ -375,23 +369,22 @@ export function Header() {
 
               if (link.label === "PROJECTS") {
                 return (
-                  <div 
+                  <div
                     key={link.label}
                     onMouseEnter={() => setIsProjectsOpen(true)}
                     onMouseLeave={() => setIsProjectsOpen(false)}
                     className="relative"
                   >
-                    <button 
+                    <button
                       onClick={() => setIsProjectsOpen(!isProjectsOpen)}
                       aria-haspopup="true"
                       aria-expanded={isProjectsOpen}
-                      className={`px-5 py-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative ${
-                        active || isProjectsOpen ? "text-sinai-glow-orange" : "text-zinc-400 hover:text-white"
-                      }`}
+                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${active || isProjectsOpen ? "text-sinai-glow-soft" : "text-zinc-400 hover:text-white"
+                        }`}
                     >
                       {link.label}
                       {(active || isProjectsOpen) && (
-                        <motion.div 
+                        <motion.div
                           layoutId="nav-dot"
                           className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-sinai-glow-orange rounded-full"
                         />
@@ -400,17 +393,17 @@ export function Header() {
 
                     <AnimatePresence>
                       {isProjectsOpen && (
-                        <div className="absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 w-[90vw] max-w-6xl z-50">
+                        <div className="absolute left-1/2 top-[calc(100%+8px)] z-50 w-[90vw] max-w-5xl -translate-x-1/2">
                           <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 10 }}
                             transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-                            className="bg-[#0a0a0a]/95 backdrop-blur-3xl rounded-3xl border border-white/10 shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden"
+                            className="overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-[linear-gradient(180deg,rgba(13,15,18,0.98),rgba(6,8,10,0.96))] shadow-[0_34px_120px_rgba(0,0,0,0.72),0_0_46px_rgba(217,130,47,0.06)] backdrop-blur-2xl"
                           >
-                            <div className="grid grid-cols-1 lg:grid-cols-5 h-full min-h-[500px]">
+                            <div className="grid h-full min-h-[360px] grid-cols-1 lg:grid-cols-5">
                               {/* Left Column: Projects List */}
-                              <div className="lg:col-span-3 p-10 lg:p-14 border-r border-white/5 space-y-12 text-left">
+                              <div className="space-y-6 border-r border-white/5 p-6 text-left lg:col-span-3 lg:p-8">
                                 <div className="flex items-center gap-4 text-zinc-500">
                                   <span className="font-mono text-[9px] tracking-[0.4em] uppercase text-left">Project_Registry // NODE_04</span>
                                   <div className="h-px flex-1 bg-white/5" />
@@ -418,7 +411,7 @@ export function Header() {
 
                                 <div className="grid gap-2 text-left">
                                   {PROJECTS_DATA.map((project) => (
-                                    <Link 
+                                    <Link
                                       key={project.id}
                                       href={project.href}
                                       onClick={() => setIsProjectsOpen(false)}
@@ -427,32 +420,28 @@ export function Header() {
                                         setIsProjectsOpen(true);
                                         setHoveredProject(project);
                                       }}
-                                      className={`group/item flex items-start gap-6 p-6 rounded-2xl transition-all duration-500 text-left outline-none ${
-                                        hoveredProject.id === project.id ? "bg-white/[0.03] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" : "hover:bg-white/[0.01] focus:bg-white/[0.02]"
-                                      }`}
+                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-300 ${hoveredProject.id === project.id ? "bg-white/[0.06] shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]" : "hover:bg-white/[0.035] focus:bg-white/[0.04]"
+                                        }`}
                                     >
-                                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 border ${
-                                        hoveredProject.id === project.id ? "bg-sinai-glow-orange text-white border-sinai-glow-orange shadow-[0_0_20px_rgba(242,162,75,0.3)]" : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
-                                      }`}>
+                                      <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${hoveredProject.id === project.id ? "border-sinai-glow-soft/60 bg-sinai-glow-orange/85 text-white shadow-[0_0_22px_rgba(217,130,47,0.18)]" : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
+                                        }`}>
                                         {project.icon}
                                       </div>
                                       <div className="space-y-2 flex-1 text-left">
-                                        <h3 className={`text-xl font-bold tracking-tight transition-colors duration-500 text-left ${
-                                          hoveredProject.id === project.id ? "text-white" : "text-zinc-500 group-hover/item:text-zinc-300"
-                                        }`}>
+                                        <h3 className={`text-lg font-bold tracking-normal transition-colors duration-300 text-left ${hoveredProject.id === project.id ? "text-white" : "text-zinc-500 group-hover/item:text-zinc-300"
+                                          }`}>
                                           {project.title}
                                         </h3>
-                                        <p className={`text-sm leading-relaxed transition-colors duration-500 max-w-md text-left ${
-                                          hoveredProject.id === project.id ? "text-zinc-400" : "text-zinc-600 line-clamp-1"
-                                        }`}>
+                                        <p className={`text-sm leading-relaxed transition-colors duration-500 max-w-md text-left ${hoveredProject.id === project.id ? "text-zinc-300" : "text-zinc-500 line-clamp-1"
+                                          }`}>
                                           {project.desc}
                                         </p>
                                       </div>
-                                      <motion.div 
+                                      <motion.div
                                         animate={{ x: hoveredProject.id === project.id ? 0 : -10, opacity: hoveredProject.id === project.id ? 1 : 0 }}
                                         className="text-sinai-glow-orange pt-1"
                                       >
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
                                       </motion.div>
                                     </Link>
                                   ))}
@@ -460,7 +449,7 @@ export function Header() {
                               </div>
 
                               {/* Right Column: Dynamic Preview */}
-                              <div className="lg:col-span-2 relative bg-black/40 overflow-hidden flex flex-col">
+                              <div className="lg:col-span-2 relative bg-sinai-bg-base/95 overflow-hidden flex flex-col">
                                 <AnimatePresence mode="wait">
                                   <motion.div
                                     key={hoveredProject.id}
@@ -468,34 +457,34 @@ export function Header() {
                                     animate={{ opacity: 1, x: 0 }}
                                     exit={{ opacity: 0, x: -20 }}
                                     transition={{ duration: 0.5, ease: "easeOut" }}
-                                    className="flex-1 flex flex-col p-12 lg:p-16 relative"
+                                    className="relative flex flex-1 flex-col p-6 lg:p-8"
                                   >
                                     <div className="absolute inset-0 z-0">
-                                      <Image 
-                                        src={hoveredProject.image} 
+                                      <Image
+                                        src={hoveredProject.image}
                                         alt=""
                                         fill
                                         sizes="(max-width: 1024px) 100vw, 40vw"
-                                        className="object-cover opacity-20 blur-sm scale-110"
+                                        className="object-cover opacity-[0.16] blur-sm scale-110"
                                       />
-                                      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/50" />
+                                      <div className="absolute inset-0 bg-gradient-to-t from-sinai-bg-base via-sinai-bg-base/72 to-sinai-bg-base/80" />
                                     </div>
 
                                     <div className="relative z-10 flex-1 flex flex-col justify-between">
-                                      <div className="space-y-8">
+                                      <div className="space-y-5">
                                         <div className="flex items-center justify-between">
                                           <div className="inline-block px-3 py-1 rounded-sm bg-sinai-glow-orange/10 border border-sinai-glow-orange/20">
                                             <span className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase">Case_Study_Preview</span>
                                           </div>
                                           <div className="flex gap-1.5">
-                                            <div className={`w-1.5 h-1.5 rounded-full bg-green-500/40 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+                                            <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/40 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
                                             <div className="w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/40" />
                                           </div>
                                         </div>
-                                        
-                                        <div className="relative aspect-video rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                                          <Image 
-                                            src={hoveredProject.image} 
+
+                                        <div className="relative aspect-video overflow-hidden rounded-xl border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.34)]">
+                                          <Image
+                                            src={hoveredProject.image}
                                             alt={hoveredProject.title}
                                             fill
                                             sizes="(max-width: 1024px) 100vw, 40vw"
@@ -505,8 +494,8 @@ export function Header() {
                                         </div>
                                       </div>
 
-                                      <div className="space-y-10 pt-10">
-                                        <div className="flex flex-col gap-8">
+                                      <div className="space-y-8 pt-8">
+                                        <div className="flex flex-col gap-6">
                                           <div className="flex items-center gap-3">
                                             {hoveredProject?.tech?.map((slug: string) => (
                                               <div key={slug} className="group/tech relative">
@@ -520,8 +509,8 @@ export function Header() {
                                                       <path d="M7.957359,18.9123664 C4.11670252,18.9123664 1,15.803458 1,11.9617373 C1,8.12000773 4.11670252,5 7.957359,5 L16.0437948,5 C19.8855156,5 23,8.12000773 23,11.9617373 C23,15.803458 19.8855156,18.9123664 16.0437948,18.9123664 L7.957359,18.9123664 L7.957359,18.9123664 Z M15.8639176,16.4585488 C18.352201,16.4585488 20.3674397,14.448858 20.3674397,11.9617373 C20.3674397,9.47460595 18.352201,7.45381934 15.8639176,7.45381934 L8.1360824,7.45381934 C5.64895285,7.45381934 3.63255855,9.47460595 3.63255855,11.9617373 C3.63255855,14.448858 5.64895285,16.4585488 8.1360824,16.4585488 L15.8639176,16.4585488 L15.8639176,16.4585488 Z" />
                                                     </svg>
                                                   ) : (
-                                                    <Image 
-                                                      src={`https://cdn.simpleicons.org/${slug}/fff`} 
+                                                    <Image
+                                                      src={`https://cdn.simpleicons.org/${slug}/fff`}
                                                       alt={slug}
                                                       width={20}
                                                       height={20}
@@ -530,7 +519,7 @@ export function Header() {
                                                     />
                                                   )}
                                                 </div>
-                                                
+
                                                 <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
                                                   <div className="text-[8px] font-mono text-white tracking-widest uppercase whitespace-nowrap">
                                                     {slug.replace('dotjs', '.js').replace('tailwindcss', 'Tailwind').replace('nextdotjs', 'Next.js').replace('nodedotjs', 'Node.js').replace('postgresql', 'Postgres').replace('greensock', 'GSAP').replace('huggingface', 'Hugging Face').replace('openai', 'OpenAI').replace('googleplay', 'Google Play').replace('anthropic', 'Claude AI')}
@@ -543,8 +532,8 @@ export function Header() {
                                           <div className="space-y-4">
                                             <div className="text-[10px] font-mono text-zinc-500 tracking-[0.5em] uppercase">{hoveredProject.detail}</div>
                                             <div className="relative h-16 w-full">
-                                              <Image 
-                                                src={hoveredProject.logo} 
+                                              <Image
+                                                src={hoveredProject.logo}
                                                 alt={hoveredProject.title}
                                                 fill
                                                 className="object-contain object-left filter brightness-0 invert opacity-90"
@@ -570,13 +559,12 @@ export function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`px-5 py-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all duration-300 relative ${
-                    active ? "text-sinai-glow-orange" : "text-zinc-400 hover:text-white"
-                  }`}
+                  className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${active ? "text-sinai-glow-soft" : "text-zinc-400 hover:text-white"
+                    }`}
                 >
                   {link.label}
                   {active && (
-                    <motion.div 
+                    <motion.div
                       layoutId="nav-dot"
                       className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-sinai-glow-orange rounded-full"
                     />
@@ -588,15 +576,15 @@ export function Header() {
 
           {/* Action Area */}
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hidden sm:flex items-center gap-3 px-6 py-2.5 rounded-full bg-white text-black hover:bg-sinai-glow-orange hover:text-white transition-all duration-500 text-[10px] font-black uppercase tracking-[0.3em] shadow-[0_10px_30px_rgba(255,255,255,0.1)] group">
+            <Link href="/contact" className="hidden items-center gap-3 rounded-full bg-sinai-glow-soft px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-black shadow-[0_10px_30px_rgba(217,130,47,0.14)] transition-all duration-300 hover:bg-white sm:flex group">
               Connect_Node
-              <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange group-hover:bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+              <div className={`h-1.5 w-1.5 rounded-full bg-black/60 group-hover:bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
             </Link>
 
             {/* Mobile Toggle */}
-            <button 
+            <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 group"
+              className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/[0.03] lg:hidden group"
             >
               <div className={`h-px bg-white transition-all duration-300 ${mobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`} />
               <div className={`h-px bg-white transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : "w-4"}`} />
@@ -614,15 +602,15 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 bg-[#06080a] flex flex-col p-12 lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-sinai-bg-base p-6 sm:p-8 lg:hidden"
           >
             <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-            <div className="flex justify-between items-center mb-20">
+            <div className="mb-10 flex items-center justify-between sm:mb-14">
               <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">System_Navigation</span>
               <button onClick={() => setMobileMenuOpen(false)} className="text-white text-xs font-mono uppercase tracking-widest">Close_X</button>
             </div>
-            
-            <nav className="flex flex-col gap-8">
+
+            <nav className="flex flex-col gap-6">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.label}
@@ -630,10 +618,10 @@ export function Header() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.1 }}
                 >
-                  <Link 
+                  <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-5xl font-black text-zinc-800 hover:text-sinai-glow-orange transition-colors tracking-tighter uppercase"
+                    className="text-4xl font-black uppercase tracking-normal text-zinc-700 transition-colors hover:text-sinai-glow-soft sm:text-5xl"
                   >
                     {link.label}
                   </Link>

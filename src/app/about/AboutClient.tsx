@@ -61,16 +61,16 @@ export default function AboutClient() {
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   return (
-    <div className="bg-[#050505] text-white selection:bg-sinai-glow-orange selection:text-black overflow-hidden">
+    <div className="overflow-hidden bg-sinai-bg-base text-white selection:bg-sinai-glow-orange selection:text-black">
       
       {/* CEO Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-6 overflow-hidden">
+      <section className="relative overflow-hidden px-4 pb-14 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
         {/* Abstract Background Glows */}
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-sinai-glow-orange/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-sinai-glow-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
             
             {/* Left: Founder Image */}
             <motion.div 
@@ -99,7 +99,7 @@ export default function AboutClient() {
                 {/* Name Tag HUD */}
                 <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-white/10 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                   <div className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase mb-1">Architect & Visionary</div>
-                  <h3 className="text-2xl font-black tracking-tighter uppercase">Ahmed Al-Saied</h3>
+                  <h3 className="text-2xl font-black uppercase tracking-normal">Ahmed Al-Saied</h3>
                   <div className="w-12 h-[2px] bg-sinai-glow-orange mt-3" />
                 </div>
               </div>
@@ -110,20 +110,20 @@ export default function AboutClient() {
               initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, y: 30 }}
               animate={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="space-y-10"
+              className="space-y-7"
             >
               <div className="space-y-4">
                 <div className="inline-flex items-center gap-3">
                   <div className="w-8 h-[1px] bg-sinai-glow-orange" />
                   <span className="text-xs font-mono text-sinai-glow-orange tracking-[0.5em] uppercase">Leadership Message</span>
                 </div>
-                <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase leading-[0.9]">
+                <h1 className="text-4xl font-black uppercase leading-[0.92] tracking-normal md:text-6xl">
                   Word from <br/>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white">The Founder</span>
+                  <span className="apex-gradient-text">The Founder</span>
                 </h1>
               </div>
 
-              <div className="space-y-6 text-zinc-400 text-lg md:text-xl leading-relaxed font-light italic">
+              <div className="space-y-5 text-zinc-400 text-lg md:text-xl leading-relaxed font-light italic">
                 <p className="relative">
                   <span className="absolute -left-8 -top-4 text-6xl font-serif text-sinai-glow-orange/20">&quot;</span>
                   At APEX Experts, we don&apos;t just build software; we build software for teams that need AI, data, and business workflows to work together reliably. Our mission is to bridge the gap between complex AI capabilities and real-world enterprise scalability.
@@ -136,7 +136,7 @@ export default function AboutClient() {
                 </p>
               </div>
 
-              <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4">
                 <div className="px-5 py-4 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col gap-1 hover:border-sinai-glow-orange/30 transition-colors group/card">
                   <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">17+</span>
                   <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest leading-tight">Years<br/>Experience</span>
@@ -168,7 +168,7 @@ export default function AboutClient() {
       </section>
 
       {/* Experimental Vision & Mission: The Neural Spine */}
-      <section className="relative py-40 px-6 overflow-hidden bg-[#050505]">
+      <section className="section-shell-lg relative overflow-hidden bg-sinai-bg-base px-4 sm:px-6">
         {/* Background Architectural Grid */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
              style={{ backgroundImage: 'radial-gradient(circle, #f2a24b 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
@@ -184,24 +184,24 @@ export default function AboutClient() {
             />
           </div>
 
-          <div className="space-y-40">
+          <div className="space-y-12 lg:space-y-16">
             
             {/* Vision Node */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-10">
               <div className="relative order-2 md:order-1">
                 <motion.div
                   initial={effectiveReduceMotion ? { opacity: 0 } : { opacity: 0, x: -100 }}
                   whileInView={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-8 relative z-10"
+                  className="space-y-6 relative z-10"
                 >
                   <div className="flex items-center gap-4">
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] uppercase">Phase_01</span>
                     <div className="h-px w-20 bg-sinai-glow-orange/20" />
                   </div>
-                  <h2 className="text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.8] opacity-10 absolute -top-10 -left-10 select-none">Vision</h2>
-                  <h3 className="text-5xl lg:text-7xl font-black tracking-tighter uppercase leading-none text-left">
+                  <h2 className="absolute -left-10 -top-10 select-none text-6xl font-black uppercase leading-[0.85] tracking-normal opacity-10 lg:text-8xl">Vision</h2>
+                  <h3 className="text-left text-4xl font-black uppercase leading-none tracking-normal lg:text-6xl">
                     Architecting <br/>
                     <span className="text-sinai-glow-orange">The Future</span>
                   </h3>
@@ -235,7 +235,7 @@ export default function AboutClient() {
             </div>
 
             {/* Mission Node */}
-            <div className="relative grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+            <div className="relative grid grid-cols-1 items-center gap-8 md:grid-cols-2 lg:gap-10">
               <div className="hidden md:flex justify-center">
                 <motion.div 
                   initial={{ scale: 0.8, opacity: 0 }}
@@ -258,14 +258,14 @@ export default function AboutClient() {
                   whileInView={effectiveReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="space-y-8 relative z-10 text-right md:text-left md:pl-20"
+                  className="space-y-6 relative z-10 text-right md:text-left md:pl-16"
                 >
                   <div className="flex items-center gap-4 justify-end md:justify-start">
                     <div className="h-px w-20 bg-white/20" />
                     <span className="text-white font-mono text-[10px] tracking-[0.5em] uppercase">Phase_02</span>
                   </div>
-                  <h2 className="text-7xl lg:text-9xl font-black tracking-tighter uppercase leading-[0.8] opacity-10 absolute -top-10 -right-10 md:-left-10 select-none">Mission</h2>
-                  <h3 className="text-5xl lg:text-7xl font-black tracking-tighter uppercase leading-none text-right md:text-left">
+                  <h2 className="absolute -right-10 -top-10 select-none text-6xl font-black uppercase leading-[0.85] tracking-normal opacity-10 md:-left-10 lg:text-8xl">Mission</h2>
+                  <h3 className="text-right text-4xl font-black uppercase leading-none tracking-normal md:text-left lg:text-6xl">
                     Engineering <br/>
                     <span className="text-white">The Impact</span>
                   </h3>
@@ -295,13 +295,13 @@ export default function AboutClient() {
       </section>
 
       {/* Experimental Engineering DNA: The Architectural Schematics */}
-      <section className="relative py-48 px-6 bg-[#030303] overflow-hidden">
+      <section className="section-shell-lg relative overflow-hidden bg-[#080a0d] px-4 sm:px-6">
         {/* Background Mesh Grid */}
         <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
              style={{ backgroundImage: 'linear-gradient(#f2a24b 0.5px, transparent 0.5px), linear-gradient(90deg, #f2a24b 0.5px, transparent 0.5px)', backgroundSize: '100px 100px' }} />
         
         <div className="max-w-7xl mx-auto relative">
-          <div className="mb-32 space-y-6">
+          <div className="mb-16 space-y-5 lg:mb-20">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -310,14 +310,14 @@ export default function AboutClient() {
               <div className="w-12 h-px bg-sinai-glow-orange" />
               <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase text-left">Strategic_DNA // Schema_v2.0</span>
             </motion.div>
-            <h2 className="text-6xl lg:text-8xl font-black tracking-tighter uppercase leading-none text-left">
+            <h2 className="text-left text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
               Engineering <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white">Foundations</span>
+              <span className="apex-gradient-text">Foundations</span>
             </h2>
           </div>
 
           {/* The Schematic Grid */}
-          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-y-24 items-center">
+          <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-y-16 items-center">
             
             {/* Visual Logic Bridge (The Lines) */}
             <div className="absolute inset-0 hidden lg:block pointer-events-none">
@@ -359,7 +359,7 @@ export default function AboutClient() {
                   </div>
                   
                   <div className="space-y-4">
-                    <h3 className="text-4xl lg:text-5xl font-black tracking-tighter uppercase text-white group-hover:text-sinai-glow-orange transition-all duration-500">
+                    <h3 className="text-3xl font-black uppercase tracking-normal text-white transition-all duration-500 group-hover:text-sinai-glow-soft lg:text-4xl">
                       {node.title}
                     </h3>
                     <p className="text-zinc-500 text-lg max-w-sm group-hover:text-zinc-300 transition-colors duration-500 mx-auto lg:mx-0">
@@ -394,28 +394,28 @@ export default function AboutClient() {
       </section>
 
       {/* Experimental Tech Ecosystem: The Kinetic Matrix */}
-      <section className="relative py-48 px-6 bg-[#050505] overflow-hidden">
+      <section className="section-shell-lg relative overflow-hidden bg-sinai-bg-base px-4 sm:px-6">
         {/* Animated Neural Background (CSS-based) */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
           <div className={`absolute inset-0 bg-[radial-gradient(circle_at_center,#f2a24b_1px,transparent_1px)] bg-[size:100px_100px] ${effectiveReduceMotion ? '' : 'animate-[pulse_8s_infinite]'}`} />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-10">
             
             {/* Left Side: Tech Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
-              className="space-y-12"
+              className="space-y-8"
             >
               <div className="space-y-6">
                 <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/[0.03] border border-white/10">
                   <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
                   <span className="text-[10px] font-mono text-zinc-500 tracking-[0.4em] uppercase">Tech_Ecosystem // Integrated</span>
                 </div>
-                <h2 className="text-6xl lg:text-8xl font-black tracking-tighter uppercase leading-none">
+                <h2 className="text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
                   Tools <br/>
                   <span className="text-sinai-glow-orange">We</span> Use
                 </h2>
@@ -477,7 +477,7 @@ export default function AboutClient() {
                     </div>
 
                     <div className="relative">
-                      <h3 className="text-4xl lg:text-6xl font-black tracking-[-0.05em] text-white flex flex-col items-center leading-none">
+                      <h3 className="flex flex-col items-center text-4xl font-black leading-none tracking-normal text-white lg:text-5xl">
                         <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
                         <span className="text-[8px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
                       </h3>
@@ -537,7 +537,7 @@ export default function AboutClient() {
                               </div>
                               
                               <div className="space-y-1">
-                                <h4 className="text-sm font-black text-white uppercase tracking-tighter">{tech.id.replace('dotjs', '')}</h4>
+                                <h4 className="text-sm font-black uppercase tracking-normal text-white">{tech.id.replace('dotjs', '')}</h4>
                                 <div className="flex items-center gap-2">
                                   <span className="text-[7px] font-mono text-zinc-500 uppercase tracking-widest">{tech.status}</span>
                                   <span className="w-1 h-1 rounded-full bg-white/10" />
@@ -568,14 +568,14 @@ export default function AboutClient() {
         </div>
       </section>
       {/* Human Intelligence Nexus: The Elite Collective - SUPER PREMIUM */}
-      <section className="relative py-48 px-6 bg-[#030303] overflow-hidden border-t border-white/5">
+      <section className="section-shell-lg relative overflow-hidden border-t border-white/5 bg-[#080a0d] px-4 sm:px-6">
         {/* Cinematic Ambient Background */}
         <div className="absolute inset-0 opacity-[0.02] pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,#f2a24b_1px,transparent_1px)] bg-[size:60px_60px]" />
         </div>
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-32 space-y-6">
+          <div className="text-center mb-16 space-y-5 lg:mb-20">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -584,7 +584,7 @@ export default function AboutClient() {
               <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
               <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] uppercase font-black">Human_Capital // Strategic_Assets</span>
             </motion.div>
-            <h2 className="text-6xl lg:text-8xl font-black tracking-tighter uppercase leading-none">
+            <h2 className="text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
               The Team
             </h2>
             <p className="text-zinc-500 text-lg max-w-2xl mx-auto font-light">
@@ -643,7 +643,7 @@ export default function AboutClient() {
 
                     {/* Name & Role */}
                     <div className="space-y-1">
-                      <h3 className="text-2xl font-black tracking-tighter text-white uppercase leading-none group-hover:text-sinai-glow-orange transition-colors">{member.name}</h3>
+                      <h3 className="text-2xl font-black uppercase leading-none tracking-normal text-white transition-colors group-hover:text-sinai-glow-soft">{member.name}</h3>
                       <p className="text-[9px] font-mono text-zinc-400 tracking-[0.2em] uppercase">{member.role}</p>
                     </div>
 
@@ -686,7 +686,7 @@ export default function AboutClient() {
         </div>
       </section>
       {/* Final CTA Section - Cinematic Masterpiece */}
-      <section className="py-64 relative overflow-hidden bg-black border-t border-white/5">
+      <section className="section-shell-lg relative overflow-hidden border-t border-white/5 bg-sinai-bg-base">
         {/* Background Ambient Layers */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
@@ -699,9 +699,9 @@ export default function AboutClient() {
           <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container relative z-10">
           <SectionReveal delay={0}>
-            <div className="max-w-5xl mx-auto text-center space-y-16">
+            <div className="mx-auto max-w-5xl space-y-10 text-center lg:space-y-12">
               {/* Top Branding Tag */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
@@ -711,17 +711,17 @@ export default function AboutClient() {
               </div>
 
               <div className="space-y-8">
-                <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white">
+                <h2 className="text-5xl font-black leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
                   Ready to <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
+                  <span className="apex-gradient-text">Scale Your Vision?</span>
                 </h2>
-                <p className="text-xl md:text-3xl text-zinc-500 font-light max-w-3xl mx-auto leading-relaxed">
+                <p className="mx-auto max-w-3xl text-lg font-light leading-relaxed text-zinc-500 md:text-2xl">
                   Join forces with <span className="text-white font-bold">APEX Experts</span> to engineer the next generation of enterprise excellence.
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/contact" className="group relative px-24 py-10 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
+              <div className="flex flex-col items-center gap-8 pt-4">
+                <Link href="/contact" className="group relative overflow-hidden rounded-full bg-sinai-glow-orange px-10 py-5 text-sm font-black uppercase tracking-[0.28em] text-white transition-all duration-300 hover:bg-sinai-glow-soft hover:text-black hover:shadow-[0_0_48px_rgba(217,130,47,0.22)] active:scale-95 sm:px-14 sm:py-6">
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   
