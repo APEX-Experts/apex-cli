@@ -47,8 +47,8 @@ const LAYERS = [
 
 export function SystemFlowSection() {
   return (
-    <section className="section-shell relative overflow-hidden py-24">
-      <div className="mx-auto flex flex-col items-start gap-6 text-center">
+    <section className="section-shell relative overflow-hidden py-8 md:py-24">
+      <div className="mx-auto flex flex-col items-center md:items-start gap-6 text-center">
         <Badge>REAL-WORLD SOFTWARE</Badge>
 
         <h2 className="text-4xl font-bold tracking-[-0.075rem] text-white lg:text-6xl">
@@ -70,7 +70,7 @@ function LayersLayout() {
   return (
     <>
       {/* MOBILE / TABLET */}
-      <div className="mx-auto flex max-w-xl flex-col items-center px-4 lg:hidden">
+      <div className="mx-auto flex max-w-xl flex-col items-center px-4 lg:hidden max-md:mt-8">
         {LAYERS.map((layer, i) => (
           <div key={layer.id} className="flex w-full flex-col items-center">
             <motion.div

@@ -9,14 +9,11 @@ export function Footer() {
 
   return (
     <footer className="relative overflow-hidden border-t border-white/5 bg-sinai-bg-base px-4 pt-12 sm:px-6 lg:pt-16">
-      {/* Massive Background Branding (Watermark) */}
-      {/* Massive Background Branding (Watermark) - Removed to focus on clean logo */}
-
       {/* Cinematic Glow */}
       <div className="apex-ambient-glow left-1/4 top-0 opacity-35" />
 
       <div className="apex-container-wide relative z-10">
-        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8">
+        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8 items-center md:items-start">
           {/* Brand Column */}
           <div className="space-y-6 lg:col-span-4">
             <Link
@@ -29,17 +26,17 @@ export function Footer() {
                   alt="APEX Experts AI Solutions"
                   fill
                   sizes="(max-width: 640px) 256px, 320px"
-                  className="object-contain object-left"
+                  className="object-contain object-center md:object-left"
                   priority
                 />
               </div>
             </Link>
-            <p className="max-w-sm text-base leading-relaxed text-zinc-500 sm:text-lg">
+            <p className=" text-sm sm:text-base leading-relaxed text-zinc-500 md:text-lg text-center md:text-start">
               Architecting the next generation of production-grade AI systems
               with technical precision and strategic depth.
             </p>
 
-            <div className="flex items-center gap-5">
+            <div className="flex items-center max-md:justify-center gap-5">
               <SocialIcon
                 href="https://x.com/apexexperts_ai"
                 icon={<XIcon />}
@@ -59,7 +56,7 @@ export function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8 lg:gap-10">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8 lg:gap-10 max-md:mt-4">
             <FooterLinkGroup
               title="Navigation"
               links={[
@@ -109,7 +106,7 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="w-full border-t border-white/5 flex items-center justify-center py-8">
           <span
-            className="text-base leading-4 tracking-normal text-white-200/60"
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 text-center"
             suppressHydrationWarning
           >
             © {currentYear} APEX Experts AI Solutions. Engineered with absolute
@@ -129,8 +126,8 @@ function FooterLinkGroup({
   links: { name: string; href: string }[];
 }) {
   return (
-    <div className="space-y-6">
-      <h4 className="text-2xl text-white-200 tracking-normal leading-4 font-bold">
+    <div className="space-y-3 md:space-y-6">
+      <h4 className="text-base md:text-2xl text-white-200 tracking-normal leading-4 font-bold">
         {title}
       </h4>
       <div className="flex flex-col gap-4">
@@ -138,7 +135,7 @@ function FooterLinkGroup({
           <Link
             key={link.name}
             href={link.href}
-            className="text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-300"
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-300"
           >
             {link.name}
           </Link>

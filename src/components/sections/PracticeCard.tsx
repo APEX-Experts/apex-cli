@@ -53,7 +53,7 @@ const PracticeCard = ({ practice, index }: Props) => {
         }}
       />
 
-      <div className="flex flex-row md:flex-col gap-4 items-start z-20">
+      <div className="flex flex-row md:flex-col gap-4 items-center md:items-start z-20">
         <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/3 border border-white/8 ">
           <PracticeIcon
             index={index}
@@ -72,7 +72,7 @@ const PracticeCard = ({ practice, index }: Props) => {
         {practice.items.map((item, i) => (
           <div
             key={i}
-            className="px-4 py-2 rounded-full bg-white/3 border border-white/10 flex items-center justify-center"
+            className="px-4 py-2 rounded-full bg-white/3 border border-white/10 flex items-center justify-center w-full md:w-fit"
           >
             <span className="text-[10px] font-bold tracking-widest text-center uppercase text-white/50 group-hover:text-white transition-all duration-300">
               {item}

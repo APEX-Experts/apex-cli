@@ -47,10 +47,12 @@ const RESULTS = [
 
 export function ProblemSection() {
   return (
-    <section className="section-shell relative overflow-hidden py-24">
-      <div className="section-label mb-12">01 // The Problem</div>
+    <section className="section-shell relative overflow-hidden py-8 md:py-24">
+      <div className="section-label mb-12 text-center md:text-start">
+        01 // The Problem
+      </div>
 
-      <h2 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+      <h2 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-center md:text-start">
         What Slows Enterprise{" "}
         <span className="text-sinai-glow-orange">Systems Down</span>
       </h2>
@@ -65,12 +67,12 @@ export function ProblemSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group transition-all duration-300 flex items-start gap-4 rounded-2xl border border-white/5 bg-white/2 p-6 hover:bg-white/4"
+                className="group transition-all duration-300 flex flex-col md:flex-row items-center md:items-start gap-4 rounded-2xl border border-white/5 bg-white/2 p-6 hover:bg-white/4"
               >
                 <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sinai-glow-orange/10 text-sinai-glow-orange group-hover:bg-sinai-glow-orange group-hover:text-white transition-all duration-300">
                   {issue.icon}
                 </div>
-                <p className="text-lg leading-relaxed text-zinc-300">
+                <p className="text-lg leading-relaxed text-zinc-300 text-center md:text-start">
                   {issue.text}
                 </p>
               </motion.div>
@@ -135,7 +137,7 @@ function PredictableResultCard() {
 
       {/* Content */}
       <div className="relative z-10 h-full">
-        <div className="rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm flex flex-col">
+        <div className="rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm flex flex-col items-center md:items-start">
           <span className="rounded-2xl border border-sinai-glow-orange/20 bg-sinai-glow-orange/10 text-sinai-glow-orange px-4 py-3 mb-8 max-w-fit">
             The result is predictable
           </span>

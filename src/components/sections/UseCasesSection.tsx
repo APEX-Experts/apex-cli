@@ -71,7 +71,7 @@ function UseCaseCard({ uc, index }: UseCaseCardProps) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/2 p-8 transition-colors hover:bg-white/4"
+      className="group relative flex flex-col justify-between items-center md:items-start overflow-hidden rounded-3xl border border-white/10 bg-white/2 p-8 transition-colors hover:bg-white/4"
     >
       {/* Mouse Following Glow */}
       <div
@@ -87,14 +87,14 @@ function UseCaseCard({ uc, index }: UseCaseCardProps) {
         }}
       />
 
-      <div className="relative z-10 flex h-full flex-col justify-between">
+      <div className="relative z-10 flex h-full flex-col justify-between items-center md:items-start">
         <div className="mb-8 flex items-center justify-between">
           <div className="flex h-16 w-16 items-center justify-center rounded-2xl border text-zinc-400 group-hover:text-white transition-colors duration-500">
             {uc.icon}
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 text-center md:text-start">
           <h3 className="text-2xl font-bold text-white">{uc.title}</h3>
           <div className="space-y-2">
             <div className="text-sm text-zinc-400 group-hover:text-white flex flex-col gap-2">
@@ -122,14 +122,14 @@ function UseCaseCard({ uc, index }: UseCaseCardProps) {
 
 export function UseCasesSection() {
   return (
-    <section className="section-shell relative py-24">
+    <section className="section-shell relative py-8 md:py-24">
       <div className="section-label mb-12">03 // Use Cases</div>
 
       <div className="mb-16 max-w-3xl">
-        <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl text-center md:text-start">
           Real-World <span className="text-sinai-glow-orange">Use Cases</span>
         </h2>
-        <p className="text-xl text-zinc-400">
+        <p className="text-base md:text-xl text-zinc-400 text-center md:text-start">
           Where We Drive Transformation Across Critical Enterprise Workflows
         </p>
       </div>

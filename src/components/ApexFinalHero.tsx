@@ -6,6 +6,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HeroCTA } from "./Icons";
 import { Badge } from "@/components/ui/Badge";
+import { cn } from "@/lib/utils";
 
 // 🚨 الحل الجذري: استخدام النسخة العادية من المكتبة بشكل Dynamic لمنع السيرفر من التدخل
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
@@ -19,7 +20,7 @@ const Spline = dynamic(() => import("@splinetool/react-spline"), {
 
 export const ApexFinalHero = () => {
   return (
-    <section className="relative w-full min-h-screen bg-[#06080a] flex flex-col justify-between overflow-hidden px-4 pb-14 pt-28 sm:px-6 lg:pb-20 lg:pt-32">
+    <section className="relative w-full min-h-screen bg-[#06080a] flex flex-col justify-between overflow-hidden px-4 pb-8 pt-28 sm:px-6 md:pb-16 lg:pb-20 lg:pt-32">
       {/* ── Background Grid ── */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-[0.03]">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-size-[50px_50px]" />
@@ -36,16 +37,14 @@ export const ApexFinalHero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center max-md:justify-center gap-2"
               >
-                <Badge>
-                  AI SOLUTIONS • ENTERPRISE GRADE
-                </Badge>
+                <Badge>AI SOLUTIONS • ENTERPRISE GRADE</Badge>
               </motion.div>
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-5xl md:text-[64px] text-center md:text-start font-bold md:font-black leading-12 lg:leading-20 tracking-0 md:tracking-tight text-white"
+                className="text-[42px] sm:text-5xl md:text-[64px] text-center md:text-start font-bold md:font-black leading-12 lg:leading-20 tracking-0 md:tracking-tight text-white"
               >
                 Enterprise Systems Built Where{" "}
                 <span className="text-sinai-glow-orange">
@@ -57,7 +56,7 @@ export const ApexFinalHero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-base text-white-200 max-w-lg leading-[29.25px] text-center md:text-start"
+                className="text-base text-white-200/60 max-w-lg leading-[26px] md:leading-[29.25px] text-center md:text-start"
               >
                 We design and deliver enterprise software systems, web
                 platforms, and AI-integrated environments that operate within
@@ -134,7 +133,7 @@ export const ApexFinalHero = () => {
       <div className="w-full pb-8 pt-4 relative z-20 mt-20">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
           <div className="flex items-center gap-6 w-full justify-center">
-            <span className="text-sm tracking-[4.5px] text-white uppercase font-black text-center">
+            <span className="text-sm tracking-[4.5px] leading-[22px] text-white uppercase font-black text-center">
               Built on trust. Engineered to scale.
             </span>
           </div>
@@ -143,12 +142,15 @@ export const ApexFinalHero = () => {
             {["ORACLE", "APEX", "AI", "OCI", "PL/SQL"].map((t) => (
               <span
                 key={t}
-                className="text-lg lg:text-3xl font-black text-white tracking-tighter"
+                className={cn(
+                  "text-base lg:text-3xl font-black text-white tracking-tighter",
+                  t.includes("PL/SQL") && "hidden md:block"
+                )}
               >
                 {t}
               </span>
             ))}
-            <Cloud className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
+            <Cloud className="w-6 h-6 lg:w-8 lg:h-8 text-white hidden md:block" />
           </div>
         </div>
       </div>

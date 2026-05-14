@@ -231,7 +231,7 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
-        scrolled ? "py-3 backdrop-blur-sm" : "py-4 sm:py-6"
+        scrolled ? "py-3 md:backdrop-blur-sm" : "py-4 sm:py-6"
       }`}
     >
       <div className="apex-container-wide">
@@ -912,8 +912,8 @@ export function Header() {
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
             className="fixed inset-0 z-100 flex flex-col bg-sinai-bg-base p-6 sm:p-8 lg:hidden"
           >
-            <div className="pointer-events-none absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-            <div className="mb-10 flex items-center justify-between sm:mb-14 ">
+            <div className="pointer-events-none absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay z-100" />
+            <div className="mb-10 flex items-center justify-between sm:mb-14 z-101 ">
               <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
                 System_Navigation
               </span>
@@ -925,7 +925,7 @@ export function Header() {
               </button>
             </div>
 
-            <nav className="flex flex-col gap-6">
+            <nav className="flex flex-col gap-6 z-101">
               {NAV_LINKS.map((link, i) => (
                 <motion.div
                   key={link.label}
@@ -944,7 +944,7 @@ export function Header() {
               ))}
             </nav>
 
-            <div className="mt-auto space-y-6">
+            <div className="mt-auto space-y-6 z-101">
               <div className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
                 Operational_Status
               </div>

@@ -312,14 +312,14 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="section-shell relative scroll-mt-28 overflow-hidden"
+      className="section-shell relative scroll-mt-8 md:scroll-mt-28 overflow-hidden"
     >
       {/* Dynamic Background Grid */}
       <div className="apex-ambient-grid" />
 
       <div className="section-label mb-6 relative z-10">02 // Solutions</div>
 
-      <h2 className="text-3xl md:text-5xl font-bold leading-[130%] tracking-[-0.075rem] mb-6">
+      <h2 className="text-3xl md:text-5xl font-bold leading-[40px] md:leading-[130%] tracking-normal md:tracking-[-0.075rem] mb-6 text-center md:text-start">
         System-Level Capabilities That Power{" "}
         <span className="text-sinai-glow-orange">Your Operations</span>
       </h2>

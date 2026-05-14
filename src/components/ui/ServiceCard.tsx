@@ -62,13 +62,13 @@ export function ServiceCard({
       {typeof diagram === "function" ? diagram(reducedMotion) : diagram}
 
       {/* Icon & Content */}
-      <div className="relative z-10 flex h-full flex-col space-y-6">
+      <div className="relative z-10 flex h-full flex-col space-y-6 items-center md:items-start">
         <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/3 shadow-2xl transition-all duration-300 group-hover:border-sinai-glow-orange/20">
           <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           {typeof icon === "function" ? icon(reducedMotion) : icon}
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-4 text-center md:text-start">
           <h3 className="text-3xl font-bold tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-orange lg:text-4xl">
             {title}
           </h3>
@@ -78,7 +78,7 @@ export function ServiceCard({
         </div>
 
         {/* Technical Tags */}
-        <div className="mt-auto flex flex-wrap gap-2.5 pt-5">
+        <div className="mt-auto flex flex-wrap gap-2.5 pt-5 ">
           {tags.map((tag) => (
             <span
               key={tag}

@@ -207,6 +207,12 @@
     text-transform: uppercase;
   }
 
+  @media (max-width: 640px) {
+    .section-label {
+      justify-content: center;
+    }
+  }
+
   .section-label::before {
     content: "";
     width: clamp(2rem, 5vw, 3rem);

@@ -26,14 +26,14 @@ export function SolutionSection() {
             <span className="text-sinai-glow-orange">Grade Modernization</span>
           </h2>
 
-          <p className="text-base text-white-200 font-medium leading-[130%] tracking-[0%] text-center max-w-6xl">
+          <p className="text-base text-zinc-400 font-normal md:font-medium leading-[24.38px] md:leading-[130%] tracking-[0%] text-center max-w-6xl">
             A founder-led software engineering firm with 17+ years of expertise
             in Oracle APEX, enterprise data architecture, AI integration, web
             platforms, and mobile applications — delivering scalable systems
             built for real business operations.
           </p>
 
-          <div className="py-6">
+          <div className="py-2 md:py-6">
             <div className="inline-block relative">
               <SubHeader>
                 We do not hand over roadmaps. We build the systems.
@@ -41,8 +41,7 @@ export function SolutionSection() {
             </div>
           </div>
 
-          {/* THIS HAS A BORDER FOR SOME REASON */}
-          <div className="grid sm:grid-cols-2 gap-4 text-left mt-8 border-none">
+          <div className="grid sm:grid-cols-2 gap-4 text-left md:mt-8 border-none">
             {PRACTICES.map((practice, index) => (
               <PracticeCard key={index} practice={practice} index={index} />
             ))}
