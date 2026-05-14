@@ -100,47 +100,10 @@ export default async function Home() {
 
             <div className="section-separator my-0" aria-hidden="true" />
 
-            {/* ── Process ── */}
-            <SectionReveal>
-              <ProcessSection />
-            </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
-
-            {/* ── Projects ── */}
-            <SectionReveal>
-              <ProjectsSection />
-            </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
-
-            {/* ── Testimonials ── */}
-            <SectionReveal>
-              <TestimonialsSection />
-            </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
-
-            {/* ── Blog ── */}
-            <SectionReveal>
-              <BlogSection />
-            </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
-
             {/* ── CTA Block ── */}
             <SectionReveal>
               <CtaSection />
             </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
-
-            {/* ── Contact ── */}
-            <SectionReveal>
-              <ContactSection />
-            </SectionReveal>
-
-            <div className="h-10 sm:h-12" />
           </div>
         </div>
       </section>

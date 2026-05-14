@@ -474,3 +474,23 @@
     left: 100%;
   }
 }
+
+.why-us-gradient-card {
+  background: linear-gradient(
+    135deg,
+    rgba(217, 130, 47, 0.08) 0%,
+    rgba(217, 130, 47, 0.02) 100%
+  );
+  border-radius: 24px;
+  border-width: 1px;
+  box-shadow: 0px 25px 50px -12px #00000040;
+}
+
+.why-us-gradient {
+  background: linear-gradient(
+    135deg,
+    rgba(217, 130, 47, 0.4) 0%,
+    rgba(217, 130, 47, 0.2) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
