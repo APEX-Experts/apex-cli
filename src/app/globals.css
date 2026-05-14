@@ -5,7 +5,7 @@
   --color-foreground: #f4efe7;
 
   --color-surface: rgba(255, 255, 255, 0.06);
-  --color-surface-raised: rgba(255, 255, 255, 0.10);
+  --color-surface-raised: rgba(255, 255, 255, 0.1);
 
   --color-border: rgba(255, 255, 255, 0.18);
   --color-border-subtle: rgba(255, 255, 255, 0.08);
@@ -37,7 +37,9 @@
   --color-sinai-text-secondary: rgba(244, 239, 231, 0.68);
   --color-sinai-border-soft-light: rgba(255, 255, 255, 0.14);
   --color-sinai-surface-glass-dark: rgba(255, 255, 255, 0.045);
-  --color-sinai-surface-glass-blue: rgba(148, 164, 186, 0.10);
+  --color-sinai-surface-glass-blue: rgba(148, 164, 186, 0.1);
+
+  --color-white-200: #f5f7fa;
 
   /* Custom Technical Animations */
   @keyframes scanline {
@@ -208,7 +210,11 @@
     content: "";
     width: clamp(2rem, 5vw, 3rem);
     height: 1px;
-    background: linear-gradient(90deg, rgba(217, 130, 47, 0.8), rgba(148, 164, 186, 0));
+    background: linear-gradient(
+      90deg,
+      rgba(217, 130, 47, 0.8),
+      rgba(148, 164, 186, 0)
+    );
   }
 
   .section-separator {
@@ -216,30 +222,56 @@
     width: min(100%, 64rem);
     margin-inline: auto;
     background:
-      linear-gradient(90deg, transparent, rgba(244, 239, 231, 0.08), transparent),
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(244, 239, 231, 0.08),
+        transparent
+      ),
       radial-gradient(circle, rgba(217, 130, 47, 0.12), transparent 58%);
   }
 
   .apex-panel {
     border: 1px solid var(--apex-border);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.026)),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.055),
+        rgba(255, 255, 255, 0.026)
+      ),
       rgba(8, 10, 12, 0.76);
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    box-shadow:
+      0 24px 80px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
   }
 
   .apex-panel-hover {
-    transition: border-color 240ms ease, background 240ms ease, transform 240ms ease, box-shadow 240ms ease;
+    transition:
+      border-color 240ms ease,
+      background 240ms ease,
+      transform 240ms ease,
+      box-shadow 240ms ease;
   }
 
   .apex-panel-hover:hover {
-    border-color: color-mix(in srgb, var(--apex-accent) 34%, rgba(255, 255, 255, 0.14));
+    border-color: color-mix(
+      in srgb,
+      var(--apex-accent) 34%,
+      rgba(255, 255, 255, 0.14)
+    );
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.072), rgba(255, 255, 255, 0.032)),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.072),
+        rgba(255, 255, 255, 0.032)
+      ),
       rgba(8, 10, 12, 0.82);
-    box-shadow: 0 30px 92px rgba(0, 0, 0, 0.34), 0 0 42px rgba(217, 130, 47, 0.055), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    box-shadow:
+      0 30px 92px rgba(0, 0, 0, 0.34),
+      0 0 42px rgba(217, 130, 47, 0.055),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
     transform: translateY(-2px);
   }
 
@@ -247,7 +279,12 @@
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
-    background-image: linear-gradient(100deg, var(--apex-accent-soft) 0%, var(--apex-text) 48%, var(--apex-steel) 100%);
+    background-image: linear-gradient(
+      100deg,
+      var(--apex-accent-soft) 0%,
+      var(--apex-text) 48%,
+      var(--apex-steel) 100%
+    );
   }
 
   .apex-ambient-grid {
@@ -259,7 +296,11 @@
       linear-gradient(rgba(244, 239, 231, 0.28) 1px, transparent 1px),
       linear-gradient(90deg, rgba(244, 239, 231, 0.22) 1px, transparent 1px);
     background-size: 72px 72px;
-    mask-image: radial-gradient(ellipse 62% 48% at 50% 28%, black 0%, transparent 76%);
+    mask-image: radial-gradient(
+      ellipse 62% 48% at 50% 28%,
+      black 0%,
+      transparent 76%
+    );
   }
 
   .apex-ambient-glow {
@@ -269,8 +310,16 @@
     height: clamp(18rem, 48vw, 46rem);
     border-radius: 9999px;
     background:
-      radial-gradient(circle at 42% 40%, rgba(217, 130, 47, 0.095), transparent 56%),
-      radial-gradient(circle at 62% 58%, rgba(148, 164, 186, 0.055), transparent 62%);
+      radial-gradient(
+        circle at 42% 40%,
+        rgba(217, 130, 47, 0.095),
+        transparent 56%
+      ),
+      radial-gradient(
+        circle at 62% 58%,
+        rgba(148, 164, 186, 0.055),
+        transparent 62%
+      );
     filter: blur(90px);
   }
 
@@ -292,12 +341,18 @@
     border-radius: 9999px;
     border: 1px solid rgba(255, 255, 255, 0.14);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.055)),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.055)
+      ),
       rgba(255, 255, 255, 0.04);
     color: var(--color-sinai-text-primary) !important;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    box-shadow:
+      0 12px 36px rgba(0, 0, 0, 0.24),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
     transition: all 220ms ease;
     font-weight: 600;
     font-family: inherit;
@@ -308,7 +363,11 @@
 
   .btn-premium:hover {
     background:
-      linear-gradient(180deg, rgba(217, 130, 47, 0.18), rgba(255, 255, 255, 0.055)),
+      linear-gradient(
+        180deg,
+        rgba(217, 130, 47, 0.18),
+        rgba(255, 255, 255, 0.055)
+      ),
       rgba(255, 255, 255, 0.06);
     border-color: rgba(241, 183, 104, 0.36);
     transform: translateY(-1px);
@@ -345,11 +404,13 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(to bottom,
-        rgba(255, 255, 255, 0),
-        rgba(255, 255, 255, 0) 50%,
-        rgba(0, 0, 0, 0.1) 50%,
-        rgba(0, 0, 0, 0.1));
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0) 50%,
+      rgba(0, 0, 0, 0.1) 50%,
+      rgba(0, 0, 0, 0.1)
+    );
     background-size: 100% 4px;
     z-index: 50;
     pointer-events: none;
@@ -359,7 +420,6 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-
   *,
   ::before,
   ::after {
