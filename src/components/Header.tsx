@@ -230,7 +230,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 backdrop-blur-sm ${
         scrolled ? "py-3" : "py-4 sm:py-6"
       }`}
     >
@@ -910,10 +910,10 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed inset-0 z-40 flex flex-col bg-sinai-bg-base p-6 sm:p-8 lg:hidden"
+            className="fixed inset-0 z-100 flex flex-col bg-sinai-bg-base p-6 sm:p-8 lg:hidden"
           >
-            <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-            <div className="mb-10 flex items-center justify-between sm:mb-14">
+            <div className="pointer-events-none absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay" />
+            <div className="mb-10 flex items-center justify-between sm:mb-14 ">
               <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
                 System_Navigation
               </span>
