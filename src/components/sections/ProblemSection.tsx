@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Clock, Database, Lock, ServerCrash } from "lucide-react";
+import { useRef, useState } from "react";
 
 const ISSUES = [
   {
@@ -78,47 +79,93 @@ export function ProblemSection() {
         </div>
 
         {/* Right: The result is predictable */}
-        <div className="relative ">
-          <div className="absolute -inset-x-6 -inset-y-10 z-0 bg-linear-to-b from-sinai-glow-orange/5 to-transparent blur-3xl" />
-          <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(135deg,rgba(217,130,47,0.2)_0%,rgba(217,130,47,0.05)_50%,rgba(0,0,0,0)_100%)]"></div>
-          <div className="relative z-10 h-full ">
-            <div className="rounded-2xl border border-white/10 bg-black/40 p-8  backdrop-blur-sm flex flex-col">
-              <span className="rounded-2xl border border-sinai-glow-orange/20 bg-sinai-glow-orange/10 text-sinai-glow-orange px-4 py-3 mb-8 max-w-fit">
-                The result is predictable
-              </span>
-              <ul className="space-y-4 ">
-                {RESULTS.map((result, i) => (
-                  <motion.li
-                    key={i}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.1 }}
-                    className="flex flex-col items-start gap-3 text-sm text-zinc-400 sm:text-base"
-                  >
-                    <h3 className="text-base font-bold text-white">
-                      {result.header}
-                    </h3>
-                    <ul className="space-y-1">
-                      {result.points.map((point, j) => (
-                        <li key={j} className="flex items-start gap-2">
-                          <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-white/50" />
-                          <span className="text-sm leading-[28px]">
-                            {point}
-                          </span>
-                        </li>
-                      ))}
-                      {i === 0 && (
-                        <div className="h-px w-full bg-white/10 mt-3" />
-                      )}
-                    </ul>
-                  </motion.li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
+        <PredictableResultCard />
       </div>
     </section>
+  );
+}
+
+function PredictableResultCard() {
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const [position, setPosition] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const [hovered, setHovered] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = cardRef.current?.getBoundingClientRect();
+
+    if (!rect) return;
+
+    setPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      className="relative"
+    >
+      {/* Ambient glow */}
+      <div className="absolute -inset-x-6 -inset-y-10 z-0 bg-linear-to-b from-sinai-glow-orange/5 to-transparent blur-3xl" />
+
+      {/* Cursor-follow gradient */}
+      <div
+        className="absolute inset-0 rounded-2xl transition-opacity duration-300"
+        style={{
+          opacity: hovered ? 1 : 0,
+          background: `
+            radial-gradient(
+              1800px circle at ${position.x}px ${position.y}px,
+              rgba(217,130,47,0.25),
+              rgba(217,130,47,0.10) 30%,
+              transparent 70%
+            )
+          `,
+        }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 h-full">
+        <div className="rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm flex flex-col">
+          <span className="rounded-2xl border border-sinai-glow-orange/20 bg-sinai-glow-orange/10 text-sinai-glow-orange px-4 py-3 mb-8 max-w-fit">
+            The result is predictable
+          </span>
+          <ul className="space-y-4 ">
+            {RESULTS.map((result, i) => (
+              <motion.li
+                key={i}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="flex flex-col items-start gap-3 text-sm text-zinc-400 sm:text-base"
+              >
+                <h3 className="text-base font-bold text-white">
+                  {result.header}
+                </h3>
+                <ul className="space-y-1">
+                  {result.points.map((point, j) => (
+                    <li key={j} className="flex items-start gap-2">
+                      <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-white/50" />
+                      <span className="text-sm leading-[28px]">{point}</span>
+                    </li>
+                  ))}
+                  {i === 0 && <div className="h-px w-full bg-white/10 mt-3" />}
+                </ul>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
   );
 }

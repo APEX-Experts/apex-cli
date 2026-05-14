@@ -273,7 +273,7 @@ export function Header() {
                       aria-expanded={isServicesOpen}
                       className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
                         active || isServicesOpen
-                          ? "text-sinai-glow-soft"
+                          ? "text-white"
                           : "text-zinc-400 hover:text-white"
                       }`}
                     >
@@ -566,7 +566,7 @@ export function Header() {
                       aria-expanded={isProjectsOpen}
                       className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
                         active || isProjectsOpen
-                          ? "text-sinai-glow-soft"
+                          ? "text-white"
                           : "text-zinc-400 hover:text-white"
                       }`}
                     >
@@ -855,7 +855,7 @@ export function Header() {
                   href={link.href}
                   className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
                     active
-                      ? "text-sinai-glow-soft"
+                      ? "text-sinai-glow-orange"
                       : "text-zinc-400 hover:text-white"
                   }`}
                 >
@@ -875,7 +875,7 @@ export function Header() {
           <div className="flex items-center gap-6">
             <Link
               href="/contact"
-              className="hidden items-center gap-3 rounded-full bg-sinai-glow-soft px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-white shadow-[0_10px_30px_rgba(217,130,47,0.14)] transition-all duration-300 hover:bg-white sm:flex group"
+              className="hidden items-center gap-3 rounded-full bg-sinai-glow-orange px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-white hover:text-black shadow-[0_10px_30px_rgba(217,130,47,0.14)] transition-all duration-300 hover:bg-white sm:flex group"
             >
               Connect_Node
               <div
@@ -936,7 +936,7 @@ export function Header() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="text-4xl font-black uppercase tracking-normal text-zinc-700 transition-colors hover:text-sinai-glow-soft sm:text-5xl"
+                    className="text-4xl font-black uppercase tracking-normal text-zinc-700 transition-colors hover:text-sinai-glow-orange sm:text-5xl"
                   >
                     {link.label}
                   </Link>

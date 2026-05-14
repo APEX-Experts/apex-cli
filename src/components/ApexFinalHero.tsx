@@ -5,6 +5,7 @@ import { Cloud } from "lucide-react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HeroCTA } from "./Icons";
+import { Badge } from "@/components/ui/Badge";
 
 // 🚨 الحل الجذري: استخدام النسخة العادية من المكتبة بشكل Dynamic لمنع السيرفر من التدخل
 const Spline = dynamic(() => import("@splinetool/react-spline"), {
@@ -35,9 +36,9 @@ export const ApexFinalHero = () => {
                 animate={{ opacity: 1, x: 0 }}
                 className="inline-flex items-center max-md:justify-center gap-2"
               >
-                <span className="text-[10px] md:text-sm tracking-[0.4em] text-sinai-glow-orange uppercase font-black px-3 py-1 border border-sinai-glow-orange rounded-full bg-sinai-glow-orange/5">
+                <Badge>
                   AI SOLUTIONS • ENTERPRISE GRADE
-                </span>
+                </Badge>
               </motion.div>
 
               <motion.h1

@@ -62,20 +62,15 @@ export default async function Home() {
         {/* ── Page Content ── */}
         <div className="relative bg-[linear-gradient(180deg,#06080a_0%,#080a0d_45%,#06080a_100%)]">
           <div className="apex-container-wide relative">
-            
             {/* ── Problem Section ── */}
             <SectionReveal>
               <ProblemSection />
             </SectionReveal>
 
-            <div className="section-separator my-0" aria-hidden="true" />
-
             {/* ── Solution Section ── */}
             <SectionReveal>
               <SolutionSection />
             </SectionReveal>
-
-            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── System Flow ── */}
             <SectionReveal>
