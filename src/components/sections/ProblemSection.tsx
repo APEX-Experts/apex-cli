@@ -1,8 +1,7 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { ServerCrash, Database, Clock, Lock } from "lucide-react";
+import { Clock, Database, Lock, ServerCrash } from "lucide-react";
 
 const ISSUES = [
   {
@@ -24,25 +23,39 @@ const ISSUES = [
 ];
 
 const RESULTS = [
-  "Legacy Oracle Forms applications blocking modernization roadmaps.",
-  "Fragmented data across siloed operational systems and databases.",
-  "Manual reporting cycles introducing delays in business decision-making.",
-  "AI initiatives that reach proof-of-concept and never reach production.",
-  "APEX environments underperforming due to poor architecture and PL/SQL debt.",
-  "Mobile and field teams disconnected from core approval workflows.",
+  {
+    header: "System-Level Breakdown",
+    points: [
+      "Legacy Oracle Forms applications blocking modernization roadmaps.",
+      "Fragmented data across siloed operational systems and databases.",
+      "Manual reporting cycles introducing delays in business decision-making.",
+      "AI initiatives that reach proof-of-concept and never reach production.",
+      "Mobile and field teams disconnected from core approval workflows.",
+      "APEX environments underperforming due to poor architecture and PL/SQL debt.",
+    ],
+  },
+  {
+    header: "Immediate Operational Impact",
+    points: [
+      "Technical debt accumulates.",
+      "Operational teams work around broken processes.",
+      "Modernization projects stall because the risk of disruption is too high.",
+    ],
+  },
 ];
 
 export function ProblemSection() {
   return (
     <section className="section-shell relative overflow-hidden py-24">
       <div className="section-label mb-12">01 // The Problem</div>
-      
-      <div className="grid gap-16 lg:grid-cols-2 lg:gap-24">
+
+      <h2 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+        What Slows Enterprise{" "}
+        <span className="text-sinai-glow-orange">Systems Down</span>
+      </h2>
+      <div className="grid gap-8 lg:grid-cols-2 items-center">
         {/* Left: What slows them down */}
         <div>
-          <h2 className="mb-8 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-            What Slows Enterprise Systems Down
-          </h2>
           <div className="space-y-6">
             {ISSUES.map((issue, i) => (
               <motion.div
@@ -51,35 +64,29 @@ export function ProblemSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="flex items-start gap-4 rounded-2xl border border-white/5 bg-white/[0.02] p-6 transition-colors hover:bg-white/[0.04]"
+                className="group transition-all duration-300 flex items-start gap-4 rounded-2xl border border-white/5 bg-white/2 p-6 hover:bg-white/4"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red-500/10 text-red-400">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sinai-glow-orange/10 text-sinai-glow-orange group-hover:bg-sinai-glow-orange group-hover:text-white transition-all duration-300">
                   {issue.icon}
                 </div>
-                <p className="text-lg leading-relaxed text-zinc-300">{issue.text}</p>
+                <p className="text-lg leading-relaxed text-zinc-300">
+                  {issue.text}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Right: The result is predictable */}
-        <div className="relative flex flex-col justify-center">
-          <div className="absolute -inset-x-6 -inset-y-10 z-0 bg-gradient-to-b from-sinai-glow-orange/5 to-transparent blur-3xl" />
-          
-          <div className="relative z-10">
-            <h3 className="mb-6 flex items-center gap-3 text-2xl font-bold text-sinai-glow-soft">
-              <span className="h-px w-8 bg-sinai-glow-orange" />
-              The result is predictable ↓
-            </h3>
-            
-            <div className="mb-8 space-y-4">
-              <p className="text-xl font-medium text-white">Technical debt accumulates.</p>
-              <p className="text-xl font-medium text-white">Operational teams work around broken processes.</p>
-              <p className="text-xl font-medium text-white">Modernization projects stall because the risk of disruption is too high.</p>
-            </div>
-
-            <div className="rounded-2xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm">
-              <ul className="space-y-4">
+        <div className="relative ">
+          <div className="absolute -inset-x-6 -inset-y-10 z-0 bg-linear-to-b from-sinai-glow-orange/5 to-transparent blur-3xl" />
+          <div className="absolute inset-0 rounded-2xl bg-[linear-gradient(135deg,rgba(217,130,47,0.2)_0%,rgba(217,130,47,0.05)_50%,rgba(0,0,0,0)_100%)]"></div>
+          <div className="relative z-10 h-full ">
+            <div className="rounded-2xl border border-white/10 bg-black/40 p-8  backdrop-blur-sm flex flex-col">
+              <span className="rounded-2xl border border-sinai-glow-orange/20 bg-sinai-glow-orange/10 text-sinai-glow-orange px-4 py-3 mb-8 max-w-fit">
+                The result is predictable
+              </span>
+              <ul className="space-y-4 ">
                 {RESULTS.map((result, i) => (
                   <motion.li
                     key={i}
@@ -87,10 +94,24 @@ export function ProblemSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
-                    className="flex items-start gap-3 text-sm text-zinc-400 sm:text-base"
+                    className="flex flex-col items-start gap-3 text-sm text-zinc-400 sm:text-base"
                   >
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-red-500/50" />
-                    <span>{result}</span>
+                    <h3 className="text-base font-bold text-white">
+                      {result.header}
+                    </h3>
+                    <ul className="space-y-1">
+                      {result.points.map((point, j) => (
+                        <li key={j} className="flex items-start gap-2">
+                          <span className="mt-2.5 h-1 w-1 shrink-0 rounded-full bg-white/50" />
+                          <span className="text-sm leading-[28px]">
+                            {point}
+                          </span>
+                        </li>
+                      ))}
+                      {i === 0 && (
+                        <div className="h-px w-full bg-white/10 mt-3" />
+                      )}
+                    </ul>
                   </motion.li>
                 ))}
               </ul>
