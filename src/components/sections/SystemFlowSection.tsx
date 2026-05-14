@@ -1,8 +1,16 @@
 "use client";
 
-import React from "react";
 import { motion } from "framer-motion";
-import { Database, LayoutTemplate, Network, Workflow, BrainCircuit } from "lucide-react";
+import {
+  BrainCircuit,
+  Database,
+  LayoutTemplate,
+  Network,
+  Workflow,
+} from "lucide-react";
+import { Badge } from "../ui/Badge";
+import SubHeader from "../ui/SubHeader";
+import { cn } from "@/lib/utils";
 
 const LAYERS = [
   {
@@ -10,81 +18,314 @@ const LAYERS = [
     name: "Data Layer",
     desc: "DBs / Reports / Datasets",
     icon: <Database className="h-5 w-5" />,
-    color: "from-blue-500/20 to-cyan-500/20 text-cyan-400 border-cyan-500/30",
   },
   {
     id: "app",
     name: "Application Layer",
     desc: "Web Apps / APEX / Tools",
     icon: <LayoutTemplate className="h-5 w-5" />,
-    color: "from-indigo-500/20 to-purple-500/20 text-indigo-400 border-indigo-500/30",
   },
   {
     id: "integration",
     name: "Integration Layer",
     desc: "APIs / ORDS / Services",
     icon: <Network className="h-5 w-5" />,
-    color: "from-emerald-500/20 to-green-500/20 text-emerald-400 border-emerald-500/30",
   },
   {
     id: "workflow",
     name: "Workflow Layer",
     desc: "Approvals / Automation / Business Processes",
     icon: <Workflow className="h-5 w-5" />,
-    color: "from-amber-500/20 to-orange-500/20 text-amber-400 border-amber-500/30",
   },
   {
     id: "ai",
     name: "AI Layer",
     desc: "ASKLYZE / AI Assistants (Insights & Automation)",
     icon: <BrainCircuit className="h-5 w-5" />,
-    color: "from-sinai-glow-orange/20 to-red-500/20 text-sinai-glow-orange border-sinai-glow-orange/50",
   },
 ];
 
 export function SystemFlowSection() {
   return (
-    <section className="section-shell relative py-24">
-      <div className="mx-auto max-w-4xl text-center mb-16">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl mb-4">
-          We Don’t Build Features. <span className="text-sinai-glow-soft">We Build Systems.</span>
+    <section className="section-shell relative overflow-hidden py-24">
+      <div className="mx-auto flex flex-col items-start gap-6 text-center">
+        <Badge>REAL-WORLD SOFTWARE</Badge>
+
+        <h2 className="text-4xl font-bold tracking-[-0.075rem] text-white lg:text-6xl">
+          We Don’t Build Features.{" "}
+          <span className="text-sinai-glow-orange">We Build Systems.</span>
         </h2>
-        <div className="mb-6 inline-flex items-center justify-center rounded-full border border-sinai-glow-orange/20 bg-sinai-glow-orange/5 px-4 py-2 text-[10px] font-mono tracking-widest text-sinai-glow-orange uppercase">
-          User → Application → API Layer → Data Sources → Response / Workflow Executi
-        </div>
-        <p className="text-lg text-zinc-400 font-mono tracking-widest uppercase mt-4">Our System Landscape</p>
+
+        <SubHeader>
+          We do not hand over roadmaps. We build the systems.
+        </SubHeader>
       </div>
 
-      <div className="relative mx-auto max-w-3xl">
-        {/* Connection Line */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-px -translate-x-1/2 bg-gradient-to-b from-cyan-500/20 via-sinai-glow-orange/20 to-sinai-glow-orange/50" />
+      <LayersLayout />
+    </section>
+  );
+}
 
-        <div className="space-y-6">
-          {LAYERS.map((layer, i) => (
+function LayersLayout() {
+  return (
+    <>
+      {/* MOBILE / TABLET */}
+      <div className="mx-auto flex max-w-xl flex-col items-center px-4 lg:hidden">
+        {LAYERS.map((layer, i) => (
+          <div key={layer.id} className="flex w-full flex-col items-center">
             <motion.div
-              key={layer.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15, duration: 0.5 }}
-              className="relative z-10 flex flex-col items-center"
+              transition={{
+                duration: 0.5,
+                delay: i * 0.1,
+              }}
+              className="
+          group
+          relative
+          flex
+          min-h-[110px]
+          w-full
+          flex-col
+          items-center
+          justify-center
+          rounded-3xl
+          border
+          border-white/10
+          bg-[#06080a]
+          px-6
+          py-6
+          text-center
+          backdrop-blur-xl
+          transition-all
+          duration-300
+          hover:border-sinai-glow-orange/40
+          hover:bg-[#080a0d]
+        "
             >
-              <div className={`flex w-full max-w-md flex-col items-center justify-center gap-3 rounded-2xl border bg-gradient-to-br ${layer.color} p-6 backdrop-blur-md transition-transform hover:scale-105`}>
-                <div className="flex items-center gap-3">
+              <div className="mb-3 flex items-center gap-3">
+                <div className="text-white/50 transition-all duration-300 group-hover:text-white">
                   {layer.icon}
-                  <h3 className="text-xl font-bold">{layer.name}</h3>
                 </div>
-                <p className="text-sm font-medium text-white/70 text-center">{layer.desc}</p>
+
+                <h3 className="text-lg font-semibold text-white/50 transition-all duration-300 group-hover:text-white">
+                  {layer.name}
+                </h3>
               </div>
-              {i !== LAYERS.length - 1 && (
-                <div className="my-2 flex h-8 w-8 items-center justify-center rounded-full bg-black/50 text-white/30 backdrop-blur-sm">
-                  ↓
-                </div>
-              )}
+
+              <p className="text-center text-sm font-medium leading-5 text-white/50 transition-all duration-300 group-hover:text-white">
+                {layer.desc}
+              </p>
             </motion.div>
-          ))}
+
+            {/* PIPE */}
+            {i !== LAYERS.length - 1 && (
+              <svg
+                className="pointer-events-none h-16 w-6 overflow-visible"
+                viewBox="0 0 24 64"
+                fill="none"
+              >
+                {/* Pipe body */}
+                <path
+                  d="M12 0 L12 64"
+                  stroke="rgba(255,255,255,0.10)"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                />
+
+                {/* Inner line */}
+                <path
+                  d="M12 0 L12 64"
+                  stroke="rgba(255,255,255,0.18)"
+                  strokeWidth="1"
+                  strokeLinecap="round"
+                />
+
+                {/* White flow */}
+                <path
+                  d="M12 0 L12 64"
+                  stroke="white"
+                  strokeWidth="1.2"
+                  strokeLinecap="round"
+                  pathLength={100}
+                  strokeDasharray="18 88"
+                  className="pipe-flow-single"
+                />
+              </svg>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* DESKTOP */}
+      <div className="relative mx-auto hidden max-w-7xl lg:block">
+        <style>{`
+        @keyframes pipeFlow {
+          from {
+            stroke-dashoffset: 80;
+          }
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        .pipe-flow {
+          animation: pipeFlow 2s linear infinite;
+        }
+
+        @keyframes pipeFlowSingle {
+          from {
+            stroke-dashoffset: 100;
+          }
+
+          to {
+            stroke-dashoffset: 0;
+          }
+        }
+
+        .pipe-flow-single {
+          animation: pipeFlowSingle 2.5s linear infinite;
+        }
+      `}</style>
+
+        {/* PIPE NETWORK */}
+        <svg
+          className="pointer-events-none absolute inset-0 h-full w-full overflow-visible"
+          viewBox="0 0 1800 520"
+          fill="none"
+        >
+          {/* DATA -> APP */}
+          <Pipe
+            d="
+      M 280 450
+      L 550 4
+    "
+          />
+
+          {/* APP -> INTEGRATION */}
+          <Pipe
+            d="
+      M 550 105
+      L 960 450
+    "
+          />
+
+          {/* INTEGRATION -> WORKFLOW */}
+          <Pipe
+            d="
+      M 940 450
+      L 1180 4
+    "
+          />
+
+          {/* WORKFLOW -> AI */}
+          <Pipe
+            d="
+      M 1180 105
+      L 1600 450
+    "
+          />
+        </svg>
+
+        {/* CARDS */}
+        <div className="relative z-10 flex items-center px-8 py-16 gap-x-0">
+          {LAYERS.map((layer, i) => {
+            const top = i % 2 !== 0;
+
+            return (
+              <div
+                key={layer.id}
+                className={`flex h-[420px] ${top ? "items-start" : "items-end"} ${i === 1 ? "translate-x-[-50%]" : i === 2 ? "translate-x-[-75%]" : i === 3 ? "translate-x-[-125%]" : i === 4 ? "translate-x-[-150%]" : ""} pointer-events-none`}
+              >
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.12,
+                  }}
+                  className={cn(
+                    `
+                  group
+                  relative
+                  flex
+                  h-[100px]
+                  w-[355px]
+                  flex-col
+                  justify-center
+                  items-center
+                  rounded-3xl
+                  border
+                  border-white/10
+                  bg-[#06080a]
+                  px-6
+                  backdrop-blur-xl
+                  transition-all
+                  duration-300
+                  hover:border-sinai-glow-orange/40
+                  hover:bg-[#080a0d]
+                  pointer-events-auto
+                  ${i === 0 ? "z-100" : i === 1 ? "z-99" : i === 2 ? "z-98" : i === 3 ? "z-97" : "z-96"}
+                `
+                  )}
+                >
+                  <div className="relative z-10 mb-3 flex items-center gap-3 *:transition-all *:duration-300">
+                    <div className="text-white/50 group-hover:text-white">
+                      {layer.icon}
+                    </div>
+
+                    <h3 className="text-lg font-semibold text-white/50 group-hover:text-white transition-all duration-300">
+                      {layer.name}
+                    </h3>
+                  </div>
+
+                  <p className="z-10 font-medium text-sm leading-5 text-center text-white/50 group-hover:text-white transition-all duration-300">
+                    {layer.desc}
+                  </p>
+                </motion.div>
+              </div>
+            );
+          })}
         </div>
       </div>
-    </section>
+    </>
+  );
+}
+
+function Pipe({ d }: { d: string }) {
+  return (
+    <>
+      {/* Pipe body */}
+      <path
+        d={d}
+        stroke="rgba(255,255,255,0.10)"
+        strokeWidth="3"
+        strokeLinecap="round"
+        fill="none"
+      />
+
+      {/* Inner line */}
+      <path
+        d={d}
+        stroke="rgba(255,255,255,0.18)"
+        strokeWidth="1"
+        strokeLinecap="round"
+        fill="none"
+      />
+
+      {/* Flow animation */}
+      <path
+        d={d}
+        stroke="white"
+        strokeWidth="1.2"
+        strokeLinecap="round"
+        fill="none"
+        pathLength={100}
+        strokeDasharray="12 88"
+        className="pipe-flow-single"
+      />
+    </>
   );
 }

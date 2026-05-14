@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
 import { PRACTICES } from "@/constants";
 import PracticeCard from "./PracticeCard";
+import SubHeader from "../ui/SubHeader";
 
 export function SolutionSection() {
   return (
@@ -34,13 +35,14 @@ export function SolutionSection() {
 
           <div className="py-6">
             <div className="inline-block relative">
-              <h3 className="relative text-[22px] font-black text-sinai-glow-soft uppercase tracking-wider text-center">
+              <SubHeader>
                 We do not hand over roadmaps. We build the systems.
-              </h3>
+              </SubHeader>
             </div>
           </div>
 
-          <div className="grid sm:grid-cols-2 gap-4 text-left mt-8">
+          {/* THIS HAS A BORDER FOR SOME REASON */}
+          <div className="grid sm:grid-cols-2 gap-4 text-left mt-8 border-none">
             {PRACTICES.map((practice, index) => (
               <PracticeCard key={index} practice={practice} index={index} />
             ))}
