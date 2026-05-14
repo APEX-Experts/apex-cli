@@ -2,27 +2,24 @@ import { CinematicGlobe } from "../Globe";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="scroll-mt-28 py-32 border-t border-white/5 relative overflow-hidden">
+    <section id="contact" className="section-shell relative scroll-mt-28 overflow-hidden">
       {/* Decorative background element */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sinai-glow-orange/5 blur-[120px] pointer-events-none" />
+      <div className="apex-ambient-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-55" />
 
-      <div className="flex items-center gap-4 mb-20">
-        <div className="h-px w-12 bg-gradient-to-r from-sinai-glow-orange to-transparent" />
-        <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-          06 // Contact
-        </span>
+      <div className="section-label">
+        09 // Contact
       </div>
 
-      <div className="grid lg:grid-cols-2 gap-20 items-center relative z-10">
-        <div className="space-y-10">
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-white">
+      <div className="relative z-10 grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
+        <div className="space-y-6">
+          <h2 className="text-4xl font-bold tracking-normal text-white md:text-6xl">
             Initialize <span className="opacity-40">Presence.</span>
           </h2>
-          <p className="text-xl text-zinc-500 leading-relaxed max-w-lg">
+          <p className="max-w-lg text-lg leading-relaxed text-zinc-500 sm:text-xl">
             Strategically positioned to architect your AI future. From our central hub in Alexandria, we deploy elite systems globally.
           </p>
 
-          <div className="space-y-6 pt-10">
+          <div className="space-y-4 pt-2">
             <div className="flex items-center gap-6 group">
               <div className="w-12 h-12 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center text-sinai-glow-orange group-hover:border-sinai-glow-orange/40 transition-all">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
@@ -44,7 +41,7 @@ export function ContactSection() {
           </div>
         </div>
 
-        <div className="relative group min-h-[500px] flex items-center justify-center">
+        <div className="group relative flex min-h-[280px] items-center justify-center lg:min-h-[340px]">
           <CinematicGlobe />
         </div>
       </div>

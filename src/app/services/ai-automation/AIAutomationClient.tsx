@@ -110,20 +110,20 @@ const NeuralCore = () => {
       />
       
       {/* Central Glass Sphere */}
-      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
         
         {/* Internal Pulsing Plasma */}
         <motion.div 
           animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/20 blur-[60px]"
+          className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/[0.08] blur-[60px]"
         />
 
         {/* Central Branding Module */}
         <div className="relative z-10 flex flex-col items-center">
           {/* CORE_CPU Technical Frame */}
-          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/40 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
+          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/25 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
             <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black flex items-center gap-2">
               <span className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
               CORE_ENGINE_V4.0
@@ -140,7 +140,7 @@ const NeuralCore = () => {
 
           {/* APEX Text Branding */}
           <div className="relative">
-            <h3 className="text-6xl font-black tracking-[-0.05em] text-white flex flex-col items-center leading-none">
+            <h3 className="text-6xl font-black tracking-normal text-white flex flex-col items-center leading-none">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
               <span className="text-[10px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
             </h3>
@@ -157,7 +157,7 @@ const NeuralCore = () => {
             transition={{ duration: 10 + i * 5, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0 pointer-events-none"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 tracking-tighter">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 tracking-normal">
               {i === 0 ? "0x7F" : i === 1 ? "EXEC_S" : "V_BUFF"}
             </div>
           </motion.div>
@@ -169,7 +169,7 @@ const NeuralCore = () => {
         <motion.div 
           animate={{ scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/30 rounded-full"
+          className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/25 rounded-full"
         />
       )}
     </div>
@@ -201,7 +201,7 @@ const OrbitalNode = ({ cap, index, total, active, onEnter, onLeave }: { cap: Aut
     >
       {/* Node Trigger */}
       <div className="relative w-28 h-28 flex items-center justify-center cursor-pointer">
-        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(242,162,75,0.3)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
+        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(217,130,47,0.09)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
         <div className={`relative z-10 transition-colors duration-500 ${active ? 'text-sinai-glow-orange scale-110' : 'text-zinc-500 group-hover:text-white'}`}>
           {cap.icon}
         </div>
@@ -236,10 +236,10 @@ const CapabilityDetailView = ({ cap }: { cap: AutomationCapability }) => {
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-12 rounded-[4rem] relative overflow-hidden group">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-6 lg:p-8 rounded-[2rem] relative overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-50" />
       
-      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl z-10">
+      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.28)] z-10">
         <Image 
           src={cap.image} 
           alt={cap.title} 
@@ -252,14 +252,14 @@ const CapabilityDetailView = ({ cap }: { cap: AutomationCapability }) => {
 
       <div className="space-y-8 relative z-10">
         <div className="flex items-center gap-4">
-          <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">
+          <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">
             Live_Dossier // {cap.id}
           </div>
           <div className="h-px flex-1 bg-white/5" />
         </div>
         
         <div className="space-y-6">
-          <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">{cap.title}</h3>
+          <h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight">{cap.title}</h3>
           <div className="min-h-[100px]">
             <p className="text-xl text-zinc-400 font-light leading-relaxed">
               <StreamingText text={cap.desc} delay={100} />
@@ -269,7 +269,7 @@ const CapabilityDetailView = ({ cap }: { cap: AutomationCapability }) => {
 
         <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600">
           <span className="flex items-center gap-2">
-            <div className={`w-1.5 h-1.5 rounded-full bg-green-500/50 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+            <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/55 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
             SYSTEM_SYNC: ACTIVE
           </span>
           <span className="w-px h-4 bg-white/10" />
@@ -308,7 +308,7 @@ const Particles = ({ count = 10 }: { count?: number }) => {
           initial={{ x: pos.x, y: shouldReduceMotion ? "50%" : "110%" }}
           animate={shouldReduceMotion ? {} : { y: "-10%", rotate: 360 }}
           transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear", delay: pos.delay }}
-          className="absolute w-1 h-1 bg-sinai-glow-orange/20 rounded-full blur-[1px]"
+          className="absolute w-1 h-1 bg-sinai-glow-orange/[0.08] rounded-full blur-[1px]"
         />
       ))}
     </>
@@ -355,54 +355,52 @@ const AIAutomationHero = () => {
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(242,162,75,0.08)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(242,162,75,0.05)_0%,transparent_50%)]" />
-      
-      <div className="absolute inset-0 opacity-[0.02] [mask-image:radial-gradient(ellipse_at_center,black,transparent)]">
-        <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
+    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
+      <div className="apex-ambient-grid" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="apex-container-wide relative z-10">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-12 text-left"
+            className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left"
           >
             <div className="space-y-6">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-px w-12 bg-sinai-glow-orange/30" />
-                <span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
+              <div className="flex flex-wrap items-center gap-3 mb-4 sm:gap-4">
+                <div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" />
+                <span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">
                   AUTONOMOUS_ORCHESTRATION // SOL_01
                 </span>
               </div>
               
-              <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white">
+              <h1 className="max-w-full text-balance text-4xl font-black tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">
                 AI & Process <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">
                   Automation.
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-zinc-400 max-w-xl font-light leading-relaxed">
+              <p className="text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl max-w-full font-light">
                 We design AI workflows that help teams route work, summarize information, trigger actions, and keep approvals visible.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-6 pt-4">
-              <Link href="/contact" className="group relative px-12 py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-sm tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_50px_rgba(242,162,75,0.4)] hover:scale-105 active:scale-95 duration-500">
+              <Link href="/contact" className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)] hover:scale-105 active:scale-95 duration-500">
                 <span className="relative z-10">Initialize Engagement</span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </Link>
               
-              <Link href="#capabilities" className="px-12 py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-black text-sm tracking-[0.3em] uppercase hover:bg-white/[0.08] hover:border-white/20 transition-all">
+              <Link href="#capabilities" className="inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-black text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] hover:bg-white/[0.08] hover:border-white/20 transition-all">
                 Registry Details
               </Link>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-12 border-t border-white/5">
+            <div className="grid grid-cols-1 gap-4 pt-8 border-t border-white/5 sm:grid-cols-3 sm:gap-8 sm:pt-12">
               {[
                 { label: "AUTO_REASONING", value: "L5" },
                 { label: "LATENCY", value: "<10ms" },
@@ -420,9 +418,9 @@ const AIAutomationHero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="relative"
+            className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl"
           >
-            <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.15)] group">
+            <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group">
               <Image 
                 src="/images/agentic-orchestration-core.png" 
                 alt="AI Automation Core" 
@@ -434,7 +432,7 @@ const AIAutomationHero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
               
               {/* Technical HUD Overlays */}
-              <div className="absolute top-10 right-10 text-[8px] font-mono text-sinai-glow-orange/80 tracking-[0.2em] text-right">
+              <div className="absolute top-6 right-8 text-[8px] font-mono text-sinai-glow-orange/80 tracking-[0.2em] text-right">
                 REASONING_CORE: ACTIVE<br />
                 INTEGRATION_PIPELINE: SYNC
               </div>
@@ -459,6 +457,7 @@ const AIAutomationHero = () => {
       <div className="absolute inset-0 pointer-events-none">
         <Particles count={8} />
       </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
     </section>
   );
 };
@@ -483,20 +482,20 @@ export default function AIAutomationClient() {
   const activeCap = CAPABILITIES.find(c => c.id === activeCapId);
 
   return (
-    <div ref={containerRef} className="relative bg-[#06080a] text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
+    <div ref={containerRef} className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
       <AIAutomationHero />
 
       {/* The Core: Neural Capability Hub - Super Premium Redesign */}
-      <section id="capabilities" className="py-48 relative overflow-hidden bg-[#06080a] min-h-[1000px]">
-        <div className="container mx-auto px-6">
+      <section id="capabilities" className="py-16 lg:py-24 relative overflow-hidden bg-sinai-bg-base min-h-[760px] lg:min-h-[860px]">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="text-center mb-32">
+            <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
                 <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Intelligence_Orchestrator // V4.0</span>
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
               </div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tight leading-none">
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none">
                 The Neural <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Capability Hub</span>
               </h2>
@@ -566,28 +565,28 @@ export default function AIAutomationClient() {
       </section>
 
       {/* Workflow Intelligence // Autonomous Reasoning - PREMIUM REVEAL */}
-      <section className="pt-64 pb-32 relative bg-[#06080a] overflow-hidden border-t border-white/5">
+      <section className="pt-20 lg:pt-28 pb-16 lg:pb-20 relative bg-sinai-bg-base overflow-hidden border-t border-white/5">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <SectionReveal>
-              <div className="space-y-16">
+              <div className="space-y-8">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 02</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                     Workflow <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">Intelligence</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
                       AI-Assisted Decisions
@@ -606,7 +605,7 @@ export default function AIAutomationClient() {
                     ].map((stat, i) => (
                       <div key={i} className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 font-mono">
                         <div className="text-[9px] text-zinc-500 mb-2 tracking-widest">{stat.label}</div>
-                        <div className="text-xl font-bold text-sinai-glow-orange tracking-tight">{stat.value}</div>
+                        <div className="text-xl font-bold text-sinai-glow-orange tracking-normal">{stat.value}</div>
                       </div>
                     ))}
                   </div>
@@ -617,7 +616,7 @@ export default function AIAutomationClient() {
             <SectionReveal>
               <div className="relative">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/autonomous-reasoning-core.png" 
                     alt="Autonomous Reasoning Core" 
@@ -634,12 +633,12 @@ export default function AIAutomationClient() {
                     <motion.div 
                       animate={{ top: ["-10%", "110%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none"
+                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
                     />
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 left-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
+                  <div className="absolute top-6 left-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
                     SYSTEM_SCAN: READY<br />
                     CORE_TEMP: 32°C
                   </div>
@@ -653,7 +652,7 @@ export default function AIAutomationClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">NODE_ANALYSIS</div>
                   <div className="space-y-3">
@@ -675,17 +674,17 @@ export default function AIAutomationClient() {
       </section>
 
       {/* Agentic Orchestration // Swarm Intelligence - EXTRA PREMIUM */}
-      <section className="pt-32 pb-32 relative bg-[#06080a] overflow-hidden">
+      <section className="pt-16 lg:pt-20 pb-16 lg:pb-20 relative bg-sinai-bg-base overflow-hidden">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Image Left */}
             <SectionReveal>
               <div className="relative">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.05)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_58px_rgba(217,130,47,0.04)] group">
                   <Image 
                     src="/images/agentic-orchestration-core.png" 
                     alt="Agentic Orchestration Hub" 
@@ -707,7 +706,7 @@ export default function AIAutomationClient() {
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 right-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
+                  <div className="absolute top-6 right-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
                     SWARM_SYNC: OPTIMAL<br />
                     ACTIVE_AGENTS: 128
                   </div>
@@ -721,7 +720,7 @@ export default function AIAutomationClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, 15, 0] }}
                   transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-12 bottom-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -left-12 bottom-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">FLEET_METRICS</div>
                   <div className="space-y-3">
@@ -744,21 +743,21 @@ export default function AIAutomationClient() {
 
             {/* Content Right */}
             <SectionReveal>
-              <div className="space-y-16">
+              <div className="space-y-8">
                 <div className="space-y-6 text-right lg:text-left">
                   <div className="flex items-center gap-4 justify-end lg:justify-start">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Advanced_Orchestration // 03</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                     Agentic <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">Orchestration</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 justify-end lg:justify-start">
                       Connected AI Steps
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
@@ -777,7 +776,7 @@ export default function AIAutomationClient() {
                     ].map((stat, i) => (
                       <div key={i} className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 font-mono text-center">
                         <div className="text-[9px] text-zinc-500 mb-2 tracking-widest">{stat.label}</div>
-                        <div className="text-xl font-bold text-sinai-glow-orange tracking-tight">{stat.value}</div>
+                        <div className="text-xl font-bold text-sinai-glow-orange tracking-normal">{stat.value}</div>
                       </div>
                     ))}
                   </div>
@@ -789,29 +788,29 @@ export default function AIAutomationClient() {
       </section>
  
       {/* Cognitive Data Synthesis // Decision Intelligence - EXTRA PREMIUM */}
-      <section className="pt-32 pb-64 relative bg-[#06080a] overflow-hidden border-b border-white/5">
+      <section className="pt-16 lg:pt-20 pb-20 lg:pb-24 relative bg-sinai-bg-base overflow-hidden border-b border-white/5">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.04)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.035)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Content Left */}
             <SectionReveal>
-              <div className="space-y-16">
+              <div className="space-y-8">
                 <div className="space-y-6 text-left">
                   <div className="flex items-center gap-4 justify-start">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Data_Alchemy // 04</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                     Cognitive <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">Data Synthesis</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                       Decision Intelligence
@@ -830,7 +829,7 @@ export default function AIAutomationClient() {
                     ].map((stat, i) => (
                       <div key={i} className="p-6 rounded-2xl bg-white/[0.01] border border-white/5 font-mono text-left">
                         <div className="text-[9px] text-zinc-500 mb-2 tracking-widest">{stat.label}</div>
-                        <div className="text-xl font-bold text-sinai-glow-orange tracking-tight">{stat.value}</div>
+                        <div className="text-xl font-bold text-sinai-glow-orange tracking-normal">{stat.value}</div>
                       </div>
                     ))}
                   </div>
@@ -842,7 +841,7 @@ export default function AIAutomationClient() {
             <SectionReveal>
               <div className="relative">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.08)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/cognitive-data-synthesis-core.png" 
                     alt="Cognitive Data Synthesis Hub" 
@@ -869,7 +868,7 @@ export default function AIAutomationClient() {
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 left-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-left">
+                  <div className="absolute top-6 left-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-left">
                     ANALYTIC_ENGINE: LIVE<br />
                     DATA_SOURCE: MULTI_THREAD
                   </div>
@@ -883,7 +882,7 @@ export default function AIAutomationClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { x: [0, -15, 0] }}
                   transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-12 top-1/3 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[220px]"
+                  className="absolute -right-12 top-1/3 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[220px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-4 tracking-widest font-black uppercase">Realtime_Synthesis</div>
                   <SynthesisVisualizer />
@@ -895,14 +894,14 @@ export default function AIAutomationClient() {
       </section>
 
       {/* Technical Process (Architect) - INTERACTIVE REVAMP */}
-      <section className="py-48 relative overflow-hidden">
-        <div className="container mx-auto px-6 text-center">
+      <section className="py-16 lg:py-24 relative overflow-hidden">
+        <div className="apex-container-wide text-center">
           <SectionReveal>
             <div className="inline-flex items-center gap-3 mb-8 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10">
               <span className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
               <span className="text-[10px] font-mono text-zinc-500 tracking-[0.4em] uppercase font-bold">System_Core // Processing_Flow</span>
             </div>
-            <h2 className="text-6xl md:text-8xl font-black mb-24 tracking-tighter">APEX <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Automation Architecture</span></h2>
+            <h2 className="text-6xl md:text-8xl font-black mb-10 lg:mb-12 tracking-normal">APEX <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Automation Architecture</span></h2>
             
             <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
@@ -934,7 +933,7 @@ export default function AIAutomationClient() {
                 <motion.div 
                   key={idx}
                   whileHover={{ y: -10 }}
-                  className="relative group h-[400px] flex flex-col items-center justify-center p-8 rounded-[3rem] bg-white/[0.01] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-500 overflow-hidden"
+                  className="relative group h-[400px] flex flex-col items-center justify-center p-8 rounded-[1.5rem] bg-white/[0.01] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-500 overflow-hidden"
                 >
                   {/* Hover Code Background */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500 pointer-events-none">
@@ -951,9 +950,9 @@ export default function AIAutomationClient() {
 
                   {/* Icon/Image Container */}
                   <div className="relative w-32 h-32 mb-10 flex items-center justify-center">
-                    <div className="absolute inset-0 bg-sinai-glow-orange/10 rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
+                    <div className="absolute inset-0 bg-sinai-glow-orange/[0.08] rounded-full blur-3xl opacity-0 group-hover:opacity-40 transition-opacity duration-700" />
                     {step.image ? (
-                      <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 group-hover:border-sinai-glow-orange/40 transition-colors">
+                      <div className="relative w-full h-full rounded-3xl overflow-hidden border border-white/10 group-hover:border-sinai-glow-orange/25 transition-colors">
                         <Image 
                           src={step.image} 
                           alt={step.label} 
@@ -963,7 +962,7 @@ export default function AIAutomationClient() {
                         />
                       </div>
                     ) : (
-                      <div className="w-full h-full rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-sinai-glow-orange group-hover:border-sinai-glow-orange/40 transition-colors">
+                      <div className="w-full h-full rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-sinai-glow-orange group-hover:border-sinai-glow-orange/25 transition-colors">
                         {step.icon}
                       </div>
                     )}
@@ -976,7 +975,7 @@ export default function AIAutomationClient() {
                     <div className="h-6 flex items-center justify-center">
                       <div className="opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 flex items-center gap-3">
                         <span className="text-sinai-glow-orange font-mono font-black text-sm">{idx % 2 === 0 ? "=>" : ">>"}</span>
-                        <span className="text-[9px] font-mono text-sinai-glow-orange/60 tracking-tighter uppercase font-bold whitespace-nowrap bg-sinai-glow-orange/5 px-2 py-0.5 rounded border border-sinai-glow-orange/20">
+                        <span className="text-[9px] font-mono text-sinai-glow-orange/60 tracking-normal uppercase font-bold whitespace-nowrap bg-sinai-glow-orange/5 px-2 py-0.5 rounded border border-sinai-glow-orange/20">
                           {step.code.split("=")[0].replace("const ", "")}_MODULE_STATUS: OK
                         </span>
                       </div>
@@ -995,16 +994,16 @@ export default function AIAutomationClient() {
       </section>
 
       {/* Related Case Study // NeuralStream 2.0 - PREMIUM FEATURE */}
-      <section className="py-48 relative overflow-hidden bg-[#06080a]">
-        <div className="container mx-auto px-6">
+      <section className="py-16 lg:py-24 relative overflow-hidden bg-sinai-bg-base">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+            <div className="flex flex-col md:flex-row items-end justify-between mb-10 lg:mb-12 gap-8">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-px bg-sinai-glow-orange/30" />
                   <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Real_World_Impact // 05</span>
                 </div>
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                   Related <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">Case Study</span>
                 </h2>
@@ -1016,7 +1015,7 @@ export default function AIAutomationClient() {
               </div>
             </div>
 
-            <div className="relative group cursor-pointer overflow-hidden rounded-[4rem] border border-white/5 aspect-[21/9]">
+            <div className="relative group cursor-pointer overflow-hidden rounded-[2rem] border border-white/5 aspect-[21/9]">
               <Image 
                 src="/images/project1.png" 
                 alt="NeuralStream 2.0" 
@@ -1026,14 +1025,14 @@ export default function AIAutomationClient() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
               
-              <div className="absolute inset-0 p-12 md:p-20 flex flex-col justify-end">
-                <div className="grid md:grid-cols-2 gap-12 items-end">
+              <div className="absolute inset-0 p-6 md:p-6 lg:p-8 flex flex-col justify-end">
+                <div className="grid md:grid-cols-2 gap-8 items-end">
                   <div className="space-y-8">
                     <div className="space-y-4">
                       <div className="flex items-center gap-3 font-mono text-[10px] text-sinai-glow-orange font-black uppercase tracking-widest">
                         GLOBAL LOGISTICS CORP <span className="w-1.5 h-1.5 rounded-full bg-sinai-glow-orange" /> COMPUTER VISION
                       </div>
-                      <h3 className="text-5xl md:text-7xl font-bold text-white tracking-tighter uppercase">NeuralStream 2.0</h3>
+                      <h3 className="text-5xl md:text-7xl font-bold text-white tracking-normal uppercase">NeuralStream 2.0</h3>
                     </div>
                     <p className="text-zinc-400 text-lg max-w-xl leading-relaxed">
                       A high-fidelity computer vision engine designed for real-time tracking and automated anomaly detection in high-throughput environments.
@@ -1047,7 +1046,7 @@ export default function AIAutomationClient() {
                     </div>
                   </div>
                   
-                  <div className="flex flex-col md:items-end gap-10">
+                  <div className="flex flex-col md:items-end gap-6">
                     <div className="grid grid-cols-3 gap-6 w-full">
                       {[
                         { label: "LATENCY", value: "42ms" },
@@ -1060,7 +1059,7 @@ export default function AIAutomationClient() {
                         </div>
                       ))}
                     </div>
-                    <Link href="/projects#01" className="group relative px-10 py-5 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_50px_rgba(242,162,75,0.4)] hover:scale-105 active:scale-95 duration-500">
+                    <Link href="/projects#01" className="group relative px-10 py-5 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-[10px] tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)] hover:scale-105 active:scale-95 duration-500">
                       <span className="relative z-10">View Full Intelligence Report</span>
                       <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                     </Link>
@@ -1073,9 +1072,9 @@ export default function AIAutomationClient() {
       </section>
 
       {/* Final CTA Section - Cinematic Masterpiece */}
-      <section className="py-64 relative overflow-hidden bg-[#06080a]">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-sinai-bg-base">
         {/* Background Ambient Layers */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.055)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
         
         {/* Technical HUD Frame */}
@@ -1086,9 +1085,9 @@ export default function AIAutomationClient() {
           <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container-wide relative z-10">
           <SectionReveal>
-            <div className="max-w-5xl mx-auto text-center space-y-16">
+            <div className="max-w-5xl mx-auto text-center space-y-8">
               {/* Top Branding Tag */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
@@ -1098,7 +1097,7 @@ export default function AIAutomationClient() {
               </div>
 
               <div className="space-y-8">
-                <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white">
+                <h2 className="text-7xl md:text-[10rem] font-black tracking-normal leading-[0.8] text-white">
                   Ready to <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
                 </h2>
@@ -1108,7 +1107,7 @@ export default function AIAutomationClient() {
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/contact" className="group relative px-24 py-10 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
+                <Link href="/contact" className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_54px_rgba(217,130,47,0.16)] hover:scale-105 active:scale-95 duration-500">
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   
@@ -1124,7 +1123,7 @@ export default function AIAutomationClient() {
 
                 <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
                   <span className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-green-500/50" />
+                    <div className="w-1 h-1 rounded-full bg-sinai-glow-orange/55" />
                     Secure_AI_Node: Active
                   </span>
                   <span className="w-px h-4 bg-white/10" />

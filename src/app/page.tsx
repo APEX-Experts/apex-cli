@@ -1,12 +1,17 @@
-import { TerminalHero } from "@/components/TerminalHero";
+import { ApexFinalHero } from "@/components/ApexFinalHero";
+import { ProblemSection } from "@/components/sections/ProblemSection";
+import { SolutionSection } from "@/components/sections/SolutionSection";
+import { SystemFlowSection } from "@/components/sections/SystemFlowSection";
+import { UseCasesSection } from "@/components/sections/UseCasesSection";
+import { WhyApexSection } from "@/components/sections/WhyApexSection";
 import { SectionReveal } from "@/components/SectionReveal";
-import { AboutSection } from "@/components/sections/AboutSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
 import { BlogSection } from "@/components/sections/BlogSection";
+import { CtaSection } from "@/components/sections/CtaSection";
 import { getCspNonce } from "@/lib/csp";
 
 export default async function Home() {
@@ -44,66 +49,61 @@ export default async function Home() {
     <>
       <script
         nonce={nonce}
+        suppressHydrationWarning
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
       <section className="relative">
-        {/* ── Hero: Cinematic CLI Experience ── */}
-        <TerminalHero />
+        {/* ── Production Hero ── */}
+        <ApexFinalHero />
 
         {/* ── Page Content ── */}
-        <div className="relative">
-          <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* ── About ── */}
+        <div className="relative bg-[linear-gradient(180deg,#06080a_0%,#080a0d_45%,#06080a_100%)]">
+          <div className="apex-container-wide relative">
+            {/* ── Problem Section ── */}
             <SectionReveal>
-              <AboutSection />
+              <ProblemSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            {/* ── Solution Section ── */}
+            <SectionReveal>
+              <SolutionSection />
+            </SectionReveal>
+
+            {/* ── System Flow ── */}
+            <SectionReveal>
+              <SystemFlowSection />
+            </SectionReveal>
+
+            <div className="section-separator my-0" aria-hidden="true" />
 
             {/* ── Services ── */}
             <SectionReveal>
               <ServicesSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
-            {/* ── Process ── */}
+            {/* ── Use Cases ── */}
             <SectionReveal>
-              <ProcessSection />
+              <UseCasesSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
-            {/* ── Projects ── */}
+            {/* ── Why APEX Experts ── */}
             <SectionReveal>
-              <ProjectsSection />
+              <WhyApexSection />
             </SectionReveal>
 
-            <div className="section-separator my-24" aria-hidden="true" />
+            <div className="section-separator my-0" aria-hidden="true" />
 
-            {/* ── Testimonials ── */}
+            {/* ── CTA Block ── */}
             <SectionReveal>
-              <TestimonialsSection />
+              <CtaSection />
             </SectionReveal>
-
-            <div className="section-separator my-24" aria-hidden="true" />
-
-            {/* ── Blog ── */}
-            <SectionReveal>
-              <BlogSection />
-            </SectionReveal>
-
-            <div className="section-separator my-24" aria-hidden="true" />
-
-            {/* ── Contact ── */}
-            <SectionReveal>
-              <ContactSection />
-            </SectionReveal>
-
-            <div className="h-24" />
           </div>
         </div>
       </section>

@@ -10,7 +10,7 @@ const OfficialStamp = ({ className = "" }: { className?: string }) => {
           <div className="w-full h-full border border-[#2b4b8c] rounded-full flex items-center justify-center relative">
             <div className="text-center z-10 px-3">
               {/* Arabic Name - Smaller */}
-              <div className="text-[10px] font-bold text-[#2b4b8c] leading-tight mb-1 font-sans tracking-tight whitespace-nowrap">
+              <div className="text-[10px] font-bold text-[#2b4b8c] leading-tight mb-1 font-sans tracking-normal whitespace-nowrap">
                 خبراء ابكس لحلول الذكاء الاصطناعي
               </div>
               
@@ -18,7 +18,7 @@ const OfficialStamp = ({ className = "" }: { className?: string }) => {
               <div className="w-20 h-[1px] bg-[#2b4b8c] mx-auto my-0.5" />
               
               {/* Logo / Icon - Smaller */}
-              <div className="text-[16px] font-black text-[#2b4b8c] leading-none mb-0.5 tracking-tighter">
+              <div className="text-[16px] font-black text-[#2b4b8c] leading-none mb-0.5 tracking-normal">
                 APEX Experts
               </div>
               

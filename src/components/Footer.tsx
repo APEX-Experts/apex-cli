@@ -1,126 +1,142 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
-import { useReducedMotion } from "framer-motion";
+import Link from "next/link";
+import React from "react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  const shouldReduceMotion = useReducedMotion();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const frame = requestAnimationFrame(() => setMounted(true));
-    return () => cancelAnimationFrame(frame);
-  }, []);
-
-  const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <footer className="relative pt-32 pb-16 px-6 md:px-12 border-t border-white/5 bg-[#06080a] overflow-hidden">
-      {/* Massive Background Branding (Watermark) */}
-      {/* Massive Background Branding (Watermark) - Removed to focus on clean logo */}
-
-
+    <footer className="relative overflow-hidden border-t border-white/5 bg-sinai-bg-base px-4 pt-12 sm:px-6 lg:pt-16">
       {/* Cinematic Glow */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[300px] bg-sinai-glow-orange/[0.02] blur-[120px] pointer-events-none" />
+      <div className="apex-ambient-glow left-1/4 top-0 opacity-35" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 lg:gap-8 mb-32">
-          
+      <div className="apex-container-wide relative z-10">
+        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8 items-center md:items-start">
           {/* Brand Column */}
-          <div className="lg:col-span-4 space-y-10">
-            <Link href="/" className="inline-block transition-all duration-500 hover:scale-105">
-              <div className="relative w-[450px] h-32">
-                <Image 
-                  src="/images/logo-footer.png" 
-                  alt="APEX Experts AI Solutions" 
-                  fill 
-                  className="object-contain object-left" 
+          <div className="space-y-6 lg:col-span-4">
+            <Link
+              href="/"
+              className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+            >
+              <div className="relative h-20 w-64 max-w-full sm:h-24 sm:w-80">
+                <Image
+                  src="/images/logo-footer.png"
+                  alt="APEX Experts AI Solutions"
+                  fill
+                  sizes="(max-width: 640px) 256px, 320px"
+                  className="object-contain object-center md:object-left"
                   priority
                 />
               </div>
             </Link>
-            <p className="text-lg text-zinc-500 max-w-sm leading-relaxed text-balance">
-              Architecting the next generation of production-grade AI systems with technical precision and strategic depth.
+            <p className=" text-sm sm:text-base leading-relaxed text-zinc-500 md:text-lg text-center md:text-start">
+              Architecting the next generation of production-grade AI systems
+              with technical precision and strategic depth.
             </p>
-            
-            <div className="flex items-center gap-5">
-              <SocialIcon href="https://x.com/apexexperts_ai" icon={<XIcon />} label="X" />
-              <SocialIcon href="https://www.linkedin.com/company/apex-experts-ai-solutions" icon={<LinkedInIcon />} label="LinkedIn" />
-              <SocialIcon href="https://github.com/APEX-Experts" icon={<GitHubIcon />} label="GitHub" />
+
+            <div className="flex items-center max-md:justify-center gap-5">
+              <SocialIcon
+                href="https://x.com/apexexperts_ai"
+                icon={<XIcon />}
+                label="X"
+              />
+              <SocialIcon
+                href="https://www.linkedin.com/company/apex-experts-ai-solutions"
+                icon={<LinkedInIcon />}
+                label="LinkedIn"
+              />
+              <SocialIcon
+                href="https://github.com/APEX-Experts"
+                icon={<GitHubIcon />}
+                label="GitHub"
+              />
             </div>
           </div>
 
           {/* Links Columns */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-12">
-            <FooterLinkGroup 
-              title="Navigation" 
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8 lg:gap-10 max-md:mt-4">
+            <FooterLinkGroup
+              title="Navigation"
               links={[
                 { name: "About", href: "/about" },
                 { name: "Services", href: "/services" },
                 { name: "Projects", href: "/projects" },
                 { name: "Blog", href: "/blog" },
-                { name: "Contact", href: "/contact" }
-              ]} 
+                { name: "Contact", href: "/contact" },
+              ]}
             />
-            <FooterLinkGroup 
-              title="Solutions" 
+            <FooterLinkGroup
+              title="Solutions"
               links={[
-                { name: "AI & Process Automation", href: "/services/ai-automation" },
-                { name: "Oracle APEX development", href: "/services/oracle-apex" },
+                {
+                  name: "AI & Process Automation",
+                  href: "/services/ai-automation",
+                },
+                {
+                  name: "Oracle APEX development",
+                  href: "/services/oracle-apex",
+                },
                 { name: "Web Development", href: "/services/web-development" },
-                { name: "Mobile Development", href: "/services/mobile-development" }
-              ]} 
+                {
+                  name: "Mobile Development",
+                  href: "/services/mobile-development",
+                },
+              ]}
             />
-            <FooterLinkGroup 
-              title="Our Projects" 
+            <FooterLinkGroup
+              title="Our Projects"
               links={[
                 { name: "Asklyze AI", href: "/projects/asklyze" },
                 { name: "MyQuery Data", href: "/projects/myquery" },
-                { name: "Tasto Experience", href: "/projects/tasto" }
-              ]} 
+                { name: "Tasto Experience", href: "/projects/tasto" },
+              ]}
             />
-            
-            <div className="space-y-6">
-              <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] font-bold">HQ_LOC</h4>
-              <div className="space-y-3">
-                <div className="text-xs text-zinc-400 font-mono leading-relaxed">
-                  31.2001° N<br />
-                  29.9187° E
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className={`w-1.5 h-1.5 rounded-full bg-green-500 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                  <span className="text-[8px] font-mono text-zinc-700 uppercase tracking-widest">LIVE</span>
-                </div>
-              </div>
-            </div>
+            <FooterLinkGroup
+              title="Legal"
+              links={[
+                { name: "Privacy Policy", href: "/privacy" },
+                { name: "Terms of Service", href: "/terms" },
+              ]}
+            />
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-[10px] font-mono text-zinc-700 uppercase tracking-[0.3em]">
-            © {currentYear} APEX Experts AI Solutions. Engineered with absolute precision.
-          </div>
-          <div className="flex gap-10">
-            <Link href="/privacy" className="text-[10px] font-mono text-zinc-700 hover:text-white transition-colors uppercase tracking-[0.3em]">Privacy_Protocol</Link>
-            <Link href="/terms" className="text-[10px] font-mono text-zinc-700 hover:text-white transition-colors uppercase tracking-[0.3em]">Terms_Of_Service</Link>
-          </div>
+        <div className="w-full border-t border-white/5 flex items-center justify-center py-8">
+          <span
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 text-center"
+            suppressHydrationWarning
+          >
+            © {currentYear} APEX Experts AI Solutions. Engineered with absolute
+            precision.
+          </span>
         </div>
       </div>
     </footer>
   );
 }
 
-function FooterLinkGroup({ title, links }: { title: string; links: { name: string; href: string }[] }) {
+function FooterLinkGroup({
+  title,
+  links,
+}: {
+  title: string;
+  links: { name: string; href: string }[];
+}) {
   return (
-    <div className="space-y-6">
-      <h4 className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.3em] font-bold">{title}</h4>
-      <div className="flex flex-col gap-3">
+    <div className="space-y-3 md:space-y-6">
+      <h4 className="text-base md:text-2xl text-white-200 tracking-normal leading-4 font-bold">
+        {title}
+      </h4>
+      <div className="flex flex-col gap-4">
         {links.map((link) => (
-          <Link key={link.name} href={link.href} className="text-xs text-zinc-500 hover:text-sinai-glow-orange transition-all hover:translate-x-1 duration-300">
+          <Link
+            key={link.name}
+            href={link.href}
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-300"
+          >
             {link.name}
           </Link>
         ))}
@@ -129,14 +145,22 @@ function FooterLinkGroup({ title, links }: { title: string; links: { name: strin
   );
 }
 
-function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+function SocialIcon({
+  href,
+  icon,
+  label,
+}: {
+  href: string;
+  icon: React.ReactNode;
+  label: string;
+}) {
   return (
-    <Link 
-      href={href} 
-      aria-label={label} 
+    <Link
+      href={href}
+      aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-12 h-12 rounded-xl bg-white/[0.02] border border-white/10 flex items-center justify-center text-zinc-500 hover:text-white hover:border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/[0.05] transition-all duration-500 group"
+      className="w-12 h-12 rounded-xl bg-white/2 border border-white/10 flex items-center justify-center text-zinc-500 hover:text-white hover:border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/[0.05] transition-all duration-500 group"
     >
       <div className="w-5 h-5 group-hover:scale-110 transition-transform duration-500">
         {icon}
@@ -147,17 +171,16 @@ function SocialIcon({ href, icon, label }: { href: string; icon: React.ReactNode
 
 const XIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 const LinkedInIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
 const GitHubIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
   </svg>
 );
-

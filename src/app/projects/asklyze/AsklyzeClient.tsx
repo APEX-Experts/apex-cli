@@ -65,7 +65,7 @@ const NeuralCore = () => {
           </div>
 
           <div className="relative">
-            <h3 className="text-4xl font-black tracking-tighter text-white flex flex-col items-center leading-none">
+            <h3 className="text-4xl font-black tracking-normal text-white flex flex-col items-center leading-none">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50 uppercase">ASKLYZE</span>
               <span className="text-[10px] font-mono tracking-[1.2em] text-sinai-glow-orange/60 ml-[1.2em] mt-2 font-bold uppercase">Intelligence</span>
             </h3>
@@ -133,7 +133,7 @@ const OrbitalNode = ({ cap, index, total, active, onEnter, onLeave }: { cap: Cap
 const CapabilityDetailView = ({ cap }: { cap: Capability }) => {
   const shouldReduceMotion = useReducedMotion();
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-12 rounded-[4rem] relative overflow-hidden group">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-6 lg:p-8 rounded-[2rem] relative overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-50" />
       
       <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl z-10">
@@ -156,7 +156,7 @@ const CapabilityDetailView = ({ cap }: { cap: Capability }) => {
         </div>
         
         <div className="space-y-6">
-          <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-tight uppercase">{cap.title}</h3>
+          <h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight uppercase">{cap.title}</h3>
           <div className="min-h-[100px]">
             <p className="text-xl text-zinc-400 font-light leading-relaxed">
               <StreamingText text={cap.desc} delay={100} />
@@ -330,57 +330,55 @@ export function AsklyzeClient() {
   const activeFeature = FEATURES.find(f => f.id === activeFeatureId);
 
   return (
-    <div ref={containerRef} className="relative bg-[#06080a] text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans">
+    <div ref={containerRef} className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-black">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(242,162,75,0.08)_0%,transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(242,162,75,0.05)_0%,transparent_50%)]" />
-        
-        <div className="absolute inset-0 opacity-[0.02] [mask-image:radial-gradient(ellipse_at_center,black,transparent)]">
-          <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px]" />
-        </div>
+      <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
+        <div className="apex-ambient-grid" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
             <motion.div 
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="space-y-12"
+              className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left"
             >
               <div className="space-y-6">
-                <div className="flex items-center gap-4">
-                  <div className="h-px w-12 bg-sinai-glow-orange/30" />
-                  <span className="text-[9px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
+                <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+                  <div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" />
+                  <span className="text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">
                     PLUGIN FOR ORACLE APEX // ASKL_V2
                   </span>
                 </div>
                 
-                <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white uppercase">
+                <h1 className="max-w-full text-balance text-5xl font-black uppercase tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">
                   ASKLYZE<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">
                     Plugin.
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl text-zinc-400 max-w-xl font-light leading-relaxed">
+                <p className="max-w-full text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl font-light">
                   The definitive AI plugin for Oracle APEX. Enable natural language querying and intelligent data synthesis natively inside your applications.
                 </p>
               </div>
 
               <div className="flex flex-wrap gap-6">
-                <Link href="/contact" className="group relative px-12 py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-sm tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_50px_rgba(242,162,75,0.4)] hover:scale-105 duration-500">
+                <Link href="/contact" className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)] hover:scale-105 duration-500">
                   <span className="relative z-10">Request Demo</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
                 </Link>
                 
-                <div className="flex items-center gap-4 px-8 py-6 rounded-full bg-white/[0.03] border border-white/10 text-[10px] font-mono tracking-widest text-zinc-400">
-                  <span className={`w-2 h-2 rounded-full bg-green-500 ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
+                <div className="inline-flex w-full items-center justify-center gap-4 rounded-full border border-white/10 bg-white/[0.03] px-6 py-5 text-center font-mono text-[10px] tracking-widest text-zinc-400 sm:w-auto sm:px-8 sm:py-6">
+                  <span className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                   STABLE_BUILD_v2.1
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-white/5">
+              <div className="grid grid-cols-1 gap-4 pt-8 border-t border-white/5 sm:grid-cols-2 sm:gap-6 sm:pt-10 lg:grid-cols-4">
                 {METRICS.map((stat, i) => (
                   <div key={i}>
                     <div className="text-[8px] font-mono text-zinc-600 mb-1 tracking-widest uppercase">{stat.label}</div>
@@ -395,20 +393,21 @@ export function AsklyzeClient() {
               initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
               animate={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-              className="relative"
+              className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl"
             >
-              <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.15)] group bg-zinc-950">
+              <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group bg-zinc-950">
                 <Image 
                   src="/images/asklyze-premium.png" 
                   alt="ASKLYZE Interface" 
                   fill 
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover opacity-80 group-hover:scale-110 transition-transform duration-[5000ms]"
                   priority
                 />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
                 
-                <div className="absolute top-12 left-12 p-6 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 max-w-[200px] space-y-4">
+                <div className="absolute top-6 left-6 p-5 rounded-2xl bg-black/60 backdrop-blur-xl border border-white/10 max-w-[200px] space-y-4">
                   <div className="text-[8px] font-mono text-sinai-glow-orange tracking-widest font-black uppercase">Data_Stream_Live</div>
                   <div className="space-y-2">
                     {[1, 2, 3].map(i => (
@@ -437,27 +436,28 @@ export function AsklyzeClient() {
         <div className="absolute inset-0 pointer-events-none">
           <Particles count={10} />
         </div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
       </section>
 
       {/* Problem & Solution Section */}
-      <section className="py-48 relative overflow-hidden bg-[#06080a] border-t border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+      <section className="py-16 lg:py-24 relative overflow-hidden bg-[#06080a] border-t border-white/5">
+        <div className="apex-container-wide">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <SectionReveal>
-              <div className="space-y-16">
+              <div className="space-y-8">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">The_Challenge</span>
                   </div>
-                  <h2 className="text-6xl md:text-7xl font-black tracking-tighter leading-none uppercase">
+                  <h2 className="text-6xl md:text-7xl font-black tracking-normal leading-none uppercase">
                     Data is trapped <br />
                     <span className="text-zinc-800">in Complexity.</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative">
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative">
                     <p className="text-zinc-400 leading-relaxed font-light text-xl">
                       Business users are the ones who need answers, but they don&apos;t speak SQL. The &quot;Report Request&quot; cycle creates bottlenecks that slow down decision-making. Existing AI tools require moving sensitive database records to the cloud&mdash;a non-starter for enterprise security.
                     </p>
@@ -483,20 +483,20 @@ export function AsklyzeClient() {
             </SectionReveal>
 
             <SectionReveal>
-              <div className="space-y-16">
+              <div className="space-y-8">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">The_Solution</span>
                   </div>
-                  <h2 className="text-6xl md:text-7xl font-black tracking-tighter leading-none uppercase">
+                  <h2 className="text-6xl md:text-7xl font-black tracking-normal leading-none uppercase">
                     Asklyze is the <br />
                     <span className="text-white">Translation layer.</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-sinai-glow-orange/5 border border-sinai-glow-orange/20 backdrop-blur-xl relative overflow-hidden group">
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-sinai-glow-orange/5 border border-sinai-glow-orange/20 backdrop-blur-xl relative overflow-hidden group">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(242,162,75,0.1),transparent_50%)]" />
                     <p className="text-zinc-300 leading-relaxed font-light text-xl relative z-10">
                       ASKLYZE bridges the gap between natural language and Oracle Database. By generating, validating, and executing PL/SQL locally, it provides instant insights while keeping your data secured within its native environment.
@@ -524,16 +524,16 @@ export function AsklyzeClient() {
       </section>
 
       {/* Neural Capability Hub */}
-      <section id="capabilities" className="py-48 relative overflow-hidden bg-[#06080a] min-h-[1000px]">
-        <div className="container mx-auto px-6">
+      <section id="capabilities" className="py-16 lg:py-24 relative overflow-hidden bg-[#06080a] min-h-[760px] lg:min-h-[860px]">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="text-center mb-32">
+            <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
                 <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Capabilities // 03</span>
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
               </div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tight leading-none uppercase">
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none uppercase">
                 The Intelligence <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Powering Asklyze</span>
               </h2>
@@ -604,21 +604,21 @@ export function AsklyzeClient() {
           <div className="sticky top-0 h-screen w-full flex items-center overflow-hidden">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(242,162,75,0.05)_0%,transparent_50%)]" />
             
-            <div className="container mx-auto px-6 relative z-10">
-              <div className="max-w-4xl mb-20">
+            <div className="apex-container-wide relative z-10">
+              <div className="max-w-4xl mb-10 lg:mb-12">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-12 h-px bg-sinai-glow-orange/30" />
                   <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">System_Architecture // 04</span>
                 </div>
-                <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none uppercase">
+                <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none uppercase">
                   The Intelligence <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">Pipeline.</span>
                 </h2>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 items-center">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
                 <div className="lg:col-span-7 relative h-[500px] lg:h-[600px]">
-                  <div className="absolute inset-0 rounded-[4rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl group">
+                  <div className="absolute inset-0 rounded-[2rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl group">
                     <AnimatePresence mode="wait">
                       {PIPELINE_STEPS.map((step, i) => (
                         <motion.div
@@ -698,7 +698,7 @@ export function AsklyzeClient() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 relative space-y-12">
+                <div className="lg:col-span-5 relative space-y-8">
                   {PIPELINE_STEPS.map((item, i) => (
                     <div 
                       key={i} 
@@ -713,7 +713,7 @@ export function AsklyzeClient() {
                       </div>
                       
                       <div className="space-y-4">
-                        <h3 className={`text-3xl font-black tracking-tighter uppercase transition-colors duration-500 ${activeStep === i ? 'text-white' : 'text-zinc-600'}`}>
+                        <h3 className={`text-3xl font-black tracking-normal uppercase transition-colors duration-500 ${activeStep === i ? 'text-white' : 'text-zinc-600'}`}>
                           {item.title}
                         </h3>
                         <p className={`text-base font-light leading-relaxed transition-colors duration-500 ${activeStep === i ? 'text-zinc-400' : 'text-zinc-700'}`}>
@@ -732,7 +732,7 @@ export function AsklyzeClient() {
       </section>
 
       {/* Final CTA Section */}
-      <section className="py-64 relative overflow-hidden bg-[#06080a]">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-[#06080a]">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
         
@@ -743,9 +743,9 @@ export function AsklyzeClient() {
           <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container-wide relative z-10">
           <SectionReveal>
-            <div className="max-w-5xl mx-auto text-center space-y-16">
+            <div className="max-w-5xl mx-auto text-center space-y-8">
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
                   <span className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
@@ -754,7 +754,7 @@ export function AsklyzeClient() {
               </div>
 
               <div className="space-y-8">
-                <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white">
+                <h2 className="text-7xl md:text-[10rem] font-black tracking-normal leading-[0.8] text-white">
                   Ready to <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
                 </h2>
@@ -764,7 +764,7 @@ export function AsklyzeClient() {
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/contact" className="group relative px-24 py-10 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
+                <Link href="/contact" className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   

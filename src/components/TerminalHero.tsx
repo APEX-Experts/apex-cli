@@ -62,7 +62,7 @@ export function TerminalHero() {
         gsap.fromTo(
           windowRef.current,
           { opacity: 0 },
-          { 
+          {
             opacity: 1,
             duration: 0.8,
             ease: "power2.out",
@@ -73,7 +73,7 @@ export function TerminalHero() {
         gsap.fromTo(
           windowRef.current,
           { scale: 0.85, opacity: 0, rotationX: 15, y: 120, filter: "blur(20px)" },
-          { 
+          {
             scale: 1, opacity: 1, rotationX: 0, y: 0, filter: "blur(0px)",
             duration: 1.8, ease: "expo.out", delay: 0.4,
             onComplete: () => setStage(1)
@@ -127,29 +127,30 @@ export function TerminalHero() {
   }, [stage, effectiveReduceMotion]);
 
   return (
-    <div className="relative min-h-screen bg-[#06080a]">
-      <motion.div 
+    <div className="relative min-h-[74svh] bg-sinai-bg-base sm:min-h-[82svh] lg:min-h-[88svh]">
+      <motion.div
         style={{ opacity: opacityScroll, scale: scaleScroll, y: yScroll }}
-        className="relative min-h-screen flex items-center justify-center py-20 px-4 overflow-hidden"
+        className="relative flex min-h-[74svh] items-start justify-center overflow-hidden px-4 py-20 sm:min-h-[82svh] sm:items-center sm:px-6 sm:py-24 lg:min-h-[88svh] lg:py-28"
       >
         <div className="absolute inset-0 z-0">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[radial-gradient(circle_at_center,rgba(138,59,19,0.06)_0%,transparent_70%)] blur-[100px]" />
-          <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.03] mix-blend-overlay" />
-          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)]" />
+          <div className="apex-ambient-glow left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 opacity-90" />
+          <div className="absolute inset-0 bg-[url('/images/noise.svg')] opacity-[0.022] mix-blend-overlay" />
+          <div className="apex-ambient-grid" />
+          <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-sinai-bg-base to-transparent" />
         </div>
 
-        <div 
+        <div
           ref={windowRef}
-          className="relative z-10 w-full max-w-5xl aspect-[16/10] md:aspect-video rounded-3xl border border-white/10 bg-[#0c0c0e]/95 backdrop-blur-3xl shadow-[0_80px_150px_-30px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
+          className="apex-panel relative z-10 flex aspect-[9/13] w-full max-w-[22rem] flex-col overflow-hidden rounded-[1.5rem] shadow-[0_44px_110px_-42px_rgba(0,0,0,0.95)] sm:aspect-[16/11] sm:max-w-3xl sm:rounded-[1.75rem] lg:aspect-video lg:max-w-5xl"
           style={{ perspective: "1000px" }}
         >
-          <div className="h-12 border-b border-white/5 flex items-center justify-between px-6 bg-white/[0.02]">
+          <div className="flex h-11 items-center justify-between border-b border-white/10 bg-white/[0.025] px-4 sm:h-12 sm:px-6">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-              <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-              <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#cf5f55]" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#d4a64f]" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#6ea77a]" />
             </div>
-            <div className="flex items-center gap-3">
+            <div className="hidden items-center gap-3 sm:flex">
               <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase font-bold">APEX_CLI_v4.0.2</span>
               <span className="h-3 w-px bg-white/10" />
               <div className="flex items-center gap-2">
@@ -159,22 +160,22 @@ export function TerminalHero() {
             </div>
           </div>
 
-          <div className="flex-1 p-8 md:p-12 font-mono overflow-hidden relative">
-            <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%),linear-gradient(90deg,rgba(255,0,0,0.01),rgba(0,255,0,0.01),rgba(0,0,128,0.01))] bg-[size:100%_4px,3px_100%] z-20 opacity-30" />
+          <div className="relative flex-1 overflow-hidden p-4 font-mono sm:p-6 md:p-8">
+            <div className="pointer-events-none absolute inset-0 z-20 bg-[linear-gradient(rgba(255,255,255,0)_50%,rgba(0,0,0,0.10)_50%)] bg-[size:100%_5px] opacity-20" />
 
             <div className="relative z-10 h-full flex flex-col">
-              <div className="mb-10 min-h-[140px] md:min-h-[180px]">
-                <div className="text-sinai-glow-orange text-5xl md:text-[7rem] font-black tracking-tighter leading-[0.8] mb-6">
+              <div className="mb-5 min-h-[104px] sm:mb-7 sm:min-h-[130px] md:min-h-[150px]">
+                <div className="mb-4 text-4xl font-black leading-[0.9] tracking-normal text-sinai-glow-soft sm:text-6xl md:text-8xl">
                   {streamedTitle}<span className={stage === 1 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
                 </div>
                 <div className="flex items-center gap-4 flex-wrap">
                   {streamedBadge && (
-                    <span className="px-3 py-1 rounded bg-sinai-glow-orange text-[9px] font-black text-white uppercase tracking-[0.3em]">
+                    <span className="rounded border border-sinai-glow-soft/30 bg-sinai-glow-orange/15 px-3 py-1 text-[9px] font-black uppercase tracking-[0.28em] text-sinai-glow-soft">
                       {streamedBadge}<span className={stage === 2 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
                     </span>
                   )}
                   {streamedEngine && (
-                    <span className="text-xs text-zinc-500 tracking-[0.4em] uppercase font-bold">
+                    <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-500 sm:text-xs">
                       {streamedEngine}<span className={stage === 3 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
                     </span>
                   )}
@@ -182,14 +183,14 @@ export function TerminalHero() {
               </div>
 
               {/* ── CLI Selection Menu (AI Agent Style) ── */}
-              <div className="flex flex-col space-y-4">
+              <div className="flex flex-col">
                 {stage >= 4 && (
                   <div className="space-y-1">
-                    <div className="text-[10px] text-zinc-600 mb-4 tracking-[0.3em] uppercase flex items-center gap-2">
+                    <div className="mb-3 flex items-center gap-2 text-[9px] uppercase tracking-[0.24em] text-zinc-600 sm:text-[10px]">
                       <span className="w-1 h-1 bg-zinc-600 rounded-full" />
                       SELECT_MODULE_TO_INITIALIZE
                     </div>
-                    
+
                     {MENU_ITEMS.map((item, i) => (
                       <motion.a
                         key={item.id}
@@ -199,13 +200,13 @@ export function TerminalHero() {
                         transition={{ delay: i * 0.08 }}
                         onMouseEnter={() => setActiveIndex(i)}
                         onMouseLeave={() => setActiveIndex(null)}
-                        className="flex items-center gap-6 group/item cursor-pointer py-1.5"
+                        className="group/item flex cursor-pointer items-start gap-3 rounded-lg py-1.5 outline-none transition-colors hover:bg-white/[0.025] focus-visible:bg-white/[0.035] sm:items-center sm:gap-5"
                       >
                         {/* CLI Indicator */}
                         <div className="w-6 flex justify-center">
                           <AnimatePresence mode="wait">
                             {activeIndex === i ? (
-                              <motion.span 
+                              <motion.span
                                 key="active"
                                 initial={{ scale: 0, opacity: 0 }}
                                 animate={{ scale: 1, opacity: 1 }}
@@ -215,7 +216,7 @@ export function TerminalHero() {
                                 ❯
                               </motion.span>
                             ) : (
-                              <motion.span 
+                              <motion.span
                                 key="inactive"
                                 className="text-zinc-800 font-bold text-[10px]"
                               >
@@ -226,15 +227,15 @@ export function TerminalHero() {
                         </div>
 
                         {/* Item Content */}
-                        <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6">
-                          <span className={`text-sm font-black tracking-widest transition-colors duration-300 ${activeIndex === i ? 'text-white' : 'text-zinc-600'}`}>
+                        <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-5">
+                          <span className={`text-xs font-black tracking-[0.12em] transition-colors duration-300 sm:text-sm ${activeIndex === i ? 'text-white' : 'text-zinc-600'}`}>
                             {item.label}
                           </span>
                           {activeIndex === i && (
-                            <motion.span 
+                            <motion.span
                               initial={{ opacity: 0, x: -5 }}
                               animate={{ opacity: 1, x: 0 }}
-                              className="text-[10px] text-zinc-500 font-mono italic"
+                              className="text-[10px] text-zinc-500 font-mono"
                             >
                               {"// "}{item.desc}
                             </motion.span>
@@ -246,9 +247,9 @@ export function TerminalHero() {
                 )}
               </div>
 
-              <div className="mt-auto pt-8 border-t border-white/5 flex items-center justify-between text-[9px] text-zinc-700 tracking-widest font-bold">
-                <div>LOCATION: 37.7749° N, 122.4194° W</div>
-                <div className="flex items-center gap-6">
+              <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-4 text-[8px] font-bold tracking-widest text-zinc-700 sm:text-[9px]">
+                <div className="hidden sm:block">LOCATION: 37.7749° N, 122.4194° W</div>
+                <div className="flex items-center gap-4 sm:gap-6">
                   <span>FORM STATUS: READY</span>
                   <span>STATE: READY</span>
                 </div>

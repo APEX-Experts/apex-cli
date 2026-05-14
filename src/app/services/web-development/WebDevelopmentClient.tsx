@@ -107,7 +107,7 @@ const TechSingularityNode = ({ item, index, total, active }: { item: WebTechItem
         />
 
         {/* Brand Logo Container */}
-        <div className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? 'bg-sinai-glow-orange/10 border-sinai-glow-orange/50 shadow-[0_0_60px_rgba(242,162,75,0.3)] rotate-[10deg]' : 'bg-white/[0.02] border-white/5 group-hover:border-white/20'}`}>
+        <div className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? 'bg-sinai-glow-orange/[0.08] border-sinai-glow-orange/35 shadow-[0_0_44px_rgba(217,130,47,0.09)] rotate-[10deg]' : 'bg-white/[0.02] border-white/5 group-hover:border-white/20'}`}>
           <div className={`relative w-12 h-12 transition-all duration-500 ${active ? 'scale-125' : 'opacity-40 group-hover:opacity-100 group-hover:scale-110'}`}>
             <Image 
               src={item.isLocal ? item.slug : `https://cdn.simpleicons.org/${item.slug}/white`} 
@@ -120,7 +120,7 @@ const TechSingularityNode = ({ item, index, total, active }: { item: WebTechItem
 
           {/* Holographic Label */}
           <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center transition-all duration-500 ${active ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'}`}>
-            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_100px_rgba(255,255,255,0.2)]">{item.name}</div>
+            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_36px_rgba(244,239,231,0.08)]">{item.name}</div>
             <div className="text-[7px] font-mono text-sinai-glow-orange/60 tracking-widest uppercase">{item.desc}</div>
           </div>
         </div>
@@ -146,7 +146,7 @@ const TechSingularity = () => {
   const activeItems = categories.find(c => c.id === activeTab)?.items || [];
 
   return (
-    <div className="relative w-full min-h-[1000px] flex items-center justify-center py-20 overflow-visible">
+    <div className="relative w-full min-h-[680px] lg:min-h-[760px] flex items-center justify-center py-14 overflow-visible">
       {/* Central Web Sphere - The Core */}
       <div className="relative z-20 flex items-center justify-center scale-125 lg:scale-150">
         <motion.div 
@@ -155,12 +155,12 @@ const TechSingularity = () => {
           className="absolute w-64 h-64 border border-sinai-glow-orange/20 rounded-full border-dashed"
         />
         
-        <div className="relative w-48 h-48 rounded-full bg-black/40 backdrop-blur-3xl border border-white/10 flex items-center justify-center overflow-hidden group shadow-[0_0_80px_rgba(242,162,75,0.2)]">
+        <div className="relative w-48 h-48 rounded-full bg-sinai-bg-base/40 backdrop-blur-3xl border border-white/10 flex items-center justify-center overflow-hidden group shadow-[0_0_56px_rgba(217,130,47,0.075)]">
           {/* Internal Glowing Core */}
           <motion.div 
             animate={effectiveReduceMotion ? { opacity: 0.5 } : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
             transition={{ duration: 4, repeat: Infinity }}
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.3)_0%,transparent_70%)]"
+            className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.105)_0%,transparent_70%)]"
           />
           
           <div className="relative z-10 flex flex-col items-center">
@@ -185,7 +185,7 @@ const TechSingularity = () => {
               onClick={() => setActiveTab(cat.id)}
               className={`px-8 py-3 rounded-full text-[9px] font-mono tracking-[0.3em] uppercase transition-all duration-700 ${
                 activeTab === cat.id 
-                  ? "bg-sinai-glow-orange text-white shadow-[0_0_40px_rgba(242,162,75,0.5)] scale-105" 
+                  ? "bg-sinai-glow-orange text-white shadow-[0_0_36px_rgba(217,130,47,0.12)] scale-105"
                   : "text-zinc-500 hover:text-white hover:bg-white/5"
               }`}
             >
@@ -313,19 +313,19 @@ const NeuralCore = () => {
       />
       
       {/* Central Glass Sphere */}
-      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+      <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
         
         {/* Internal Pulsing Plasma */}
         <motion.div 
           animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/20 blur-[60px]"
+          className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/[0.08] blur-[60px]"
         />
 
         {/* Central Branding Module */}
         <div className="relative z-10 flex flex-col items-center">
-          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/40 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
+          <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/25 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
             <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black flex items-center gap-2">
               <span className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
               APEX_ENGINE_V2.0
@@ -340,7 +340,7 @@ const NeuralCore = () => {
           </div>
 
           <div className="relative">
-            <h3 className="text-6xl font-black tracking-[-0.05em] text-white flex flex-col items-center leading-none">
+            <h3 className="text-6xl font-black tracking-normal text-white flex flex-col items-center leading-none">
               <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
               <span className="text-[10px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
             </h3>
@@ -356,7 +356,7 @@ const NeuralCore = () => {
             transition={{ duration: 10 + i * 5, repeat: Infinity, ease: "linear" }}
             className="absolute inset-0 pointer-events-none"
           >
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 tracking-tighter">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 text-[8px] font-mono text-white/20 tracking-normal">
               {i === 0 ? "REACT_19" : i === 1 ? "NEXT_JS" : "V8_ENG"}
             </div>
           </motion.div>
@@ -368,7 +368,7 @@ const NeuralCore = () => {
         <motion.div 
           animate={{ scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/30 rounded-full"
+          className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/25 rounded-full"
         />
       )}
     </div>
@@ -400,7 +400,7 @@ const OrbitalNode = ({ cap, index, total, active, onEnter, onLeave }: { cap: Web
       onMouseLeave={onLeave}
     >
       <div className="relative w-28 h-28 flex items-center justify-center cursor-pointer">
-        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(242,162,75,0.3)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
+        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(217,130,47,0.09)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
         <div className={`relative z-10 transition-colors duration-500 ${active ? 'text-sinai-glow-orange scale-110' : 'text-zinc-500 group-hover:text-white'}`}>
           {cap.icon}
         </div>
@@ -433,10 +433,10 @@ const CapabilityDetailView = ({ cap }: { cap: WebCapability }) => {
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-12 rounded-[4rem] relative overflow-hidden group pointer-events-auto">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-6 lg:p-8 rounded-[2rem] relative overflow-hidden group pointer-events-auto">
       <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-50" />
       
-      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl z-10">
+      <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.28)] z-10">
         <Image 
           src={cap.image} 
           alt={cap.title} 
@@ -449,14 +449,14 @@ const CapabilityDetailView = ({ cap }: { cap: WebCapability }) => {
 
       <div className="space-y-8 relative z-10 text-left">
         <div className="flex items-center gap-4">
-          <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">
+          <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">
             Web_Capability // {cap.id}
           </div>
           <div className="h-px flex-1 bg-white/5" />
         </div>
         
         <div className="space-y-6">
-          <h3 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">{cap.title}</h3>
+          <h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight">{cap.title}</h3>
           <div className="min-h-[100px]">
             <p className="text-xl text-zinc-400 font-light leading-relaxed">
               <StreamingText text={cap.desc} delay={100} />
@@ -466,7 +466,7 @@ const CapabilityDetailView = ({ cap }: { cap: WebCapability }) => {
 
         <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600">
           <span className="flex items-center gap-2">
-            <div className={`w-1.5 h-1.5 rounded-full bg-green-500/50 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+            <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/55 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
             ENGINE_SYNC: ACTIVE
           </span>
           <span className="w-px h-4 bg-white/10" />
@@ -505,7 +505,7 @@ const Particles = ({ count = 10 }: { count?: number }) => {
           initial={{ x: pos.x, y: shouldReduceMotion ? "50%" : "110%" }}
           animate={shouldReduceMotion ? {} : { y: "-10%", rotate: 360 }}
           transition={{ duration: 15 + i * 2, repeat: Infinity, ease: "linear", delay: pos.delay }}
-          className="absolute w-1 h-1 bg-sinai-glow-orange/20 rounded-full blur-[1px]"
+          className="absolute w-1 h-1 bg-sinai-glow-orange/[0.08] rounded-full blur-[1px]"
         />
       ))}
     </>
@@ -523,54 +523,52 @@ const WebDevelopmentHero = () => {
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   return (
-    <section className="relative min-h-screen flex items-center pt-32 overflow-hidden bg-black">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(242,162,75,0.08)_0%,transparent_50%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(242,162,75,0.05)_0%,transparent_50%)]" />
-      
-      <div className="absolute inset-0 opacity-[0.02] [mask-image:radial-gradient(ellipse_at_center,black,transparent)]">
-        <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:60px_60px]" />
-      </div>
+    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
+      <div className="apex-ambient-grid" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+      <div className="apex-container-wide relative z-10">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="space-y-12 text-left"
+            className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left"
           >
             <div className="space-y-6">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-px w-12 bg-sinai-glow-orange/30" />
-                <span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
+              <div className="flex flex-wrap items-center gap-3 mb-4 sm:gap-4">
+                <div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" />
+                <span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">
                   WEB_ENGINEERING // SOL_03
                 </span>
               </div>
               
-              <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white">
+              <h1 className="max-w-full text-balance text-4xl font-black tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">
                 Web <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">
-                  Web Development.
+                  Web <br className="sm:hidden" />Development.
                 </span>
               </h1>
               
-              <p className="text-xl md:text-2xl text-zinc-400 max-w-xl font-light leading-relaxed">
+              <p className="text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl max-w-full font-light">
                 We craft high-performance, cinematic web experiences using production-grade architectures that prioritize speed, security, and clear user journeys and fast page performance.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-6 pt-4">
-              <Link href="/contact" className="group relative px-12 py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.3em] uppercase transition-all hover:shadow-[0_0_50px_rgba(242,162,75,0.4)]">
+              <Link href="/contact" className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)]">
                 <span className="relative z-10">Initialize Engagement</span>
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               </Link>
               
-              <Link href="#capabilities" className="px-12 py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.3em] uppercase hover:bg-white/[0.08] hover:border-white/20 transition-all">
+              <Link href="#capabilities" className="inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] hover:bg-white/[0.08] hover:border-white/20 transition-all">
                 Registry Details
               </Link>
             </div>
 
-            <div className="grid grid-cols-3 gap-8 pt-12 border-t border-white/5">
+            <div className="grid grid-cols-1 gap-4 pt-8 border-t border-white/5 sm:grid-cols-3 sm:gap-8 sm:pt-12">
               {[
                 { label: "FRAME_TIME", value: "60FPS" },
                 { label: "CORE_VITAL", value: "A+" },
@@ -588,9 +586,9 @@ const WebDevelopmentHero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            className="relative"
+            className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl"
           >
-            <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.15)] group">
+            <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group">
               <Image 
                 src="/images/web-dev-hero-orange.png" 
                 alt="Web Development Excellence" 
@@ -602,7 +600,7 @@ const WebDevelopmentHero = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
               
               {/* Technical HUD Overlays */}
-              <div className="absolute top-10 right-10 text-[8px] font-mono text-sinai-glow-orange/80 tracking-[0.2em] text-right">
+              <div className="absolute top-6 right-8 text-[8px] font-mono text-sinai-glow-orange/80 tracking-[0.2em] text-right">
                 RUNTIME: STABLE<br />
                 STACK_SYNC: OPTIMAL
               </div>
@@ -627,6 +625,7 @@ const WebDevelopmentHero = () => {
       <div className="absolute inset-0 pointer-events-none">
         <Particles count={8} />
       </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
     </section>
   );
 };
@@ -645,20 +644,20 @@ export default function WebDevelopmentClient() {
   const activeCap = WEB_CAPABILITIES.find(c => c.id === activeCapId);
 
   return (
-    <div className="relative bg-[#050505] text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
+    <div className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
       <WebDevelopmentHero />
       
       {/* Capability Hub */}
-      <section id="capabilities" className="py-48 relative overflow-hidden bg-[#030303] min-h-[1000px]">
-        <div className="container mx-auto px-6">
+      <section id="capabilities" className="py-16 lg:py-24 relative overflow-hidden bg-[#080a0d] min-h-[760px] lg:min-h-[860px]">
+        <div className="apex-container-wide">
           <SectionReveal>
-            <div className="text-center mb-32">
+            <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
                 <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Web_Orchestrator // V2.0</span>
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
               </div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-tight leading-none">
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none">
                 The Digital <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Capability Hub</span>
               </h2>
@@ -726,28 +725,28 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Deep Dive: Custom Website Development - Technical Design // 01 */}
-      <section className="pt-64 pb-32 relative bg-[#050505] overflow-hidden">
+      <section className="pt-20 lg:pt-28 pb-16 lg:pb-20 relative bg-sinai-bg-base overflow-hidden">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             <SectionReveal>
-              <div className="space-y-16 text-left">
+              <div className="space-y-8 text-left">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 01</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                     Custom <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">Website <br /> Development</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                       Premium Web Architectures
@@ -767,22 +766,22 @@ export default function WebDevelopmentClient() {
                       { title: "Support", desc: "24/7 surveillance & optimization.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 group/item relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/20 to-transparent opacity-50" />
+                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 group/item relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/10 to-transparent opacity-50" />
                           <div className="relative z-10">
                             <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap flex items-center gap-2">
                               <span className={`w-1.5 h-1.5 rounded-full bg-white ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                               {service.title}
                             </div>
-                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-tighter">
+                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-normal">
                               {service.desc}
                             </p>
                           </div>
                         </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item">
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item">
                           <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap">{service.title}</div>
-                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
                             {service.desc}
                           </p>
                         </div>
@@ -796,7 +795,7 @@ export default function WebDevelopmentClient() {
             <SectionReveal>
               <div className="relative">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/web-custom-dev.png" 
                     alt="Custom Website Development" 
@@ -813,12 +812,12 @@ export default function WebDevelopmentClient() {
                     <motion.div 
                       animate={{ top: ["-10%", "110%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none"
+                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
                     />
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 left-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
+                  <div className="absolute top-6 left-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
                     V8_ENGINE: ACTIVE<br />
                     RENDER_TIME: 14MS
                   </div>
@@ -832,7 +831,7 @@ export default function WebDevelopmentClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">CORE_VITALS</div>
                   <div className="space-y-3">
@@ -854,17 +853,17 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Deep Dive: Full-Stack Web Development - Technical Design // 02 */}
-      <section className="py-32 relative bg-[#030303] overflow-hidden">
+      <section className="py-16 lg:py-20 relative bg-[#080a0d] overflow-hidden">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Image on the Left */}
             <SectionReveal>
               <div className="relative order-2 lg:order-1">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/web-fullstack-dev.png" 
                     alt="Full-Stack Architecture" 
@@ -881,12 +880,12 @@ export default function WebDevelopmentClient() {
                     <motion.div 
                       animate={{ top: ["-10%", "110%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none"
+                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
                     />
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 right-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
+                  <div className="absolute top-6 right-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
                     STACK_SYNC: OPTIMAL<br />
                     LATENCY: 8MS
                   </div>
@@ -900,7 +899,7 @@ export default function WebDevelopmentClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-12 top-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -left-12 top-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">SYSTEM_HEALTH</div>
                   <div className="space-y-3">
@@ -923,21 +922,21 @@ export default function WebDevelopmentClient() {
 
             {/* Content on the Right */}
             <SectionReveal>
-              <div className="space-y-16 text-left order-1 lg:order-2">
+              <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 02</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none">
                     Full-Stack <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">Web <br /> Development</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/30 rounded-tr-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                       End-to-End Mastery
@@ -957,22 +956,22 @@ export default function WebDevelopmentClient() {
                       { title: "Support", desc: "Continuous technical maintenance.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 group/item relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/20 to-transparent opacity-50" />
+                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 group/item relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/10 to-transparent opacity-50" />
                           <div className="relative z-10">
                             <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap flex items-center gap-2">
                               <span className={`w-1.5 h-1.5 rounded-full bg-white ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                               {service.title}
                             </div>
-                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-tighter">
+                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-normal">
                               {service.desc}
                             </p>
                           </div>
                         </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item">
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item">
                           <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap">{service.title}</div>
-                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
                             {service.desc}
                           </p>
                         </div>
@@ -987,29 +986,29 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Deep Dive: E-Commerce & Portal Development - Technical Design // 03 */}
-      <section className="py-32 relative bg-[#050505] overflow-hidden">
+      <section className="py-16 lg:py-20 relative bg-sinai-bg-base overflow-hidden">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.05)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Content on the Left */}
             <SectionReveal>
-              <div className="space-y-16 text-left">
+              <div className="space-y-8 text-left">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 03</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-balance">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-balance">
                     E-Commerce <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">& Portal Development</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/30 rounded-tl-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                       Global Transaction Engines
@@ -1029,22 +1028,22 @@ export default function WebDevelopmentClient() {
                       { title: "Support", desc: "Technical surveillance & optimization.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 group/item relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/20 to-transparent opacity-50" />
+                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 group/item relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/10 to-transparent opacity-50" />
                           <div className="relative z-10">
                             <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap flex items-center gap-2">
                               <span className={`w-1.5 h-1.5 rounded-full bg-white ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                               {service.title}
                             </div>
-                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-tighter">
+                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-normal">
                               {service.desc}
                             </p>
                           </div>
                         </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item">
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item">
                           <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap">{service.title}</div>
-                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
                             {service.desc}
                           </p>
                         </div>
@@ -1059,7 +1058,7 @@ export default function WebDevelopmentClient() {
             <SectionReveal>
               <div className="relative">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/web-ecommerce-portal.png" 
                     alt="E-Commerce & Portal Core" 
@@ -1076,12 +1075,12 @@ export default function WebDevelopmentClient() {
                     <motion.div 
                       animate={{ top: ["-10%", "110%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none"
+                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
                     />
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 left-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
+                  <div className="absolute top-6 left-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest">
                     PAYMENT_GATE: SECURE<br />
                     USER_NODES: 2.4k ACTIVE
                   </div>
@@ -1095,7 +1094,7 @@ export default function WebDevelopmentClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -right-12 top-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">TRANSACTION_LOAD</div>
                   <div className="space-y-3">
@@ -1117,17 +1116,17 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Deep Dive: Website Optimization & Support - Technical Design // 04 */}
-      <section className="py-32 relative bg-[#030303] overflow-hidden">
+      <section className="py-16 lg:py-20 relative bg-[#080a0d] overflow-hidden">
         {/* Ambient background glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_70%)] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
+        <div className="apex-container-wide relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Image on the Left */}
             <SectionReveal>
               <div className="relative order-2 lg:order-1">
                 {/* Main Holographic Core */}
-                <div className="relative aspect-square max-w-2xl mx-auto rounded-[4rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.1)] group">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
                   <Image 
                     src="/images/web-opt-support.png" 
                     alt="Website Optimization Hub" 
@@ -1144,12 +1143,12 @@ export default function WebDevelopmentClient() {
                     <motion.div 
                       animate={{ top: ["-10%", "110%"] }}
                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/20 to-transparent z-20 pointer-events-none"
+                      className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
                     />
                   )}
 
                   {/* Technical Frame Markers */}
-                  <div className="absolute top-10 right-10 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
+                  <div className="absolute top-6 right-8 text-[8px] font-mono text-sinai-glow-orange/60 tracking-widest text-right">
                     SURVEILLANCE: ACTIVE<br />
                     UPTIME: 99.99%
                   </div>
@@ -1163,7 +1162,7 @@ export default function WebDevelopmentClient() {
                 <motion.div 
                   animate={shouldReduceMotion ? {} : { y: [0, 15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -left-12 top-1/4 p-6 rounded-3xl bg-black/80 backdrop-blur-3xl border border-sinai-glow-orange/30 z-30 shadow-2xl max-w-[200px]"
+                  className="absolute -left-12 top-1/4 p-6 rounded-3xl bg-sinai-bg-base/80 backdrop-blur-3xl border border-sinai-glow-orange/25 z-30 shadow-[0_24px_80px_rgba(0,0,0,0.28)] max-w-[200px]"
                 >
                   <div className="text-[10px] font-mono text-sinai-glow-orange mb-2 tracking-widest font-black">SECURITY_STATUS</div>
                   <div className="space-y-4">
@@ -1175,7 +1174,7 @@ export default function WebDevelopmentClient() {
                       <motion.div 
                         animate={shouldReduceMotion ? { width: "100%" } : { width: ["100%", "90%", "100%"] }}
                         transition={{ duration: 2, repeat: Infinity }}
-                        className="h-full bg-green-500/50"
+                        className="h-full bg-sinai-glow-orange/55"
                       />
                     </div>
                     <div className="flex items-center justify-between text-[8px] font-mono text-white/40">
@@ -1189,21 +1188,21 @@ export default function WebDevelopmentClient() {
 
             {/* Content on the Right */}
             <SectionReveal>
-              <div className="space-y-16 text-left order-1 lg:order-2">
+              <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-px bg-sinai-glow-orange/30" />
                     <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 04</span>
                   </div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-tighter leading-none text-balance">
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-balance">
                     Optimization <br />
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">& Support</span>
                   </h2>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="p-10 rounded-[3rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
-                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/30 rounded-tr-3xl" />
+                <div className="space-y-7">
+                  <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
+                    <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
                     <h3 className="text-2xl font-bold mb-6 flex items-center gap-4">
                       <div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                       Continuous Performance Mastery
@@ -1223,22 +1222,22 @@ export default function WebDevelopmentClient() {
                       { title: "Support", desc: "24/7 technical surveillance.", isCTA: true }
                     ].map((service, i) => (
                       service.isCTA ? (
-                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/10 border border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/20 transition-all duration-300 group/item relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/20 to-transparent opacity-50" />
+                        <Link href="/contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 group/item relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/10 to-transparent opacity-50" />
                           <div className="relative z-10">
                             <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap flex items-center gap-2">
                               <span className={`w-1.5 h-1.5 rounded-full bg-white ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                               {service.title}
                             </div>
-                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-tighter">
+                            <p className="text-[10px] text-white/70 group-hover/item:text-white transition-colors leading-tight uppercase tracking-normal">
                               {service.desc}
                             </p>
                           </div>
                         </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/30 transition-all duration-300 group/item">
+                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item">
                           <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase whitespace-nowrap">{service.title}</div>
-                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-tighter">
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
                             {service.desc}
                           </p>
                         </div>
@@ -1253,21 +1252,21 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Tech Stack Section - Super Premium Interactive Experience */}
-      <section className="py-64 relative bg-black overflow-hidden">
+      <section className="py-16 lg:py-20 relative bg-sinai-bg-base overflow-hidden">
         {/* Cinematic Background Elements */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(242,162,75,0.05)_0%,transparent_50%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:40px_40px]" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container-wide relative z-10">
           <SectionReveal>
-            <div className="text-center mb-32 space-y-6">
+            <div className="text-center mb-12 lg:mb-16 space-y-6">
               <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10">
                 <span className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${shouldReduceMotion ? '' : 'animate-pulse'}`} />
                 <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] font-black uppercase">Technical_Ecosystem // V5.0</span>
               </div>
-              <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-white">
+              <h2 className="text-6xl md:text-8xl font-black tracking-normal text-white">
                 The <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Tech Stack.</span>
               </h2>
               <p className="text-zinc-500 max-w-2xl mx-auto font-light text-lg">
@@ -1289,9 +1288,9 @@ export default function WebDevelopmentClient() {
       </section>
 
       {/* Final CTA Section - Cinematic Masterpiece */}
-      <section className="py-64 relative overflow-hidden bg-black">
+      <section className="py-16 lg:py-20 relative overflow-hidden bg-sinai-bg-base">
         {/* Background Ambient Layers */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.08)_0%,transparent_70%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.055)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
         
         {/* Technical HUD Frame */}
@@ -1302,9 +1301,9 @@ export default function WebDevelopmentClient() {
           <div className="absolute bottom-0 right-0 w-px h-20 bg-sinai-glow-orange/30" />
         </div>
 
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="apex-container-wide relative z-10">
           <SectionReveal>
-            <div className="max-w-5xl mx-auto text-center space-y-16">
+            <div className="max-w-5xl mx-auto text-center space-y-8">
               {/* Top Branding Tag */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
@@ -1314,7 +1313,7 @@ export default function WebDevelopmentClient() {
               </div>
 
               <div className="space-y-8">
-                <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] text-white">
+                <h2 className="text-7xl md:text-[10rem] font-black tracking-normal leading-[0.8] text-white">
                   Ready to <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
                 </h2>
@@ -1324,7 +1323,7 @@ export default function WebDevelopmentClient() {
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/contact" className="group relative px-24 py-10 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_100px_rgba(242,162,75,0.6)] hover:scale-105 active:scale-95 duration-500">
+                <Link href="/contact" className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_54px_rgba(217,130,47,0.16)] hover:scale-105 active:scale-95 duration-500">
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
                   
@@ -1340,7 +1339,7 @@ export default function WebDevelopmentClient() {
 
                 <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600 tracking-widest uppercase">
                   <span className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-green-500/50" />
+                    <div className="w-1 h-1 rounded-full bg-sinai-glow-orange/55" />
                     Secure_Node: Active
                   </span>
                   <span className="w-px h-4 bg-white/10" />

@@ -89,25 +89,20 @@ const PROJECTS: Project[] = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="relative py-40 !bg-transparent">
+    <section id="projects" className="section-shell-lg relative overflow-hidden !bg-transparent">
       {/* Decorative Blur - Exact match from ProcessSection background */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sinai-glow-orange/5 blur-[120px] pointer-events-none" />
-
-      {/* Aggressive Reset for any inherited glows */}
-      <style jsx>{`
-        section#projects::after, section#projects::before { display: none !important; }
-      `}</style>
+      <div className="apex-ambient-glow left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 opacity-60" />
       {/* Header Section - Clean & Strong */}
-      <div className="max-w-7xl mx-auto px-6 mb-40 relative z-10 !bg-transparent">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10">
+      <div className="apex-container-wide relative z-10 mb-12 !bg-transparent lg:mb-16">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="space-y-6">
             <div className="flex items-center gap-4">
               <div className="h-px w-12 bg-sinai-glow-orange" />
               <span className="font-mono text-[10px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
-                04 // Selected Works
+                06 // Selected Works
               </span>
             </div>
-            <h2 className="text-7xl md:text-9xl font-black tracking-tighter text-white leading-[0.85] uppercase">
+            <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-normal text-white md:text-7xl lg:text-8xl">
               Engineering <br />
               <span className="text-zinc-800">Excellence.</span>
             </h2>
@@ -122,7 +117,7 @@ export function ProjectsSection() {
       </div>
 
       {/* Projects Feed */}
-      <div className="container mx-auto px-6 space-y-64 relative z-10">
+      <div className="apex-container-wide relative z-10 space-y-12 lg:space-y-16">
         {PROJECTS.map((project, index) => (
           <ProjectShowcase key={project.id} project={project} index={index} />
         ))}
@@ -143,7 +138,7 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
   }, []);
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
-  
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
@@ -152,27 +147,27 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
-    <motion.div 
+    <motion.div
       ref={containerRef}
       initial={{ opacity: 0, y: effectiveReduceMotion ? 0 : 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center"
+      className="relative grid grid-cols-1 items-center gap-8 lg:grid-cols-12 lg:gap-10"
     >
       {/* Media Column */}
-      <motion.div 
+      <motion.div
         style={{ y: (isEven && !effectiveReduceMotion) ? y : 0 }}
         className={`lg:col-span-7 relative ${isEven ? "" : "lg:order-2"}`}
       >
         <Link href={project.href || "#"}>
-          <div className="relative aspect-square rounded-[2rem] overflow-hidden bg-zinc-950 border border-white/5 group shadow-2xl cursor-pointer">
+          <div className="group relative aspect-square cursor-pointer overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-950 shadow-2xl">
             <ProjectMedia project={project} reduced={!!effectiveReduceMotion} />
-            
+
             {/* Internal Glow Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 pointer-events-none" />
             <div className="absolute inset-0 bg-sinai-glow-orange/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            
+
             {/* Subtle Technical Label */}
             <div className="absolute top-8 left-8 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-2 group-hover:translate-y-0">
               <div className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
@@ -183,22 +178,22 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
       </motion.div>
 
       {/* Info Column */}
-      <div className={`lg:col-span-5 space-y-12 ${isEven ? "" : "lg:order-1"}`}>
-        <div className="space-y-8">
+      <div className={`space-y-6 lg:col-span-5 ${isEven ? "" : "lg:order-1"}`}>
+        <div className="space-y-6">
           {project.logo ? (
-            <div className="relative w-48 h-24 mb-10">
-              <Image 
-                src={project.logo} 
-                alt={`${project.title} logo`} 
-                fill 
+            <div className="relative mb-6 h-20 w-44">
+              <Image
+                src={project.logo}
+                alt={`${project.title} logo`}
+                fill
                 sizes="192px"
-                className="object-contain object-left opacity-95" 
+                className="object-contain object-left opacity-95"
               />
             </div>
           ) : (
             <div className="space-y-2">
               <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.4em] font-bold uppercase">{project.client}</div>
-              <h3 className="text-5xl font-black tracking-tighter text-white uppercase">{project.title}</h3>
+              <h3 className="text-4xl font-black tracking-normal text-white uppercase">{project.title}</h3>
             </div>
           )}
 
@@ -208,26 +203,26 @@ function ProjectShowcase({ project, index }: { project: Project; index: number }
         </div>
 
         {/* Minimal Metrics */}
-        <div className="flex gap-16">
+        <div className="flex flex-wrap gap-6 sm:gap-8">
           {Object.entries(project.metrics).map(([key, value]) => (
             <div key={key} className="space-y-1">
               <div className="text-[8px] font-mono text-zinc-600 uppercase tracking-[0.3em] mb-2">{key}</div>
-              <div className="text-2xl font-bold text-white font-mono tracking-tighter whitespace-nowrap">{value}</div>
+              <div className="whitespace-nowrap font-mono text-xl font-bold tracking-normal text-white sm:text-2xl">{value}</div>
               <div className="h-0.5 w-4 bg-sinai-glow-orange/20" />
             </div>
           ))}
         </div>
 
         {/* Tech Stack - Clean Line */}
-        <div className="flex flex-wrap gap-x-6 gap-y-2 text-zinc-600 font-mono text-[9px] tracking-widest uppercase border-t border-white/5 pt-8">
+        <div className="flex flex-wrap gap-x-5 gap-y-2 text-zinc-600 font-mono text-[9px] tracking-widest uppercase border-t border-white/5 pt-6">
           {project.tech.map((t) => (
             <span key={t}>{t}</span>
           ))}
         </div>
 
         <div>
-          <Link 
-            href={project.href || "#"} 
+          <Link
+            href={project.href || "#"}
             className="group relative py-4 flex items-center gap-6 overflow-hidden"
           >
             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white group-hover:text-sinai-glow-orange transition-colors">
@@ -246,8 +241,8 @@ function ProjectMedia({ project, reduced }: { project: Project; reduced: boolean
     const isGif = project.videoUrl.endsWith(".gif");
     if (isGif) {
       return (
-        <Image 
-          src={project.videoUrl} 
+        <Image
+          src={project.videoUrl}
           alt={project.title}
           fill
           unoptimized
@@ -268,10 +263,10 @@ function ProjectMedia({ project, reduced }: { project: Project; reduced: boolean
   }
 
   return (
-    <Image 
-      src={project.image} 
-      alt={project.title} 
-      fill 
+    <Image
+      src={project.image}
+      alt={project.title}
+      fill
       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
       className={`object-cover opacity-60 transition-transform duration-[2000ms] ${reduced ? '' : 'group-hover:scale-105'}`}
     />

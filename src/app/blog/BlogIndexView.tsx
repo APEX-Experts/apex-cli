@@ -26,30 +26,30 @@ export default function BlogPage() {
   }));
 
   return (
-    <div className="min-h-screen bg-[#06080a] text-white pt-32 pb-20 overflow-hidden relative selection:bg-sinai-glow-orange selection:text-black">
+    <div className="min-h-screen bg-[#06080a] text-white pt-28 pb-20 overflow-hidden relative selection:bg-sinai-glow-orange selection:text-black lg:pt-32">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-sinai-glow-orange/5 blur-[120px] rounded-full" />
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-sinai-glow-orange/5 blur-[120px] rounded-full" />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="apex-container-wide relative z-10">
         {/* Header */}
         <SectionReveal>
-          <div className="max-w-4xl mb-32">
-            <div className="flex items-center gap-4 mb-8">
+          <div className="max-w-4xl mb-16 lg:mb-20">
+            <div className="flex items-center gap-4 mb-6">
               <div className="h-px w-12 bg-sinai-glow-orange/30" />
               <span className="text-[9px] uppercase tracking-[0.5em] text-sinai-glow-orange font-bold">
                 INSIGHTS // APEX_INTELLIGENCE
               </span>
             </div>
-            <h1 className="text-7xl md:text-9xl font-black tracking-tighter leading-[0.85] text-white uppercase">
+            <h1 className="text-7xl md:text-9xl font-black tracking-normal leading-[0.85] text-white uppercase">
               The <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">
                 Knowledge Hub.
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl font-light leading-relaxed mt-12 italic">
+            <p className="text-xl md:text-2xl text-zinc-500 max-w-2xl font-light leading-relaxed mt-8 italic">
               Exploring the frontiers of autonomous intelligence, data engineering, and the future of enterprise systems.
             </p>
           </div>
@@ -57,12 +57,12 @@ export default function BlogPage() {
 
         {/* Taxonomy Explorer (Topics) */}
         <SectionReveal>
-          <div className="mb-32 space-y-10">
+          <div className="mb-16 space-y-7 lg:mb-20">
             <div className="flex items-center gap-4">
               <div className="text-[10px] font-mono text-zinc-600 tracking-[0.4em] uppercase">Taxonomy_Explorer</div>
               <div className="h-px flex-1 bg-white/5" />
             </div>
-            <div className="flex flex-wrap gap-6">
+            <div className="flex flex-wrap gap-4 sm:gap-5">
               {uniqueTopics.map((topic) => (
                 <Link 
                   key={topic.slug} 
@@ -83,8 +83,8 @@ export default function BlogPage() {
         {/* Featured Post */}
         {posts.length > 0 && (
           <SectionReveal>
-            <div className="mb-40 group">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center bg-white/[0.02] border border-white/5 rounded-[4rem] p-8 lg:p-12 transition-all hover:bg-white/[0.04] hover:border-sinai-glow-orange/20 relative overflow-hidden">
+            <div className="mb-16 group lg:mb-20">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center bg-white/[0.02] border border-white/5 rounded-[2rem] p-6 lg:p-8 transition-all hover:bg-white/[0.04] hover:border-sinai-glow-orange/20 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 
                 <div className="lg:col-span-7 aspect-[16/9] relative rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
@@ -97,7 +97,7 @@ export default function BlogPage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                 </div>
 
-                <div className="lg:col-span-5 space-y-10 relative z-10">
+                <div className="lg:col-span-5 space-y-7 relative z-10">
                   <div className="flex flex-wrap gap-4">
                     {posts[0].categories?.map((cat: string) => (
                       <Link 
@@ -111,7 +111,7 @@ export default function BlogPage() {
                   </div>
                   
                   <Link href={`/blog/${posts[0].slug}`} className="block space-y-6 group/title">
-                    <h2 className="text-5xl md:text-6xl font-black tracking-tighter leading-tight uppercase group-hover/title:text-sinai-glow-orange transition-colors">
+                    <h2 className="text-5xl md:text-6xl font-black tracking-normal leading-tight uppercase group-hover/title:text-sinai-glow-orange transition-colors">
                       {posts[0].title}
                     </h2>
                     <p className="text-zinc-500 text-xl font-light line-clamp-3 leading-relaxed italic">
@@ -119,7 +119,7 @@ export default function BlogPage() {
                     </p>
                   </Link>
 
-                  <div className="flex items-center gap-10 text-[10px] font-mono text-zinc-600 uppercase tracking-widest pt-6 border-t border-white/5">
+                  <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600 uppercase tracking-widest pt-5 border-t border-white/5">
                     <span className="flex items-center gap-3">
                       <Calendar className="w-3.5 h-3.5 text-sinai-glow-orange/50" />
                       {new Date(posts[0].publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
@@ -143,11 +143,11 @@ export default function BlogPage() {
         )}
 
         {/* Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {posts.slice(1).map((post) => (
             <SectionReveal key={post.id}>
-              <div className="group block space-y-8 relative">
-                <Link href={`/blog/${post.slug}`} className="aspect-[4/3] relative block rounded-[3rem] overflow-hidden border border-white/10 bg-zinc-950 transition-all duration-700 group-hover:border-sinai-glow-orange/30">
+              <div className="group block space-y-6 relative">
+                <Link href={`/blog/${post.slug}`} className="aspect-[4/3] relative block rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950 transition-all duration-700 group-hover:border-sinai-glow-orange/30">
                   <Image
                     src={post.mainImage}
                     alt={post.title}
@@ -163,7 +163,7 @@ export default function BlogPage() {
                   </div>
                 </Link>
 
-                <div className="space-y-6 px-2">
+                <div className="space-y-5 px-2">
                   <div className="flex gap-6 items-center">
                     {post.categories?.slice(0, 1).map((cat) => (
                       <Link 
@@ -181,7 +181,7 @@ export default function BlogPage() {
                   </div>
                   
                   <Link href={`/blog/${post.slug}`} className="block space-y-4">
-                    <h3 className="text-3xl font-black tracking-tighter leading-tight uppercase group-hover:text-sinai-glow-orange transition-colors duration-500">
+                    <h3 className="text-3xl font-black tracking-normal leading-tight uppercase group-hover:text-sinai-glow-orange transition-colors duration-500">
                       {post.title}
                     </h3>
                     <p className="text-zinc-500 text-lg font-light line-clamp-2 leading-relaxed italic">
@@ -207,14 +207,14 @@ export default function BlogPage() {
 
         {/* Empty State */}
         {posts.length === 0 && (
-          <div className="py-40 text-center space-y-12 border border-dashed border-white/10 rounded-[4rem]">
+          <div className="py-14 lg:py-16 text-center space-y-8 border border-dashed border-white/10 rounded-[2rem]">
             <div className="flex justify-center">
               <div className="w-20 h-20 rounded-full bg-sinai-glow-orange/5 flex items-center justify-center border border-sinai-glow-orange/10 animate-pulse text-sinai-glow-orange/40">
                 <Clock className="w-10 h-10" />
               </div>
             </div>
             <div className="space-y-4">
-              <h3 className="text-4xl font-black tracking-tighter uppercase">Initializing Intelligence.</h3>
+              <h3 className="text-4xl font-black tracking-normal uppercase">Initializing Intelligence.</h3>
               <p className="text-zinc-500 font-mono text-xs uppercase tracking-widest">The knowledge base is currently syncing. Check back soon for first entry.</p>
             </div>
           </div>

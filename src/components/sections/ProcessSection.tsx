@@ -46,7 +46,7 @@ export function ProcessSection() {
       if (!containerRef.current) return;
       const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      
+
       // Calculate progress relative to the section's position in the viewport
       const start = rect.top - windowHeight;
       const end = rect.bottom;
@@ -71,29 +71,29 @@ export function ProcessSection() {
   });
 
   return (
-    <div 
-      ref={containerRef} 
-      id="process" 
-      className="scroll-mt-28 py-40 border-t border-white/5 relative overflow-hidden"
+    <div
+      ref={containerRef}
+      id="process"
+      className="section-shell-lg relative scroll-mt-28 overflow-hidden"
       style={{ position: 'relative' }}
     >
       {/* Background Atmosphere */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-white/[0.05]" />
-      <motion.div 
+      <motion.div
         style={{ scaleY: effectiveReduceMotion ? scrollYProgressValue : scaleY, originY: 0 }}
         className="absolute top-0 left-1/2 -translate-x-1/2 w-px h-full bg-gradient-to-b from-sinai-glow-orange via-sinai-glow-orange/50 to-transparent z-10"
       />
 
       {/* Section Header */}
-      <div className="flex flex-col items-center text-center mb-32 relative z-20">
+      <div className="relative z-20 mb-12 flex flex-col items-center text-center lg:mb-16">
         <div className="flex items-center gap-4 mb-6">
           <div className="h-px w-8 bg-sinai-glow-orange" />
           <span className="font-mono text-[10px] uppercase tracking-[0.4em] text-sinai-glow-orange font-bold">
-            03 // Our Process
+            05 // Our Process
           </span>
           <div className="h-px w-8 bg-sinai-glow-orange" />
         </div>
-        <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-white mb-6">
+        <h2 className="mb-5 text-4xl font-bold tracking-normal text-white md:text-6xl">
           How we <span className="opacity-40">work.</span>
         </h2>
         <p className="text-zinc-500 max-w-xl text-lg leading-relaxed">
@@ -101,9 +101,9 @@ export function ProcessSection() {
         </p>
       </div>
 
-      <div className="relative z-20 space-y-40">
+      <div className="relative z-20 space-y-12 lg:space-y-16">
         {STEPS.map((step, i) => (
-          <div key={step.id} className="relative grid md:grid-cols-2 gap-20 items-center">
+          <div key={step.id} className="relative grid items-center gap-8 md:grid-cols-2 lg:gap-14">
             {/* Step content */}
             <div className={`${i % 2 === 0 ? "md:order-1" : "md:order-2 md:text-right"}`}>
               <motion.div
@@ -119,12 +119,12 @@ export function ProcessSection() {
                     {step.subtitle}
                   </span>
                 </div>
-                
-                <h3 className="text-3xl md:text-5xl font-bold text-white tracking-tight">
+
+                <h3 className="text-3xl font-bold tracking-normal text-white md:text-5xl">
                   {step.title}
                 </h3>
-                
-                <p className="text-zinc-500 text-lg leading-relaxed max-w-lg mx-auto md:mx-0">
+
+                <p className="mx-auto max-w-lg text-base leading-relaxed text-zinc-500 sm:text-lg md:mx-0">
                   {step.desc}
                 </p>
 
@@ -140,7 +140,7 @@ export function ProcessSection() {
 
             {/* Central Node Visual */}
             <div className={`hidden md:flex absolute left-1/2 -translate-x-1/2 items-center justify-center`}>
-              <motion.div 
+              <motion.div
                 initial={{ scale: effectiveReduceMotion ? 1 : 0 }}
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
@@ -157,7 +157,7 @@ export function ProcessSection() {
       </div>
 
       {/* Decorative Blur */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sinai-glow-orange/5 blur-[120px] pointer-events-none" />
+      <div className="apex-ambient-glow left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-55" />
     </div>
   );
 }

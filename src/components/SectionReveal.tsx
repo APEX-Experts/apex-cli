@@ -25,14 +25,11 @@ export function SectionReveal({
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
   
-  // Use a more generous margin and remove 'once: true' if we want it to react on every scroll
-  // But for professional sites, 'once: true' is usually better to prevent repetitive jumping.
-  // We'll keep 'once: true' but significantly improve the transition quality.
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
   const initial = effectiveReduceMotion 
     ? { opacity: 0 } 
-    : { opacity: 0, y: 80, filter: "blur(15px)" };
+    : { opacity: 0, y: 36, filter: "blur(8px)" };
     
   const animate = isInView 
     ? { opacity: 1, y: 0, filter: "blur(0px)" } 
@@ -44,7 +41,7 @@ export function SectionReveal({
       initial={initial}
       animate={animate}
       transition={{
-        duration: effectiveReduceMotion ? 0.6 : 1.2, // Shorter duration for simple fade
+        duration: effectiveReduceMotion ? 0.45 : 0.8,
         delay,
         ease: [0.22, 1, 0.36, 1], // Custom cubic-bezier for high-end motion
       }}

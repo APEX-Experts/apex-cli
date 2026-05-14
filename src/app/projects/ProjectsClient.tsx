@@ -58,36 +58,35 @@ export default function ProjectsClient() {
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
 
   return (
-    <main className="min-h-screen bg-[#06080a] text-white pt-40 pb-40 overflow-hidden relative selection:bg-sinai-glow-orange selection:text-black">
+    <main className="relative min-h-screen overflow-hidden bg-sinai-bg-base pb-20 pt-28 text-white selection:bg-sinai-glow-orange selection:text-black lg:pb-24 lg:pt-32">
       {/* Background Architectural Grid (Parity with Services/Home) */}
-      <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-           style={{ backgroundImage: 'linear-gradient(#f2a24b 0.5px, transparent 0.5px), linear-gradient(90deg, #f2a24b 0.5px, transparent 0.5px)', backgroundSize: '60px 60px' }} />
+      <div className="apex-ambient-grid" />
       
       {/* Cinematic Ambient Glow */}
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[150px] rounded-full pointer-events-none" />
+      <div className="apex-ambient-glow right-[-12rem] top-0 opacity-55" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="apex-container-wide relative z-10">
         
         {/* Cinematic Page Header - Terminal Style (Total Parity) */}
         <SectionReveal>
-          <div className="max-w-5xl mx-auto mb-32 space-y-12">
-            <div className="flex items-center gap-6">
+          <div className="mx-auto mb-14 max-w-5xl space-y-6 lg:mb-20">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <div className="h-px w-20 bg-sinai-glow-orange/30" />
-              <div className="px-4 py-1.5 rounded-sm bg-sinai-glow-orange/10 border border-sinai-glow-orange/40">
-                <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.5em] font-black uppercase">PRODUCTION_REGISTRY // DEPLOYMENT_ARCHIVE</span>
+              <div className="rounded-sm border border-sinai-glow-orange/25 bg-sinai-glow-orange/[0.08] px-4 py-1.5">
+                <span className="text-[10px] font-mono font-black uppercase tracking-[0.34em] text-sinai-glow-soft">PRODUCTION_REGISTRY // DEPLOYMENT_ARCHIVE</span>
               </div>
             </div>
             
-            <h1 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-[0.8] uppercase">
+            <h1 className="text-5xl font-black uppercase leading-[0.9] tracking-normal md:text-7xl lg:text-8xl">
               The <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">Deployments.</span>
+              <span className="apex-gradient-text">Deployments.</span>
             </h1>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
-              <p className="text-2xl text-zinc-400 font-light leading-relaxed italic">
+            <div className="grid grid-cols-1 gap-6 pt-2 md:grid-cols-2 lg:gap-8">
+              <p className="text-lg font-light leading-relaxed text-zinc-400 sm:text-xl">
                 A selection of APEX Experts products and project-ready platforms. Each project shows the product direction, the problem it solves, and the systems behind it.
               </p>
-              <div className="flex flex-col justify-end items-start md:items-end gap-4 text-[10px] font-mono text-zinc-700 tracking-[0.3em] uppercase text-right">
+              <div className="flex flex-col items-start justify-end gap-3 text-[10px] font-mono uppercase tracking-[0.24em] text-zinc-700 md:items-end md:text-right">
                 <div>{"// REGISTRY_SECURE: YES"}</div>
                 <div>{"// ENCRYPTION: AES_256"}</div>
                 <div>{"// ACCESS_LEVEL: GLOBAL_STRATEGIC"}</div>
@@ -97,49 +96,49 @@ export default function ProjectsClient() {
         </SectionReveal>
 
         {/* Projects Grid - Mirroring Services Page Structure Exactly */}
-        <div className="max-w-7xl mx-auto space-y-32">
+        <div className="mx-auto max-w-7xl space-y-12 lg:space-y-16">
           {PROJECTS.map((project) => (
             <SectionReveal key={project.id}>
-              <div className="group relative grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+              <div className="group relative grid grid-cols-1 items-start gap-8 lg:grid-cols-12 lg:gap-10">
                 
                 {/* Left: Metadata & ID */}
                 <div className="lg:col-span-1 hidden lg:flex flex-col items-center pt-4">
-                  <div className="text-4xl font-black text-white/5 group-hover:text-sinai-glow-orange/20 transition-colors duration-500">{project.id}</div>
+                  <div className="text-4xl font-black text-white/5 transition-colors duration-300 group-hover:text-sinai-glow-orange/20">{project.id}</div>
                   <div className="h-40 w-px bg-gradient-to-b from-white/10 via-white/5 to-transparent mt-6" />
                 </div>
 
                 {/* Center: Main Content */}
-                <div className="lg:col-span-7 space-y-12">
-                  <div className="space-y-8">
-                    <div className="flex items-center gap-6">
-                      <div className="w-20 h-20 rounded-3xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-sinai-glow-orange group-hover:border-sinai-glow-orange/40 transition-all duration-500 shadow-2xl relative overflow-hidden">
+                <div className="space-y-6 lg:col-span-7">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-5">
+                      <div className="relative flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/[0.03] text-sinai-glow-orange shadow-2xl transition-all duration-300 group-hover:border-sinai-glow-orange/40">
                         <div className="absolute inset-0 bg-sinai-glow-orange/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                         {project.icon}
                       </div>
                       <div className="space-y-1">
                         <div className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase">{project.client}</div>
-                        <h2 className="text-5xl md:text-7xl font-black tracking-tighter uppercase text-white group-hover:text-sinai-glow-orange transition-colors duration-500">
+                        <h2 className="text-4xl font-black uppercase tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-soft md:text-6xl">
                           {project.title}
                         </h2>
                       </div>
                     </div>
 
-                    <p className="text-2xl text-zinc-400 font-light leading-relaxed italic">
+                    <p className="text-lg font-light leading-relaxed text-zinc-400 sm:text-xl">
                       {project.detailedDesc}
                     </p>
                   </div>
 
                   {/* Technical Spec HUD (Mirroring Services Specs) */}
-                  <div className="grid grid-cols-3 gap-6 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl group-hover:border-sinai-glow-orange/10 transition-colors">
+                  <div className="apex-panel grid grid-cols-1 gap-5 rounded-[1.25rem] p-6 transition-colors group-hover:border-sinai-glow-orange/20 sm:grid-cols-3">
                     {Object.entries(project.specs).map(([key, val]) => (
                       <div key={key}>
                         <div className="text-[8px] font-mono text-zinc-600 mb-1 uppercase tracking-widest">{key}</div>
-                        <div className="text-sm font-bold text-white tracking-tight uppercase">{val}</div>
+                        <div className="text-sm font-bold uppercase tracking-normal text-white">{val}</div>
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap gap-4 pt-4">
+                  <div className="flex flex-wrap gap-3 pt-2">
                     {project.tags.map(tag => (
                       <span key={tag} className="px-5 py-2 rounded-full bg-white/[0.02] border border-white/5 text-[10px] font-mono text-zinc-500 uppercase tracking-widest group-hover:text-zinc-300 group-hover:border-white/10 transition-all">
                         {tag}
@@ -150,7 +149,7 @@ export default function ProjectsClient() {
 
                 {/* Right: CTA & Media Preview (Mirroring Services Box) */}
                 <div className="lg:col-span-4 lg:pt-4">
-                  <Link href={`/projects/${project.slug}`} className="group/btn relative block rounded-[3.5rem] bg-white/[0.02] border border-white/10 overflow-hidden hover:border-sinai-glow-orange/40 transition-all duration-500">
+                  <Link href={`/projects/${project.slug}`} className="apex-panel apex-panel-hover group/btn relative block overflow-hidden rounded-[1.5rem]">
                     <div className="relative aspect-[4/3] w-full overflow-hidden">
                       <Image 
                         src={project.image} 
@@ -170,7 +169,7 @@ export default function ProjectsClient() {
                       )}
                     </div>
 
-                    <div className="p-10 space-y-8 relative">
+                    <div className="relative space-y-5 p-6 lg:p-8">
                       <div className="flex items-center justify-between">
                         <span className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase font-black">Initialization</span>
                         <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center group-hover/btn:bg-sinai-glow-orange group-hover/btn:border-sinai-glow-orange transition-all">
@@ -192,8 +191,8 @@ export default function ProjectsClient() {
         </div>
 
         {/* Global Footer System Status */}
-        <div className="mt-64 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className="flex items-center gap-12">
+        <div className="mt-16 flex flex-col items-start justify-between gap-6 border-t border-white/5 pt-8 md:flex-row md:items-center lg:mt-20">
+          <div className="flex items-center gap-8">
             <div className="flex flex-col">
               <span className="text-[8px] font-mono text-zinc-700 uppercase tracking-widest mb-1">Status</span>
               <div className="flex items-center gap-2">
