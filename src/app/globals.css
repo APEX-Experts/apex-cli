@@ -29,7 +29,7 @@
   --color-sinai-ember-deep: #24130d;
   --color-sinai-ember-mid: #51311f;
   --color-sinai-glow-amber: #9f6432;
-  --color-sinai-glow-orange: #d9822f;
+  --color-sinai-glow-orange: rgb(217, 130, 47);
   --color-sinai-glow-soft: #f1b768;
   --color-sinai-border: #ff6900;
   --color-sinai-slate-blue: #6f829c;
@@ -431,5 +431,46 @@
     scroll-behavior: auto !important;
     transition-duration: 1ms !important;
     transition-delay: -1ms !important;
+  }
+}
+
+.separator-gradient {
+  position: relative;
+  width: 260px;
+  height: 1px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(217, 130, 47, 0.3),
+    transparent
+  );
+}
+
+.separator-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(217, 130, 47, 0.9),
+    transparent
+  );
+
+  filter: blur(1px);
+
+  animation: separatorFlow 3s linear infinite;
+}
+
+@keyframes separatorFlow {
+  to {
+    left: 100%;
   }
 }

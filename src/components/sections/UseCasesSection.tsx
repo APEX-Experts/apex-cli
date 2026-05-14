@@ -8,41 +8,126 @@ const USE_CASES = [
   {
     icon: <Building2 className="h-8 w-8" />,
     title: "Financial Operations Modernization",
-    domain: "Financial Operations Teams",
-    need: "Centralized reporting across fragmented Oracle tables.",
-    solution: "Natural language analytics dashboard with role-based data isolation.",
+    capability: "Financial Analytics Modernization",
+    target: "Financial Operations Teams",
+    context: "Centralized reporting across fragmented Oracle tables.",
+    solution:
+      "Natural language analytics dashboard with role-based data isolation.",
   },
   {
     icon: <Stethoscope className="h-8 w-8" />,
     title: "Healthcare Legacy Transformation",
-    domain: "Healthcare Organizations",
-    need: "Replace end-of-life Oracle Forms infrastructure.",
-    solution: "Full APEX migration preserving 15+ years of business logic with zero disruption.",
+    capability: "Legacy System Migration",
+    target: "Healthcare Organizations",
+    context: "Replace end-of-life Oracle Forms infrastructure.",
+    solution:
+      "Full APEX migration preserving 15+ years of business logic with zero disruption.",
   },
   {
     icon: <Truck className="h-8 w-8" />,
     title: "Logistics Field Enablement",
-    domain: "Logistics Companies",
-    need: "Offline/remote approval processing for field teams.",
+    capability: "Field Operations Enablement",
+    target: "Logistics Companies",
+    context: "Offline/remote approval processing for field teams.",
     solution: "Mobile workflow application synced with APEX backend.",
   },
   {
     icon: <MonitorSmartphone className="h-8 w-8" />,
     title: "Enterprise Systems Unification",
-    domain: "SaaS / Enterprise Platforms",
-    need: "Fragmented CRM, billing, and project tools.",
-    solution: "Unified operational portal with granular role-based access control.",
+    capability: "Unified Enterprise Operations",
+    target: "SaaS / Enterprise Platforms",
+    context: "Fragmented CRM, billing, and project tools.",
+    solution:
+      "Unified operational portal with granular role-based access control.",
   },
 ];
+
+interface UseCaseCardProps {
+  uc: (typeof USE_CASES)[0];
+  index: number;
+}
+
+function UseCaseCard({ uc, index }: UseCaseCardProps) {
+  const cardRef = React.useRef<HTMLDivElement>(null);
+  const [position, setPosition] = React.useState({ x: 0, y: 0 });
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    setPosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-white/10 bg-white/2 p-8 transition-colors hover:bg-white/4"
+    >
+      {/* Mouse Following Glow */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-300"
+        style={{
+          opacity: isHovered ? 1 : 0,
+          background: `radial-gradient(
+            1500px circle at ${position.x}px ${position.y}px,
+            rgba(217,130,47,0.15),
+            rgba(217,130,47,0.05) 30%,
+            transparent 70%
+          )`,
+        }}
+      />
+
+      <div className="relative z-10 flex h-full flex-col justify-between">
+        <div className="mb-8 flex items-center justify-between">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl border text-zinc-400 group-hover:text-white transition-colors duration-500">
+            {uc.icon}
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-2xl font-bold text-white">{uc.title}</h3>
+          <div className="space-y-2">
+            <div className="text-sm text-zinc-400 group-hover:text-white flex flex-col gap-2">
+              <strong>Capability:</strong>
+              <span>{uc.capability}</span>
+            </div>
+            <div className="text-sm text-zinc-400 group-hover:text-white flex flex-col gap-2">
+              <strong>Target:</strong>
+              <span>{uc.target}</span>
+            </div>
+            <div className="text-sm text-zinc-400 group-hover:text-white flex flex-col gap-2">
+              <strong>Business Context:</strong>
+              <span>{uc.context}</span>
+            </div>
+            <div className="text-sm text-sinai-glow-orange mt-4">
+              <span>{uc.solution}</span>
+            </div>
+            <div className="separator-gradient" />
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+}
 
 export function UseCasesSection() {
   return (
     <section className="section-shell relative py-24">
       <div className="section-label mb-12">03 // Use Cases</div>
-      
+
       <div className="mb-16 max-w-3xl">
         <h2 className="mb-6 text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-          Real-World Use Cases
+          Real-World <span className="text-sinai-glow-orange">Use Cases</span>
         </h2>
         <p className="text-xl text-zinc-400">
           Where We Drive Transformation Across Critical Enterprise Workflows
@@ -51,34 +136,7 @@ export function UseCasesSection() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:gap-8">
         {USE_CASES.map((uc, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-            className="group relative flex flex-col justify-between overflow-hidden rounded-[1.5rem] border border-white/10 bg-white/[0.02] p-8 transition-colors hover:bg-white/[0.04]"
-          >
-            <div className="mb-8 flex items-center justify-between">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-sinai-glow-orange/10 text-sinai-glow-orange group-hover:bg-sinai-glow-orange group-hover:text-white transition-colors duration-500">
-                {uc.icon}
-              </div>
-              <div className="text-[10px] font-mono tracking-widest text-zinc-500 uppercase">
-                {uc.domain}
-              </div>
-            </div>
-            
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold text-white">{uc.title}</h3>
-              <div className="space-y-2">
-                <p className="text-sm text-zinc-400"><strong className="text-zinc-300">Context:</strong> {uc.need}</p>
-                <p className="text-sm text-sinai-glow-soft"><strong className="text-sinai-glow-orange">Solution:</strong> {uc.solution}</p>
-              </div>
-            </div>
-            
-            {/* Hover Glow */}
-            <div className="pointer-events-none absolute -bottom-24 -right-24 h-64 w-64 bg-sinai-glow-orange/10 opacity-0 blur-[100px] transition-opacity duration-700 group-hover:opacity-100" />
-          </motion.div>
+          <UseCaseCard key={i} uc={uc} index={i} />
         ))}
       </div>
     </section>

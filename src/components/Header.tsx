@@ -230,8 +230,8 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 backdrop-blur-sm ${
-        scrolled ? "py-3" : "py-4 sm:py-6"
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
+        scrolled ? "py-3 backdrop-blur-sm" : "py-4 sm:py-6"
       }`}
     >
       <div className="apex-container-wide">
