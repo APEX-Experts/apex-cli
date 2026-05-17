@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export function CtaSection() {
   return (
-    <section className="section-shell relative py-8 md:py-24 overflow-hidden border-t border-white/5">
+    <section className="section-shell border-none relative py-8 md:py-24 overflow-hidden ">
       {/* Background gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(242,162,75,0.03)_0%,transparent_60%)] pointer-events-none" />
 

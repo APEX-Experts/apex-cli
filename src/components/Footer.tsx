@@ -13,9 +13,9 @@ export function Footer() {
       <div className="apex-ambient-glow left-1/4 top-0 opacity-35" />
 
       <div className="apex-container-wide relative z-10">
-        <div className="mb-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8 items-center md:items-start">
+        <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8 items-center md:items-start">
           {/* Brand Column */}
-          <div className="space-y-6 lg:col-span-4">
+          <div className="space-y-6 lg:col-span-3">
             <Link
               href="/"
               className="inline-block transition-transform duration-500 hover:scale-[1.02]"
@@ -31,7 +31,7 @@ export function Footer() {
                 />
               </div>
             </Link>
-            <p className=" text-sm sm:text-base leading-relaxed text-zinc-500 md:text-lg text-center md:text-start">
+            <p className=" text-sm sm:text-base leading-relaxed text-zinc-500 md:text-lg text-center md:text-start max-w-[306px]">
               Architecting the next generation of production-grade AI systems
               with technical precision and strategic depth.
             </p>
@@ -56,7 +56,7 @@ export function Footer() {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-8 lg:gap-10 max-md:mt-4">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4 lg:col-span-9 lg:gap-10 max-md:mt-4">
             <FooterLinkGroup
               title="Navigation"
               links={[
@@ -135,7 +135,7 @@ function FooterLinkGroup({
           <Link
             key={link.name}
             href={link.href}
-            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-500"
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-sinai-glow-orange transition-colors duration-500"
           >
             {link.name}
           </Link>
@@ -160,7 +160,7 @@ function SocialIcon({
       aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="w-12 h-12 rounded-xl bg-white/2 border border-white/10 flex items-center justify-center text-zinc-500 hover:text-white hover:border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/[0.05] transition-all duration-500 group"
+      className="w-12 h-12 rounded-xl bg-white/2 border border-white/10 flex items-center justify-center text-zinc-500 hover:text-sinai-glow-ora hover:border-sinai-glow-orange/40 hover:bg-sinai-glow-orange/[0.05] transition-all duration-500 group"
     >
       <div className="w-5 h-5 group-hover:scale-110 transition-transform duration-500">
         {icon}

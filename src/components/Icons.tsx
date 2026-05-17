@@ -1,4 +1,5 @@
 import {
+  AlertTriangle,
   Brain,
   Building2,
   Calendar,
@@ -11,6 +12,8 @@ import {
   Link2,
   Mail,
   MapPin,
+  Rocket,
+  Search,
   Smartphone,
   Target,
 } from "lucide-react";
@@ -513,6 +516,28 @@ export const SystemsWeBuildIcon = ({
       return <Link2 className={className} width={width} height={height} />;
     case 4:
       return <Smartphone className={className} width={width} height={height} />;
+    default:
+      return null;
+  }
+};
+
+export const DeliveryFrameworkIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Search className={className} width={width} height={height} />;
+    case 1:
+      return (
+        <AlertTriangle className={className} width={width} height={height} />
+      );
+    case 2:
+      return <Layers className={className} width={width} height={height} />;
+    case 3:
+      return <Rocket className={className} width={width} height={height} />;
     default:
       return null;
   }

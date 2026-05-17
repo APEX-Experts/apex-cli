@@ -208,3 +208,44 @@ export const SYSTEMS_WE_BUILD: Systems[] = [
       "Field operations apps, offline-capable workflows, approval systems, real-time backend sync, operational mobility",
   },
 ];
+
+type DeliveryFramework = {
+  title: string;
+  items: string[];
+};
+
+export const DELIVERY_FRAMEWORK: DeliveryFramework[] = [
+  {
+    title: "Analyze Existing Architecture",
+    items: [
+      "System discovery",
+      "Infrastructure mapping",
+      "Dependency analysis",
+    ],
+  },
+  {
+    title: "Identify Bottlenecks & Constraints",
+    items: [
+      "Operational inefficiencies",
+      "Workflow gaps",
+      "Scaling limitations",
+    ],
+  },
+  {
+    title: "Design Workflow & Integration Architecture",
+    items: [
+      "Connected systems",
+      "API orchestration",
+      "Scalable infrastructure planning",
+    ],
+  },
+  {
+    title: "Deploy Production-Ready Systems",
+    items: [
+      "Implementation",
+      "Deployment",
+      "Optimization",
+      "Operational activation",
+    ],
+  },
+];

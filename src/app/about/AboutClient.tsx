@@ -1,12 +1,14 @@
 "use client";
 
+import { CtaSection } from "@/components/sections/CtaSection";
 import CeoHeroSection from "./components/CeoHeroSection";
-import CtaSection from "./components/CtaSection";
+import DeliveryFramework from "./components/DeliveryFramework";
 import EngineeringDnaSection from "./components/EngineeringDnaSection";
 import EngineeringDomains from "./components/EngineeringDomains";
 import EnterpriseFoundation from "./components/EnterpriseFoundation";
 import ProductionSystems from "./components/ProductionSystems";
 import TeamSection from "./components/TeamSection";
+import { SectionReveal } from "@/components/SectionReveal";
 
 export default function AboutClient() {
   return (
@@ -16,8 +18,11 @@ export default function AboutClient() {
       <ProductionSystems />
       <EnterpriseFoundation />
       <EngineeringDomains />
+      <DeliveryFramework />
       <TeamSection />
-      <CtaSection />
+      <SectionReveal className="apex-container-wide relative">
+        <CtaSection />
+      </SectionReveal>
     </div>
   );
 }

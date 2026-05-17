@@ -37,8 +37,8 @@ export default function EngineeringDomains() {
   };
 
   return (
-    <section className="section-shell-lg border-none relative overflow-hidden px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto relative z-10">
+    <section className="section-shell-lg border-none relative overflow-hidden  apex-container-wide">
+      <div className=" mx-auto relative z-10">
         {/* Section Header: Everything Centered */}
         <div className="text-center mb-8 space-y-6">
           <motion.div
@@ -79,7 +79,7 @@ export default function EngineeringDomains() {
         </div>
 
         {/* Systems Cards List */}
-        <div className="flex flex-col gap-4 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-4 mx-auto">
           {SYSTEMS_WE_BUILD.map((system, index) => (
             <EngineeringDomainCard
               key={system.title}
