@@ -75,7 +75,7 @@ function UseCaseCard({ uc, index }: UseCaseCardProps) {
     >
       {/* Mouse Following Glow */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-500"
         style={{
           opacity: isHovered ? 1 : 0,
           background: `radial-gradient(

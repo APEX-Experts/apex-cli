@@ -4,7 +4,8 @@ import ReactMarkdown from "react-markdown";
 
 export const metadata: Metadata = {
   title: "Privacy Protocol | APEX Experts AI Solutions",
-  description: "Official Data Protection and Privacy Governance Framework for APEX Experts AI Solutions.",
+  description:
+    "Official Data Protection and Privacy Governance Framework for APEX Experts AI Solutions.",
   alternates: {
     canonical: "https://apexexperts.net/privacy",
   },
@@ -884,12 +885,20 @@ export default function PrivacyPage() {
         {/* Document Header Info */}
         <div className="flex justify-between items-end mb-4 px-4">
           <div className="space-y-1">
-            <div className="text-sinai-glow-orange font-bold uppercase tracking-widest">Master_Protocol_Archive: AX-PRV-3.0.FULL</div>
-            <div className="text-[8px] text-zinc-600">TIMESTAMP: 2024-04-24T17:40:00Z</div>
+            <div className="text-sinai-glow-orange font-bold uppercase tracking-widest">
+              Master_Protocol_Archive: AX-PRV-3.0.FULL
+            </div>
+            <div className="text-[8px] text-zinc-600">
+              TIMESTAMP: 2024-04-24T17:40:00Z
+            </div>
           </div>
           <div className="text-right">
-            <div className="text-white font-bold uppercase tracking-widest">Classification: INSTITUTIONAL_UNABRIDGED</div>
-            <div className="text-[8px] text-zinc-600">AUTH: APEX_GLOBAL_COMPLIANCE_NODE</div>
+            <div className="text-white font-bold uppercase tracking-widest">
+              Classification: INSTITUTIONAL_UNABRIDGED
+            </div>
+            <div className="text-[8px] text-zinc-600">
+              AUTH: APEX_GLOBAL_COMPLIANCE_NODE
+            </div>
           </div>
         </div>
 
@@ -905,14 +914,45 @@ export default function PrivacyPage() {
           <div className="prose prose-invert max-w-none prose-p:text-[10px] prose-headings:text-white prose-strong:text-sinai-glow-orange prose-a:text-sinai-glow-orange prose-a:no-underline hover:prose-a:underline prose-li:text-[10px]">
             <ReactMarkdown
               components={{
-                h1: ({ ...props }) => <h1 className="text-xl font-bold mb-8 uppercase tracking-normal border-b border-white/10 pb-4" {...props} />,
-                h2: ({ ...props }) => <h2 className="text-sm font-bold mt-12 mb-4 uppercase tracking-widest text-white/90" {...props} />,
-                h3: ({ ...props }) => <h3 className="text-[10px] font-bold mt-8 mb-3 uppercase tracking-wider text-white/80 border-l-2 border-sinai-glow-orange pl-3" {...props} />,
-                p: ({ ...props }) => <p className="mb-4 leading-relaxed text-zinc-400" {...props} />,
-                ul: ({ ...props }) => <ul className="list-disc ml-6 mb-6 space-y-2" {...props} />,
-                li: ({ ...props }) => <li className="text-zinc-400" {...props} />,
-                strong: ({ ...props }) => <strong className="text-white font-bold" {...props} />,
-                a: ({ ...props }) => <a className="text-sinai-glow-orange hover:text-white transition-colors underline decoration-sinai-glow-orange/30 underline-offset-4" {...props} />,
+                h1: ({ ...props }) => (
+                  <h1
+                    className="text-xl font-bold mb-8 uppercase tracking-normal border-b border-white/10 pb-4"
+                    {...props}
+                  />
+                ),
+                h2: ({ ...props }) => (
+                  <h2
+                    className="text-sm font-bold mt-12 mb-4 uppercase tracking-widest text-white/90"
+                    {...props}
+                  />
+                ),
+                h3: ({ ...props }) => (
+                  <h3
+                    className="text-[10px] font-bold mt-8 mb-3 uppercase tracking-wider text-white/80 border-l-2 border-sinai-glow-orange pl-3"
+                    {...props}
+                  />
+                ),
+                p: ({ ...props }) => (
+                  <p
+                    className="mb-4 leading-relaxed text-zinc-400"
+                    {...props}
+                  />
+                ),
+                ul: ({ ...props }) => (
+                  <ul className="list-disc ml-6 mb-6 space-y-2" {...props} />
+                ),
+                li: ({ ...props }) => (
+                  <li className="text-zinc-400" {...props} />
+                ),
+                strong: ({ ...props }) => (
+                  <strong className="text-white font-bold" {...props} />
+                ),
+                a: ({ ...props }) => (
+                  <a
+                    className="text-sinai-glow-orange hover:text-white transition-colors underline decoration-sinai-glow-orange/30 underline-offset-4"
+                    {...props}
+                  />
+                ),
               }}
             >
               {PRIVACY_CONTENT}
@@ -920,7 +960,7 @@ export default function PrivacyPage() {
 
             {/* Integrated Official Company Stamp */}
             <div className="flex justify-end mt-8 relative">
-              <OfficialStamp className="opacity-70 grayscale hover:grayscale-0 transition-all duration-300 transform -translate-x-4 -translate-y-4" />
+              <OfficialStamp className="opacity-70 grayscale hover:grayscale-0 transition-all duration-500 transform -translate-x-4 -translate-y-4" />
             </div>
           </div>
         </div>

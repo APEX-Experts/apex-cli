@@ -67,9 +67,9 @@ export function ProblemSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group transition-all duration-300 flex flex-col md:flex-row items-center md:items-start gap-4 rounded-2xl border border-white/5 bg-white/2 p-6 hover:bg-white/4"
+                className="group transition-all duration-500 flex flex-col md:flex-row items-center md:items-start gap-4 rounded-2xl border border-white/5 bg-white/2 p-6 hover:bg-white/4"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sinai-glow-orange/10 text-sinai-glow-orange group-hover:bg-sinai-glow-orange group-hover:text-white transition-all duration-300">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sinai-glow-orange/10 text-sinai-glow-orange group-hover:bg-sinai-glow-orange group-hover:text-white transition-all duration-500">
                   {issue.icon}
                 </div>
                 <p className="text-lg leading-relaxed text-zinc-300 text-center md:text-start">
@@ -121,7 +121,7 @@ function PredictableResultCard() {
 
       {/* Cursor-follow gradient */}
       <div
-        className="absolute inset-0 rounded-2xl transition-opacity duration-300"
+        className="absolute inset-0 rounded-2xl transition-opacity duration-500"
         style={{
           opacity: hovered ? 1 : 0,
           background: `

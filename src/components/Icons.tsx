@@ -1,3 +1,23 @@
+import {
+  AlertTriangle,
+  Brain,
+  Building2,
+  Calendar,
+  Cpu,
+  Database,
+  DatabaseIcon,
+  Focus,
+  Globe,
+  Layers,
+  Link2,
+  Mail,
+  MapPin,
+  Rocket,
+  Search,
+  Smartphone,
+  Target,
+} from "lucide-react";
+
 type Props = {
   width?: number;
   height?: number;
@@ -349,6 +369,175 @@ export const WhyUsIcon = ({
           />
         </svg>
       );
+    default:
+      return null;
+  }
+};
+
+export const ProductionSystemIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return (
+        <DatabaseIcon width={width} height={height} className={className} />
+      );
+
+    case 1:
+      return <Brain width={width} height={height} className={className} />;
+
+    case 2:
+      return <Layers width={width} height={height} className={className} />;
+    default:
+      return null;
+  }
+};
+
+export const FactIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Calendar width={width} height={height} className={className} />;
+    case 1:
+      return <Building2 width={width} height={height} className={className} />;
+    case 2:
+      return <MapPin width={width} height={height} className={className} />;
+    case 3:
+      return <Target width={width} height={height} className={className} />;
+    case 4:
+      return <Mail width={width} height={height} className={className} />;
+    default:
+      return null;
+  }
+};
+
+export const ValueIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Database className={className} width={width} height={height} />;
+
+    case 1:
+      return <Focus width={width} height={height} className={className} />;
+
+    case 2:
+      return <Cpu width={width} height={height} className={className} />;
+
+    case 3:
+      return (
+        <WhyUsIcon
+          index={3}
+          width={width}
+          height={height}
+          className={className}
+        />
+      );
+
+    case 4:
+      return (
+        <WhyUsIcon
+          index={4}
+          width={width}
+          height={height}
+          className={className}
+        />
+      );
+    default:
+      return null;
+  }
+};
+
+export const SystemsWeBuildIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return (
+        <svg
+          width={width}
+          height={height}
+          viewBox="0 0 22 22"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className={className}
+        >
+          <g clipPath="url(#clip0_161_427)">
+            <path
+              d="M16.7411 1.88209L3.43651 2.75777C2.51802 2.81822 1.82244 3.61181 1.8829 4.53029L2.10182 7.85643C2.16227 8.77492 2.95586 9.47049 3.87434 9.41004L17.1789 8.53436C18.0974 8.47391 18.793 7.68032 18.7325 6.76184L18.5136 3.4357C18.4531 2.51721 17.6595 1.82164 16.7411 1.88209Z"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M17.3973 11.8606L4.09276 12.7363C3.17427 12.7967 2.47869 13.5903 2.53915 14.5088L2.75807 17.8349C2.81852 18.7534 3.61211 19.449 4.53059 19.3886L17.8351 18.5129C18.7536 18.4524 19.4492 17.6588 19.3887 16.7404L19.1698 13.4142C19.1094 12.4957 18.3158 11.8002 17.3973 11.8606Z"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M5.31836 5.97416L5.32667 5.97361"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <path
+              d="M5.97461 15.9527L5.98292 15.9521"
+              stroke="currentColor"
+              strokeWidth="1.25"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+        </svg>
+      );
+
+    case 1:
+      return <Globe className={className} width={width} height={height} />;
+    case 2:
+      return <Brain className={className} width={width} height={height} />;
+    case 3:
+      return <Link2 className={className} width={width} height={height} />;
+    case 4:
+      return <Smartphone className={className} width={width} height={height} />;
+    default:
+      return null;
+  }
+};
+
+export const DeliveryFrameworkIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Search className={className} width={width} height={height} />;
+    case 1:
+      return (
+        <AlertTriangle className={className} width={width} height={height} />
+      );
+    case 2:
+      return <Layers className={className} width={width} height={height} />;
+    case 3:
+      return <Rocket className={className} width={width} height={height} />;
     default:
       return null;
   }

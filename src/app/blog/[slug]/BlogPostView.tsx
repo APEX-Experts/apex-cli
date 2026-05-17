@@ -17,7 +17,7 @@ interface BlogPostPageProps {
 
 export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
   const { slug } = use(params);
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  const post = BLOG_POSTS.find((p) => p.slug === slug);
   const shouldReduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
 
@@ -75,7 +75,10 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
         {/* Navigation / Back Button */}
         <SectionReveal>
           <div className="flex items-center justify-between mb-10 lg:mb-12">
-            <Link href="/blog" className="group flex items-center gap-4 text-[10px] font-mono tracking-[0.5em] text-zinc-500 hover:text-white transition-colors uppercase">
+            <Link
+              href="/blog"
+              className="group flex items-center gap-4 text-[10px] font-mono tracking-[0.5em] text-zinc-500 hover:text-white transition-colors uppercase"
+            >
               <div className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:bg-sinai-glow-orange group-hover:border-sinai-glow-orange group-hover:text-white transition-all">
                 <ArrowLeft className="w-4 h-4" />
               </div>
@@ -97,9 +100,9 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
           <div className="max-w-5xl mx-auto space-y-6 mb-10 lg:mb-12">
             <div className="flex flex-wrap gap-4">
               {post.categories?.map((cat: string) => (
-                <Link 
-                  key={cat} 
-                  href={`/blog/topic/${cat.toLowerCase().replace(/\s+/g, '-')}`}
+                <Link
+                  key={cat}
+                  href={`/blog/topic/${cat.toLowerCase().replace(/\s+/g, "-")}`}
                   className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[9px] font-mono font-bold uppercase tracking-widest hover:bg-sinai-glow-orange hover:text-white transition-all"
                 >
                   {cat}
@@ -118,30 +121,51 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
             <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/5">
               <div className="flex items-center gap-4">
                 <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-white/10">
-                  <Image src={post.author.image} alt={post.author.name} fill className="object-cover" />
+                  <Image
+                    src={post.author.image}
+                    alt={post.author.name}
+                    fill
+                    className="object-cover"
+                  />
                 </div>
                 <div>
-                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Author_Node</div>
-                  <div className="text-lg font-bold text-white uppercase tracking-normal">{post.author.name}</div>
-                  <div className="mt-1 text-[9px] font-mono text-zinc-600 uppercase tracking-[0.2em]">{post.author.role}</div>
+                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
+                    Author_Node
+                  </div>
+                  <div className="text-lg font-bold text-white uppercase tracking-normal">
+                    {post.author.name}
+                  </div>
+                  <div className="mt-1 text-[9px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
+                    {post.author.role}
+                  </div>
                 </div>
               </div>
 
               <div className="h-12 w-px bg-white/5 hidden md:block" />
 
               <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Published_At</div>
+                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
+                  Published_At
+                </div>
                 <div className="text-lg font-bold text-white font-mono uppercase tracking-normal">
-                  {new Date(post.publishedAt).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
+                  {new Date(post.publishedAt).toLocaleDateString("en-US", {
+                    month: "long",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
                 </div>
               </div>
 
               <div className="h-12 w-px bg-white/5 hidden md:block" />
 
               <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Status</div>
+                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
+                  Status
+                </div>
                 <div className="flex items-center gap-2 text-lg font-bold text-green-500 font-mono uppercase tracking-normal">
-                  <div className={`w-2 h-2 rounded-full bg-green-500 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+                  <div
+                    className={`w-2 h-2 rounded-full bg-green-500 ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                  />
                   Live_Node
                 </div>
               </div>
@@ -171,7 +195,9 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                 <Bookmark className="w-8 h-8 text-sinai-glow-orange" />
               </div>
               <div className="space-y-4">
-                <div className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase font-black">Technical_Synopsis</div>
+                <div className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase font-black">
+                  Technical_Synopsis
+                </div>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed italic">
                   {post.synopsis ?? post.excerpt}
                 </p>
@@ -183,8 +209,13 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                 if (block.type === "h2") {
                   const headingNumber = String(++headingIndex).padStart(2, "0");
                   return (
-                    <h2 key={i} className="text-xl md:text-2xl font-bold tracking-normal uppercase mt-10 mb-4 text-white leading-tight flex items-center gap-3 group/h2">
-                      <span className="text-sinai-glow-orange/30 font-mono text-base">{headingNumber}</span>
+                    <h2
+                      key={i}
+                      className="text-xl md:text-2xl font-bold tracking-normal uppercase mt-10 mb-4 text-white leading-tight flex items-center gap-3 group/h2"
+                    >
+                      <span className="text-sinai-glow-orange/30 font-mono text-base">
+                        {headingNumber}
+                      </span>
                       <span className="relative">
                         {block.text}
                         <div className="absolute -bottom-1 left-0 w-8 h-0.5 bg-sinai-glow-orange/40 rounded-full" />
@@ -192,80 +223,130 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                     </h2>
                   );
                 }
-                if (block.type === "p") return (
-                  <div key={i} className="text-base text-zinc-300 font-normal leading-snug mb-3">
-                    <ReactMarkdown components={{
-                      strong: ({node, ...props}) => <span className="font-bold text-white" {...props} />,
-                      a: ({node, ...props}) => <a className="text-sinai-glow-orange hover:underline underline-offset-2 transition-all" {...props} />,
-                      code: ({node, ...props}) => <code className="px-1 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-sinai-glow-orange" {...props} />
-                    }}>
-                      {block.text}
-                    </ReactMarkdown>
-                  </div>
-                );
-                if (block.type === "ul") return (
-                  <ul key={i} className="space-y-1.5 my-4 list-none">
-                    {block.items.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-base text-zinc-400 font-normal leading-snug group/item">
-                        <span className="mt-2 w-1 h-1 rounded-full bg-sinai-glow-orange/40 shrink-0" />
-                        <div className="flex-1">
-                          <ReactMarkdown components={{
-                            strong: ({node, ...props}) => <span className="font-bold text-white" {...props} />,
-                            a: ({node, ...props}) => <a className="text-sinai-glow-orange hover:underline underline-offset-2 transition-all" {...props} />,
-                            code: ({node, ...props}) => <code className="px-1 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-sinai-glow-orange" {...props} />
-                          }}>
-                            {item}
-                          </ReactMarkdown>
-                        </div>
-                      </li>
-                    ))}
-                  </ul>
-                );
-                if (block.type === "code") return (
-                  <div key={i} className="my-8 rounded-xl bg-[#0d1117] border border-white/10 overflow-hidden group">
-                    <div className="flex items-center justify-between px-4 py-2 bg-white/[0.03] border-b border-white/5">
-                      <div className="flex items-center gap-2">
-                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/40" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
-                        <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
-                        <span className="ml-2 text-[10px] font-mono text-zinc-500 uppercase tracking-widest">{block.language}</span>
-                      </div>
-                      <button 
-                        onClick={() => {
-                          navigator.clipboard.writeText(block.code);
-                          // Optional: Add toast notification here if available
+                if (block.type === "p")
+                  return (
+                    <div
+                      key={i}
+                      className="text-base text-zinc-300 font-normal leading-snug mb-3"
+                    >
+                      <ReactMarkdown
+                        components={{
+                          strong: ({ node, ...props }) => (
+                            <span className="font-bold text-white" {...props} />
+                          ),
+                          a: ({ node, ...props }) => (
+                            <a
+                              className="text-sinai-glow-orange hover:underline underline-offset-2 transition-all"
+                              {...props}
+                            />
+                          ),
+                          code: ({ node, ...props }) => (
+                            <code
+                              className="px-1 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-sinai-glow-orange"
+                              {...props}
+                            />
+                          ),
                         }}
-                        className="p-1.5 rounded-md hover:bg-white/5 transition-colors text-zinc-500 hover:text-white"
-                        title="Copy Code"
                       >
-                        <Copy className="w-3.5 h-3.5" />
-                      </button>
+                        {block.text}
+                      </ReactMarkdown>
                     </div>
-                    <div className="p-4 overflow-x-auto custom-scrollbar">
-                      <pre className="font-mono text-xs md:text-sm leading-normal text-zinc-300 whitespace-pre">
-                        <code>{block.code}</code>
-                      </pre>
+                  );
+                if (block.type === "ul")
+                  return (
+                    <ul key={i} className="space-y-1.5 my-4 list-none">
+                      {block.items.map((item, idx) => (
+                        <li
+                          key={idx}
+                          className="flex items-start gap-2.5 text-base text-zinc-400 font-normal leading-snug group/item"
+                        >
+                          <span className="mt-2 w-1 h-1 rounded-full bg-sinai-glow-orange/40 shrink-0" />
+                          <div className="flex-1">
+                            <ReactMarkdown
+                              components={{
+                                strong: ({ node, ...props }) => (
+                                  <span
+                                    className="font-bold text-white"
+                                    {...props}
+                                  />
+                                ),
+                                a: ({ node, ...props }) => (
+                                  <a
+                                    className="text-sinai-glow-orange hover:underline underline-offset-2 transition-all"
+                                    {...props}
+                                  />
+                                ),
+                                code: ({ node, ...props }) => (
+                                  <code
+                                    className="px-1 py-0.5 rounded bg-white/5 border border-white/10 font-mono text-xs text-sinai-glow-orange"
+                                    {...props}
+                                  />
+                                ),
+                              }}
+                            >
+                              {item}
+                            </ReactMarkdown>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                if (block.type === "code")
+                  return (
+                    <div
+                      key={i}
+                      className="my-8 rounded-xl bg-[#0d1117] border border-white/10 overflow-hidden group"
+                    >
+                      <div className="flex items-center justify-between px-4 py-2 bg-white/[0.03] border-b border-white/5">
+                        <div className="flex items-center gap-2">
+                          <div className="w-2.5 h-2.5 rounded-full bg-red-500/20 border border-red-500/40" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-amber-500/20 border border-amber-500/40" />
+                          <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/20 border border-emerald-500/40" />
+                          <span className="ml-2 text-[10px] font-mono text-zinc-500 uppercase tracking-widest">
+                            {block.language}
+                          </span>
+                        </div>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(block.code);
+                            // Optional: Add toast notification here if available
+                          }}
+                          className="p-1.5 rounded-md hover:bg-white/5 transition-colors text-zinc-500 hover:text-white"
+                          title="Copy Code"
+                        >
+                          <Copy className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+                      <div className="p-4 overflow-x-auto custom-scrollbar">
+                        <pre className="font-mono text-xs md:text-sm leading-normal text-zinc-300 whitespace-pre">
+                          <code>{block.code}</code>
+                        </pre>
+                      </div>
                     </div>
-                  </div>
-                );
-                if (block.type === "image") return (
-                  <div key={i} className="my-10 space-y-4 lg:my-12">
-                    <div className="relative aspect-video rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl">
-                      <Image
-                        src={block.src}
-                        alt={block.caption}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 896px"
-                        className="object-cover brightness-90 hover:brightness-100 transition-all duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                  );
+                if (block.type === "image")
+                  return (
+                    <div key={i} className="my-10 space-y-4 lg:my-12">
+                      <div className="relative aspect-video rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950 shadow-2xl">
+                        <Image
+                          src={block.src}
+                          alt={block.caption}
+                          fill
+                          sizes="(max-width: 768px) 100vw, 896px"
+                          className="object-cover brightness-90 hover:brightness-100 transition-all duration-700"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                      </div>
+                      <div className="flex items-center gap-4 px-6">
+                        <div
+                          className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                        />
+                        <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+                          {block.caption}
+                        </span>
+                      </div>
                     </div>
-                    <div className="flex items-center gap-4 px-6">
-                      <div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                      <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">{block.caption}</span>
-                    </div>
-                  </div>
-                );
+                  );
                 return null;
               })}
             </div>
@@ -277,39 +358,55 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
           <div className="mt-16 pt-10 border-t border-white/5 space-y-10 lg:mt-20 lg:pt-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
               <div className="space-y-4">
-                <div className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.4em] uppercase font-black">Knowledge_Expansion</div>
-                <h2 className="text-4xl md:text-5xl font-black tracking-normal uppercase">Related Insights</h2>
+                <div className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.4em] uppercase font-black">
+                  Knowledge_Expansion
+                </div>
+                <h2 className="text-4xl md:text-5xl font-black tracking-normal uppercase">
+                  Related Insights
+                </h2>
               </div>
-              <Link href="/blog" className="text-[10px] font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-widest border-b border-white/10 pb-2">
+              <Link
+                href="/blog"
+                className="text-[10px] font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-widest border-b border-white/10 pb-2"
+              >
                 Explore Full Archive
               </Link>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-              {BLOG_POSTS.filter(p => p.slug !== post.slug && p.categories.some(cat => post.categories.includes(cat)))
+              {BLOG_POSTS.filter(
+                (p) =>
+                  p.slug !== post.slug &&
+                  p.categories.some((cat) => post.categories.includes(cat))
+              )
                 .slice(0, 2)
                 .map((relatedPost) => (
-                  <Link 
+                  <Link
                     key={relatedPost.slug}
                     href={`/blog/${relatedPost.slug}`}
                     className="group space-y-6"
                   >
                     <div className="relative aspect-[16/9] rounded-[1.5rem] overflow-hidden border border-white/10">
-                      <Image 
-                        src={relatedPost.mainImage} 
-                        alt={relatedPost.title} 
-                        fill 
-                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                      <Image
+                        src={relatedPost.mainImage}
+                        alt={relatedPost.title}
+                        fill
+                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-[#06080a] via-transparent to-transparent opacity-60" />
                     </div>
                     <div className="space-y-4 px-4">
                       <div className="flex gap-3">
-                        {relatedPost.categories.slice(0, 1).map(cat => (
-                          <span key={cat} className="text-[9px] font-mono text-sinai-glow-orange tracking-widest uppercase">{cat}</span>
+                        {relatedPost.categories.slice(0, 1).map((cat) => (
+                          <span
+                            key={cat}
+                            className="text-[9px] font-mono text-sinai-glow-orange tracking-widest uppercase"
+                          >
+                            {cat}
+                          </span>
                         ))}
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-black tracking-normal uppercase group-hover:text-sinai-glow-orange transition-colors duration-300">
+                      <h3 className="text-2xl md:text-3xl font-black tracking-normal uppercase group-hover:text-sinai-glow-orange transition-colors duration-500">
                         {relatedPost.title}
                       </h3>
                       <p className="text-zinc-500 font-light leading-relaxed line-clamp-2">
@@ -327,8 +424,13 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
           <div className="mt-16 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl relative overflow-hidden text-center space-y-7 group lg:mt-20 lg:p-8">
             <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
             <div className="relative z-10 space-y-6">
-              <h3 className="text-4xl md:text-5xl font-black tracking-normal uppercase">Was this insight valuable?</h3>
-              <p className="text-xl text-zinc-500 font-light max-w-xl mx-auto">Join our private network to receive tactical AI intelligence directly in your inbox.</p>
+              <h3 className="text-4xl md:text-5xl font-black tracking-normal uppercase">
+                Was this insight valuable?
+              </h3>
+              <p className="text-xl text-zinc-500 font-light max-w-xl mx-auto">
+                Join our private network to receive tactical AI intelligence
+                directly in your inbox.
+              </p>
             </div>
             <div className="relative z-10 pt-4 flex justify-center gap-6">
               <button className="px-12 py-6 rounded-full bg-sinai-glow-orange text-white font-black text-xs uppercase tracking-[0.4em] hover:shadow-[0_0_50px_rgba(242,162,75,0.4)] hover:scale-105 transition-all duration-500">

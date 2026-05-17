@@ -16,7 +16,7 @@ export const Badge = ({ children, className }: BadgeProps) => {
       className={cn(
         "inline-flex items-center justify-center rounded-full border border-sinai-glow-orange bg-sinai-glow-orange/5 px-4 py-1.5",
         "text-[10px] md:text-sm tracking-[0.55px] md:tracking-[0.25rem] text-sinai-glow-orange uppercase font-black",
-        "transition-all duration-300 hover:bg-sinai-glow-orange/10 text-center md:text-start",
+        "transition-all duration-500 hover:bg-sinai-glow-orange/10 text-center md:text-start",
         className
       )}
     >

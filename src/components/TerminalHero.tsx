@@ -5,12 +5,36 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import gsap from "gsap";
 
 const MENU_ITEMS = [
-  { label: "ABOUT_SYSTEM", id: "about", desc: "Who we are and how we approach AI projects." },
-  { label: "CORE_SERVICES", id: "services", desc: "AI, Oracle APEX, web, and mobile development services." },
-  { label: "ENGINEERING_PIPELINE", id: "process", desc: "Our methodology & delivery flow." },
-  { label: "PRODUCTION_REGISTRY", id: "projects", desc: "Live case studies & deployments." },
-  { label: "INTELLECTUAL_CAPITAL", id: "blog", desc: "Engineering dispatches & research." },
-  { label: "ENGAGE_PROTOCOL", id: "contact", desc: "Tell us what you want to build." },
+  {
+    label: "ABOUT_SYSTEM",
+    id: "about",
+    desc: "Who we are and how we approach AI projects.",
+  },
+  {
+    label: "CORE_SERVICES",
+    id: "services",
+    desc: "AI, Oracle APEX, web, and mobile development services.",
+  },
+  {
+    label: "ENGINEERING_PIPELINE",
+    id: "process",
+    desc: "Our methodology & delivery flow.",
+  },
+  {
+    label: "PRODUCTION_REGISTRY",
+    id: "projects",
+    desc: "Live case studies & deployments.",
+  },
+  {
+    label: "INTELLECTUAL_CAPITAL",
+    id: "blog",
+    desc: "Engineering dispatches & research.",
+  },
+  {
+    label: "ENGAGE_PROTOCOL",
+    id: "contact",
+    desc: "Tell us what you want to build.",
+  },
 ];
 
 export function TerminalHero() {
@@ -45,16 +69,27 @@ export function TerminalHero() {
   }, []);
 
   // Manual transform logic to bypass Framer Motion internal checks
-  const calculateTransform = (value: number, rangeIn: [number, number], rangeOut: [number, number]) => {
+  const calculateTransform = (
+    value: number,
+    rangeIn: [number, number],
+    rangeOut: [number, number]
+  ) => {
     const [inMin, inMax] = rangeIn;
     const [outMin, outMax] = rangeOut;
-    const progress = Math.min(Math.max((value - inMin) / (inMax - inMin), 0), 1);
+    const progress = Math.min(
+      Math.max((value - inMin) / (inMax - inMin), 0),
+      1
+    );
     return outMin + (outMax - outMin) * progress;
   };
 
   const opacityScroll = calculateTransform(scrollYValue, [0, 450], [1, 0]);
-  const scaleScroll = effectiveReduceMotion ? 1 : calculateTransform(scrollYValue, [0, 450], [1, 0.95]);
-  const yScroll = effectiveReduceMotion ? 0 : calculateTransform(scrollYValue, [0, 450], [0, 100]);
+  const scaleScroll = effectiveReduceMotion
+    ? 1
+    : calculateTransform(scrollYValue, [0, 450], [1, 0.95]);
+  const yScroll = effectiveReduceMotion
+    ? 0
+    : calculateTransform(scrollYValue, [0, 450], [0, 100]);
 
   useEffect(() => {
     if (stage === 0) {
@@ -66,17 +101,29 @@ export function TerminalHero() {
             opacity: 1,
             duration: 0.8,
             ease: "power2.out",
-            onComplete: () => setStage(1)
+            onComplete: () => setStage(1),
           }
         );
       } else {
         gsap.fromTo(
           windowRef.current,
-          { scale: 0.85, opacity: 0, rotationX: 15, y: 120, filter: "blur(20px)" },
           {
-            scale: 1, opacity: 1, rotationX: 0, y: 0, filter: "blur(0px)",
-            duration: 1.8, ease: "expo.out", delay: 0.4,
-            onComplete: () => setStage(1)
+            scale: 0.85,
+            opacity: 0,
+            rotationX: 15,
+            y: 120,
+            filter: "blur(20px)",
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            rotationX: 0,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1.8,
+            ease: "expo.out",
+            delay: 0.4,
+            onComplete: () => setStage(1),
           }
         );
       }
@@ -113,15 +160,18 @@ export function TerminalHero() {
 
     if (stage === 3) {
       let idx = 0;
-      const interval = setInterval(() => {
-        if (idx < fullEngine.length) {
-          setStreamedEngine(fullEngine.slice(0, idx + 1));
-          idx++;
-        } else {
-          clearInterval(interval);
-          setTimeout(() => setStage(4), effectiveReduceMotion ? 200 : 800);
-        }
-      }, effectiveReduceMotion ? 10 : 40);
+      const interval = setInterval(
+        () => {
+          if (idx < fullEngine.length) {
+            setStreamedEngine(fullEngine.slice(0, idx + 1));
+            idx++;
+          } else {
+            clearInterval(interval);
+            setTimeout(() => setStage(4), effectiveReduceMotion ? 200 : 800);
+          }
+        },
+        effectiveReduceMotion ? 10 : 40
+      );
       return () => clearInterval(interval);
     }
   }, [stage, effectiveReduceMotion]);
@@ -151,11 +201,17 @@ export function TerminalHero() {
               <div className="h-2.5 w-2.5 rounded-full bg-[#6ea77a]" />
             </div>
             <div className="hidden items-center gap-3 sm:flex">
-              <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase font-bold">APEX_CLI_v4.0.2</span>
+              <span className="text-[10px] font-mono text-zinc-600 tracking-widest uppercase font-bold">
+                APEX_CLI_v4.0.2
+              </span>
               <span className="h-3 w-px bg-white/10" />
               <div className="flex items-center gap-2">
-                <span className={`w-1.5 h-1.5 rounded-full bg-green-500 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                <span className="text-[10px] font-mono text-green-500/80">CONNECTED</span>
+                <span
+                  className={`w-1.5 h-1.5 rounded-full bg-green-500 ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                />
+                <span className="text-[10px] font-mono text-green-500/80">
+                  CONNECTED
+                </span>
               </div>
             </div>
           </div>
@@ -166,17 +222,44 @@ export function TerminalHero() {
             <div className="relative z-10 h-full flex flex-col">
               <div className="mb-5 min-h-[104px] sm:mb-7 sm:min-h-[130px] md:min-h-[150px]">
                 <div className="mb-4 text-4xl font-black leading-[0.9] tracking-normal text-sinai-glow-soft sm:text-6xl md:text-8xl">
-                  {streamedTitle}<span className={stage === 1 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
+                  {streamedTitle}
+                  <span
+                    className={
+                      stage === 1 && !effectiveReduceMotion
+                        ? "animate-pulse"
+                        : ""
+                    }
+                  >
+                    _
+                  </span>
                 </div>
                 <div className="flex items-center gap-4 flex-wrap">
                   {streamedBadge && (
                     <span className="rounded border border-sinai-glow-soft/30 bg-sinai-glow-orange/15 px-3 py-1 text-[9px] font-black uppercase tracking-[0.28em] text-sinai-glow-soft">
-                      {streamedBadge}<span className={stage === 2 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
+                      {streamedBadge}
+                      <span
+                        className={
+                          stage === 2 && !effectiveReduceMotion
+                            ? "animate-pulse"
+                            : ""
+                        }
+                      >
+                        _
+                      </span>
                     </span>
                   )}
                   {streamedEngine && (
                     <span className="text-[10px] font-bold uppercase tracking-[0.28em] text-zinc-500 sm:text-xs">
-                      {streamedEngine}<span className={stage === 3 && !effectiveReduceMotion ? "animate-pulse" : ""}>_</span>
+                      {streamedEngine}
+                      <span
+                        className={
+                          stage === 3 && !effectiveReduceMotion
+                            ? "animate-pulse"
+                            : ""
+                        }
+                      >
+                        _
+                      </span>
                     </span>
                   )}
                 </div>
@@ -228,7 +311,9 @@ export function TerminalHero() {
 
                         {/* Item Content */}
                         <div className="flex flex-col gap-1 md:flex-row md:items-center md:gap-5">
-                          <span className={`text-xs font-black tracking-[0.12em] transition-colors duration-300 sm:text-sm ${activeIndex === i ? 'text-white' : 'text-zinc-600'}`}>
+                          <span
+                            className={`text-xs font-black tracking-[0.12em] transition-colors duration-500 sm:text-sm ${activeIndex === i ? "text-white" : "text-zinc-600"}`}
+                          >
                             {item.label}
                           </span>
                           {activeIndex === i && (
@@ -237,7 +322,8 @@ export function TerminalHero() {
                               animate={{ opacity: 1, x: 0 }}
                               className="text-[10px] text-zinc-500 font-mono"
                             >
-                              {"// "}{item.desc}
+                              {"// "}
+                              {item.desc}
                             </motion.span>
                           )}
                         </div>
@@ -248,7 +334,9 @@ export function TerminalHero() {
               </div>
 
               <div className="mt-auto flex items-center justify-between gap-4 border-t border-white/10 pt-4 text-[8px] font-bold tracking-widest text-zinc-700 sm:text-[9px]">
-                <div className="hidden sm:block">LOCATION: 37.7749° N, 122.4194° W</div>
+                <div className="hidden sm:block">
+                  LOCATION: 37.7749° N, 122.4194° W
+                </div>
                 <div className="flex items-center gap-4 sm:gap-6">
                   <span>FORM STATUS: READY</span>
                   <span>STATE: READY</span>

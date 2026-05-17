@@ -99,22 +99,22 @@ function LayersLayout() {
           text-center
           backdrop-blur-xl
           transition-all
-          duration-300
+          duration-500
           hover:border-sinai-glow-orange/40
           hover:bg-[#080a0d]
         "
             >
               <div className="mb-3 flex items-center gap-3">
-                <div className="text-white/50 transition-all duration-300 group-hover:text-white">
+                <div className="text-white/50 transition-all duration-500 group-hover:text-white">
                   {layer.icon}
                 </div>
 
-                <h3 className="text-lg font-semibold text-white/50 transition-all duration-300 group-hover:text-white">
+                <h3 className="text-lg font-semibold text-white/50 transition-all duration-500 group-hover:text-white">
                   {layer.name}
                 </h3>
               </div>
 
-              <p className="text-center text-sm font-medium leading-5 text-white/50 transition-all duration-300 group-hover:text-white">
+              <p className="text-center text-sm font-medium leading-5 text-white/50 transition-all duration-500 group-hover:text-white">
                 {layer.desc}
               </p>
             </motion.div>
@@ -263,7 +263,7 @@ function LayersLayout() {
                   px-6
                   backdrop-blur-xl
                   transition-all
-                  duration-300
+                  duration-500
                   hover:border-sinai-glow-orange/40
                   hover:bg-[#080a0d]
                   pointer-events-auto
@@ -271,17 +271,17 @@ function LayersLayout() {
                 `
                   )}
                 >
-                  <div className="relative z-10 mb-3 flex items-center gap-3 *:transition-all *:duration-300">
+                  <div className="relative z-10 mb-3 flex items-center gap-3 *:transition-all *:duration-500">
                     <div className="text-white/50 group-hover:text-white">
                       {layer.icon}
                     </div>
 
-                    <h3 className="text-lg font-semibold text-white/50 group-hover:text-white transition-all duration-300">
+                    <h3 className="text-lg font-semibold text-white/50 group-hover:text-white transition-all duration-500">
                       {layer.name}
                     </h3>
                   </div>
 
-                  <p className="z-10 font-medium text-sm leading-5 text-center text-white/50 group-hover:text-white transition-all duration-300">
+                  <p className="z-10 font-medium text-sm leading-5 text-center text-white/50 group-hover:text-white transition-all duration-500">
                     {layer.desc}
                   </p>
                 </motion.div>
