@@ -32,7 +32,7 @@ export function CtaSection() {
           <div className="md:pt-8 md:pb-12">
             <Link
               href="/contact"
-              className="group flex items-center gap-4 bg-sinai-glow-orange text-white px-8 lg:px-10 h-10 md:h-16 rounded-full font-black text-xs md:text-lg tracking-widest transition-all duration-300 hover:shadow-[0_15px_40px_rgba(217,130,47,0.3)] w-full md:w-fit mx-auto max-md:justify-center"
+              className="group flex items-center gap-4 bg-sinai-glow-orange text-white px-8 lg:px-10 h-10 md:h-16 rounded-full font-black text-xs md:text-lg tracking-widest transition-all duration-500 hover:shadow-[0_15px_40px_rgba(217,130,47,0.3)] w-full md:w-fit mx-auto max-md:justify-center"
             >
               Book a Technical Consultation
             </Link>

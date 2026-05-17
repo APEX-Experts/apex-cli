@@ -28,36 +28,36 @@ const MOBILE_CAPABILITIES = [
     title: "iOS Engineering",
     icon: <Apple className="w-8 h-8" />,
     desc: "Swift & SwiftUI masterclass engineering for the premium Apple ecosystem.",
-    image: "/images/mobile-dev-hero.png"
+    image: "/images/mobile-dev-hero.png",
   },
   {
     id: "02",
     title: "Android Core",
     icon: <Smartphone className="w-8 h-8" />,
     desc: "Kotlin-first development designed for robust, scalable Android applications.",
-    image: "/images/mobile-uiux.png"
+    image: "/images/mobile-uiux.png",
   },
   {
     id: "03",
     title: "Cross-Platform",
     icon: <Zap className="w-8 h-8" />,
     desc: "High-fidelity Flutter & React Native apps with native-grade performance.",
-    image: "/images/mobile-backend.png"
+    image: "/images/mobile-backend.png",
   },
   {
     id: "04",
     title: "UX/UI Mastery",
     icon: <Palette className="w-8 h-8" />,
     desc: "Cinematic mobile interfaces defined by fluid transitions and gesture logic.",
-    image: "/images/mobile-uiux.png"
+    image: "/images/mobile-uiux.png",
   },
   {
     id: "05",
     title: "Secure Backend",
     icon: <Database className="w-8 h-8" />,
     desc: "Edge-computed real-time data layers and offline-first mobile architectures.",
-    image: "/images/mobile-backend.png"
-  }
+    image: "/images/mobile-backend.png",
+  },
 ];
 
 const MOBILE_TECH = [
@@ -68,59 +68,81 @@ const MOBILE_TECH = [
   { name: "Firebase", slug: "firebase", desc: "Backend/Auth" },
   { name: "Supabase", slug: "supabase", desc: "Realtime DB" },
   { name: "App Store", slug: "apple", desc: "iOS Deployment" },
-  { name: "Play Store", slug: "googleplay", desc: "Android Store" }
+  { name: "Play Store", slug: "googleplay", desc: "Android Store" },
 ];
 
-const TechSingularityNode = ({ item, index, total, active }: { item: MobileTechItem, index: number, total: number, active: boolean }) => {
+const TechSingularityNode = ({
+  item,
+  index,
+  total,
+  active,
+}: {
+  item: MobileTechItem;
+  index: number;
+  total: number;
+  active: boolean;
+}) => {
   const angle = (index / total) * Math.PI * 2;
   const radius = active ? 400 : 340;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
-  const depth = Math.sin(angle + Math.PI/2);
-  
+  const depth = Math.sin(angle + Math.PI / 2);
+
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-      animate={{ 
-        opacity: 1, 
-        scale: active ? 1.4 : (0.9 + (depth + 1) * 0.1),
+      animate={{
+        opacity: 1,
+        scale: active ? 1.4 : 0.9 + (depth + 1) * 0.1,
         left: `calc(50% + ${x}px)`,
         top: `calc(50% + ${y}px)`,
-        filter: active ? "blur(0px) brightness(1.2)" : `blur(${Math.abs(depth) * 1.5}px) brightness(${0.5 + (depth + 1) * 0.25})`,
-        zIndex: Math.floor((depth + 1) * 10)
+        filter: active
+          ? "blur(0px) brightness(1.2)"
+          : `blur(${Math.abs(depth) * 1.5}px) brightness(${0.5 + (depth + 1) * 0.25})`,
+        zIndex: Math.floor((depth + 1) * 10),
       }}
-      transition={{ 
+      transition={{
         type: "spring",
         stiffness: 40,
         damping: 12,
-        delay: index * 0.08 
+        delay: index * 0.08,
       }}
       className="absolute -translate-x-1/2 -translate-y-1/2 group pointer-events-auto"
     >
       <div className="relative">
-        <div 
-          style={{ 
+        <div
+          style={{
             width: radius,
             transform: `rotate(${angle + Math.PI}rad)`,
-            transformOrigin: 'left center',
+            transformOrigin: "left center",
           }}
-          className={`absolute left-1/2 top-1/2 h-px transition-all duration-1000 ${active ? 'bg-gradient-to-r from-sinai-glow-orange to-transparent opacity-80' : 'bg-white/5 opacity-10'} pointer-events-none`}
+          className={`absolute left-1/2 top-1/2 h-px transition-all duration-1000 ${active ? "bg-gradient-to-r from-sinai-glow-orange to-transparent opacity-80" : "bg-white/5 opacity-10"} pointer-events-none`}
         />
 
-        <div className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? 'bg-sinai-glow-orange/[0.08] border-sinai-glow-orange/35 shadow-[0_0_44px_rgba(217,130,47,0.09)] rotate-[10deg]' : 'bg-white/[0.02] border-white/5 group-hover:border-white/20'}`}>
-          <div className={`relative w-12 h-12 transition-all duration-500 ${active ? 'scale-125' : 'opacity-40 group-hover:opacity-100 group-hover:scale-110'}`}>
-            <Image 
-              src={`https://cdn.simpleicons.org/${item.slug}/white`} 
-              alt={item.name} 
-              fill 
+        <div
+          className={`relative w-24 h-24 flex items-center justify-center rounded-[2rem] border backdrop-blur-3xl transition-all duration-700 ${active ? "bg-sinai-glow-orange/[0.08] border-sinai-glow-orange/35 shadow-[0_0_44px_rgba(217,130,47,0.09)] rotate-[10deg]" : "bg-white/[0.02] border-white/5 group-hover:border-white/20"}`}
+        >
+          <div
+            className={`relative w-12 h-12 transition-all duration-500 ${active ? "scale-125" : "opacity-40 group-hover:opacity-100 group-hover:scale-110"}`}
+          >
+            <Image
+              src={`https://cdn.simpleicons.org/${item.slug}/white`}
+              alt={item.name}
+              fill
               className="object-contain"
               unoptimized
             />
           </div>
 
-          <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center transition-all duration-500 ${active ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'}`}>
-            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_36px_rgba(244,239,231,0.08)]">{item.name}</div>
-            <div className="text-[7px] font-mono text-sinai-glow-orange/60 tracking-widest uppercase">{item.desc}</div>
+          <div
+            className={`absolute -bottom-10 left-1/2 -translate-x-1/2 whitespace-nowrap text-center transition-all duration-500 ${active ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-90"}`}
+          >
+            <div className="text-[10px] font-mono text-white tracking-[0.3em] font-black uppercase mb-1 drop-shadow-[0_0_36px_rgba(244,239,231,0.08)]">
+              {item.name}
+            </div>
+            <div className="text-[7px] font-mono text-sinai-glow-orange/60 tracking-widest uppercase">
+              {item.desc}
+            </div>
           </div>
         </div>
       </div>
@@ -143,25 +165,57 @@ const TechSingularity = () => {
   return (
     <div className="relative w-full min-h-[680px] lg:min-h-[760px] flex items-center justify-center py-14 overflow-visible bg-sinai-bg-base">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.04)_0%,transparent_70%)] pointer-events-none" />
-      
+
       <div className="relative z-20 flex items-center justify-center scale-125 lg:scale-150">
-        <motion.div animate={effectiveReduceMotion ? {} : { rotate: 360 }} transition={{ duration: 25, repeat: Infinity, ease: "linear" }} className="absolute w-64 h-64 border border-sinai-glow-orange/20 rounded-full border-dashed" />
-        
+        <motion.div
+          animate={effectiveReduceMotion ? {} : { rotate: 360 }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute w-64 h-64 border border-sinai-glow-orange/20 rounded-full border-dashed"
+        />
+
         <div className="relative w-48 h-48 rounded-full bg-sinai-bg-base/40 backdrop-blur-3xl border border-white/10 flex items-center justify-center overflow-hidden group shadow-[0_0_56px_rgba(217,130,47,0.075)]">
-          <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }} transition={{ duration: 4, repeat: Infinity }} className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.105)_0%,transparent_70%)]" />
+          <motion.div
+            animate={
+              effectiveReduceMotion
+                ? { opacity: 0.4 }
+                : { scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }
+            }
+            transition={{ duration: 4, repeat: Infinity }}
+            className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.105)_0%,transparent_70%)]"
+          />
           <div className="relative z-10 flex flex-col items-center">
-            <Smartphone className={`w-12 h-12 text-sinai-glow-orange mb-3 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-            <div className="text-[10px] font-mono text-white tracking-[0.5em] font-black uppercase">Mobile</div>
-            <div className="text-[8px] font-mono text-sinai-glow-orange tracking-[0.2em] font-bold">ECOSYSTEM</div>
+            <Smartphone
+              className={`w-12 h-12 text-sinai-glow-orange mb-3 ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+            />
+            <div className="text-[10px] font-mono text-white tracking-[0.5em] font-black uppercase">
+              Mobile
+            </div>
+            <div className="text-[8px] font-mono text-sinai-glow-orange tracking-[0.2em] font-bold">
+              ECOSYSTEM
+            </div>
           </div>
-          <motion.div animate={effectiveReduceMotion ? {} : { rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border-[3px] border-sinai-glow-orange/10 border-t-sinai-glow-orange/40 rounded-full" />
+          <motion.div
+            animate={effectiveReduceMotion ? {} : { rotate: -360 }}
+            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
+            className="absolute inset-0 border-[3px] border-sinai-glow-orange/10 border-t-sinai-glow-orange/40 rounded-full"
+          />
         </div>
       </div>
 
       <div className="absolute inset-0 z-30 pointer-events-none">
         {MOBILE_TECH.map((item, i) => (
-          <div key={item.name} className="pointer-events-auto" onMouseEnter={() => setHoveredNode(item.name)} onMouseLeave={() => setHoveredNode(null)}>
-            <TechSingularityNode item={item} index={i} total={MOBILE_TECH.length} active={hoveredNode === item.name} />
+          <div
+            key={item.name}
+            className="pointer-events-auto"
+            onMouseEnter={() => setHoveredNode(item.name)}
+            onMouseLeave={() => setHoveredNode(null)}
+          >
+            <TechSingularityNode
+              item={item}
+              index={i}
+              total={MOBILE_TECH.length}
+              active={hoveredNode === item.name}
+            />
           </div>
         ))}
       </div>
@@ -176,7 +230,15 @@ const TechSingularity = () => {
 
 // --- Sub-Components ---
 
-const StreamingText = ({ text, delay = 0, className = "" }: { text: string, delay?: number, className?: string }) => {
+const StreamingText = ({
+  text,
+  delay = 0,
+  className = "",
+}: {
+  text: string;
+  delay?: number;
+  className?: string;
+}) => {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
@@ -207,45 +269,115 @@ const NeuralCore = () => {
 
   return (
     <div className="relative w-[500px] h-[500px] flex items-center justify-center">
-      <motion.div animate={effectiveReduceMotion ? {} : { rotate: 360 }} transition={{ duration: 40, repeat: Infinity, ease: "linear" }} className="absolute inset-0 border border-sinai-glow-orange/10 rounded-full border-dashed" />
-      <motion.div animate={effectiveReduceMotion ? {} : { rotate: -360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute inset-16 border border-white/5 rounded-full border-dashed" />
+      <motion.div
+        animate={effectiveReduceMotion ? {} : { rotate: 360 }}
+        transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-0 border border-sinai-glow-orange/10 rounded-full border-dashed"
+      />
+      <motion.div
+        animate={effectiveReduceMotion ? {} : { rotate: -360 }}
+        transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+        className="absolute inset-16 border border-white/5 rounded-full border-dashed"
+      />
       <div className="relative w-80 h-80 rounded-full bg-gradient-to-br from-white/[0.05] to-transparent flex items-center justify-center backdrop-blur-3xl border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20" />
-        <motion.div animate={effectiveReduceMotion ? { opacity: 0.4 } : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }} className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/[0.08] blur-[60px]" />
+        <motion.div
+          animate={
+            effectiveReduceMotion
+              ? { opacity: 0.4 }
+              : { scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }
+          }
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute w-56 h-56 rounded-full bg-sinai-glow-orange/[0.08] blur-[60px]"
+        />
         <div className="relative z-10 flex flex-col items-center">
           <div className="px-3 py-1 rounded-sm border border-sinai-glow-orange/25 bg-sinai-glow-orange/5 mb-4 relative overflow-hidden group-hover:border-sinai-glow-orange transition-colors">
             <div className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black flex items-center gap-2">
-              <span className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
+              <span
+                className={`w-1 h-1 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+              />
               MOBILE_ENGINE_V3.0
             </div>
-            <motion.div animate={effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }} transition={{ duration: 2, repeat: Infinity, ease: "linear" }} className="absolute top-0 bottom-0 w-8 bg-white/20 skew-x-12 -translate-x-full" />
+            <motion.div
+              animate={effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              className="absolute top-0 bottom-0 w-8 bg-white/20 skew-x-12 -translate-x-full"
+            />
           </div>
           <div className="relative">
             <h3 className="text-6xl font-black tracking-normal text-white flex flex-col items-center leading-none">
-              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">APEX</span>
-              <span className="text-[10px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">EXPERTS</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-sinai-glow-orange/50">
+                APEX
+              </span>
+              <span className="text-[10px] font-mono tracking-[1.5em] text-sinai-glow-orange/60 ml-[1.5em] -mt-1 font-bold">
+                EXPERTS
+              </span>
             </h3>
           </div>
         </div>
       </div>
-      <motion.div animate={effectiveReduceMotion ? { opacity: 0.1, scale: 1 } : { scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/25 rounded-full" />
+      <motion.div
+        animate={
+          effectiveReduceMotion
+            ? { opacity: 0.1, scale: 1 }
+            : { scale: [0.8, 1.2, 0.8], opacity: [0, 0.5, 0] }
+        }
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute w-[450px] h-[450px] border-2 border-sinai-glow-orange/25 rounded-full"
+      />
     </div>
   );
 };
 
-const OrbitalNode = ({ cap, index, total, active, onEnter, onLeave }: { cap: MobileCapability, index: number, total: number, active: boolean, onEnter: () => void, onLeave: () => void }) => {
+const OrbitalNode = ({
+  cap,
+  index,
+  total,
+  active,
+  onEnter,
+  onLeave,
+}: {
+  cap: MobileCapability;
+  index: number;
+  total: number;
+  active: boolean;
+  onEnter: () => void;
+  onLeave: () => void;
+}) => {
   const angle = (index / total) * Math.PI * 2;
-  const radius = 320; 
+  const radius = 320;
   const x = Math.cos(angle) * radius;
   const y = Math.sin(angle) * radius;
   return (
-    <motion.div initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: active ? 1.2 : 1, left: `calc(50% + ${x}px)`, top: `calc(50% + ${y}px)` }} transition={{ delay: index * 0.1, duration: 0.4 }} className="absolute -translate-x-1/2 -translate-y-1/2 group pointer-events-auto" onMouseEnter={onEnter} onMouseLeave={onLeave}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: 1,
+        scale: active ? 1.2 : 1,
+        left: `calc(50% + ${x}px)`,
+        top: `calc(50% + ${y}px)`,
+      }}
+      transition={{ delay: index * 0.1, duration: 0.4 }}
+      className="absolute -translate-x-1/2 -translate-y-1/2 group pointer-events-auto"
+      onMouseEnter={onEnter}
+      onMouseLeave={onLeave}
+    >
       <div className="relative w-28 h-28 flex items-center justify-center cursor-pointer">
-        <div className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? 'rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(217,130,47,0.09)] bg-sinai-glow-orange/5' : 'border-white/10 group-hover:border-white/30'}`} />
-        <div className={`relative z-10 transition-colors duration-500 ${active ? 'text-sinai-glow-orange scale-110' : 'text-zinc-500 group-hover:text-white'}`}>{cap.icon}</div>
+        <div
+          className={`absolute inset-0 bg-white/[0.03] border rounded-[2rem] rotate-45 transition-all duration-500 ${active ? "rotate-90 border-sinai-glow-orange shadow-[0_0_30px_rgba(217,130,47,0.09)] bg-sinai-glow-orange/5" : "border-white/10 group-hover:border-white/30"}`}
+        />
+        <div
+          className={`relative z-10 transition-colors duration-500 ${active ? "text-sinai-glow-orange scale-110" : "text-zinc-500 group-hover:text-white"}`}
+        >
+          {cap.icon}
+        </div>
       </div>
-      <div className={`absolute top-full mt-6 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ${active ? 'opacity-100 translate-y-2' : 'opacity-20 group-hover:opacity-60'}`}>
-        <span className="text-[10px] font-mono text-white tracking-[0.4em] font-bold uppercase">{cap.title}</span>
+      <div
+        className={`absolute top-full mt-6 left-1/2 -translate-x-1/2 whitespace-nowrap transition-all duration-500 ${active ? "opacity-100 translate-y-2" : "opacity-20 group-hover:opacity-60"}`}
+      >
+        <span className="text-[10px] font-mono text-white tracking-[0.4em] font-bold uppercase">
+          {cap.title}
+        </span>
       </div>
     </motion.div>
   );
@@ -266,19 +398,40 @@ const CapabilityDetailView = ({ cap }: { cap: MobileCapability }) => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white/[0.02] backdrop-blur-3xl border border-white/10 p-6 lg:p-8 rounded-[2rem] relative overflow-hidden group">
       <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-50" />
       <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.28)] z-10">
-        <Image 
-          src={cap.image} 
-          alt={cap.title} 
-          fill 
+        <Image
+          src={cap.image}
+          alt={cap.title}
+          fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover scale-105 group-hover:scale-110 transition-transform duration-1000" 
+          className="object-cover scale-105 group-hover:scale-110 transition-transform duration-1000"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
       </div>
       <div className="space-y-8 relative z-10 text-left">
-        <div className="flex items-center gap-4"><div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">Mobile_Capability // {cap.id}</div><div className="h-px flex-1 bg-white/5" /></div>
-        <div className="space-y-6"><h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight">{cap.title}</h3><p className="text-xl text-zinc-400 font-light leading-relaxed"><StreamingText text={cap.desc} delay={100} /></p></div>
-        <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600"><span className="flex items-center gap-2"><div className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/55 ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />ENGINE_SYNC: ACTIVE</span><span className="w-px h-4 bg-white/10" /><span>ARM_V9: COMPATIBLE</span></div>
+        <div className="flex items-center gap-4">
+          <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 text-sinai-glow-orange text-[9px] font-mono font-bold tracking-widest uppercase">
+            Mobile_Capability // {cap.id}
+          </div>
+          <div className="h-px flex-1 bg-white/5" />
+        </div>
+        <div className="space-y-6">
+          <h3 className="text-4xl md:text-5xl font-black tracking-normal leading-tight">
+            {cap.title}
+          </h3>
+          <p className="text-xl text-zinc-400 font-light leading-relaxed">
+            <StreamingText text={cap.desc} delay={100} />
+          </p>
+        </div>
+        <div className="flex items-center gap-6 text-[10px] font-mono text-zinc-600">
+          <span className="flex items-center gap-2">
+            <div
+              className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange/55 ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+            />
+            ENGINE_SYNC: ACTIVE
+          </span>
+          <span className="w-px h-4 bg-white/10" />
+          <span>ARM_V9: COMPATIBLE</span>
+        </div>
       </div>
     </div>
   );
@@ -287,7 +440,9 @@ const CapabilityDetailView = ({ cap }: { cap: MobileCapability }) => {
 const Particles = ({ count = 20 }: { count?: number }) => {
   const shouldReduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
-  const [positions, setPositions] = useState<{ left: string, top: string, delay: number, duration: number }[]>([]);
+  const [positions, setPositions] = useState<
+    { left: string; top: string; delay: number; duration: number }[]
+  >([]);
 
   useEffect(() => {
     if (shouldReduceMotion) return;
@@ -297,7 +452,7 @@ const Particles = ({ count = 20 }: { count?: number }) => {
         left: `${Math.random() * 100}%`,
         top: `${Math.random() * 100}%`,
         delay: Math.random() * 5,
-        duration: Math.random() * 5 + 5
+        duration: Math.random() * 5 + 5,
       }));
       setPositions(newPositions);
     });
@@ -314,17 +469,17 @@ const Particles = ({ count = 20 }: { count?: number }) => {
           animate={{
             y: [-20, -100],
             opacity: [0, 1, 0],
-            scale: [0, 1, 0]
+            scale: [0, 1, 0],
           }}
           transition={{
             duration: pos.duration,
             repeat: Infinity,
-            delay: pos.delay
+            delay: pos.delay,
           }}
           className="absolute w-1 h-1 bg-sinai-glow-orange rounded-full blur-[1px]"
           style={{
             left: pos.left,
-            top: pos.top
+            top: pos.top,
           }}
         />
       ))}
@@ -345,41 +500,83 @@ const MobileHero = () => {
 
   return (
     <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
-    <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
-    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
-    <div className="apex-ambient-grid" />
-    <div className="apex-container-wide relative z-10">
-      <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
-        <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }} className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left">
-          <div className="space-y-6">
-            <div className="flex flex-wrap items-center gap-3 mb-4 sm:gap-4"><div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" /><span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">MOBILE_ENGINEERING // SOL_04</span></div>
-            <h1 className="max-w-full text-balance text-4xl font-black tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">Mobile App <br className="sm:hidden" />Development.</span></h1>
-            <p className="text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl max-w-full font-light">We engineer high-performance native and cross-platform mobile experiences that prioritize fluid motion, advanced security, and clear UX and reliable performance.</p>
-          </div>
-          <div className="flex flex-wrap gap-6 pt-4">
-            <Link href="/#contact" className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)]"><span className="relative z-10">Initialize Project</span><div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" /></Link>
-            <Link href="#capabilities" className="inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] hover:bg-white/[0.08] hover:border-white/20 transition-all">Capability Registry</Link>
-          </div>
-        </motion.div>
-        <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1, delay: 0.2 }} className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl">
-          <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group">
-            <Image 
-              src="/images/mobile-dev-hero.png" 
-              alt="Mobile Excellence" 
-              fill 
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover group-hover:scale-110 transition-transform duration-[5000ms] brightness-75" 
-              priority 
-            />
-            <motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-sinai-glow-orange/40 to-transparent z-20 pointer-events-none" />
-          </div>
-        </motion.div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
+      <div className="apex-ambient-grid" />
+      <div className="apex-container-wide relative z-10">
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(24rem,0.82fr)] lg:gap-10 xl:grid-cols-[minmax(0,1.05fr)_minmax(30rem,0.9fr)]">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="relative z-20 w-full min-w-0 max-w-3xl space-y-8 text-left"
+          >
+            <div className="space-y-6">
+              <div className="flex flex-wrap items-center gap-3 mb-4 sm:gap-4">
+                <div className="h-px w-8 bg-sinai-glow-orange/30 sm:w-12" />
+                <span className="px-4 py-1.5 rounded-full bg-white/[0.03] border border-white/10 text-[9px] uppercase tracking-[0.24em] text-sinai-glow-orange font-bold sm:tracking-[0.5em]">
+                  MOBILE_ENGINEERING // SOL_04
+                </span>
+              </div>
+              <h1 className="max-w-full text-balance text-4xl font-black tracking-normal leading-[0.88] text-white sm:text-6xl md:text-7xl xl:text-8xl 2xl:text-9xl">
+                Mobile <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-white/40">
+                  Mobile App <br className="sm:hidden" />
+                  Development.
+                </span>
+              </h1>
+              <p className="text-base leading-relaxed text-zinc-400 sm:text-xl md:text-2xl max-w-full font-light">
+                We engineer high-performance native and cross-platform mobile
+                experiences that prioritize fluid motion, advanced security, and
+                clear UX and reliable performance.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-6 pt-4">
+              <Link
+                href="/#contact"
+                className="group relative inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] transition-all hover:shadow-[0_0_42px_rgba(217,130,47,0.12)]"
+              >
+                <span className="relative z-10">Initialize Project</span>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+              </Link>
+              <Link
+                href="#capabilities"
+                className="inline-flex w-full items-center justify-center px-6 py-5 text-center sm:w-auto sm:px-12 sm:py-6 rounded-full bg-white/[0.03] border border-white/10 text-white font-bold text-sm tracking-[0.22em] uppercase sm:tracking-[0.3em] hover:bg-white/[0.08] hover:border-white/20 transition-all"
+              >
+                Capability Registry
+              </Link>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, delay: 0.2 }}
+            className="relative z-10 w-full justify-self-end lg:max-w-[34rem] xl:max-w-[40rem] 2xl:max-w-2xl"
+          >
+            <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group">
+              <Image
+                src="/images/mobile-dev-hero.png"
+                alt="Mobile Excellence"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover group-hover:scale-110 transition-transform duration-[5000ms] brightness-75"
+                priority
+              />
+              <motion.div
+                animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                className="absolute left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-sinai-glow-orange/40 to-transparent z-20 pointer-events-none"
+              />
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
-    <div className="absolute inset-0 pointer-events-none"><Particles count={8} /></div>
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
-  </section>
+      <div className="absolute inset-0 pointer-events-none">
+        <Particles count={8} />
+      </div>
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-40 bg-gradient-to-b from-transparent via-sinai-bg-base/45 to-sinai-bg-base" />
+    </section>
   );
 };
 
@@ -387,7 +584,7 @@ export default function MobileDevelopmentClient() {
   const shouldReduceMotion = useReducedMotion();
   const [mounted, setMounted] = useState(false);
   const [activeCapId, setActiveCapId] = useState<string | null>(null);
-  const activeCap = MOBILE_CAPABILITIES.find(c => c.id === activeCapId);
+  const activeCap = MOBILE_CAPABILITIES.find((c) => c.id === activeCapId);
 
   useEffect(() => {
     const frame = requestAnimationFrame(() => setMounted(true));
@@ -399,27 +596,61 @@ export default function MobileDevelopmentClient() {
   return (
     <div className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans">
       <MobileHero />
-      
+
       {/* Capability Hub */}
-      <section id="capabilities" className="py-16 lg:py-24 relative overflow-hidden bg-[#080a0d] min-h-[760px] lg:min-h-[860px]">
+      <section
+        id="capabilities"
+        className="py-16 lg:py-24 relative overflow-hidden bg-[#080a0d] min-h-[760px] lg:min-h-[860px]"
+      >
         <div className="apex-container-wide">
           <SectionReveal>
             <div className="text-center mb-12 lg:mb-16">
-              <div className="inline-flex items-center gap-4 mb-8"><div className="w-8 h-px bg-sinai-glow-orange/50" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Mobile_Orchestrator // V3.0</span><div className="w-8 h-px bg-sinai-glow-orange/50" /></div>
-              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none text-white">The Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Capability Hub</span></h2>
+              <div className="inline-flex items-center gap-4 mb-8">
+                <div className="w-8 h-px bg-sinai-glow-orange/50" />
+                <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                  Mobile_Orchestrator // V3.0
+                </span>
+                <div className="w-8 h-px bg-sinai-glow-orange/50" />
+              </div>
+              <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none text-white">
+                The Mobile <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">
+                  Capability Hub
+                </span>
+              </h2>
             </div>
           </SectionReveal>
           <div className="relative max-w-7xl mx-auto h-[700px] flex items-center justify-center">
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none"><NeuralCore /></div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <NeuralCore />
+            </div>
             <div className="absolute inset-0 z-30 pointer-events-none">
               {MOBILE_CAPABILITIES.map((cap, i) => (
-                <OrbitalNode key={cap.id} cap={cap} index={i} total={MOBILE_CAPABILITIES.length} active={activeCapId === cap.id} onEnter={() => setActiveCapId(cap.id)} onLeave={() => setActiveCapId(null)} />
+                <OrbitalNode
+                  key={cap.id}
+                  cap={cap}
+                  index={i}
+                  total={MOBILE_CAPABILITIES.length}
+                  active={activeCapId === cap.id}
+                  onEnter={() => setActiveCapId(cap.id)}
+                  onLeave={() => setActiveCapId(null)}
+                />
               ))}
             </div>
             <div className="relative z-50 w-full max-w-4xl px-4 pointer-events-none">
-              <AnimatePresence mode="wait">{activeCap && (
-                <motion.div key={activeCap.id} initial={{ opacity: 0, scale: 0.95, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.95, y: -10 }} transition={{ duration: 0.3, ease: "easeOut" }}><CapabilityDetailView cap={activeCap} /></motion.div>
-              )}</AnimatePresence>
+              <AnimatePresence mode="wait">
+                {activeCap && (
+                  <motion.div
+                    key={activeCap.id}
+                    initial={{ opacity: 0, scale: 0.95, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
+                    <CapabilityDetailView cap={activeCap} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
@@ -435,35 +666,123 @@ export default function MobileDevelopmentClient() {
             <SectionReveal>
               <div className="space-y-8 text-left">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 01</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">Custom Mobile <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">App Development</span></h2>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-px bg-sinai-glow-orange/30" />
+                    <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                      Technical_Deep_Dive // 01
+                    </span>
+                  </div>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">
+                    Custom Mobile <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">
+                      App Development
+                    </span>
+                  </h2>
                 </div>
                 <div className="space-y-7">
                   <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
                     <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Custom Mobile Apps</h3>
-                    <p className="text-zinc-400 leading-relaxed font-light text-lg">We engineer bespoke mobile applications that combine native performance with cinematic design. From enterprise solutions to customer-facing apps, we build for impact.</p>
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white">
+                      <div
+                        className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                      />
+                      Custom Mobile Apps
+                    </h3>
+                    <p className="text-zinc-400 leading-relaxed font-light text-lg">
+                      We engineer bespoke mobile applications that combine
+                      native performance with cinematic design. From enterprise
+                      solutions to customer-facing apps, we build for impact.
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { title: "iOS Development", desc: "Native Swift/SwiftUI masterpieces." },
-                      { title: "Android Development", desc: "Kotlin-first robust engineering." },
-                      { title: "Cross-Platform", desc: "Flutter & React Native excellence." },
-                      { title: "Business Apps", desc: "Scalable enterprise mobile solutions." },
-                      { title: "Performance", desc: "Optimizing for smooth interactions and fast screen loading." },
-                      { title: "Support", desc: "support, monitoring, and improvements", isCTA: true }
-                    ].map((service, i) => (
+                      {
+                        title: "iOS Development",
+                        desc: "Native Swift/SwiftUI masterpieces.",
+                      },
+                      {
+                        title: "Android Development",
+                        desc: "Kotlin-first robust engineering.",
+                      },
+                      {
+                        title: "Cross-Platform",
+                        desc: "Flutter & React Native excellence.",
+                      },
+                      {
+                        title: "Business Apps",
+                        desc: "Scalable enterprise mobile solutions.",
+                      },
+                      {
+                        title: "Performance",
+                        desc: "Optimizing for smooth interactions and fast screen loading.",
+                      },
+                      {
+                        title: "Support",
+                        desc: "support, monitoring, and improvements",
+                        isCTA: true,
+                      },
+                    ].map((service, i) =>
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
+                        <Link
+                          href="/#contact"
+                          key={i}
+                          className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-500 relative overflow-hidden"
+                        >
+                          <div className="relative z-10">
+                            <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2">
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                              />
+                              {service.title}
+                            </div>
+                            <p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">
+                              {service.desc}
+                            </p>
+                          </div>
+                        </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
+                        <div
+                          key={i}
+                          className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-500 group/item"
+                        >
+                          <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">
+                            {service.title}
+                          </div>
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
+                            {service.desc}
+                          </p>
+                        </div>
                       )
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
             </SectionReveal>
-            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-dev-hero.png" alt="Custom Mobile App Development" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal>
+              <div className="relative">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
+                  <Image
+                    src="/images/mobile-dev-hero.png"
+                    alt="Custom Mobile App Development"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  <motion.div
+                    animate={
+                      effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }
+                    }
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
+                  />
+                </div>
+              </div>
+            </SectionReveal>
           </div>
         </div>
       </section>
@@ -473,34 +792,122 @@ export default function MobileDevelopmentClient() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
         <div className="apex-container-wide relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-uiux.png" alt="UI/UX Mastery" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal>
+              <div className="relative order-2 lg:order-1">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
+                  <Image
+                    src="/images/mobile-uiux.png"
+                    alt="UI/UX Mastery"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  <motion.div
+                    animate={
+                      effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }
+                    }
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
+                  />
+                </div>
+              </div>
+            </SectionReveal>
             <SectionReveal>
               <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 02</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">UI/UX for <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">Mobile Apps</span></h2>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-px bg-sinai-glow-orange/30" />
+                    <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                      Technical_Deep_Dive // 02
+                    </span>
+                  </div>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white">
+                    UI/UX for <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30 text-balance">
+                      Mobile Apps
+                    </span>
+                  </h2>
                 </div>
                 <div className="space-y-7">
                   <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
                     <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Immersive Experiences</h3>
-                    <p className="text-zinc-400 leading-relaxed font-light text-lg">We design interfaces that feel alive. Our focus on fluid motion, intuitive patterns, and haptic feedback ensures your app is not just used, but enjoyed.</p>
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white">
+                      <div
+                        className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                      />
+                      Immersive Experiences
+                    </h3>
+                    <p className="text-zinc-400 leading-relaxed font-light text-lg">
+                      We design interfaces that feel alive. Our focus on fluid
+                      motion, intuitive patterns, and haptic feedback ensures
+                      your app is not just used, but enjoyed.
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { title: "UI Design", desc: "Glassmorphic & modern interfaces." },
-                      { title: "UX Optimization", desc: "Frictionless user journey flows." },
-                      { title: "Prototyping", desc: "Interactive high-fidelity motions." },
-                      { title: "Design Systems", desc: "Atomic & scalable UI components." },
-                      { title: "Visual Design", desc: "Cinematic & brand-aligned aesthetics." },
-                      { title: "Support", desc: "Continuous design evolution.", isCTA: true }
-                    ].map((service, i) => (
+                      {
+                        title: "UI Design",
+                        desc: "Glassmorphic & modern interfaces.",
+                      },
+                      {
+                        title: "UX Optimization",
+                        desc: "Frictionless user journey flows.",
+                      },
+                      {
+                        title: "Prototyping",
+                        desc: "Interactive high-fidelity motions.",
+                      },
+                      {
+                        title: "Design Systems",
+                        desc: "Atomic & scalable UI components.",
+                      },
+                      {
+                        title: "Visual Design",
+                        desc: "Cinematic & brand-aligned aesthetics.",
+                      },
+                      {
+                        title: "Support",
+                        desc: "Continuous design evolution.",
+                        isCTA: true,
+                      },
+                    ].map((service, i) =>
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
+                        <Link
+                          href="/#contact"
+                          key={i}
+                          className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-500 relative overflow-hidden"
+                        >
+                          <div className="relative z-10">
+                            <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2">
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                              />
+                              {service.title}
+                            </div>
+                            <p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">
+                              {service.desc}
+                            </p>
+                          </div>
+                        </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
+                        <div
+                          key={i}
+                          className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-500 group/item"
+                        >
+                          <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">
+                            {service.title}
+                          </div>
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
+                            {service.desc}
+                          </p>
+                        </div>
                       )
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -517,35 +924,123 @@ export default function MobileDevelopmentClient() {
             <SectionReveal>
               <div className="space-y-8 text-left">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 03</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">Backend & <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">API Integration</span></h2>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-px bg-sinai-glow-orange/30" />
+                    <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                      Technical_Deep_Dive // 03
+                    </span>
+                  </div>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">
+                    Backend & <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">
+                      API Integration
+                    </span>
+                  </h2>
                 </div>
                 <div className="space-y-7">
                   <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
                     <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-sinai-glow-orange/25 rounded-tl-3xl" />
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Backend & API Integration</h3>
-                    <p className="text-zinc-400 leading-relaxed font-light text-lg">We build the infrastructure that powers your app. From complex API orchestrations to secure user authentication, our backends are engineered for scale and speed.</p>
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white">
+                      <div
+                        className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                      />
+                      Backend & API Integration
+                    </h3>
+                    <p className="text-zinc-400 leading-relaxed font-light text-lg">
+                      We build the infrastructure that powers your app. From
+                      complex API orchestrations to secure user authentication,
+                      our backends are engineered for scale and speed.
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { title: "API Integration", desc: "Seamless orchestration & REST/GraphQL." },
-                      { title: "Authentication", desc: "Secure multi-factor user management." },
-                      { title: "Database Connect", desc: "Optimized data sync & offline-first." },
-                      { title: "Third-Party Sync", desc: "Integrating CRM, ERP, and payment nodes." },
-                      { title: "Cloud Scale", desc: "Serverless & automated infrastructure." },
-                      { title: "Support", desc: "support, monitoring, and improvements", isCTA: true }
-                    ].map((service, i) => (
+                      {
+                        title: "API Integration",
+                        desc: "Seamless orchestration & REST/GraphQL.",
+                      },
+                      {
+                        title: "Authentication",
+                        desc: "Secure multi-factor user management.",
+                      },
+                      {
+                        title: "Database Connect",
+                        desc: "Optimized data sync & offline-first.",
+                      },
+                      {
+                        title: "Third-Party Sync",
+                        desc: "Integrating CRM, ERP, and payment nodes.",
+                      },
+                      {
+                        title: "Cloud Scale",
+                        desc: "Serverless & automated infrastructure.",
+                      },
+                      {
+                        title: "Support",
+                        desc: "support, monitoring, and improvements",
+                        isCTA: true,
+                      },
+                    ].map((service, i) =>
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
+                        <Link
+                          href="/#contact"
+                          key={i}
+                          className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-500 relative overflow-hidden"
+                        >
+                          <div className="relative z-10">
+                            <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2">
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                              />
+                              {service.title}
+                            </div>
+                            <p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">
+                              {service.desc}
+                            </p>
+                          </div>
+                        </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
+                        <div
+                          key={i}
+                          className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-500 group/item"
+                        >
+                          <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">
+                            {service.title}
+                          </div>
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
+                            {service.desc}
+                          </p>
+                        </div>
                       )
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
             </SectionReveal>
-            <SectionReveal><div className="relative"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-backend.png" alt="Backend Core" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal>
+              <div className="relative">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
+                  <Image
+                    src="/images/mobile-backend.png"
+                    alt="Backend Core"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  <motion.div
+                    animate={
+                      effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }
+                    }
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
+                  />
+                </div>
+              </div>
+            </SectionReveal>
           </div>
         </div>
       </section>
@@ -555,34 +1050,123 @@ export default function MobileDevelopmentClient() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.026)_0%,transparent_70%)] pointer-events-none" />
         <div className="apex-container-wide relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
-            <SectionReveal><div className="relative order-2 lg:order-1"><div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group"><Image src="/images/mobile-dev-hero.png" alt="Maintenance Hub" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50" /><div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" /><motion.div animate={effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }} transition={{ duration: 4, repeat: Infinity, ease: "linear" }} className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none" /></div></div></SectionReveal>
+            <SectionReveal>
+              <div className="relative order-2 lg:order-1">
+                <div className="relative aspect-square max-w-2xl mx-auto rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_64px_rgba(217,130,47,0.055)] group">
+                  <Image
+                    src="/images/mobile-dev-hero.png"
+                    alt="Maintenance Hub"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-[3000ms] brightness-50"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60" />
+                  <motion.div
+                    animate={
+                      effectiveReduceMotion ? {} : { top: ["-10%", "110%"] }
+                    }
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
+                    className="absolute left-0 right-0 h-20 bg-gradient-to-b from-transparent via-sinai-glow-orange/15 to-transparent z-20 pointer-events-none"
+                  />
+                </div>
+              </div>
+            </SectionReveal>
             <SectionReveal>
               <div className="space-y-8 text-left order-1 lg:order-2">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-4"><div className="w-12 h-px bg-sinai-glow-orange/30" /><span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Deep_Dive // 04</span></div>
-                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">Maintenance <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">& Enhancement</span></h2>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-px bg-sinai-glow-orange/30" />
+                    <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                      Technical_Deep_Dive // 04
+                    </span>
+                  </div>
+                  <h2 className="text-6xl md:text-8xl font-black tracking-normal leading-none text-white text-balance">
+                    Maintenance <br />
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/30">
+                      & Enhancement
+                    </span>
+                  </h2>
                 </div>
                 <div className="space-y-7">
                   <div className="p-6 lg:p-8 rounded-[1.5rem] bg-white/[0.02] border border-white/5 backdrop-blur-xl relative group hover:border-sinai-glow-orange/20 transition-colors">
                     <div className="absolute -top-4 -right-4 w-20 h-20 border-t-2 border-r-2 border-sinai-glow-orange/25 rounded-tr-3xl" />
-                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white"><div className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />Life Cycle Excellence</h3>
-                    <p className="text-zinc-400 leading-relaxed font-light text-lg">Apps require constant care. We provide continuous monitoring, performance tuning, and feature updates to ensure your product remains at the cutting edge of the market.</p>
+                    <h3 className="text-2xl font-bold mb-6 flex items-center gap-4 text-white">
+                      <div
+                        className={`w-2 h-2 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                      />
+                      Life Cycle Excellence
+                    </h3>
+                    <p className="text-zinc-400 leading-relaxed font-light text-lg">
+                      Apps require constant care. We provide continuous
+                      monitoring, performance tuning, and feature updates to
+                      ensure your product remains at the cutting edge of the
+                      market.
+                    </p>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     {[
-                      { title: "Performance Opt", desc: "Speed & responsiveness tuning." },
-                      { title: "Updates & Fixes", desc: "Proactive bug resolution & OS sync." },
-                      { title: "Enhancements", desc: "New feature rollouts & evolution." },
-                      { title: "Support", desc: "support, monitoring, and improvements" },
-                      { title: "Security Audits", desc: "Continuous vulnerability protection." },
-                      { title: "Support", desc: "Engagement initialization.", isCTA: true }
-                    ].map((service, i) => (
+                      {
+                        title: "Performance Opt",
+                        desc: "Speed & responsiveness tuning.",
+                      },
+                      {
+                        title: "Updates & Fixes",
+                        desc: "Proactive bug resolution & OS sync.",
+                      },
+                      {
+                        title: "Enhancements",
+                        desc: "New feature rollouts & evolution.",
+                      },
+                      {
+                        title: "Support",
+                        desc: "support, monitoring, and improvements",
+                      },
+                      {
+                        title: "Security Audits",
+                        desc: "Continuous vulnerability protection.",
+                      },
+                      {
+                        title: "Support",
+                        desc: "Engagement initialization.",
+                        isCTA: true,
+                      },
+                    ].map((service, i) =>
                       service.isCTA ? (
-                        <Link href="/#contact" key={i} className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-300 relative overflow-hidden"><div className="relative z-10"><div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2"><span className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />{service.title}</div><p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">{service.desc}</p></div></Link>
+                        <Link
+                          href="/#contact"
+                          key={i}
+                          className="p-6 rounded-2xl bg-sinai-glow-orange/[0.08] border border-sinai-glow-orange/25 hover:bg-sinai-glow-orange/10 transition-all duration-500 relative overflow-hidden"
+                        >
+                          <div className="relative z-10">
+                            <div className="text-[9px] font-mono text-white mb-2 tracking-[0.1em] font-black uppercase flex items-center gap-2">
+                              <span
+                                className={`w-1.5 h-1.5 rounded-full bg-white ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                              />
+                              {service.title}
+                            </div>
+                            <p className="text-[10px] text-white/70 leading-tight uppercase tracking-normal">
+                              {service.desc}
+                            </p>
+                          </div>
+                        </Link>
                       ) : (
-                        <div key={i} className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-300 group/item"><div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">{service.title}</div><p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">{service.desc}</p></div>
+                        <div
+                          key={i}
+                          className="p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-sinai-glow-orange/25 transition-all duration-500 group/item"
+                        >
+                          <div className="text-[9px] font-mono text-sinai-glow-orange mb-2 tracking-[0.1em] font-black uppercase">
+                            {service.title}
+                          </div>
+                          <p className="text-[10px] text-zinc-500 group-hover/item:text-zinc-300 transition-colors leading-tight uppercase tracking-normal">
+                            {service.desc}
+                          </p>
+                        </div>
                       )
-                    ))}
+                    )}
                   </div>
                 </div>
               </div>
@@ -598,12 +1182,16 @@ export default function MobileDevelopmentClient() {
             <div className="text-center mb-12 lg:mb-16">
               <div className="inline-flex items-center gap-4 mb-8">
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
-                <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">Technical_Singularity // STACK</span>
+                <span className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.5em] font-bold uppercase">
+                  Technical_Singularity // STACK
+                </span>
                 <div className="w-8 h-px bg-sinai-glow-orange/50" />
               </div>
               <h2 className="text-6xl md:text-8xl font-black mb-10 tracking-normal leading-none text-white">
                 The Mobile <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">Tech Stack</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">
+                  Tech Stack
+                </span>
               </h2>
             </div>
           </SectionReveal>
@@ -617,7 +1205,7 @@ export default function MobileDevelopmentClient() {
         {/* Background Ambient Layers */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(217,130,47,0.055)_0%,transparent_70%)]" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-sinai-glow-orange/5 blur-[120px] rounded-full pointer-events-none" />
-        
+
         {/* Technical HUD Frame */}
         <div className="absolute inset-20 border border-white/[0.03] pointer-events-none hidden md:block">
           <div className="absolute top-0 left-0 w-20 h-px bg-sinai-glow-orange/30" />
@@ -632,30 +1220,47 @@ export default function MobileDevelopmentClient() {
               {/* Top Branding Tag */}
               <div className="flex justify-center">
                 <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-full bg-white/[0.02] border border-white/10 backdrop-blur-md">
-                  <span className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? '' : 'animate-pulse'}`} />
-                  <span className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.4em] font-black uppercase">Engagement_Initialization // V5.0</span>
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
+                  />
+                  <span className="text-[9px] font-mono text-sinai-glow-orange tracking-[0.4em] font-black uppercase">
+                    Engagement_Initialization // V5.0
+                  </span>
                 </div>
               </div>
 
               <div className="space-y-8">
                 <h2 className="text-7xl md:text-[10rem] font-black tracking-normal leading-[0.8] text-white">
                   Ready to <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">Scale Your Vision?</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">
+                    Scale Your Vision?
+                  </span>
                 </h2>
                 <p className="text-xl md:text-3xl text-zinc-500 font-light max-w-3xl mx-auto leading-relaxed text-balance">
-                  Join forces with <span className="text-white font-bold">APEX Experts</span> to engineer the next generation of digital excellence.
+                  Join forces with{" "}
+                  <span className="text-white font-bold">APEX Experts</span> to
+                  engineer the next generation of digital excellence.
                 </p>
               </div>
 
               <div className="flex flex-col items-center gap-8 pt-8">
-                <Link href="/#contact" className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_54px_rgba(217,130,47,0.16)] hover:scale-105 active:scale-95 duration-500">
+                <Link
+                  href="/#contact"
+                  className="group relative px-10 py-5 sm:px-14 lg:px-16 lg:py-6 rounded-full overflow-hidden bg-sinai-glow-orange text-white font-black text-xl tracking-[0.4em] uppercase transition-all hover:shadow-[0_0_54px_rgba(217,130,47,0.16)] hover:scale-105 active:scale-95 duration-500"
+                >
                   <span className="relative z-10">Initialize Project</span>
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
-                  
+
                   {/* Internal Shimmer */}
-                  <motion.div 
-                    animate={effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                  <motion.div
+                    animate={
+                      effectiveReduceMotion ? {} : { left: ["-100%", "200%"] }
+                    }
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 pointer-events-none"
                   />
                 </Link>
@@ -675,7 +1280,8 @@ export default function MobileDevelopmentClient() {
 
         {/* Floating Data Decor */}
         <div className="absolute bottom-12 right-12 text-[8px] font-mono text-zinc-800 tracking-widest hidden lg:block uppercase">
-          Apex_Experts_Creative_Studio<br />
+          Apex_Experts_Creative_Studio
+          <br />
           System_Build_Hash: 0x5a1118f
         </div>
       </section>

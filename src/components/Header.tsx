@@ -242,7 +242,7 @@ export function Header() {
         >
           {/* Logo Area */}
           <Link href="/" className="group flex items-center pl-2 sm:pl-3">
-            <div className="relative h-10 w-40 transition-transform duration-300 group-hover:scale-[1.02] sm:h-11 sm:w-44">
+            <div className="relative h-10 w-40 transition-transform duration-500 group-hover:scale-[1.02] sm:h-11 sm:w-44">
               <Image
                 src="/images/logo.png"
                 alt="APEX Experts AI Solutions"
@@ -271,7 +271,7 @@ export function Header() {
                       onClick={() => setIsServicesOpen(!isServicesOpen)}
                       aria-haspopup="true"
                       aria-expanded={isServicesOpen}
-                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
+                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-500 ${
                         active || isServicesOpen
                           ? "text-white"
                           : "text-zinc-400 hover:text-white"
@@ -322,14 +322,14 @@ export function Header() {
                                         setIsServicesOpen(true);
                                         setHoveredService(service);
                                       }}
-                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-300 ${
+                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-500 ${
                                         hoveredService.id === service.id
                                           ? "bg-white/6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]"
                                           : "hover:bg-white/[0.035] focus:bg-white/4"
                                       }`}
                                     >
                                       <div
-                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${
+                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-500 ${
                                           hoveredService.id === service.id
                                             ? "border-sinai-glow-soft/60 bg-sinai-glow-orange/85 text-white shadow-[0_0_22px_rgba(217,130,47,0.18)]"
                                             : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
@@ -339,7 +339,7 @@ export function Header() {
                                       </div>
                                       <div className="space-y-2 flex-1 text-left">
                                         <h3
-                                          className={`text-lg font-bold tracking-normal transition-colors duration-300 text-left ${
+                                          className={`text-lg font-bold tracking-normal transition-colors duration-500 text-left ${
                                             hoveredService.id === service.id
                                               ? "text-white"
                                               : "text-zinc-500 group-hover/item:text-zinc-300"
@@ -482,7 +482,7 @@ export function Header() {
                                                     )}
                                                   </div>
 
-                                                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
+                                                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-500 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
                                                     <div className="text-[8px] font-mono text-white tracking-widest uppercase whitespace-nowrap">
                                                       {slug
                                                         .replace("dotjs", ".js")
@@ -564,7 +564,7 @@ export function Header() {
                       onClick={() => setIsProjectsOpen(!isProjectsOpen)}
                       aria-haspopup="true"
                       aria-expanded={isProjectsOpen}
-                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
+                      className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-500 ${
                         active || isProjectsOpen
                           ? "text-white"
                           : "text-zinc-400 hover:text-white"
@@ -615,14 +615,14 @@ export function Header() {
                                         setIsProjectsOpen(true);
                                         setHoveredProject(project);
                                       }}
-                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-300 ${
+                                      className={`group/item flex items-start gap-4 rounded-xl p-4 text-left outline-none transition-all duration-500 ${
                                         hoveredProject.id === project.id
                                           ? "bg-white/6 shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]"
                                           : "hover:bg-white/[0.035] focus:bg-white/4"
                                       }`}
                                     >
                                       <div
-                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${
+                                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border transition-all duration-500 ${
                                           hoveredProject.id === project.id
                                             ? "border-sinai-glow-soft/60 bg-sinai-glow-orange/85 text-white shadow-[0_0_22px_rgba(217,130,47,0.18)]"
                                             : "bg-white/5 text-zinc-500 border-white/5 group-hover/item:border-white/10"
@@ -632,7 +632,7 @@ export function Header() {
                                       </div>
                                       <div className="space-y-2 flex-1 text-left">
                                         <h3
-                                          className={`text-lg font-bold tracking-normal transition-colors duration-300 text-left ${
+                                          className={`text-lg font-bold tracking-normal transition-colors duration-500 text-left ${
                                             hoveredProject.id === project.id
                                               ? "text-white"
                                               : "text-zinc-500 group-hover/item:text-zinc-300"
@@ -774,7 +774,7 @@ export function Header() {
                                                     )}
                                                   </div>
 
-                                                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-300 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
+                                                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-md bg-[#1a1a1a] border border-white/10 opacity-0 group-hover/tech:opacity-100 transition-all duration-500 pointer-events-none translate-y-2 group-hover/tech:translate-y-0 shadow-2xl z-50">
                                                     <div className="text-[8px] font-mono text-white tracking-widest uppercase whitespace-nowrap">
                                                       {slug
                                                         .replace("dotjs", ".js")
@@ -853,7 +853,7 @@ export function Header() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-300 ${
+                  className={`relative px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] transition-all duration-500 ${
                     active
                       ? "text-sinai-glow-orange"
                       : "text-zinc-400 hover:text-white"
@@ -875,7 +875,7 @@ export function Header() {
           <div className="flex items-center gap-6">
             <Link
               href="/contact"
-              className="hidden items-center gap-3 rounded-full bg-sinai-glow-orange px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-white hover:text-black shadow-[0_10px_30px_rgba(217,130,47,0.14)] transition-all duration-300 hover:bg-white sm:flex group"
+              className="hidden items-center gap-3 rounded-full bg-sinai-glow-orange px-5 py-2.5 text-[10px] font-black uppercase tracking-[0.24em] text-white hover:text-black shadow-[0_10px_30px_rgba(217,130,47,0.14)] transition-all duration-500 hover:bg-white sm:flex group"
             >
               Connect_Node
               <div
@@ -889,13 +889,13 @@ export function Header() {
               className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 rounded-full border border-white/10 bg-white/3 lg:hidden group"
             >
               <div
-                className={`h-px bg-white transition-all duration-300 ${mobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}
+                className={`h-px bg-white transition-all duration-500 ${mobileMenuOpen ? "w-6 rotate-45 translate-y-2" : "w-6"}`}
               />
               <div
-                className={`h-px bg-white transition-all duration-300 ${mobileMenuOpen ? "opacity-0" : "w-4"}`}
+                className={`h-px bg-white transition-all duration-500 ${mobileMenuOpen ? "opacity-0" : "w-4"}`}
               />
               <div
-                className={`h-px bg-white transition-all duration-300 ${mobileMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`}
+                className={`h-px bg-white transition-all duration-500 ${mobileMenuOpen ? "w-6 -rotate-45 -translate-y-2" : "w-6"}`}
               />
             </button>
           </div>

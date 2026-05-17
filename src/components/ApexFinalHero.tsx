@@ -108,7 +108,7 @@ export const ApexFinalHero = () => {
             >
               <Link
                 href="#services"
-                className="group flex items-center gap-4 bg-sinai-glow-orange text-white px-8 lg:px-10 h-16 rounded-full font-black md:text-lg tracking-widest transition-all duration-300 hover:shadow-[0_15px_40px_rgba(217,130,47,0.3)]  max-md:w-full max-md:justify-center"
+                className="group flex items-center gap-4 bg-sinai-glow-orange text-white px-8 lg:px-10 h-16 rounded-full font-black md:text-lg tracking-widest transition-all duration-500 hover:shadow-[0_15px_40px_rgba(217,130,47,0.3)]  max-md:w-full max-md:justify-center"
               >
                 <HeroCTA
                   width={20}
@@ -120,7 +120,7 @@ export const ApexFinalHero = () => {
 
               <Link
                 href="#services"
-                className="group flex items-center gap-4 border border-white bg-white/5 px-8 lg:px-10 h-16 rounded-full font-black text-white md:text-lg tracking-widest hover:bg-white/10 transition-all duration-300 max-md:w-full max-md:justify-center"
+                className="group flex items-center gap-4 border border-white bg-white/5 px-8 lg:px-10 h-16 rounded-full font-black text-white md:text-lg tracking-widest hover:bg-white/10 transition-all duration-500 max-md:w-full max-md:justify-center"
               >
                 Our Services
               </Link>

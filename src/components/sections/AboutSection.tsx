@@ -8,27 +8,33 @@ const POSITIONS = [
   {
     id: "depth",
     title: "Technical Depth",
-    short: "We start with your workflow, data, users, and security rules before choosing the AI layer.",
+    short:
+      "We start with your workflow, data, users, and security rules before choosing the AI layer.",
     header: "AI that fits",
     subHeader: " real business workflows.",
-    description: "APEX Experts AI Solutions is a specialized engineering practice focused on designing, building, and deploying production-grade artificial intelligence systems."
+    description:
+      "APEX Experts AI Solutions is a specialized engineering practice focused on designing, building, and deploying production-grade artificial intelligence systems.",
   },
   {
     id: "focus",
     title: "Strategic Focus",
-    short: "We work with teams that need AI to connect to real data, approvals, permissions, and daily operations.",
+    short:
+      "We work with teams that need AI to connect to real data, approvals, permissions, and daily operations.",
     header: "AI connected",
     subHeader: " to the systems your team already uses.",
-    description: "We work at the intersection of advanced machine learning research and robust software engineering — turning AI ideas into working software your team can actually use."
+    description:
+      "We work at the intersection of advanced machine learning research and robust software engineering — turning AI ideas into working software your team can actually use.",
   },
   {
     id: "quality",
     title: "Quality Standard",
-    short: "Our work meets the same bar as the tools we build with: tested, documented, and designed to evolve.",
+    short:
+      "Our work meets the same bar as the tools we build with: tested, documented, and designed to evolve.",
     header: "Built to Evolve",
     subHeader: " designed for longevity.",
-    description: "Every project is planned for testing, documentation, handover, and future changes."
-  }
+    description:
+      "Every project is planned for testing, documentation, handover, and future changes.",
+  },
 ];
 
 export function AboutSection() {
@@ -46,9 +52,7 @@ export function AboutSection() {
   return (
     <section id="about" className="section-shell scroll-mt-28">
       {/* Section label */}
-      <div className="section-label">
-        01 // About
-      </div>
+      <div className="section-label">01 // About</div>
 
       <div className="grid items-start gap-8 lg:grid-cols-5 lg:gap-10">
         {/* Main copy (Left side) — changes based on hover */}
@@ -92,14 +96,20 @@ export function AboutSection() {
                 <div
                   key={pos.id}
                   onMouseEnter={() => setActiveIdx(i)}
-                  className={`relative cursor-pointer rounded-xl p-4 transition-all duration-300 group/item ${activeIdx === i
+                  className={`relative cursor-pointer rounded-xl p-4 transition-all duration-500 group/item ${
+                    activeIdx === i
                       ? "bg-white/[0.04] border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
                       : "opacity-40 hover:opacity-100 border border-transparent"
-                    }`}
+                  }`}
                 >
                   <div className="flex items-center gap-4 mb-3">
-                    <span className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${activeIdx === i ? "bg-sinai-glow-orange scale-150" : "bg-white/20"
-                      }`} />
+                    <span
+                      className={`w-1.5 h-1.5 rounded-full transition-all duration-500 ${
+                        activeIdx === i
+                          ? "bg-sinai-glow-orange scale-150"
+                          : "bg-white/20"
+                      }`}
+                    />
                     <h4 className="text-base font-bold tracking-normal text-white">
                       {pos.title}
                     </h4>
@@ -112,18 +122,40 @@ export function AboutSection() {
                   {activeIdx === i && (
                     <>
                       <motion.div
-                        layoutId={effectiveReduceMotion ? undefined : "activePosition"}
+                        layoutId={
+                          effectiveReduceMotion ? undefined : "activePosition"
+                        }
                         className="absolute left-0 top-0 bottom-0 w-1 bg-sinai-glow-orange rounded-full"
                       />
                       <motion.div
-                        initial={{ opacity: 0, x: effectiveReduceMotion ? 0 : -10 }}
+                        initial={{
+                          opacity: 0,
+                          x: effectiveReduceMotion ? 0 : -10,
+                        }}
                         animate={{ opacity: 1, x: 0 }}
                         className="mt-6"
                       >
-                        <Link href="/about" className="inline-flex items-center gap-3 text-[10px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase hover:text-white transition-all group/btn">
+                        <Link
+                          href="/about"
+                          className="inline-flex items-center gap-3 text-[10px] font-mono text-sinai-glow-orange tracking-[0.3em] font-black uppercase hover:text-white transition-all group/btn"
+                        >
                           Explore_Full_Record
-                          <div className={`h-px bg-sinai-glow-orange transition-all duration-500 ${effectiveReduceMotion ? 'w-6' : 'w-6 group-hover/btn:w-10'}`} />
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className={`transform transition-transform ${effectiveReduceMotion ? '' : 'group-hover/btn:translate-x-1'}`}><path d="M5 12h14m-7-7 7 7-7 7" /></svg>
+                          <div
+                            className={`h-px bg-sinai-glow-orange transition-all duration-500 ${effectiveReduceMotion ? "w-6" : "w-6 group-hover/btn:w-10"}`}
+                          />
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="3"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className={`transform transition-transform ${effectiveReduceMotion ? "" : "group-hover/btn:translate-x-1"}`}
+                          >
+                            <path d="M5 12h14m-7-7 7 7-7 7" />
+                          </svg>
                         </Link>
                       </motion.div>
                     </>

@@ -36,7 +36,7 @@ const PracticeCard = ({ practice, index }: Props) => {
       className="group rounded-3xl p-8 flex flex-col gap-4 bg-white/2 border border-white/10 shadow-[0px_25px_50px_-12px_#00000040] relative overflow-hidden"
     >
       <div
-        className={`opacity-0 group-hover:opacity-60 absolute inset-0 backdrop-blur-[48px] rounded-[24px] transition-all duration-300 z-10 ${
+        className={`opacity-0 group-hover:opacity-60 absolute inset-0 backdrop-blur-[48px] rounded-[24px] transition-all duration-500 z-10 ${
           // gradientByIndex[index % 4]
           ""
         }`}
@@ -57,7 +57,7 @@ const PracticeCard = ({ practice, index }: Props) => {
         <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-white/3 border border-white/8 ">
           <PracticeIcon
             index={index}
-            className="text-white/50 group-hover:text-white transition-all duration-300"
+            className="text-white/50 group-hover:text-white transition-all duration-500"
             width={24}
             height={24}
           />
@@ -74,7 +74,7 @@ const PracticeCard = ({ practice, index }: Props) => {
             key={i}
             className="px-4 py-2 rounded-full bg-white/3 border border-white/10 flex items-center justify-center w-full md:w-fit"
           >
-            <span className="text-[10px] font-bold tracking-widest text-center uppercase text-white/50 group-hover:text-white transition-all duration-300">
+            <span className="text-[10px] font-bold tracking-widest text-center uppercase text-white/50 group-hover:text-white transition-all duration-500">
               {item}
             </span>
           </div>

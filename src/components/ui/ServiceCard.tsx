@@ -45,7 +45,7 @@ export function ServiceCard({
       {/* Mouse Following Glow */}
       {!reducedMotion && (
         <div
-          className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-300"
+          className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-500"
           style={{
             opacity: isHovered ? 1 : 0,
             background: `radial-gradient(
@@ -63,13 +63,13 @@ export function ServiceCard({
 
       {/* Icon & Content */}
       <div className="relative z-10 flex h-full flex-col space-y-6 items-center md:items-start">
-        <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/3 shadow-2xl transition-all duration-300 group-hover:border-sinai-glow-orange/20">
+        <div className="relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-[1.25rem] border border-white/10 bg-white/3 shadow-2xl transition-all duration-500 group-hover:border-sinai-glow-orange/20">
           <div className="absolute inset-0 bg-linear-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           {typeof icon === "function" ? icon(reducedMotion) : icon}
         </div>
 
         <div className="space-y-4 text-center md:text-start">
-          <h3 className="text-3xl font-bold tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-orange lg:text-4xl">
+          <h3 className="text-3xl font-bold tracking-normal text-white transition-colors duration-500 group-hover:text-sinai-glow-orange lg:text-4xl">
             {title}
           </h3>
           <p className="text-base leading-relaxed text-zinc-500 transition-colors group-hover:text-zinc-400 sm:text-lg">

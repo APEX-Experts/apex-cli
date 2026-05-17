@@ -18,7 +18,7 @@ export function Footer() {
           <div className="space-y-6 lg:col-span-4">
             <Link
               href="/"
-              className="inline-block transition-transform duration-300 hover:scale-[1.02]"
+              className="inline-block transition-transform duration-500 hover:scale-[1.02]"
             >
               <div className="relative h-20 w-64 max-w-full sm:h-24 sm:w-80">
                 <Image
@@ -135,7 +135,7 @@ function FooterLinkGroup({
           <Link
             key={link.name}
             href={link.href}
-            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-300"
+            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-white-200 transition-colors duration-500"
           >
             {link.name}
           </Link>

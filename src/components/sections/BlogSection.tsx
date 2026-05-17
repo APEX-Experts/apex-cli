@@ -28,31 +28,33 @@ export function BlogSection() {
             <span className="apex-gradient-text italic">Notes.</span>
           </h2>
           <p className="text-zinc-500 font-mono text-[9px] leading-relaxed tracking-widest uppercase max-w-xs lg:text-right">
-            Short guides on AI, Oracle APEX, product delivery, and technical SEO.
+            Short guides on AI, Oracle APEX, product delivery, and technical
+            SEO.
           </p>
         </div>
       </div>
 
       <div className="apex-container-wide relative z-10 grid gap-8 lg:grid-cols-12 lg:gap-10">
-        
         {/* Featured Post - Large Cinematic Card */}
         <div className="lg:col-span-7 group">
           <Link href={`/blog/${featured.slug}`} className="block space-y-7">
             <div className="group relative aspect-[16/10] overflow-hidden rounded-[1.5rem] border border-white/10 bg-zinc-950 shadow-2xl">
-              <Image 
-                src={featured.mainImage} 
-                alt={featured.title} 
-                fill 
+              <Image
+                src={featured.mainImage}
+                alt={featured.title}
+                fill
                 sizes="(max-width: 1024px) 100vw, 60vw"
-                className="object-cover group-hover:scale-110 transition-transform duration-[3s] ease-out opacity-60 group-hover:opacity-100 transition-opacity" 
+                className="object-cover group-hover:scale-110 transition-transform duration-[3s] ease-out opacity-60 group-hover:opacity-100 transition-opacity"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
-              
+
               {/* Floating ID Tag */}
               <div className="absolute top-8 left-8 flex gap-3">
                 <div className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/20 backdrop-blur-xl border border-sinai-glow-orange/40 flex items-center gap-2">
                   <div className="w-1 h-1 rounded-full bg-sinai-glow-orange animate-pulse" />
-                  <span className="text-[9px] font-black text-white uppercase tracking-widest font-mono">PRIORITY_POST</span>
+                  <span className="text-[9px] font-black text-white uppercase tracking-widest font-mono">
+                    PRIORITY_POST
+                  </span>
                 </div>
               </div>
 
@@ -63,18 +65,29 @@ export function BlogSection() {
             <div className="relative space-y-5 px-1 sm:px-3">
               <div className="flex items-center gap-6">
                 <div className="flex gap-3">
-                  {featured.categories.map(cat => (
-                    <span key={cat} className="text-sinai-glow-orange text-[9px] font-mono font-bold uppercase tracking-[0.3em]">{cat}</span>
+                  {featured.categories.map((cat) => (
+                    <span
+                      key={cat}
+                      className="text-sinai-glow-orange text-[9px] font-mono font-bold uppercase tracking-[0.3em]"
+                    >
+                      {cat}
+                    </span>
                   ))}
                 </div>
                 <span className="w-1 h-1 bg-zinc-800 rounded-full" />
-                <span className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest">{new Date(featured.publishedAt).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
+                <span className="text-zinc-600 font-mono text-[9px] uppercase tracking-widest">
+                  {new Date(featured.publishedAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </span>
               </div>
-              
+
               <h3 className="text-3xl font-black uppercase leading-tight tracking-normal text-white transition-colors duration-500 group-hover:text-sinai-glow-soft md:text-4xl">
                 {featured.title}
               </h3>
-              
+
               <p className="text-lg text-zinc-500 font-light leading-relaxed max-w-2xl line-clamp-2">
                 {featured.excerpt}
               </p>
@@ -92,28 +105,36 @@ export function BlogSection() {
         {/* Other Posts - Refined Technical List */}
         <div className="flex flex-col gap-8 lg:col-span-5 lg:pt-3">
           {others.map((post) => (
-            <Link key={post.id} href={`/blog/${post.slug}`} className="group block pb-8 border-b border-white/5 last:border-0 relative">
+            <Link
+              key={post.id}
+              href={`/blog/${post.slug}`}
+              className="group block pb-8 border-b border-white/5 last:border-0 relative"
+            >
               <div className="flex gap-6 items-start">
                 <div className="relative w-32 h-32 flex-shrink-0 rounded-[1.5rem] overflow-hidden border border-white/10 bg-zinc-950">
-                  <Image 
-                    src={post.mainImage} 
-                    alt={post.title} 
-                    fill 
+                  <Image
+                    src={post.mainImage}
+                    alt={post.title}
+                    fill
                     sizes="128px"
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" 
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100"
                   />
                 </div>
                 <div className="space-y-4">
                   <div className="flex items-center gap-4 text-[8px] font-mono text-zinc-600 uppercase tracking-widest">
-                    <span className="text-sinai-glow-orange font-bold">{post.categories[0]}</span>
+                    <span className="text-sinai-glow-orange font-bold">
+                      {post.categories[0]}
+                    </span>
                     <span className="w-1 h-1 bg-zinc-800 rounded-full" />
                     <span>0x{post.id.slice(-4)}</span>
                   </div>
-                  <h4 className="text-2xl font-bold uppercase leading-tight tracking-normal text-white transition-colors duration-300 group-hover:text-sinai-glow-soft">
+                  <h4 className="text-2xl font-bold uppercase leading-tight tracking-normal text-white transition-colors duration-500 group-hover:text-sinai-glow-soft">
                     {post.title}
                   </h4>
                   <div className="flex items-center gap-4 pt-1">
-                    <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-[0.2em]">Deployment_Live</span>
+                    <span className="text-[9px] font-mono text-zinc-500 uppercase tracking-[0.2em]">
+                      Deployment_Live
+                    </span>
                     <div className="w-10 h-px bg-white/5" />
                   </div>
                 </div>
@@ -123,7 +144,10 @@ export function BlogSection() {
 
           {/* CTA: View All */}
           <div className="pt-4">
-            <Link href="/blog" className="group relative px-12 py-5 rounded-full border border-white/10 overflow-hidden inline-flex items-center gap-6 hover:border-sinai-glow-orange/50 transition-all duration-500">
+            <Link
+              href="/blog"
+              className="group relative px-12 py-5 rounded-full border border-white/10 overflow-hidden inline-flex items-center gap-6 hover:border-sinai-glow-orange/50 transition-all duration-500"
+            >
               <div className="absolute inset-0 bg-sinai-glow-orange/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
               <span className="relative z-10 text-[10px] font-black uppercase tracking-[0.5em] text-white">
                 View All Articles
@@ -132,7 +156,6 @@ export function BlogSection() {
             </Link>
           </div>
         </div>
-
       </div>
 
       {/* Decorative Grid and Glow */}

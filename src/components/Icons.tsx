@@ -1,3 +1,17 @@
+import {
+  Brain,
+  Building2,
+  Calendar,
+  Cpu,
+  Database,
+  DatabaseIcon,
+  Focus,
+  Layers,
+  Mail,
+  MapPin,
+  Target,
+} from "lucide-react";
+
 type Props = {
   width?: number;
   height?: number;
@@ -348,6 +362,90 @@ export const WhyUsIcon = ({
             strokeLinejoin="round"
           />
         </svg>
+      );
+    default:
+      return null;
+  }
+};
+
+export const ProductionSystemIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return (
+        <DatabaseIcon width={width} height={height} className={className} />
+      );
+
+    case 1:
+      return <Brain width={width} height={height} className={className} />;
+
+    case 2:
+      return <Layers width={width} height={height} className={className} />;
+    default:
+      return null;
+  }
+};
+
+export const FactIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Calendar width={width} height={height} className={className} />;
+    case 1:
+      return <Building2 width={width} height={height} className={className} />;
+    case 2:
+      return <MapPin width={width} height={height} className={className} />;
+    case 3:
+      return <Target width={width} height={height} className={className} />;
+    case 4:
+      return <Mail width={width} height={height} className={className} />;
+    default:
+      return null;
+  }
+};
+
+export const ValueIcon = ({
+  width = 24,
+  height = 24,
+  className,
+  index,
+}: Props) => {
+  switch (index) {
+    case 0:
+      return <Database className={className} width={width} height={height} />;
+
+    case 1:
+      return <Focus width={width} height={height} className={className} />;
+
+    case 2:
+      return <Cpu width={width} height={height} className={className} />;
+
+    case 3:
+      return (
+        <WhyUsIcon
+          index={3}
+          width={width}
+          height={height}
+          className={className}
+        />
+      );
+
+    case 4:
+      return (
+        <WhyUsIcon
+          index={4}
+          width={width}
+          height={height}
+          className={className}
+        />
       );
     default:
       return null;
