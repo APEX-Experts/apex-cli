@@ -83,7 +83,7 @@
     --apex-accent-soft: #f1b768;
     --apex-steel: #94a4ba;
     --apex-section-y: clamp(3.5rem, 6vw, 6.5rem);
-    --apex-section-y-large: clamp(2rem, 4vw, 6.5rem);
+    --apex-section-y-large: clamp(2rem, 2vw, 6.5rem);
     --apex-card-radius: 1.5rem;
     --apex-card-radius-lg: 2rem;
   }

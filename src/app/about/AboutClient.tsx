@@ -3,6 +3,7 @@
 import CeoHeroSection from "./components/CeoHeroSection";
 import CtaSection from "./components/CtaSection";
 import EngineeringDnaSection from "./components/EngineeringDnaSection";
+import EngineeringDomains from "./components/EngineeringDomains";
 import EnterpriseFoundation from "./components/EnterpriseFoundation";
 import ProductionSystems from "./components/ProductionSystems";
 import TeamSection from "./components/TeamSection";
@@ -14,6 +15,7 @@ export default function AboutClient() {
       <EngineeringDnaSection />
       <ProductionSystems />
       <EnterpriseFoundation />
+      <EngineeringDomains />
       <TeamSection />
       <CtaSection />
     </div>

@@ -169,3 +169,42 @@ export const VALUES: Fact[] = [
       "Every system is designed for long-term stability, scalability, and maintainability.",
   },
 ];
+
+type Systems = {
+  supertitle: string;
+  title: string;
+  description: string;
+};
+
+export const SYSTEMS_WE_BUILD: Systems[] = [
+  {
+    supertitle: "Core Infrastructure",
+    title: "Enterprise Systens",
+    description:
+      "Oracle APEX applications, Oracle Forms migration, PL/SQL optimization, ORDS API development, enterprise data modeling",
+  },
+  {
+    supertitle: "Web Architecture",
+    title: "Digital Platforms",
+    description:
+      "SaaS platforms, operational portals, role-based environments, secure data applications, real-time dashboards",
+  },
+  {
+    supertitle: "Intelligent Systems",
+    title: "AI Integration",
+    description:
+      "Natural language analytics, RAG architectures, workflow-level AI, enterprise LLM integration, permission-aware intelligence",
+  },
+  {
+    supertitle: "Connected Operations",
+    title: "System Integration",
+    description:
+      "Cross-platform orchestration, API architecture, data synchronization, legacy system bridging, unified interfaces",
+  },
+  {
+    supertitle: "Field Enablement",
+    title: "Mobile Operators",
+    description:
+      "Field operations apps, offline-capable workflows, approval systems, real-time backend sync, operational mobility",
+  },
+];
