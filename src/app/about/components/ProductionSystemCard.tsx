@@ -3,6 +3,8 @@
 import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ProductionSystemIcon } from "@/components/Icons";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
+import { MouseGlow } from "@/components/ui/MouseGlow";
 
 import { ProductionSystem } from "@/constants";
 
@@ -17,27 +19,14 @@ export function ProductionSystemCard({
   index,
   reducedMotion,
 }: ProductionSystemCardProps) {
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const { ref, position, isHovered, glowProps } = useMouseGlow<HTMLAnchorElement>();
 
   return (
     <motion.a
       href={system.href}
       target="_blank"
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      ref={ref}
+      {...glowProps}
       initial={reducedMotion ? { opacity: 0 } : { opacity: 0, y: 40 }}
       whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
@@ -50,20 +39,15 @@ export function ProductionSystemCard({
       className="group relative flex flex-col justify-between max-md:text-center min-h-[350px] gap-[10px] overflow-hidden rounded-[24px] border border-white/8 bg-[#FFFFFF1A] p-[34px] shadow-[0px_25px_50px_-12px_#00000040] backdrop-blur-xl transition-all duration-500 hover:border-t-[#D9822F80]"
     >
       {/* Mouse Following Glow */}
-      {!reducedMotion && (
-        <div
-          className="pointer-events-none absolute inset-0 z-0  transition-opacity duration-500"
-          style={{
-            opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(
-              800px circle at ${position.x}px ${position.y}px,
-              rgba(217, 130, 47, 0.15),
-              rgba(217, 130, 47, 0.05) 30%,
-              transparent 70%
-            )`,
-          }}
-        />
-      )}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isHovered}
+        radius={800}
+        opacityStart={0.15}
+        opacityEnd={0.05}
+        reducedMotion={reducedMotion}
+      />
 
       {/* Content wrapper */}
       <div className="relative z-10 flex flex-col h-full justify-between max-md:items-center gap-4">

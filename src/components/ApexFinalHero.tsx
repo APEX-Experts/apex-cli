@@ -75,7 +75,7 @@ export const ApexFinalHero = () => {
           {/* ── CTA + Stats ── */}
           <div className="order-3 flex flex-col gap-6">
             {/* Stats */}
-            <div className="border-t border-white/10 z-20 relative py-2.5">
+            <div className="border-t border-white/10 z-20 relative py-4">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -107,7 +107,7 @@ export const ApexFinalHero = () => {
               className="flex flex-wrap items-center gap-4 lg:gap-6 relative z-50"
             >
               <Link
-                href="#services"
+                href="/contact"
                 className="group flex items-center gap-4 bg-sinai-glow-orange text-white px-8 lg:px-10 h-16 rounded-full font-black md:text-lg tracking-widest transition-all duration-500 hover:shadow-[0_15px_40px_rgba(217,130,47,0.3)]  max-md:w-full max-md:justify-center"
               >
                 <HeroCTA

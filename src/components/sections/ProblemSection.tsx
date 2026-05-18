@@ -1,8 +1,9 @@
 "use client";
 
+import { MouseGlow } from "@/components/ui/MouseGlow";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
 import { motion } from "framer-motion";
 import { Clock, Database, Lock, ServerCrash } from "lucide-react";
-import { useRef, useState } from "react";
 
 const ISSUES = [
   {
@@ -88,51 +89,23 @@ export function ProblemSection() {
 }
 
 function PredictableResultCard() {
-  const cardRef = useRef<HTMLDivElement>(null);
-
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-
-    if (!rect) return;
-
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const { ref, position, isHovered, glowProps } =
+    useMouseGlow<HTMLDivElement>();
 
   return (
-    <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      className="relative"
-    >
+    <div ref={ref} {...glowProps} className="relative">
       {/* Ambient glow */}
       <div className="absolute -inset-x-6 -inset-y-10 z-0 bg-linear-to-b from-sinai-glow-orange/5 to-transparent blur-3xl" />
 
       {/* Cursor-follow gradient */}
-      <div
-        className="absolute inset-0 rounded-2xl transition-opacity duration-500"
-        style={{
-          opacity: hovered ? 1 : 0,
-          background: `
-            radial-gradient(
-              1800px circle at ${position.x}px ${position.y}px,
-              rgba(217,130,47,0.25),
-              rgba(217,130,47,0.10) 30%,
-              transparent 70%
-            )
-          `,
-        }}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isHovered}
+        radius={1800}
+        opacityStart={0.25}
+        opacityEnd={0.1}
+        className="rounded-2xl"
       />
 
       {/* Content */}

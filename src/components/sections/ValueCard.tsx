@@ -1,6 +1,8 @@
 import { VALUES } from "@/constants";
 import { motion } from "framer-motion";
 import React from "react";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
+import { MouseGlow } from "@/components/ui/MouseGlow";
 
 interface ValueCardProps {
   val: (typeof VALUES)[0];
@@ -13,43 +15,26 @@ export default function ValueCard({
   index,
   iconComponent,
 }: ValueCardProps) {
-  const cardRef = React.useRef<HTMLDivElement>(null);
-  const [position, setPosition] = React.useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const { ref, position, isHovered, glowProps } = useMouseGlow<HTMLDivElement>();
 
   return (
     <motion.div
-      ref={cardRef}
+      ref={ref}
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      {...glowProps}
       className="group relative flex flex-col gap-4 overflow-hidden rounded-3xl border border-white/5 bg-white/2 p-6 transition-colors hover:bg-white/5 sm:flex-row sm:items-start sm:p-8"
     >
       {/* Mouse Following Glow */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(
-            1500px circle at ${position.x}px ${position.y}px,
-            rgba(217,130,47,0.15),
-            rgba(217,130,47,0.05) 30%,
-            transparent 70%
-          )`,
-        }}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isHovered}
+        radius={1500}
+        opacityStart={0.15}
+        opacityEnd={0.05}
       />
 
       <div className="relative z-10 flex w-full flex-col gap-4 sm:flex-row items-center md:items-start">

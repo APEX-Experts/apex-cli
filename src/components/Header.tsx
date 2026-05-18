@@ -231,13 +231,15 @@ export function Header() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-100 transition-all duration-500 ${
-        scrolled ? "py-3 md:backdrop-blur-sm" : "py-4 sm:py-6"
+        scrolled ? "py-3 " : "py-4 sm:py-6"
       }`}
     >
       <div className="apex-container-wide">
         <div
           className={`relative flex items-center justify-between rounded-[1.25rem] border p-1.5 transition-all duration-500 ${
-            scrolled ? "apex-panel" : "bg-transparent border-transparent"
+            scrolled
+              ? "apex-panel  md:backdrop-blur-sm"
+              : "bg-transparent border-transparent"
           }`}
         >
           {/* Logo Area */}

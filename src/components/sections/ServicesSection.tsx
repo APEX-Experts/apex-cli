@@ -312,7 +312,7 @@ export function ServicesSection() {
   return (
     <section
       id="services"
-      className="section-shell relative scroll-mt-8 md:scroll-mt-28 overflow-hidden"
+      className="section-shell relative scroll-mt-8 md:scroll-mt-28 overflow-hidden border-none!"
     >
       {/* Dynamic Background Grid */}
       <div className="apex-ambient-grid" />
