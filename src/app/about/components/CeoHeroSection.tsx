@@ -5,7 +5,6 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 
-
 interface StatCardProps {
   value: string;
   label: string;
@@ -33,10 +32,10 @@ const STATS_DATA: StatCardProps[] = [
 function StatCard({ value, label }: StatCardProps) {
   return (
     <div className="px-5 py-4 rounded-xl bg-white/3 border border-white/10 flex flex-col gap-1.5 hover:border-sinai-glow-orange/30 transition-colors group/card">
-      <span className="text-3xl font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">
+      <span className="text-2xl md:text-3xl text-center md:text-start font-black text-white group-hover/card:text-sinai-glow-orange transition-colors">
         {value}
       </span>
-      <p className="text-sm text-zinc-400 uppercase tracking-[0.8px] leading-[10px]">
+      <p className="text-sm text-zinc-400 uppercase tracking-[0.8px] md:leading-[10px] text-center md:text-start">
         {label}
       </p>
     </div>
@@ -74,10 +73,8 @@ export default function CeoHeroSection() {
             className="space-y-7"
           >
             <div className="space-y-4">
-              <SectionBadge>
-                Leadership Message
-              </SectionBadge>
-              <h1 className="font-black text-4xl md:text-[64px] leading-[77px]">
+              <SectionBadge>Leadership Message</SectionBadge>
+              <h1 className="font-black text-4xl md:text-[64px] md:leading-[77px] text-center md:text-start">
                 Built from the Inside of <br />
                 <span className="text-sinai-glow-orange">
                   Enterprise Systems
@@ -85,7 +82,7 @@ export default function CeoHeroSection() {
               </h1>
             </div>
 
-            <div className="space-y-5 font-light md:text-xl md:leading-[32.5px] text-white">
+            <div className="space-y-5 font-light md:text-xl md:leading-[32.5px] text-white text-center md:text-start">
               <p className="relative text-white">
                 <span className="absolute -left-8 -top-4 text-6xl font-serif text-sinai-glow-orange/20">
                   &quot;
@@ -113,7 +110,7 @@ export default function CeoHeroSection() {
                 </span>
               </p>
             </div>
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-center md:items-start">
               <div className="font-semibold text-lg leading-[20px] tracking-[0.075rem] uppercase">
                 Ahmed Al-Saied
               </div>
@@ -153,18 +150,18 @@ export default function CeoHeroSection() {
 
               {/* Name Tag HUD */}
               <div className="absolute bottom-8 left-8 right-8 p-6 rounded-2xl bg-black/40 backdrop-blur-xl border border-sinai-glow-orange/30 translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
-                <div className=" text-sinai-glow-orange text-sm leading-[15px] tracking-[0.25rem] uppercase mb-1">
+                <div className=" text-sinai-glow-orange text-sm leading-[15px] tracking-[0.25rem] uppercase mb-1 text-center md:text-start">
                   Architect & Visionary
                 </div>
-                <h3 className="text-2xl font-black uppercase tracking-normal">
+                <h3 className="text-2xl font-black uppercase tracking-normal text-center md:text-start">
                   Ahmed Al-Saied
                 </h3>
-                <div className="w-12 h-[2px] bg-sinai-glow-orange mt-3" />
+                <div className="w-12 h-[2px] bg-sinai-glow-orange mt-3 max-md:mx-auto" />
               </div>
             </div>
           </motion.div>
         </div>
-        <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3/4">
+        <div className="pt-4 grid grid-cols-2 md:grid-cols-4 gap-4 md:max-w-3/4">
           {STATS_DATA.map((stat, idx) => (
             <StatCard key={idx} {...stat} />
           ))}

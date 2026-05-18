@@ -47,7 +47,7 @@ export function ProductionSystemCard({
         ease: [0.16, 1, 0.3, 1],
       }}
       whileHover={reducedMotion ? {} : { y: -8 }}
-      className="group relative flex flex-col justify-between min-h-[350px] gap-[10px] overflow-hidden rounded-[24px] border border-white/8 bg-[#FFFFFF1A] p-[34px] shadow-[0px_25px_50px_-12px_#00000040] backdrop-blur-xl transition-all duration-500 hover:border-t-[#D9822F80]"
+      className="group relative flex flex-col justify-between max-md:text-center min-h-[350px] gap-[10px] overflow-hidden rounded-[24px] border border-white/8 bg-[#FFFFFF1A] p-[34px] shadow-[0px_25px_50px_-12px_#00000040] backdrop-blur-xl transition-all duration-500 hover:border-t-[#D9822F80]"
     >
       {/* Mouse Following Glow */}
       {!reducedMotion && (
@@ -66,7 +66,7 @@ export function ProductionSystemCard({
       )}
 
       {/* Content wrapper */}
-      <div className="relative z-10 flex flex-col h-full justify-between gap-4">
+      <div className="relative z-10 flex flex-col h-full justify-between max-md:items-center gap-4">
         {/* Icon Container */}
         <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-6 group-hover:border-sinai-glow-orange/30 group-hover:bg-sinai-glow-orange/5 transition-all duration-500">
           <ProductionSystemIcon

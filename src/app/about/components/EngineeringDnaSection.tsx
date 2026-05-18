@@ -46,10 +46,11 @@ export default function EngineeringDnaSection() {
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
+            className="max-md:mx-auto w-full"
           >
-            <SectionBadge>Strategic_DNA // Schema_v2.0</SectionBadge>
+            <SectionBadge>Strategic DNA</SectionBadge>
           </motion.div>
-          <h2 className="text-left font-bold text-3xl md:text-5xl leading-[58px]">
+          <h2 className="font-bold text-3xl md:text-5xl text-center md:text-start leading-[39px] md:leading-[58px]">
             What Guides Our
             <span className="text-sinai-glow-orange">
               {" "}
@@ -100,7 +101,7 @@ export default function EngineeringDnaSection() {
             >
               <div className={`space-y-6 `}>
                 <div
-                  className={`flex items-center gap-4 ${node.align === "right" ? "justify-end" : "justify-start"}`}
+                  className={`flex items-center gap-4 justify-center text-center md:text-start ${node.align === "right" ? "md:justify-end" : "md:justify-start"}`}
                 >
                   <span
                     className={`text-4xl font-black tracking-normal text-white/20 group-hover:text-sinai-glow-orange transition-colors duration-500 ${node.align === "right" ? "lg:text-right" : "lg:text-left"}`}
@@ -111,10 +112,10 @@ export default function EngineeringDnaSection() {
                 </div>
 
                 <div className="space-y-4">
-                  <h3 className="text-3xl font-black uppercase tracking-normal text-white transition-all duration-500 group-hover:text-sinai-glow-soft lg:text-4xl">
+                  <h3 className="text-3xl font-black uppercase tracking-normal text-white transition-all duration-500 group-hover:text-sinai-glow-soft lg:text-4xl max-md:text-center">
                     {node.title}
                   </h3>
-                  <p className="text-zinc-500 text-lg max-w-sm group-hover:text-zinc-300 transition-colors duration-500 mx-auto lg:mx-0">
+                  <p className="text-zinc-500 text-lg max-w-sm group-hover:text-zinc-300 transition-colors duration-500 mx-auto lg:mx-0 max-md:text-center">
                     {node.desc}
                   </p>
                 </div>
