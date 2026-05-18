@@ -1,7 +1,9 @@
 "use client";
 
 import { ProjectHeroProps } from "@/components/projects/ProjectHero";
+import { ProjectHowItWorksProps } from "@/components/projects/ProjectHowItWorks";
 import { ProjectProblemSolutionProps } from "@/components/projects/ProjectProblemSolution";
+import { ProjectScenariosProps } from "@/components/projects/ProjectScenarios";
 import { ProjectTemplate } from "@/components/projects/ProjectTemplate";
 import {
   BarChart3,
@@ -117,7 +119,7 @@ const problemSolutionProps: ProjectProblemSolutionProps = {
   },
 };
 
-const howItWorksProps = {
+const howItWorksProps: ProjectHowItWorksProps = {
   badge: "Workflow Engine // AI Execution Flow",
   header: "How It",
   headerGlow: "Works",
@@ -154,7 +156,7 @@ const howItWorksProps = {
   ],
 };
 
-const scenariosProps = {
+const scenariosProps: ProjectScenariosProps = {
   badge: "Enterprise Scenarios // Real-World Workflows",
   header: "Built for Real",
   headerGlow: "Enterprise Worflows",
@@ -222,6 +224,7 @@ export function AsklyzeClient() {
       heroProps={heroProps}
       problemSolutionProps={problemSolutionProps}
       howItWorksProps={howItWorksProps}
+      scenariosProps={scenariosProps}
     />
   );
 }

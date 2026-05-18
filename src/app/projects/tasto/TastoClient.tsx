@@ -216,6 +216,8 @@ export function TastoClient() {
       projectKey="tasto"
       heroProps={heroProps}
       problemSolutionProps={problemSolutionProps}
+      howItWorksProps={howItWorksProps}
+      scenariosProps={scenariosProps}
     />
   );
 }
