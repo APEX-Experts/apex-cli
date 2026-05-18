@@ -225,6 +225,7 @@ export function AsklyzeClient() {
       problemSolutionProps={problemSolutionProps}
       howItWorksProps={howItWorksProps}
       scenariosProps={scenariosProps}
+      ctaProps={ctaProps}
     />
   );
 }

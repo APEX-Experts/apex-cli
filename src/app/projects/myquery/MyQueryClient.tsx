@@ -214,8 +214,8 @@ export function MyQueryClient() {
       projectKey="myquery"
       heroProps={heroProps}
       problemSolutionProps={problemSolutionProps}
-      howItWorksProps={howItWorksProps}
       scenariosProps={scenariosProps}
+      ctaProps={ctaProps}
     />
   );
 }

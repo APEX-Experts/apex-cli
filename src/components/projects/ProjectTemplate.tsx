@@ -7,13 +7,15 @@ import ProjectProblemSolution, {
 } from "./ProjectProblemSolution";
 import ProjectHowItWorks, { ProjectHowItWorksProps } from "./ProjectHowItWorks";
 import ProjectScenarios, { ProjectScenariosProps } from "./ProjectScenarios";
+import ProjectCTA, { ProjectCtaProps } from "./ProjectCTA";
 
 export interface ProjectTemplateProps {
   projectKey: "asklyze" | "myquery" | "tasto";
   heroProps: ProjectHeroProps;
   problemSolutionProps: ProjectProblemSolutionProps;
   howItWorksProps?: ProjectHowItWorksProps;
-  scenariosProps?: ProjectScenariosProps;
+  scenariosProps: ProjectScenariosProps;
+  ctaProps: ProjectCtaProps;
 }
 
 export function ProjectTemplate({
@@ -22,6 +24,7 @@ export function ProjectTemplate({
   problemSolutionProps,
   howItWorksProps,
   scenariosProps,
+  ctaProps,
 }: ProjectTemplateProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -33,7 +36,8 @@ export function ProjectTemplate({
       <ProjectHero {...heroProps} />
       <ProjectProblemSolution {...problemSolutionProps} />
       {howItWorksProps && <ProjectHowItWorks {...howItWorksProps} />}
-      {scenariosProps && <ProjectScenarios {...scenariosProps} />}
+      <ProjectScenarios {...scenariosProps} />
+      <ProjectCTA {...ctaProps} />
     </div>
   );
 }
