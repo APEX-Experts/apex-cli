@@ -1,5 +1,7 @@
-import React, { useRef, useState } from "react";
+import { MouseGlow } from "@/components/ui/MouseGlow";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
 import Link from "next/link";
+import React from "react";
 
 export interface ServiceCardProps {
   title: string;
@@ -20,43 +22,25 @@ export function ServiceCard({
   href,
   reducedMotion,
 }: ServiceCardProps) {
-  const cardRef = useRef<HTMLAnchorElement>(null);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
+  const { ref, position, isHovered, glowProps } = useMouseGlow<HTMLAnchorElement>();
 
   return (
     <Link
-      ref={cardRef}
+      ref={ref}
       href={href}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      {...glowProps}
       className="apex-panel apex-panel-hover group relative flex min-h-[300px] flex-col overflow-hidden rounded-3xl p-5 sm:p-6 lg:min-h-[330px] lg:p-8"
     >
       {/* Mouse Following Glow */}
-      {!reducedMotion && (
-        <div
-          className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-500"
-          style={{
-            opacity: isHovered ? 1 : 0,
-            background: `radial-gradient(
-              1200px circle at ${position.x}px ${position.y}px,
-              rgba(217,130,47,0.15),
-              rgba(217,130,47,0.05) 30%,
-              transparent 70%
-            )`,
-          }}
-        />
-      )}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isHovered}
+        radius={1200}
+        opacityStart={0.15}
+        opacityEnd={0.05}
+        reducedMotion={reducedMotion}
+      />
 
       {/* Background Diagram */}
       {typeof diagram === "function" ? diagram(reducedMotion) : diagram}

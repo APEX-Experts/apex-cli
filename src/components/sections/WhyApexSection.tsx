@@ -7,7 +7,7 @@ import { ValueIcon } from "../Icons";
 
 export function WhyApexSection() {
   return (
-    <section className="section-shell relative py-8 md:py-24">
+    <section className="section-shell relative py-8 md:py-24 border-none!">
       <div className="section-label mb-12">04 // Why Us</div>
 
       <div className="grid gap-16 lg:grid-cols-5 lg:gap-12">

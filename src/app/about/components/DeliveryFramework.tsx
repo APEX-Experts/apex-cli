@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { SectionBadge } from "@/components/ui/SectionBadge";
 import { DELIVERY_FRAMEWORK } from "@/constants";
 import { DeliveryFrameworkIcon } from "@/components/Icons";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
+import { MouseGlow } from "@/components/ui/MouseGlow";
 
 const DeliveryFramework = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -79,29 +81,18 @@ interface DeliveryCardProps {
 }
 
 const ScrollDeliveryCard = ({ item, index }: DeliveryCardProps) => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const { ref, position, glowProps } = useMouseGlow<HTMLDivElement>();
 
   // By setting the top and bottom margins to -50%, we create a virtual
   // trigger line exactly in the middle of the screen (50vh).
   // Only one card can cross this precise threshold at a time.
-  const isActive = useInView(cardRef, {
+  const isActive = useInView(ref, {
     margin: "-49% 0px -49% 0px",
   });
 
-  const [position, setPosition] = useState({ x: 150, y: 150 });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
-
   return (
     <motion.div
-      ref={cardRef}
+      ref={ref}
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
@@ -110,7 +101,7 @@ const ScrollDeliveryCard = ({ item, index }: DeliveryCardProps) => {
         duration: 0.8,
         ease: [0.16, 1, 0.3, 1],
       }}
-      onMouseMove={handleMouseMove}
+      {...glowProps}
       className={`relative flex flex-col gap-6 rounded-3xl border py-6 px-3 md:px-6 transition-all duration-500 ${
         isActive
           ? "border-white/10 bg-white/5 shadow-lg"
@@ -118,17 +109,14 @@ const ScrollDeliveryCard = ({ item, index }: DeliveryCardProps) => {
       }`}
     >
       {/* Scroll-activated Radial Glow Effect */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 backdrop-blur-[48px] transition-opacity duration-700 rounded-3xl"
-        style={{
-          opacity: isActive ? 1 : 0,
-          background: `radial-gradient(
-            800px circle at ${position.x}px ${position.y}px,
-            rgba(217,130,47,0.15),
-            rgba(217,130,47,0.03) 40%,
-            transparent 70%
-          )`,
-        }}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isActive}
+        radius={800}
+        opacityStart={0.15}
+        opacityEnd={0.03}
+        className="rounded-3xl"
       />
 
       {/* Top-Left Index Orange Square Badge */}

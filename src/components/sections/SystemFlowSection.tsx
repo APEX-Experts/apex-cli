@@ -47,7 +47,7 @@ const LAYERS = [
 
 export function SystemFlowSection() {
   return (
-    <section className="section-shell relative overflow-hidden py-8 md:py-24">
+    <section className="section-shell relative overflow-hidden py-8 md:py-24 border-none!">
       <div className="mx-auto flex flex-col items-center md:items-start gap-6 text-center">
         <Badge>REAL-WORLD SOFTWARE</Badge>
 

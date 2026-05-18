@@ -15,7 +15,7 @@ export function Footer() {
       <div className="apex-container-wide relative z-10">
         <div className="mb-10 grid grid-cols-1 gap-10 md:grid-cols-2 lg:mb-12 lg:grid-cols-12 lg:gap-8 items-center md:items-start">
           {/* Brand Column */}
-          <div className="space-y-6 lg:col-span-3">
+          <div className="space-y-6 lg:col-span-3 flex flex-col items-center md:items-start">
             <Link
               href="/"
               className="inline-block transition-transform duration-500 hover:scale-[1.02]"
@@ -127,7 +127,7 @@ function FooterLinkGroup({
 }) {
   return (
     <div className="space-y-3 md:space-y-6">
-      <h4 className="text-base md:text-2xl text-white-200 tracking-normal leading-4 font-bold">
+      <h4 className="text-base lg:text-2xl text-white-200 tracking-normal lg:leading-4 font-bold">
         {title}
       </h4>
       <div className="flex flex-col gap-4">
@@ -135,7 +135,7 @@ function FooterLinkGroup({
           <Link
             key={link.name}
             href={link.href}
-            className="text-xs md:text-base leading-4 tracking-normal text-white-200/60 hover:text-sinai-glow-orange transition-colors duration-500"
+            className="text-xs md:text-base md:leading-4 tracking-normal text-white-200/60 hover:text-sinai-glow-orange transition-colors duration-500"
           >
             {link.name}
           </Link>

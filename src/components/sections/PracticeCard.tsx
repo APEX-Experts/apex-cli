@@ -1,6 +1,8 @@
 import { Practice } from "@/constants";
-import React, { useRef, useState } from "react";
+import React from "react";
 import { PracticeIcon } from "../Icons";
+import { useMouseGlow } from "@/hooks/useMouseGlow";
+import { MouseGlow } from "@/components/ui/MouseGlow";
 
 type Props = {
   practice: Practice;
@@ -8,49 +10,21 @@ type Props = {
 };
 
 const PracticeCard = ({ practice, index }: Props) => {
-  const cardRef = useRef<HTMLDivElement>(null);
+  const { ref, position, isHovered, glowProps } = useMouseGlow<HTMLDivElement>();
 
-  const [position, setPosition] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  const [hovered, setHovered] = useState(false);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = cardRef.current?.getBoundingClientRect();
-
-    if (!rect) return;
-
-    setPosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
-    });
-  };
   return (
     <div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
+      ref={ref}
+      {...glowProps}
       className="group rounded-3xl p-8 flex flex-col gap-4 bg-white/2 border border-white/10 shadow-[0px_25px_50px_-12px_#00000040] relative overflow-hidden"
     >
-      <div
-        className={`opacity-0 group-hover:opacity-60 absolute inset-0 backdrop-blur-[48px] rounded-[24px] transition-all duration-500 z-10 ${
-          // gradientByIndex[index % 4]
-          ""
-        }`}
-        style={{
-          opacity: hovered ? 1 : 0,
-          background: `
-            radial-gradient(
-              1200px circle at ${position.x}px ${position.y}px,
-              rgba(217,130,47,0.15),
-              rgba(217,130,47,0.05) 30%,
-              transparent 70%
-            )
-          `,
-        }}
+      <MouseGlow
+        x={position.x}
+        y={position.y}
+        isHovered={isHovered}
+        radius={1200}
+        opacityStart={0.15}
+        opacityEnd={0.05}
       />
 
       <div className="flex flex-row md:flex-col gap-4 items-center md:items-start z-20">

@@ -249,3 +249,91 @@ export const DELIVERY_FRAMEWORK: DeliveryFramework[] = [
     ],
   },
 ];
+
+type Features = {
+  id: string;
+  title: string;
+  desc: string;
+  image: string;
+};
+
+export const ASKLYZE_FEATURES: Features[] = [
+  {
+    id: "01",
+    title: "Natural Language SQL",
+    desc: "Empower non-technical users to query complex Oracle schemas using plain English. ASKLYZE translates intent into precise PL/SQL in milliseconds.",
+    image: "/images/asklyze-premium.png",
+  },
+  {
+    id: "02",
+    title: "Zero Data Movement",
+    desc: "Unlike other AI solutions, ASKLYZE processes requests within your VPC. Your data never leaves the Oracle Database, ensuring strict compliance and security.",
+    image: "/images/project2.png",
+  },
+  {
+    id: "03",
+    title: "AI-Generated Visuals",
+    desc: "Instantly turn query results into beautiful, interactive APEX charts and dashboards. The AI automatically selects the best visualization for your data.",
+    image: "/images/project3.png",
+  },
+  {
+    id: "04",
+    title: "Native APEX Integration",
+    desc: "Built as a standard Oracle APEX plugin. Drag, drop, and configure in minutes. No complex middleware or external servers required.",
+    image: "/images/web-dev-cinematic.png",
+  },
+];
+
+export const MYQUERY_FEATURES: Features[] = [
+  {
+    id: "01",
+    title: "Decision Velocity",
+    desc: "Empower your entire organization with instant answers. MyQuery translates complex business questions into accurate data visualizations in seconds.",
+    image: "/images/myquery-premium.png",
+  },
+  {
+    id: "02",
+    title: "Universal Bridge",
+    desc: "Connect to over 22+ native data sources including Snowflake, BigQuery, and SQL Server. A single intelligence layer for your entire data stack.",
+    image: "/images/web-dev-cinematic.png",
+  },
+  {
+    id: "03",
+    title: "Governed AI",
+    desc: "Maintain strict control over who sees what. MyQuery's governance engine ensures that AI-powered insights respect all existing security and permission layers.",
+    image: "/images/project2.png",
+  },
+  {
+    id: "04",
+    title: "Auto-Dashboards",
+    desc: "Stop building manual reports. MyQuery automatically organizes related insights into beautiful, cinematic dashboards that update in real-time.",
+    image: "/images/project3.png",
+  },
+];
+
+export const TASTO_FEATURES: Features[] = [
+  {
+    id: "01",
+    title: "Unified Clarity",
+    desc: "Tasto unites analytics, forecasting, and benchmarks into one real-time view. Turn complex recurring revenue into a clear system of record.",
+    image: "/images/tasto-premium.png",
+  },
+  {
+    id: "02",
+    title: "Predictive Growth",
+    desc: "Stop guessing your future MRR. Tasto uses advanced financial AI to forecast growth, churn, and expansion with clearer forecasts for planning.",
+    image: "/images/project3.png",
+  },
+  {
+    id: "03",
+    title: "Cohort Intelligence",
+    desc: "Deep-dive into user retention and lifetime value. Tasto automatically generates cohort maps to identify your most valuable customer segments.",
+    image: "/images/project2.png",
+  },
+  {
+    id: "04",
+    title: "Multi-Billing Sync",
+    desc: "Automatically aggregate data from Stripe, Recurly, and Chargebee. Tasto handles currency conversion and reconciliation across all systems.",
+    image: "/images/web-dev-cinematic.png",
+  },
+];

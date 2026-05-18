@@ -1,5 +1,7 @@
+import { ProjectName } from "@/types";
 import {
   AlertTriangle,
+  BarChart3,
   Brain,
   Building2,
   Calendar,
@@ -12,10 +14,16 @@ import {
   Link2,
   Mail,
   MapPin,
+  MessageSquare,
+  Network,
   Rocket,
   Search,
+  ShieldCheck,
   Smartphone,
   Target,
+  TrendingUp,
+  Wallet,
+  Zap,
 } from "lucide-react";
 
 type Props = {
@@ -538,6 +546,85 @@ export const DeliveryFrameworkIcon = ({
       return <Layers className={className} width={width} height={height} />;
     case 3:
       return <Rocket className={className} width={width} height={height} />;
+    default:
+      return null;
+  }
+};
+
+interface FeatureProps extends Props {
+  project: ProjectName;
+}
+
+export const ProjectFeatureIcon = ({
+  index,
+  width = 32,
+  height = 32,
+  className,
+  project,
+}: FeatureProps) => {
+  switch (project) {
+    case "asklyze":
+      switch (index) {
+        case 0:
+          return (
+            <MessageSquare
+              className={className}
+              width={width}
+              height={height}
+            />
+          );
+        case 1:
+          return (
+            <ShieldCheck className={className} width={width} height={height} />
+          );
+        case 2:
+          return (
+            <BarChart3 className={className} width={width} height={height} />
+          );
+        case 3:
+          return (
+            <Database className={className} width={width} height={height} />
+          );
+        default:
+          return null;
+      }
+    case "myquery":
+      switch (index) {
+        case 0:
+          return <Zap className={className} width={width} height={height} />;
+        case 1:
+          return (
+            <Network className={className} width={width} height={height} />
+          );
+        case 2:
+          return (
+            <ShieldCheck className={className} width={width} height={height} />
+          );
+        case 3:
+          return (
+            <BarChart3 className={className} width={width} height={height} />
+          );
+        default:
+          return null;
+      }
+
+    case "tasto":
+      switch (index) {
+        case 0:
+          return (
+            <BarChart3 className={className} width={width} height={height} />
+          );
+        case 1:
+          return (
+            <TrendingUp className={className} width={width} height={height} />
+          );
+        case 2:
+          return <Layers className={className} width={width} height={height} />;
+        case 3:
+          return <Wallet className={className} width={width} height={height} />;
+        default:
+          return null;
+      }
     default:
       return null;
   }
