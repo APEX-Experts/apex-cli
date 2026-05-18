@@ -30,7 +30,7 @@ const HowItWorksStepCard = ({ step }: HowItWorksStepCardProps) => {
 
   return (
     <li
-      className="border p-6 bg-white/2 border-white/50 rounded-2xl flex flex-col gap-2 hover:border-sinai-glow-orange/20 hover:bg-sinai-glow-orange/3 transition-all duration-300 relative group z-10 overflow-hidden"
+      className="border p-6 bg-white/2 border-white/50 rounded-2xl flex flex-col items-center md:items-start text-center md:text-start gap-2 hover:border-sinai-glow-orange/20 hover:bg-sinai-glow-orange/3 transition-all duration-300 relative group z-10 overflow-hidden"
       ref={ref}
       {...glowProps}
     >
