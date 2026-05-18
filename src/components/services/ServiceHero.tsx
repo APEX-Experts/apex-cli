@@ -76,10 +76,8 @@ export function ServiceHero({
   impactTitle,
   impactItems,
 }: ServiceHeroProps) {
-  const shouldReduceMotion = useReducedMotion();
-
   return (
-    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32 pb-12">
+    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden pt-28 lg:pt-32 pb-12">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
@@ -103,7 +101,7 @@ export function ServiceHero({
                 )}
               </h1>
 
-              <p className="leading-[26px] text-base text-[#d0d0d0]">
+              <p className="leading-[26px] text-base text-[#d0d0d0] text-center md:text-start">
                 {description}
               </p>
             </div>

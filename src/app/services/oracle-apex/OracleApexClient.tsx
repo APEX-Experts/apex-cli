@@ -1,321 +1,27 @@
 "use client";
 
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
+import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
+  Activity,
   AlertTriangle,
-  CloudUpload,
+  Blocks,
   Code2,
-  Cpu,
   Database,
+  FileWarning,
   Gauge,
-  GraduationCap,
-  Palette,
-  ShieldCheck,
+  GaugeCircle,
+  GitBranch,
+  LayoutDashboard,
+  LockKeyhole,
+  Map,
+  Puzzle,
+  RefreshCcw,
+  ShieldAlert,
+  Sparkles,
+  Waypoints,
 } from "lucide-react";
-
-const APEX_CAPABILITIES = [
-  {
-    id: "01",
-    title: "Development",
-    desc: "End-to-end engineering of mission-critical APEX applications. We specialize in advanced data modeling, custom plugin development, high-performance database design, and hybrid mobile solutions with enterprise reporting.",
-    icon: <Code2 className="w-8 h-8" />,
-    image: "/images/apex-dev-core.png",
-  },
-  {
-    id: "02",
-    title: "Integration",
-    desc: "Seamlessly connecting your APEX ecosystem with third-party interfaces, advanced JavaScript libraries, and modern utility frameworks. Robust implementations of payment gateways, mailing protocols, and complex API orchestrations.",
-    icon: <Cpu className="w-8 h-8" />,
-    image: "/images/apex-ai-workflow.png",
-  },
-  {
-    id: "03",
-    title: "Training",
-    desc: "Elite corporate and educational training modules tailored for all levels. From fundamental APEX building blocks to expert-level architectural mastery, our specialists empower your team with Oracle excellence.",
-    icon: <GraduationCap className="w-8 h-8" />,
-    image: "/images/apex-training-hub.png",
-  },
-  {
-    id: "04",
-    title: "Designing",
-    desc: "Aesthetic precision meets functional utility. We deliver creative, user-centric theme development and custom UI layouts that prioritize engagement and intuitive navigation while maintaining Oracle's core performance.",
-    icon: <Palette className="w-8 h-8" />,
-    image: "/images/project1.png",
-  },
-  {
-    id: "05",
-    title: "Migration",
-    desc: "Frictionless digital transformation services. We expertly migrate Forms to APEX, Excel workflows to centralized applications, and On-Premises environments to the Oracle Cloud with zero data loss and hardened security.",
-    icon: <CloudUpload className="w-8 h-8" />,
-    image: "/images/project2.png",
-  },
-  {
-    id: "06",
-    title: "Support",
-    desc: "Round-the-clock enterprise support for servers and applications. Proactive 24-hour monitoring and rapid-response maintenance to ensure your Oracle APEX infrastructure remains synchronized and optimal.",
-    icon: <ShieldCheck className="w-8 h-8" />,
-    image: "/images/apex-training-hub.png",
-  },
-];
-
-const DEEP_DIVES = [
-  {
-    id: "01",
-    badge: "Technical_Deep_Dive // 01",
-    title: (
-      <>
-        APEX <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/20">
-          Application <br /> Development
-        </span>
-      </>
-    ),
-    mainCard: {
-      title: "Oracle APEX Application Development",
-      desc: "We specialize in crafting high-performance Data Models, custom Plugin architectures, and robust Database logic. Our expertise extends to API integrations, AI-assisted features, and reporting workflows inside Oracle APEX.",
-    },
-    items: [
-      {
-        title: "Plugin Dev",
-        desc: "Bespoke extensions for unique business logic.",
-      },
-      {
-        title: "Database Dev",
-        desc: "Designing schemas for stable APEX apps.",
-      },
-      {
-        title: "Web Services",
-        desc: "Seamless REST/SOAP orchestration.",
-      },
-      {
-        title: "AI Integrations",
-        desc: "Predictive intelligence & LLM capabilities.",
-      },
-      {
-        title: "Reporting",
-        desc: "Analytical insights & custom dashboards.",
-      },
-      {
-        title: "Support",
-        desc: "24/7 Enterprise monitoring & maintenance.",
-        isCTA: true,
-        ctaLink: "/contact",
-      },
-    ],
-    image: "/images/apex-dev-core.png",
-    imageAlt: "APEX Development Core",
-    hudLeft: "DB_SYNC: ACTIVE",
-    hudRight: "ENGINE_TEMP: 28°C",
-    hudBottomLeft: "ORACLE_APEX_V24.1",
-    hudBottomRight: "© APEX EXPERTS SOLUTIONS",
-    floatingBox: {
-      title: "DATA_MODELING",
-      items: [
-        { label: "INDEX_1", width: "55%" },
-        { label: "INDEX_2", width: "70%" },
-        { label: "INDEX_3", width: "85%" },
-      ],
-    },
-  },
-  {
-    id: "02",
-    badge: "Technical_Deep_Dive // 02",
-    title: (
-      <>
-        Oracle APEX <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/20">
-          AI / Workflow
-        </span>
-      </>
-    ),
-    mainCard: {
-      title: "Intelligence-Driven Automation",
-      desc: "Leverage the power of Oracle Database 23ai directly within APEX. We build advanced RAG (Retrieval-Augmented Generation) systems, vector-based semantic search, and AI-powered workflows that transform how users interact with enterprise data.",
-    },
-    items: [
-      {
-        title: "Vector Search",
-        desc: "Native semantic discovery within Oracle 23ai.",
-      },
-      {
-        title: "RAG Systems",
-        desc: "Intelligent Retrieval-Augmented Generation.",
-      },
-      {
-        title: "AI Workflows",
-        desc: "APEX workflows and approval logic.",
-      },
-      {
-        title: "Generative AI",
-        desc: "Custom LLM integrations & chat interfaces.",
-      },
-      {
-        title: "Data Analytics",
-        desc: "AI-driven insight extraction & modeling.",
-      },
-      {
-        title: "AI Support",
-        desc: "24/7 AI model monitoring & maintenance.",
-        isCTA: true,
-        ctaLink: "/contact",
-      },
-    ],
-    image: "/images/apex-ai-workflow.png",
-    imageAlt: "AI Workflow Core",
-    hudLeft: "VECTOR_ENGINE: SYNC",
-    hudRight: "AI_MODELS: ACTIVE",
-    hudBottomLeft: "ORACLE_DATABASE_23AI",
-    hudBottomRight: "GENERATIVE_AI_SERVICE",
-    floatingBox: {
-      title: "AI_INFERENCE",
-      items: [
-        { label: "TOKEN_1", width: "55%" },
-        { label: "TOKEN_2", width: "70%" },
-        { label: "TOKEN_3", width: "85%" },
-      ],
-    },
-  },
-  {
-    id: "03",
-    badge: "Technical_Deep_Dive // 03",
-    title: (
-      <>
-        Migration <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/20">
-          Services
-        </span>
-      </>
-    ),
-    mainCard: {
-      title: "Legacy Modernization",
-      desc: "OAC offers seamless transitions for your legacy ecosystems. We specialize in safe, data-loss-prevented migrations that move your business from aging infrastructure to high-performance Oracle Cloud environments.",
-    },
-    items: [
-      {
-        title: "Forms to APEX",
-        desc: "Migrating legacy Oracle Forms to modern web apps.",
-      },
-      {
-        title: "EXCEL to APEX",
-        desc: "Transforming spreadsheets into collaborative apps.",
-      },
-      {
-        title: "Premises to Cloud",
-        desc: "Moving infrastructure to Oracle Cloud seamlessly.",
-      },
-      {
-        title: "Support",
-        desc: "24/7 Enterprise monitoring & maintenance.",
-        isCTA: true,
-        ctaLink: "/contact",
-      },
-    ],
-    image: "/images/project2.png",
-    imageAlt: "Migration Core Hub",
-    hudLeft: "MIGRATE_ENGINE: STANDBY",
-    hudRight: "DATA_LOCK: SAFE",
-    hudBottomLeft: "ORACLE_CLOUD_INFRA",
-    hudBottomRight: "APEX_MIGRATE_V4.0",
-    floatingBox: {
-      title: "MIGRATION_LOAD",
-      items: [
-        { label: "OBJECT_1", width: "55%" },
-        { label: "OBJECT_2", width: "70%" },
-        { label: "OBJECT_3", width: "85%" },
-      ],
-    },
-  },
-  {
-    id: "04",
-    badge: "Technical_Deep_Dive // 04",
-    title: (
-      <>
-        Training <br />
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-sinai-glow-orange/20">
-          Services
-        </span>
-      </>
-    ),
-    mainCard: {
-      title: "Expert Knowledge Transfer",
-      desc: "Train your team on Oracle APEX fundamentals, application structure, database logic, and maintainable delivery practices. We offer comprehensive training modules from fundamental building blocks to advanced architectural mastery, tailored for both corporate teams and educational institutions.",
-    },
-    items: [
-      {
-        title: "Corporate Training",
-        desc: "Tailored modules for enterprise development teams.",
-      },
-      {
-        title: "Educational Training",
-        desc: "Foundational courses for institutions & students.",
-      },
-      {
-        title: "Expert Support",
-        desc: "24/7 Enterprise monitoring & maintenance.",
-        isCTA: true,
-        ctaLink: "/contact",
-      },
-    ],
-    image: "/images/apex-training-hub.png",
-    imageAlt: "Training Hub Core",
-    hudLeft: "ACADEMY_NODE: ONLINE",
-    hudRight: "SESSIONS: ACTIVE",
-    hudBottomLeft: "ORACLE_ACADEMY_V24",
-    hudBottomRight: "APEX_EXPERT_TRAINING",
-    floatingBox: {
-      title: "TRAINING_LOAD",
-      items: [
-        { label: "MODULE_1", width: "55%" },
-        { label: "MODULE_2", width: "70%" },
-        { label: "MODULE_3", width: "85%" },
-      ],
-    },
-  },
-];
-
-const CASE_STUDY = {
-  badge: "Case_Study // 01",
-  image: "/images/project2.png",
-  imageAlt: "ApexCloud ERP Transformation",
-  projectCategory: "Enterprise_Modernization",
-  projectTitle: "ApexCloud ERP",
-  buildVersion: "APEX_PRO_V24",
-  descriptionHeader:
-    "Transforming complex financial legacy systems into high-performance digital hubs.",
-  description:
-    "We migrated a multi-decade legacy ERP system for a global financial institution into a unified Oracle APEX environment, reducing operational complexity by 60% and improving data throughput by 300%.",
-  stats: [
-    { label: "PERFORMANCE_GAIN", value: "+300%" },
-    { label: "TCO_REDUCTION", value: "-60%" },
-    { label: "SECURITY_SYNC", value: "NATIVE" },
-  ],
-  link: "/contact",
-};
-
-const CTA = {
-  badge: "Engagement_Initialization // APEX_NODE_V24.1",
-  title: (
-    <>
-      Ready to <br />
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange via-white to-sinai-glow-orange/20">
-        Scale Your Vision?
-      </span>
-    </>
-  ),
-  description: (
-    <>
-      Join forces with{" "}
-      <span className="text-white font-bold">APEX Experts</span> to engineer the
-      next generation of enterprise excellence.
-    </>
-  ),
-  ctaText: "Initialize Project",
-  ctaLink: "/contact",
-  secureNodeText: "Secure_Node: Active",
-  availabilityText: "Available for Q3-Q4 2026",
-  studioLabel: "Apex_Experts_Oracle_Studio\nSystem_Build_Hash: 0xAPEX_5A11",
-};
 
 const heroData: ServiceHeroProps = {
   badge: "ORACLE APEX • ENTERPRISE SOLUTIONS",
@@ -349,25 +55,124 @@ const heroData: ServiceHeroProps = {
   ],
 };
 
-const capabilityHubData = {
-  badge: "Apex_Orchestrator // V24.1",
-  title: (
-    <>
-      The Oracle APEX <br />
-      <span className="text-transparent bg-clip-text bg-gradient-to-r from-sinai-glow-orange to-white/40">
-        Capability Hub
-      </span>
-    </>
-  ),
-  capabilities: APEX_CAPABILITIES,
-  neuralCoreLabel: "APEX_HUB_V24.1",
-  syncLabel: "ORACLE_DB: SYNCHRONIZED",
-  versionLabel: "SYSTEM_STATUS: OPTIMAL",
-  badgePrefix: "Registry",
-  statusBadgeText:
-    "ORACLE_DB: SYNCHRONIZED\nLOW_CODE_PIPELINE: ACTIVE\nSYSTEM_STATUS: OPTIMAL",
+const operationsProps: ServiceOperationsProps = {
+  badge: "ORACLE APEX // OPERATIONAL SYSTEMS",
+  header: "Oracle Forms & APEX",
+  headerGlow: "Modernization Services",
+  subheader:
+    "We help organizations overcome the constraints that make Oracle Forms and legacy APEX systems difficult to change, modernize, and operate at scale.",
+  items: [
+    {
+      isActive: false,
+      badge: "CONSTRAINTS AND FAILURE PATTERNS",
+      title: "Why Oracle Environments Become Hard to Modernize",
+      description:
+        "Most Oracle systems aren’t failing because of technology limitations, they’re constrained by years of accumulated business logic, undocumented architecture, and high-risk dependencies that make change complex and operationally sensitive.",
+      subItems: [
+        {
+          icon: <FileWarning className="w-6 h-6" />,
+          title: "Oracle Forms End-of-Life Risk",
+          description:
+            "Many enterprises still rely on Oracle Forms for mission-critical operations despite years of end-of-life notices, because migration introduces significant operational and business risk.",
+        },
+        {
+          icon: <GitBranch className="w-6 h-6" />,
+          title: "Deeply Embedded Legacy Logic",
+          description:
+            "Legacy Oracle Forms systems often contain deeply embedded PL/SQL logic, complex workflows, and tightly coupled application state that cannot be easily rebuilt without disruption.",
+        },
+        {
+          icon: <GaugeCircle className="w-6 h-6" />,
+          title: "Non-Scalable APEX Architecture",
+          description:
+            "Many Oracle APEX implementations suffer from poor page-level architecture that struggles to scale under concurrent enterprise usage.",
+        },
+        {
+          icon: <Code2 className="w-6 h-6" />,
+          title: "Accumulated PL/SQL Technical Debt",
+          description:
+            "PL/SQL packages in long-running APEX systems often evolve organically over time, resulting in significant technical debt and maintainability issues.",
+        },
+        {
+          icon: <ShieldAlert className="w-6 h-6" />,
+          title: "Insecure ORDS Endpoint Design",
+          description:
+            "ORDS endpoints are frequently implemented without proper security, throttling, or access control strategies, exposing enterprise systems to operational risks.",
+        },
+        {
+          icon: <LockKeyhole className="w-6 h-6" />,
+          title: "Weak Data Access Governance",
+          description:
+            "Organizations often lack complete or consistent data access control models across applications, creating governance and compliance challenges.",
+        },
+        {
+          icon: <Puzzle className="w-6 h-6" />,
+          title: "Outdated Custom Plugin Dependencies",
+          description:
+            "Custom APEX plugins may become outdated, unsupported, or incompatible with newer platform versions, increasing maintenance complexity.",
+        },
+        {
+          icon: <Map className="w-6 h-6" />,
+          title: "Undocumented System Architecture",
+          description:
+            "The absence of clear architectural documentation makes every enhancement, migration, or production change a high-risk operation.",
+        },
+      ],
+    },
+    {
+      isActive: true,
+      badge: "MODERNIZATION APPROACH",
+      title: "Beyond APEX Administration",
+      description:
+        "Modernizing Oracle Forms and APEX environments requires more than feature translation. It demands architectural remediation, performance optimization, and security hardening—done in a way that preserves operational continuity.",
+      subItems: [
+        {
+          icon: <LayoutDashboard className="w-6 h-6" />,
+          title: "Enterprise APEX Application Development",
+          description:
+            "We design and build Oracle APEX applications for workflows, approvals, reporting, and operational management with architecture focused on performance, security, and long-term maintainability.",
+        },
+        {
+          icon: <RefreshCcw className="w-6 h-6" />,
+          title: "Oracle Forms Migration",
+          description:
+            "We migrate legacy Oracle Forms applications to Oracle APEX while preserving core business logic, PL/SQL packages, and operational workflows through carefully planned module-based migration strategies.",
+        },
+        {
+          icon: <Activity className="w-6 h-6" />,
+          title: "APEX Performance & Architecture Optimization",
+          description:
+            "We audit and optimize Oracle APEX environments through PL/SQL tuning, query optimization, session architecture improvements, and targeted component refactoring.",
+        },
+        {
+          icon: <Waypoints className="w-6 h-6" />,
+          title: "ORDS Integration & REST API Design",
+          description:
+            "We design secure ORDS REST APIs for Oracle databases with robust authentication, endpoint architecture, and payload structures for enterprise integrations.",
+        },
+        {
+          icon: <Blocks className="w-6 h-6" />,
+          title: "Custom APEX Plugin Engineering",
+          description:
+            "We develop custom Oracle APEX plugins that extend native platform capabilities with fully documented, maintainable, and version-compatible components.",
+        },
+        {
+          icon: <Sparkles className="w-6 h-6" />,
+          title: "AI Integration Within Oracle APEX",
+          description:
+            "We embed AI capabilities directly into Oracle APEX environments, including natural language reporting, LLM-powered document processing, and workflow automation while preserving Oracle-level security controls.",
+        },
+      ],
+    },
+  ],
 };
 
 export default function OracleApexClient() {
-  return <ServiceTemplate slug="oracle-apex" hero={heroData} />;
+  return (
+    <ServiceTemplate
+      slug="oracle-apex"
+      hero={heroData}
+      operations={operationsProps}
+    />
+  );
 }

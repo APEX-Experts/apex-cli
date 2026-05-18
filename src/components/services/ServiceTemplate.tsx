@@ -2,13 +2,19 @@
 
 import { useEffect, useState } from "react";
 import { ServiceHero, ServiceHeroProps } from "./ServiceHero";
+import ServiceOperations, { ServiceOperationsProps } from "./ServiceOperations";
 
 export interface ServiceTemplateProps {
   slug: string;
   hero: ServiceHeroProps;
+  operations: ServiceOperationsProps;
 }
 
-export default function ServiceTemplate({ slug, hero }: ServiceTemplateProps) {
+export default function ServiceTemplate({
+  slug,
+  hero,
+  operations,
+}: ServiceTemplateProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -27,6 +33,7 @@ export default function ServiceTemplate({ slug, hero }: ServiceTemplateProps) {
   return (
     <div className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
       <ServiceHero {...hero} />
+      <ServiceOperations {...operations} />
     </div>
   );
 }
