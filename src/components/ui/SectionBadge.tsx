@@ -21,17 +21,18 @@ export const SectionBadge = ({
   lineWidth = "w-8",
 }: SectionBadgeProps) => {
   return (
-    <div className={cn("inline-flex items-center gap-3", className)}>
+    <div
+      className={cn(
+        "inline-flex items-center justify-center md:justify-start gap-3 text-center md:text-start max-md:w-full max-md:mx-auto",
+        className
+      )}
+    >
       <div
-        className={cn(
-          "h-px bg-sinai-glow-orange",
-          lineWidth,
-          lineClassName
-        )}
+        className={cn("h-px bg-sinai-glow-orange", lineWidth, lineClassName)}
       />
       <span
         className={cn(
-          "text-sinai-glow-orange uppercase font-extrabold tracking-[0.25rem]",
+          "text-sinai-glow-orange uppercase font-extrabold tracking-[0.25rem] max-md:text-xs",
           textClassName
         )}
       >

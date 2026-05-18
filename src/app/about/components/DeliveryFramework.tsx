@@ -26,7 +26,7 @@ const DeliveryFramework = () => {
         <div className="lg:col-span-2">
           <div className="sticky top-32">
             <SectionBadge className="mb-4">Delivery Framework</SectionBadge>
-            <h2 className="mb-8 font-bold text-3xl md:text-5xl leading-[48px] md:leading-[58px] tracking-[-1.2px] text-center md:text-start">
+            <h2 className="mb-4 md:mb-8 font-bold text-3xl md:text-5xl leading-[40px] md:leading-[58px] tracking-[-1.2px] text-center md:text-start">
               How We Deliver
               <span className="text-sinai-glow-orange"> Systems</span>
             </h2>
@@ -111,7 +111,7 @@ const ScrollDeliveryCard = ({ item, index }: DeliveryCardProps) => {
         ease: [0.16, 1, 0.3, 1],
       }}
       onMouseMove={handleMouseMove}
-      className={`relative flex flex-col gap-6 rounded-3xl border p-3 sm:py-6 transition-all duration-500 ${
+      className={`relative flex flex-col gap-6 rounded-3xl border py-6 px-3 md:px-6 transition-all duration-500 ${
         isActive
           ? "border-white/10 bg-white/5 shadow-lg"
           : "border-white/5 bg-white/2"

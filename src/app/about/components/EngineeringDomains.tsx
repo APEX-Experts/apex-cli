@@ -57,7 +57,7 @@ export default function EngineeringDomains() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="text-center font-bold text-3xl md:text-5xl leading-[48px] md:leading-[58px] tracking-tight text-white"
+            className="text-center font-bold text-3xl md:text-5xl leading-[40px] md:leading-[58px] tracking-tight text-white"
           >
             What systems we{" "}
             <span className="text-sinai-glow-orange">Build</span>

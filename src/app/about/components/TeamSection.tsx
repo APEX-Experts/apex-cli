@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Badge } from "@/components/ui/Badge";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 
 export default function TeamSection() {
   const shouldReduceMotion = useReducedMotion();
@@ -25,7 +26,7 @@ export default function TeamSection() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-16 space-y-5 lg:mb-20">
-          <Badge>Human_Capital // Strategic_Assets</Badge>
+          <SectionBadge>Strategic Assets</SectionBadge>
           <h2 className="text-4xl font-black uppercase leading-none tracking-normal md:text-6xl lg:text-7xl">
             The Team
           </h2>
@@ -118,7 +119,7 @@ export default function TeamSection() {
               <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
                 <div className="space-y-4 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
                   {/* Name & Role */}
-                  <div className="space-y-1 mb-6">
+                  <div className="space-y-1 mb-6 text-center md:text-start">
                     <h3 className="text-2xl font-black uppercase leading-none tracking-normal text-white transition-colors group-hover:text-sinai-glow-soft">
                       {member.name}
                     </h3>

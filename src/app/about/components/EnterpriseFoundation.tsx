@@ -6,16 +6,16 @@ import { FACTS } from "@/constants";
 const EnterpriseFoundation = () => {
   return (
     <section className="section-shell-lg border-none relative px-4 sm:px-6 max-w-7xl mx-auto z-10">
-      <div className="grid gap-16 lg:grid-cols-5 lg:gap-12">
+      <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
         {/* Left Column */}
         <div className="lg:col-span-2">
           <div className="sticky top-32">
             <SectionBadge className="mb-4">Company Facts</SectionBadge>
-            <h2 className="mb-8 font-bold text-3xl md:text-5xl leading-[58px] tracking-[-1.2px] text-center md:text-start">
+            <h2 className="mb-4 md:mb-8 font-bold text-3xl md:text-5xl leading-[40px] md:leading-[58px] tracking-[-1.2px] text-center md:text-start">
               Enterprise <br />
               <span className="text-sinai-glow-orange">Foundation</span>
             </h2>
-            <p className="md:text-lg leading-[29.25px] tracking-normal text-center md:text-start">
+            <p className="text-sm md:text-lg leading-[24px] md:leading-[29.25px] tracking-normal text-center md:text-start">
               A dual-entity operation spanning Egypt and the UAE, built to serve
               enterprise clients across the GCC with localized execution and
               global engineering depth.

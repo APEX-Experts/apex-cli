@@ -19,8 +19,6 @@ export default function ProductionSystems() {
 
   return (
     <section className="section-shell-lg border-none relative overflow-hidden px-4 sm:px-6">
-      {/* Cinematic Ambient Background Glows */}
-
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header: Everything Centered */}
         <div className="text-center mb-16 space-y-6 lg:mb-20">
@@ -47,7 +45,7 @@ export default function ProductionSystems() {
             }
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-center font-bold text-3xl md:text-5xl leading-[48px] md:leading-[58px] tracking-tight text-white"
+            className="text-center font-bold text-3xl md:text-5xl leading-[39px] md:leading-[58px] tracking-tight text-white"
           >
             Production Systems{" "}
             <span className="text-sinai-glow-orange block sm:inline">
