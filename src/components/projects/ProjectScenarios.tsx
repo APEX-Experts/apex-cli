@@ -26,7 +26,7 @@ const ProjectScenarios = (props: ProjectScenariosProps) => {
         <h1 className="font-semibold text-3xl md:text-5xl lg:text-[56px] text-white md:leading-[61.6px] md:tracking-[-1.12px] text-center md:text-start">
           {header} <span className="text-sinai-glow-orange">{headerGlow}</span>
         </h1>
-        <p className="md:text-lg md:leading-[29.25px] tracking-normal text-white/70">
+        <p className="md:text-lg md:leading-[29.25px] tracking-normal text-white/70 text-center md:text-start">
           {subheader}
         </p>
         <ul className="flex flex-col w-full items-center gap-6">

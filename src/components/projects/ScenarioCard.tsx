@@ -38,7 +38,7 @@ export function ScenarioCard({ scenario }: ScenarioCardProps) {
           <div className="w-12 h-12 bg-sinai-glow-orange/10 border border-sinai-glow-orange/20 text-sinai-glow-orange flex items-center justify-center rounded-[14px]">
             {scenario.icon}
           </div>
-          <h3 className="font-semibold text-lg md:text-xl md:leading-[28px] tracking-[-0.5px] text-white/90">
+          <h3 className="font-semibold text-lg md:text-xl md:leading-[28px] tracking-[-0.5px] text-white/90 text-center md:text-start">
             {scenario.title}
           </h3>
           <span className="w-fit bg-sinai-glow-orange/8 border border-sinai-glow-orange/12 rounded-lg text-center px-2 py-1 font-medium text-white/50 text-sm md:text-xs leading-4 tracking-normal ">
