@@ -3,8 +3,12 @@
 import { GitBranchIcon } from "@/components/Icons";
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
+import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
+  AlertTriangle,
+  BarChart3,
+  BookOpen,
   BrainCircuit,
   Database,
   FileCheck,
@@ -16,7 +20,7 @@ import {
   Workflow,
 } from "lucide-react";
 
-const heroData: ServiceHeroProps = {
+const heroProps: ServiceHeroProps = {
   badge: "AI SOLUTIONS • ENTERPRISE GRADE",
   header: "AI Integration for",
   headerGlow: "Enterprise Systems",
@@ -134,12 +138,91 @@ const operationsProps: ServiceOperationsProps = {
   ],
 };
 
+const scenariosProps: ServiceScenariosProps = {
+  badge: "ENTERPRISE WORKFLOWS // OPERATIONAL AI SCENARIOS",
+  header: "Where AI Becomes Operational Inside",
+  headerGlow: "Enterprise Systems",
+  subheader:
+    "Real operational environments where AI is applied within existing systems to improve access, automation, and decision-making under enterprise governance rules.",
+  items: [
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      title: "Financial Reporting Operations",
+      desc: "Finance teams manually generating reports from Oracle tables need natural language analytics with role-based business access.",
+      badges: [
+        {
+          icon: <Database className="w-2.5 h-2.5" />,
+          text: "Oracle ERP",
+        },
+        {
+          icon: (
+            <span className="w-1 h-1 rounded-full bg-sinai-glow-orange"></span>
+          ),
+          text: "Analytics",
+        },
+      ],
+    },
+    {
+      icon: <BookOpen className="w-6 h-6" />,
+      title: "Public Sector Knowledge Retrieval",
+      desc: "Government organizations with thousands of policy documents require secure RAG-based retrieval aligned with enterprise permissions.",
+      badges: [
+        {
+          icon: <Database className="w-2.5 h-2.5" />,
+          text: "Secure Gov",
+        },
+        {
+          icon: (
+            <span className="w-1 h-1 rounded-full bg-sinai-glow-orange"></span>
+          ),
+          text: "RAG",
+        },
+      ],
+    },
+    {
+      icon: <AlertTriangle className="w-6 h-6" />,
+      title: "Enterprise Support Operations",
+      desc: "Support teams handling large ticket volumes need AI-driven triage, routing, and escalation workflows with human approval controls.",
+      badges: [
+        {
+          icon: <Database className="w-2.5 h-2.5" />,
+          text: "Secure Now",
+        },
+        {
+          icon: (
+            <span className="w-1 h-1 rounded-full bg-sinai-glow-orange"></span>
+          ),
+          text: "Automation",
+        },
+      ],
+    },
+    {
+      icon: <Database className="w-6 h-6" />,
+      title: "ERP Financial Monitoring",
+      desc: "ERP organizations need AI-powered anomaly detection inside Oracle reporting environments without external data export.",
+      badges: [
+        {
+          icon: <Database className="w-2.5 h-2.5" />,
+          text: "Oracle APEX",
+        },
+        {
+          icon: (
+            <span className="w-1 h-1 rounded-full bg-sinai-glow-orange"></span>
+          ),
+          text: "Monitoring",
+        },
+      ],
+    },
+  ],
+};
+
 export default function AIAutomationClient() {
   return (
     <ServiceTemplate
       slug="ai-automation"
-      hero={heroData}
+      hero={heroProps}
       operations={operationsProps}
+      scenarios={scenariosProps}
     />
   );
 }

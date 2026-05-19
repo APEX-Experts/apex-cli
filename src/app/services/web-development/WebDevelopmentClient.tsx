@@ -2,19 +2,30 @@
 
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
+import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
+  Activity,
   Cable,
   CloudCog,
+  CreditCard,
+  DatabaseZap,
   FileCode2,
+  KeyRound,
   Layers3,
+  LayoutDashboard,
   LayoutPanelTop,
+  LockKeyhole,
+  MapPinned,
   MonitorCog,
+  Shield,
   ShieldCheck,
   ShieldX,
   TrendingDown,
+  Truck,
   Unplug,
   UsersRound,
+  Webhook,
 } from "lucide-react";
 
 const heroData: ServiceHeroProps = {
@@ -125,12 +136,83 @@ const operationsProps: ServiceOperationsProps = {
   ],
 };
 
+const scenariosProps: ServiceScenariosProps = {
+  badge: "WEB DEVELOPMENT - REAL ENTERPRISE SCENARIOS",
+  header: "Built for Complex",
+  headerGlow: "Business Operations",
+  subheader:
+    "Secure portals, SaaS platforms, operational dashboards, and enterprise integrations engineered for scalability, control, and high-performance workflows.",
+  items: [
+    {
+      icon: <ShieldCheck className="w-6 h-6" />,
+      title: "Secure Enterprise Client Portals",
+      desc: "Enterprise client portals with organization-level data isolation, SSO authentication, audit logging, and integrations with CRM and project management systems.",
+      badges: [
+        {
+          icon: <LockKeyhole className="w-4 h-4" />,
+          text: "Data Isolation",
+        },
+        {
+          icon: <KeyRound className="w-4 h-4" />,
+          text: "SSO Authentication",
+        },
+      ],
+    },
+    {
+      icon: <Layers3 className="w-6 h-6" />,
+      title: "Multi-Tenant SaaS Platforms",
+      desc: "Scalable SaaS platforms with subscription billing, webhook automation, and operational admin panels for customer lifecycle and usage management.",
+      badges: [
+        {
+          icon: <CreditCard className="w-4 h-4" />,
+          text: "Subscription Billing",
+        },
+        {
+          icon: <Webhook className="w-4 h-4" />,
+          text: "Webhook Automation",
+        },
+      ],
+    },
+    {
+      icon: <LayoutDashboard className="w-6 h-6" />,
+      title: "Enterprise Reporting Dashboards",
+      desc: "Internal dashboards aggregating ERP and CRM data with secure role-based authorization and event-driven enterprise integrations.",
+      badges: [
+        {
+          icon: <Shield className="w-4 h-4" />,
+          text: "Role-Based Access",
+        },
+        {
+          icon: <Activity className="w-4 h-4" />,
+          text: "Event-Driven Integrations",
+        },
+      ],
+    },
+    {
+      icon: <Truck className="w-6 h-6" />,
+      title: "Logistics & Partner Portals",
+      desc: "Logistics and partner portals supporting shipment tracking, workflow approvals, Oracle APEX integrations, and carrier-level data isolation.",
+      badges: [
+        {
+          icon: <MapPinned className="w-4 h-4" />,
+          text: "Shipment Tracking",
+        },
+        {
+          icon: <DatabaseZap className="w-4 h-4" />,
+          text: "Carrier Data Isolation",
+        },
+      ],
+    },
+  ],
+};
+
 export default function WebDevelopmentClient() {
   return (
     <ServiceTemplate
       slug="web-development"
       hero={heroData}
       operations={operationsProps}
+      scenarios={scenariosProps}
     />
   );
 }

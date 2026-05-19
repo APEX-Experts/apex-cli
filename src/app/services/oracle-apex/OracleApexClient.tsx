@@ -2,23 +2,31 @@
 
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
+import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
   Activity,
   AlertTriangle,
   Blocks,
+  BrainCircuit,
+  Building2,
+  ChartNoAxesCombined,
   Code2,
   Database,
+  Factory,
   FileWarning,
   Gauge,
   GaugeCircle,
   GitBranch,
+  HeartPulse,
   LayoutDashboard,
   LockKeyhole,
   Map,
   Puzzle,
   RefreshCcw,
   ShieldAlert,
+  ShieldCheck,
+  Smartphone,
   Sparkles,
   Waypoints,
 } from "lucide-react";
@@ -167,12 +175,83 @@ const operationsProps: ServiceOperationsProps = {
   ],
 };
 
+const scenariosProps: ServiceScenariosProps = {
+  badge: "ORACLE APEX / Oracle FORMS - REAL ENTERPRISE SCENARIOS",
+  header: "Critical Oracle APEX Challenges We Address ",
+  headerGlow: "at Scale",
+  subheader:
+    "Real scenarios that reflect the complex challenges we solve for enterprise clients on Oracle APEX & Oracle Forms at Scale.",
+  items: [
+    {
+      icon: <Building2 className="w-6 h-6" />,
+      title: "Secure Oracle Forms Modernization",
+      desc: "A government agency requires a phased Oracle Forms to APEX migration strategy that preserves critical business logic, operational workflows, and security compliance standards.",
+      badges: [
+        {
+          icon: <ShieldCheck className="w-4 h-4" />,
+          text: "Security Compliance",
+        },
+        {
+          icon: <RefreshCcw className="w-4 h-4" />,
+          text: "Oracle Forms Migration",
+        },
+      ],
+    },
+    {
+      icon: <ChartNoAxesCombined className="w-6 h-6" />,
+      title: "APEX Performance Optimization",
+      desc: "A financial services organization is experiencing Oracle APEX report timeouts caused by inefficient PL/SQL execution and poor session state architecture.",
+      badges: [
+        {
+          icon: <Gauge className="w-4 h-4" />,
+          text: "Performance Tuning",
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          text: "PL/SQL Optimization",
+        },
+      ],
+    },
+    {
+      icon: <Factory className="w-6 h-6" />,
+      title: "Secure ORDS API Infrastructure",
+      desc: "A manufacturing firm requires secure ORDS REST APIs with authentication, access control, and rate limiting to support enterprise mobile applications.",
+      badges: [
+        {
+          icon: <Waypoints className="w-4 h-4" />,
+          text: "ORDS Integration",
+        },
+        {
+          icon: <Smartphone className="w-4 h-4" />,
+          text: "Mobile Access",
+        },
+      ],
+    },
+    {
+      icon: <HeartPulse className="w-6 h-6" />,
+      title: "On-Premise AI Query Systems",
+      desc: "A healthcare provider requires AI-powered natural language querying capabilities deployed entirely on-premise with zero sensitive data leaving internal infrastructure.",
+      badges: [
+        {
+          icon: <BrainCircuit className="w-4 h-4" />,
+          text: "Enterprise AI",
+        },
+        {
+          icon: <LockKeyhole className="w-4 h-4" />,
+          text: "Data Privacy",
+        },
+      ],
+    },
+  ],
+};
+
 export default function OracleApexClient() {
   return (
     <ServiceTemplate
       slug="oracle-apex"
       hero={heroData}
       operations={operationsProps}
+      scenarios={scenariosProps}
     />
   );
 }

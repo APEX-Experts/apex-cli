@@ -2,17 +2,29 @@
 
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
+import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
+  Activity,
+  ArrowUpDown,
+  ClipboardCheck,
   ClipboardX,
   ClockAlert,
+  Database,
   DatabaseBackup,
+  FileDigit,
   HardHat,
+  HeartPulse,
   MessageCircleWarning,
+  PackageCheck,
+  RefreshCw,
   ServerCog,
+  ShieldCheck,
   Smartphone,
   SmartphoneNfc,
   TimerOff,
+  Truck,
+  WifiOff,
   Workflow,
 } from "lucide-react";
 
@@ -123,12 +135,83 @@ const operationsProps: ServiceOperationsProps = {
   ],
 };
 
+const scenariosProps: ServiceScenariosProps = {
+  badge: "MOBILE DEVELOPMENT - REAL ENTERPRISE SCENARIOS",
+  header: "Mobile Applications for",
+  headerGlow: "Operational Teams",
+  subheader:
+    "Real-time mobile solutions for field operations, approvals, inspections, task management, and secure enterprise system access.",
+  items: [
+    {
+      icon: <PackageCheck className="w-6 h-6" />,
+      title: "Real-Time Delivery Approval Apps",
+      desc: "Mobile delivery approval applications synchronized in real time with Oracle APEX dispatch and operational management systems.",
+      badges: [
+        {
+          icon: <RefreshCw className="w-4 h-4" />,
+          text: "Real-Time Sync",
+        },
+        {
+          icon: <Truck className="w-4 h-4" />,
+          text: "Dispatch Integration",
+        },
+      ],
+    },
+    {
+      icon: <ClipboardCheck className="w-6 h-6" />,
+      title: "Mobile Inspection & Reporting Apps",
+      desc: "Field inspection applications replacing paper-based reporting workflows with direct synchronization to Oracle enterprise systems.",
+      badges: [
+        {
+          icon: <FileDigit className="w-4 h-4" />,
+          text: "Paperless Reporting",
+        },
+        {
+          icon: <Database className="w-4 h-4" />,
+          text: "Oracle Sync",
+        },
+      ],
+    },
+    {
+      icon: <Workflow className="w-6 h-6" />,
+      title: "Field Task Management Systems",
+      desc: "Mobile field task management applications with instant backend synchronization and live operational visibility for enterprise teams.",
+      badges: [
+        {
+          icon: <Activity className="w-4 h-4" />,
+          text: "Live Visibility",
+        },
+        {
+          icon: <ArrowUpDown className="w-4 h-4" />,
+          text: "Instant Updates",
+        },
+      ],
+    },
+    {
+      icon: <HeartPulse className="w-6 h-6" />,
+      title: "Secure Healthcare Mobile Apps",
+      desc: "Healthcare mobile applications supporting secure patient record access, visit documentation, and offline operational capability.",
+      badges: [
+        {
+          icon: <ShieldCheck className="w-4 h-4" />,
+          text: "Secure Patient Access",
+        },
+        {
+          icon: <WifiOff className="w-4 h-4" />,
+          text: "Offline Capability",
+        },
+      ],
+    },
+  ],
+};
+
 export default function MobileDevelopmentClient() {
   return (
     <ServiceTemplate
       slug="mobile-development"
       hero={heroData}
       operations={operationsProps}
+      scenarios={scenariosProps}
     />
   );
 }
