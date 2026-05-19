@@ -28,8 +28,6 @@ const heroProps = {
   ],
   image: "/images/myquery-premium.png",
   logo: "/images/myquery-logo.png",
-  streamLabel: "Insights_Engine_Live",
-  archLabel: "Neural_Core",
 };
 
 const problemSolutionProps: ProjectProblemSolutionProps = {

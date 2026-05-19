@@ -6,21 +6,19 @@ import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect } from "react";
+import { ServiceImpactCard } from "./ServiceImpactCard";
 
-interface MetricItem {
-  label: string;
-  value: string;
-}
-
-export interface ProjectHeroProps {
+export interface ServiceHeroProps {
   badge: string;
-  title: string;
+  header: string;
+  headerGlow?: string;
   description: string;
-  metrics: MetricItem[];
   image: string;
-  logo: string;
+  imageAlt: string;
   ctaText?: string;
   ctaLink?: string;
+  impactTitle: string;
+  impactItems: { icon: React.ReactNode; title: string; description: string }[];
 }
 
 const Particles = ({ count = 12 }: { count?: number }) => {
@@ -66,20 +64,20 @@ const Particles = ({ count = 12 }: { count?: number }) => {
   );
 };
 
-export function ProjectHero({
+export function ServiceHero({
   badge,
-  title,
+  header,
+  headerGlow,
   description,
-  metrics,
   image,
-  logo,
+  imageAlt,
   ctaText = "Schedule Call",
   ctaLink = "/contact",
-}: ProjectHeroProps) {
-  const shouldReduceMotion = useReducedMotion();
-
+  impactTitle,
+  impactItems,
+}: ServiceHeroProps) {
   return (
-    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden bg-[linear-gradient(180deg,#06080a_0%,#080a0d_50%,#06080a_100%)] pt-28 lg:pt-32">
+    <section className="relative isolate flex min-h-[86svh] items-center overflow-hidden pt-28 lg:pt-32 pb-12">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(217,130,47,0.055)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_70%,rgba(217,130,47,0.04)_0%,transparent_50%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,8,10,0.18)_0%,transparent_42%,rgba(6,8,10,0.88)_100%)]" />
@@ -96,11 +94,14 @@ export function ProjectHero({
             <div className="space-y-6 flex flex-col items-center md:items-start">
               <Badge>{badge}</Badge>
 
-              <h1 className="font-bold text-3xl md:text-[64px] leading-[40px] md:leading-[78px] tracking-normal text-center md:text-start uppercase text-white">
-                {title}
+              <h1 className="font-black text-3xl md:text-[64px] leading-[40px] md:leading-[70px] tracking-[-1.6px] text-center md:text-start text-white">
+                {header}{" "}
+                {headerGlow && (
+                  <span className="text-sinai-glow-orange">{headerGlow}</span>
+                )}
               </h1>
 
-              <p className="md:text-2xl md:leading-[39px] tracking-normal text-center md:text-start text-zinc-400">
+              <p className="leading-[26px] text-base text-[#d0d0d0] text-center md:text-start">
                 {description}
               </p>
             </div>
@@ -116,19 +117,6 @@ export function ProjectHero({
               />
               {ctaText}
             </Link>
-
-            <div className="md:flex grid grid-cols-2 md:flex-row flex-wrap justify-between max-md:justify-center w-full gap-4 py-8 sm:py-10">
-              {metrics.map((stat, i) => (
-                <div key={i} className="flex flex-col gap-4">
-                  <div className="text-sm leading-[12px] tracking-[0.8px] uppercase text-white/80 text-center md:text-start">
-                    {stat.label}
-                  </div>
-                  <div className="font-black text-white text-lg md:text-3xl md:leading-[28px] tracking-normal text-center md:text-start">
-                    {stat.value}
-                  </div>
-                </div>
-              ))}
-            </div>
           </motion.div>
 
           <motion.div
@@ -140,7 +128,7 @@ export function ProjectHero({
             <div className="relative aspect-square max-w-2xl mx-auto rounded-4xl overflow-hidden border border-white/10 shadow-[0_0_72px_rgba(217,130,47,0.08)] group bg-zinc-950">
               <Image
                 src={image}
-                alt={`${title} Interface`}
+                alt={imageAlt}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover opacity-80 group-hover:scale-110 transition-transform duration-5000"
@@ -148,19 +136,22 @@ export function ProjectHero({
               />
 
               <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent opacity-60" />
-
-              <div className="absolute bottom-12 right-12 text-right">
-                <div className="w-48 h-12 relative">
-                  <Image
-                    src={logo}
-                    alt="Logo"
-                    fill
-                    className="object-contain object-right brightness-0 invert opacity-40"
-                  />
-                </div>
-              </div>
             </div>
           </motion.div>
+        </div>
+        <div className="flex flex-col items-center gap-8 mt-12">
+          <div className="flex flex-row gap-1 items-center">
+            <span className="w-10 md:w-32 h-px rotate-180 bg-[linear-gradient(270deg,rgba(115,69,25,0.2)_0%,#D9822F_100%)]"></span>
+            <span className="font-medium text-xs md:text-base leading-[19.5px] tracking-[1.56px] uppercase text-sinai-glow-orange">
+              {impactTitle}
+            </span>
+            <span className="w-10 md:w-32 h-px bg-[linear-gradient(270deg,rgba(115,69,25,0.2)_0%,#D9822F_100%)]"></span>
+          </div>
+          <ul className="flex flex-col md:flex-row justify-between w-full gap-8">
+            {impactItems.map((item, index) => (
+              <ServiceImpactCard key={index} item={item} />
+            ))}
+          </ul>
         </div>
       </div>
 

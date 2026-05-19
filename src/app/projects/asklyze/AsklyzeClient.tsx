@@ -34,8 +34,6 @@ const heroProps: ProjectHeroProps = {
   logo: "/images/asklyze-logo.png",
   ctaText: "Schedule Call",
   ctaLink: "/contact",
-  streamLabel: "Data_Stream_Live",
-  archLabel: "Core_Architecture",
 };
 const problemSolutionProps: ProjectProblemSolutionProps = {
   badge: "Problem Analysis // Enterprise Constraints",

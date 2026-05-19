@@ -29,8 +29,6 @@ const heroProps = {
   ],
   image: "/images/tasto-premium.png",
   logo: "/images/tasto-logo.png",
-  streamLabel: "Revenue_Stream_Live",
-  archLabel: "Financial_Core",
 };
 const problemSolutionProps: ProjectProblemSolutionProps = {
   badge: "Problem Analysis // Enterprise Constraints",
