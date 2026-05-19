@@ -58,8 +58,8 @@ const ServiceOperations = (props: ServiceOperationsProps) => {
         </div>
 
         {/* Two-column row with scroll-progress separator in between */}
-        {/* On md: screens, we use a CSS Grid with 2 rows: Row 1 for headers, Row 2 for the lists */}
-        <div className="flex flex-col md:grid md:grid-cols-[1fr_58px_1fr] md:grid-rows-[auto_1fr] gap-16 md:gap-x-8 md:gap-y-0 w-full">
+        {/* On md: screens, we use a CSS Grid with 5 rows to align badges, titles, descriptions, separators, and lists separately */}
+        <div className="flex flex-col md:grid md:grid-cols-[1fr_58px_1fr] md:grid-rows-[auto_auto_auto_auto_1fr] gap-16 md:gap-x-8 md:gap-y-4 w-full">
           {items.map((item, index) => {
             const isLeft = index === 0;
             return (
@@ -67,26 +67,54 @@ const ServiceOperations = (props: ServiceOperationsProps) => {
                 key={index}
                 className="w-full flex flex-col items-center md:items-start text-center md:text-start gap-4 md:contents"
               >
-                {/* Header Container */}
+                {/* Badge Container */}
                 <div
-                  className={`flex flex-col items-center md:items-start text-center md:text-start gap-4 ${
-                    isLeft ? "md:col-start-1 md:row-start-1" : "md:col-start-3 md:row-start-1"
+                  className={`flex justify-center md:justify-start ${
+                    isLeft
+                      ? "md:col-start-1 md:row-start-1"
+                      : "md:col-start-3 md:row-start-1"
                   }`}
                 >
                   <SectionBadge>{item.badge}</SectionBadge>
-                  <h3 className="font-medium text-white text-3xl md:text-[40px] md:leading-[50.4px] tracking-[-1.05px]">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm md:text-base md:leading-[27.2px] tracking-normal text-zinc-400 max-w-md">
-                    {item.description}
-                  </p>
-                  <div className="separator-gradient w-[70%]! mb-4"></div>
                 </div>
+
+                {/* Title */}
+                <h3
+                  className={`font-medium text-white text-3xl md:text-[40px] md:leading-[50.4px] tracking-[-1.05px] ${
+                    isLeft
+                      ? "md:col-start-1 md:row-start-2"
+                      : "md:col-start-3 md:row-start-2"
+                  }`}
+                >
+                  {item.title}
+                </h3>
+
+                {/* Description Paragraph */}
+                <p
+                  className={`text-sm md:text-base md:leading-[27.2px] tracking-normal text-zinc-400 max-w-md ${
+                    isLeft
+                      ? "md:col-start-1 md:row-start-3"
+                      : "md:col-start-3 md:row-start-3"
+                  }`}
+                >
+                  {item.description}
+                </p>
+
+                {/* Separator Gradient */}
+                <div
+                  className={`separator-gradient w-[70%]! mb-4 ${
+                    isLeft
+                      ? "md:col-start-1 md:row-start-4"
+                      : "md:col-start-3 md:row-start-4"
+                  }`}
+                ></div>
 
                 {/* List Container */}
                 <div
                   className={`w-full ${
-                    isLeft ? "md:col-start-1 md:row-start-2" : "md:col-start-3 md:row-start-2"
+                    isLeft
+                      ? "md:col-start-1 md:row-start-5"
+                      : "md:col-start-3 md:row-start-5"
                   }`}
                 >
                   <ul className="flex flex-col w-full gap-4">
@@ -100,9 +128,9 @@ const ServiceOperations = (props: ServiceOperationsProps) => {
                   </ul>
                 </div>
 
-                {/* Scroll-progress separator — only between the two columns and aligned with Row 2 (the lists) */}
+                {/* Scroll-progress separator — only between the two columns and aligned with Row 5 (the lists) */}
                 {isLeft && (
-                  <div className="hidden md:block md:col-start-2 md:row-start-2 md:row-span-1 self-stretch shrink-0 w-[58px] relative">
+                  <div className="hidden md:block md:col-start-2 md:row-start-5 md:row-span-1 self-stretch shrink-0 w-[58px] relative">
                     {/* Dimmed track line */}
                     <div className="absolute inset-y-0 left-1/2 -translate-x-1/2 w-[1.5px] bg-white/5 pointer-events-none" />
 
