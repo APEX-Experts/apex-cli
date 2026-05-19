@@ -14,12 +14,24 @@ export default function AboutClient() {
   return (
     <div className="overflow-x-clip bg-sinai-bg-base text-white selection:bg-sinai-glow-orange selection:text-black">
       <CeoHeroSection />
-      <EngineeringDnaSection />
-      <ProductionSystems />
-      <EnterpriseFoundation />
-      <EngineeringDomains />
-      <DeliveryFramework />
-      <TeamSection />
+      <SectionReveal>
+        <EngineeringDnaSection />
+      </SectionReveal>
+      <SectionReveal>
+        <ProductionSystems />
+      </SectionReveal>
+      <SectionReveal>
+        <EnterpriseFoundation />
+      </SectionReveal>
+      <SectionReveal>
+        <EngineeringDomains />
+      </SectionReveal>
+      <SectionReveal>
+        <DeliveryFramework />
+      </SectionReveal>
+      <SectionReveal>
+        <TeamSection />
+      </SectionReveal>
       <SectionReveal className="apex-container-wide relative">
         <CtaSection />
       </SectionReveal>

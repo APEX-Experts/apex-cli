@@ -6,6 +6,7 @@ import ServiceOperations, { ServiceOperationsProps } from "./ServiceOperations";
 import ServiceScenarios, { ServiceScenariosProps } from "./ServiceScenarios";
 import ServicePrinciples, { ServicePrinciplesProps } from "./ServicePrinciples";
 import ServiceCta, { ServiceCtaProps } from "./ServiceCta";
+import { SectionReveal } from "../SectionReveal";
 
 export interface ServiceTemplateProps {
   slug: string;
@@ -42,10 +43,20 @@ export default function ServiceTemplate({
   return (
     <div className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black">
       <ServiceHero {...hero} />
-      <ServiceOperations {...operations} />
-      <ServiceScenarios {...scenarios} />
-      {principles && <ServicePrinciples {...principles} />}
-      <ServiceCta {...cta} />
+      <SectionReveal>
+        <ServiceOperations {...operations} />
+      </SectionReveal>
+      <SectionReveal>
+        <ServiceScenarios {...scenarios} />
+      </SectionReveal>
+      {principles && (
+        <SectionReveal>
+          <ServicePrinciples {...principles} />
+        </SectionReveal>
+      )}
+      <SectionReveal>
+        <ServiceCta {...cta} />
+      </SectionReveal>
     </div>
   );
 }

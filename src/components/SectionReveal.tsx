@@ -24,15 +24,15 @@ export function SectionReveal({
   }, []);
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
-  
+
   const isInView = useInView(ref, { once: true, margin: "-10%" });
 
-  const initial = effectiveReduceMotion 
-    ? { opacity: 0 } 
+  const initial = effectiveReduceMotion
+    ? { opacity: 0 }
     : { opacity: 0, y: 36, filter: "blur(8px)" };
-    
-  const animate = isInView 
-    ? { opacity: 1, y: 0, filter: "blur(0px)" } 
+
+  const animate = isInView
+    ? { opacity: 1, y: 0, filter: "blur(0px)" }
     : initial;
 
   return (
