@@ -5,10 +5,19 @@ import { useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionReveal } from "@/components/SectionReveal";
-import { ArrowLeft, Share2, Bookmark, Copy } from "lucide-react";
+import {
+  ArrowLeft,
+  Share2,
+  Bookmark,
+  Copy,
+  Calendar,
+  Clock,
+} from "lucide-react";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
-import { BLOG_POSTS } from "@/data/blog";
+import { BLOG_POSTS, Post } from "@/data/blog";
+import { BlogCard } from "@/components/blog/BlogCard";
+import { CtaTemplate } from "@/components/ui/CtaTemplate";
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -27,6 +36,35 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
   }, []);
 
   const effectiveReduceMotion = mounted ? shouldReduceMotion : false;
+
+  const calculateReadTime = (post: Post) => {
+    const body = post.body;
+    let wordCount = 0;
+    body.forEach((block) => {
+      if (
+        "type" in block &&
+        block.type === "p" &&
+        "text" in block &&
+        block.text &&
+        typeof block.text === "string"
+      ) {
+        wordCount += block.text.split(/\s+/).length;
+      } else if (
+        "type" in block &&
+        block.type === "ul" &&
+        "items" in block &&
+        block.items &&
+        Array.isArray(block.items)
+      ) {
+        block.items.forEach((item: string) => {
+          wordCount += item.split(/\s+/).length;
+        });
+      }
+    });
+    return Math.max(1, Math.ceil(wordCount / 200));
+  };
+
+  const readTime = post ? calculateReadTime(post) : 5;
 
   if (!post) {
     notFound();
@@ -77,7 +115,7 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
           <div className="flex items-center justify-between mb-10 lg:mb-12">
             <Link
               href="/blog"
-              className="group flex items-center gap-4 text-[10px] font-mono tracking-[0.5em] text-zinc-500 hover:text-white transition-colors uppercase"
+              className="group flex items-center gap-4 text-[10px] tracking-[0.3em] text-zinc-500 hover:text-white transition-colors uppercase font-semibold"
             >
               <div className="w-10 h-10 rounded-full bg-white/[0.03] border border-white/10 flex items-center justify-center group-hover:bg-sinai-glow-orange group-hover:border-sinai-glow-orange group-hover:text-white transition-all">
                 <ArrowLeft className="w-4 h-4" />
@@ -97,30 +135,33 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
 
         {/* Header Section */}
         <SectionReveal>
-          <div className="max-w-5xl mx-auto space-y-6 mb-10 lg:mb-12">
+          <div className="max-w-5xl mx-auto mb-10 lg:mb-12 flex flex-col gap-6">
             <div className="flex flex-wrap gap-4">
               {post.categories?.map((cat: string) => (
                 <Link
                   key={cat}
                   href={`/blog/topic/${cat.toLowerCase().replace(/\s+/g, "-")}`}
-                  className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[9px] font-mono font-bold uppercase tracking-widest hover:bg-sinai-glow-orange hover:text-white transition-all"
+                  className="px-4 py-1.5 rounded-full bg-sinai-glow-orange/10 border border-sinai-glow-orange/30 text-sinai-glow-orange text-[10px] font-semibold uppercase tracking-wider hover:bg-sinai-glow-orange hover:text-white transition-all"
                 >
                   {cat}
                 </Link>
               ))}
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black tracking-normal leading-[0.9] text-white uppercase">
-              {post.title}
-            </h1>
+            <div className="flex flex-col gap-2.5">
+              <h1 className="text-[32px] md:text-[48px] font-bold tracking-[-1.8px] leading-tight md:leading-[79.2px] text-white">
+                {post.title}
+              </h1>
 
-            <p className="text-xl md:text-2xl text-zinc-500 font-light leading-relaxed max-w-3xl">
-              {post.excerpt}
-            </p>
+              <p className="text-base md:text-lg text-zinc-400 font-normal leading-relaxed md:leading-[30.6px] max-w-3xl">
+                {post.excerpt}
+              </p>
+            </div>
 
-            <div className="flex flex-wrap items-center gap-6 pt-6 border-t border-white/5">
-              <div className="flex items-center gap-4">
-                <div className="relative w-16 h-16 rounded-2xl overflow-hidden border border-white/10">
+            <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-8 pt-6 border-t border-white/5 w-full">
+              {/* Avatar + Author and Job on top of each other */}
+              <div className="flex items-center gap-3">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 shrink-0">
                   <Image
                     src={post.author.image}
                     alt={post.author.name}
@@ -128,46 +169,36 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                     className="object-cover"
                   />
                 </div>
-                <div>
-                  <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
-                    Author_Node
-                  </div>
-                  <div className="text-lg font-bold text-white uppercase tracking-normal">
+                <div className="flex flex-col text-left">
+                  <span className="text-white font-bold text-base leading-tight">
                     {post.author.name}
-                  </div>
-                  <div className="mt-1 text-[9px] font-mono text-zinc-600 uppercase tracking-[0.2em]">
+                  </span>
+                  <span className="text-zinc-400 text-xs mt-1">
                     {post.author.role}
-                  </div>
+                  </span>
                 </div>
               </div>
 
-              <div className="h-12 w-px bg-white/5 hidden md:block" />
+              <div className="hidden md:block h-8 w-px bg-white/10" />
 
-              <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
-                  Published_At
-                </div>
-                <div className="text-lg font-bold text-white font-mono uppercase tracking-normal">
+              {/* Calendar Icon + Date */}
+              <div className="flex items-center gap-2.5 text-zinc-400 text-sm">
+                <Calendar className="w-4 h-4 text-zinc-500" />
+                <span>
                   {new Date(post.publishedAt).toLocaleDateString("en-US", {
                     month: "long",
                     day: "numeric",
                     year: "numeric",
                   })}
-                </div>
+                </span>
               </div>
 
-              <div className="h-12 w-px bg-white/5 hidden md:block" />
+              <div className="hidden md:block h-8 w-px bg-white/10" />
 
-              <div>
-                <div className="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">
-                  Status
-                </div>
-                <div className="flex items-center gap-2 text-lg font-bold text-green-500 font-mono uppercase tracking-normal">
-                  <div
-                    className={`w-2 h-2 rounded-full bg-green-500 ${effectiveReduceMotion ? "" : "animate-pulse"}`}
-                  />
-                  Live_Node
-                </div>
+              {/* x min read */}
+              <div className="flex items-center gap-2 text-zinc-400 text-sm">
+                <Clock className="w-4 h-4 text-zinc-500" />
+                <span>{readTime} min read</span>
               </div>
             </div>
           </div>
@@ -175,13 +206,13 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
 
         {/* Main Image */}
         <SectionReveal>
-          <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-white/10 shadow-[0_0_100px_rgba(242,162,75,0.05)] mb-10 lg:mb-12 bg-zinc-950">
+          <div className="w-full max-w-[1241px] aspect-[1241/575] relative rounded-2xl overflow-hidden border border-white/10 bg-zinc-950 mx-auto mb-10 lg:mb-12">
             <Image
               src={post.mainImage}
               alt={post.title}
               fill
               priority
-              className="object-contain"
+              className="object-cover"
             />
           </div>
         </SectionReveal>
@@ -189,14 +220,14 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
         {/* Content Body */}
         <div className="max-w-4xl mx-auto">
           <SectionReveal>
-            {/* Technical Synopsis Card */}
+            {/* Synopsis Card */}
             <div className="mb-10 p-6 lg:p-8 rounded-3xl bg-sinai-glow-orange/[0.03] border border-sinai-glow-orange/20 relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-4 opacity-20">
                 <Bookmark className="w-8 h-8 text-sinai-glow-orange" />
               </div>
               <div className="space-y-4">
-                <div className="text-[10px] font-mono text-sinai-glow-orange tracking-[0.4em] uppercase font-black">
-                  Technical_Synopsis
+                <div className="text-[10px] text-sinai-glow-orange tracking-[0.2em] uppercase font-bold">
+                  Overview
                 </div>
                 <p className="text-xl text-zinc-300 font-light leading-relaxed italic">
                   {post.synopsis ?? post.excerpt}
@@ -213,7 +244,7 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                       key={i}
                       className="text-xl md:text-2xl font-bold tracking-normal uppercase mt-10 mb-4 text-white leading-tight flex items-center gap-3 group/h2"
                     >
-                      <span className="text-sinai-glow-orange/30 font-mono text-base">
+                      <span className="text-sinai-glow-orange/30 text-base font-semibold">
                         {headingNumber}
                       </span>
                       <span className="relative">
@@ -341,7 +372,7 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
                         <div
                           className={`w-1.5 h-1.5 rounded-full bg-sinai-glow-orange ${effectiveReduceMotion ? "" : "animate-pulse"}`}
                         />
-                        <span className="text-[10px] font-mono text-zinc-600 uppercase tracking-widest">
+                        <span className="text-[10px] text-zinc-500 uppercase tracking-wider font-semibold">
                           {block.caption}
                         </span>
                       </div>
@@ -358,16 +389,16 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
           <div className="mt-16 pt-10 border-t border-white/5 space-y-10 lg:mt-20 lg:pt-12">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
               <div className="space-y-4">
-                <div className="text-sinai-glow-orange font-mono text-[10px] tracking-[0.4em] uppercase font-black">
-                  Knowledge_Expansion
+                <div className="text-sinai-glow-orange text-[10px] tracking-[0.2em] uppercase font-bold">
+                  Related Research
                 </div>
-                <h2 className="text-4xl md:text-5xl font-black tracking-normal uppercase">
+                <h2 className="text-4xl md:text-5xl font-bold tracking-normal uppercase text-white">
                   Related Insights
                 </h2>
               </div>
               <Link
                 href="/blog"
-                className="text-[10px] font-mono text-zinc-500 hover:text-white transition-colors uppercase tracking-widest border-b border-white/10 pb-2"
+                className="text-[10px] text-zinc-500 hover:text-white transition-colors uppercase tracking-wider font-semibold border-b border-white/10 pb-2"
               >
                 Explore Full Archive
               </Link>
@@ -381,39 +412,7 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
               )
                 .slice(0, 2)
                 .map((relatedPost) => (
-                  <Link
-                    key={relatedPost.slug}
-                    href={`/blog/${relatedPost.slug}`}
-                    className="group space-y-6"
-                  >
-                    <div className="relative aspect-[16/9] rounded-[1.5rem] overflow-hidden border border-white/10">
-                      <Image
-                        src={relatedPost.mainImage}
-                        alt={relatedPost.title}
-                        fill
-                        className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#06080a] via-transparent to-transparent opacity-60" />
-                    </div>
-                    <div className="space-y-4 px-4">
-                      <div className="flex gap-3">
-                        {relatedPost.categories.slice(0, 1).map((cat) => (
-                          <span
-                            key={cat}
-                            className="text-[9px] font-mono text-sinai-glow-orange tracking-widest uppercase"
-                          >
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                      <h3 className="text-2xl md:text-3xl font-black tracking-normal uppercase group-hover:text-sinai-glow-orange transition-colors duration-500">
-                        {relatedPost.title}
-                      </h3>
-                      <p className="text-zinc-500 font-light leading-relaxed line-clamp-2">
-                        {relatedPost.excerpt}
-                      </p>
-                    </div>
-                  </Link>
+                  <BlogCard key={relatedPost.slug} post={relatedPost} />
                 ))}
             </div>
           </div>
@@ -421,22 +420,13 @@ export default function BlogPostPage({ params, nonce }: BlogPostPageProps) {
 
         {/* Footer / CTA */}
         <SectionReveal>
-          <div className="mt-16 p-8 rounded-[2rem] bg-white/[0.02] border border-white/5 backdrop-blur-3xl relative overflow-hidden text-center space-y-7 group lg:mt-20 lg:p-8">
-            <div className="absolute inset-0 bg-gradient-to-br from-sinai-glow-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-            <div className="relative z-10 space-y-6">
-              <h3 className="text-4xl md:text-5xl font-black tracking-normal uppercase">
-                Was this insight valuable?
-              </h3>
-              <p className="text-xl text-zinc-500 font-light max-w-xl mx-auto">
-                Join our private network to receive tactical AI intelligence
-                directly in your inbox.
-              </p>
-            </div>
-            <div className="relative z-10 pt-4 flex justify-center gap-6">
-              <button className="px-12 py-6 rounded-full bg-sinai-glow-orange text-white font-black text-xs uppercase tracking-[0.4em] hover:shadow-[0_0_50px_rgba(242,162,75,0.4)] hover:scale-105 transition-all duration-500">
-                Subscribe to Intelligence
-              </button>
-            </div>
+          <div className="mt-16 lg:mt-20">
+            <CtaTemplate
+              title="Was this insight valuable?"
+              description="Join our private network to receive tactical AI intelligence directly in your inbox."
+              buttonText="Subscribe to Intelligence"
+              buttonHref="/contact"
+            />
           </div>
         </SectionReveal>
       </div>

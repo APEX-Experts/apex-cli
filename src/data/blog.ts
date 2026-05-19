@@ -544,4 +544,54 @@ export const BLOG_POSTS: Post[] = [
       }
     ]
   },
+  {
+    id: "post-52",
+    title: "Orchestrating Autonomous Agent Workflows with LangGraph",
+    slug: "orchestrating-autonomous-agent-workflows-langgraph",
+    publishedAt: "2026-05-02T10:00:00Z",
+    excerpt: "Learn how to build cyclical, stateful multi-agent systems using LangGraph and integrate them with high-performance Postgres queues.",
+    synopsis: "Moving past simple linear chains into stateful, cyclical graph architectures that enable agents to collaborate and self-correct.",
+    mainImage: "/images/agentic-workflow.png",
+    author: AUTHORS.amr,
+    categories: ["AI AUTOMATION", "LLM INTEGRATION", "WEB ENGINEERING"],
+    body: [
+      {
+        type: "p",
+        text: "Building autonomous systems requires more than simple LLM prompts. In production, we need predictability, reliable state management, and the ability for agents to backtrack or loop based on real-time feedback."
+      },
+      {
+        type: "h2",
+        text: "Why LangGraph?"
+      },
+      {
+        type: "p",
+        text: "LangGraph extends the LangChain ecosystem to support cyclic graphs, making it ideal for agent loops, error self-correction, and human-in-the-loop validation workflows."
+      }
+    ]
+  },
+  {
+    id: "post-53",
+    title: "Next-Gen SEO Strategies for Enterprise Next.js Applications",
+    slug: "next-gen-seo-strategies-enterprise-nextjs",
+    publishedAt: "2026-05-15T14:30:00Z",
+    excerpt: "A comprehensive guide to structured schema, dynamic Open Graph routing, and hydration-friendly metadata rendering in the Next.js App Router.",
+    synopsis: "Maximize crawlability and performance for search engines using Next.js native metadata APIs and structured JSON-LD payloads.",
+    mainImage: "/images/web-dev-hero.png",
+    author: AUTHORS.mario,
+    categories: ["WEB ENGINEERING", "SEO OPTIMIZATION"],
+    body: [
+      {
+        type: "p",
+        text: "Search engine optimization has evolved. With Next.js 15, we have powerful tools like Server Components to generate structured markup before a single byte of JavaScript runs on the client."
+      },
+      {
+        type: "h2",
+        text: "Core Performance Factors"
+      },
+      {
+        type: "p",
+        text: "Search engines reward fast loading and clear semantic structure. We explain how dynamic sitemaps, Open Graph tag rendering, and static site generation affect your search rankings."
+      }
+    ]
+  }
 ];
