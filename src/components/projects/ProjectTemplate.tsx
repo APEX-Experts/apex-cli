@@ -8,6 +8,7 @@ import ProjectProblemSolution, {
 import ProjectHowItWorks, { ProjectHowItWorksProps } from "./ProjectHowItWorks";
 import ProjectScenarios, { ProjectScenariosProps } from "./ProjectScenarios";
 import ProjectCTA, { ProjectCtaProps } from "./ProjectCTA";
+import { SectionReveal } from "../SectionReveal";
 
 export interface ProjectTemplateProps {
   projectKey: "asklyze" | "myquery" | "tasto";
@@ -34,10 +35,20 @@ export function ProjectTemplate({
       className="relative bg-sinai-bg-base text-white min-h-screen selection:bg-sinai-glow-orange selection:text-black font-sans"
     >
       <ProjectHero {...heroProps} />
-      <ProjectProblemSolution {...problemSolutionProps} />
-      {howItWorksProps && <ProjectHowItWorks {...howItWorksProps} />}
-      <ProjectScenarios {...scenariosProps} />
-      <ProjectCTA {...ctaProps} />
+      <SectionReveal>
+        <ProjectProblemSolution {...problemSolutionProps} />
+      </SectionReveal>
+      {howItWorksProps && (
+        <SectionReveal>
+          <ProjectHowItWorks {...howItWorksProps} />
+        </SectionReveal>
+      )}
+      <SectionReveal>
+        <ProjectScenarios {...scenariosProps} />
+      </SectionReveal>
+      <SectionReveal>
+        <ProjectCTA {...ctaProps} />
+      </SectionReveal>
     </div>
   );
 }

@@ -76,7 +76,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
+  transition: {
       duration: 0.6,
       ease: [0.16, 1, 0.3, 1] as const,
     },
@@ -84,6 +84,10 @@ const itemVariants = {
 };
 
 export default function LegalTemplate({ title, content }: LegalTemplateProps) {
+  const words = title.trim().split(/\s+/);
+  const titleGlow = words.pop() || "";
+  const mainTitle = words.join(" ");
+
   const [activeId, setActiveId] = useState<string>("");
   const [isMobileTocOpen, setIsMobileTocOpen] = useState(false);
   const headings = React.useMemo(() => parseHeadings(content), [content]);
@@ -261,7 +265,8 @@ export default function LegalTemplate({ title, content }: LegalTemplateProps) {
           className="border-b border-white/10 pb-8 mb-8 md:mb-12"
         >
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight">
-            {title}
+            {mainTitle}{" "}
+            <span className="text-sinai-glow-orange">{titleGlow}</span>
           </h1>
         </motion.div>
 
