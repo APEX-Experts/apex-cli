@@ -11,8 +11,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/about",
     "/blog",
     "/contact",
-    "/projects",
-    "/services",
     "/services/ai-automation",
     "/services/oracle-apex",
     "/services/web-development",
