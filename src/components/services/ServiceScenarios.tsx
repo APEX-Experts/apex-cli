@@ -23,7 +23,7 @@ const ServiceScenarios = (props: ServiceScenariosProps) => {
   return (
     <section className="relative isolate flex items-center overflow-hidden">
       <div className="flex flex-col items-center md:items-start gap-16 py-12 md:py-20 apex-container-wide">
-        <div className="flex flex-col items-center md:items-start gap-4 max-w-[940px]">
+        <div className="flex flex-col items-center md:items-start gap-4 max-w-[940px] text-center md:text-start">
           <SectionBadge>{badge}</SectionBadge>
           <h1 className="font-bold text-white text-3xl md:text-5xl leading-[30px] md:leading-[52.8px] tracking-[-1.2px]">
             {header}{" "}
@@ -44,4 +44,3 @@ const ServiceScenarios = (props: ServiceScenariosProps) => {
 };
 
 export default ServiceScenarios;
-
