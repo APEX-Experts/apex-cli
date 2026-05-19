@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 import { ServiceHero, ServiceHeroProps } from "./ServiceHero";
 import ServiceOperations, { ServiceOperationsProps } from "./ServiceOperations";
 import ServiceScenarios, { ServiceScenariosProps } from "./ServiceScenarios";
+import ServicePrinciples, { ServicePrinciplesProps } from "./ServicePrinciples";
+import ServiceCta, { ServiceCtaProps } from "./ServiceCta";
 
 export interface ServiceTemplateProps {
   slug: string;
   hero: ServiceHeroProps;
   operations: ServiceOperationsProps;
   scenarios: ServiceScenariosProps;
+  principles?: ServicePrinciplesProps;
+  cta: ServiceCtaProps;
 }
 
 export default function ServiceTemplate({
@@ -17,6 +21,8 @@ export default function ServiceTemplate({
   hero,
   operations,
   scenarios,
+  principles,
+  cta,
 }: ServiceTemplateProps) {
   const [mounted, setMounted] = useState(false);
 
@@ -38,6 +44,8 @@ export default function ServiceTemplate({
       <ServiceHero {...hero} />
       <ServiceOperations {...operations} />
       <ServiceScenarios {...scenarios} />
+      {principles && <ServicePrinciples {...principles} />}
+      <ServiceCta {...cta} />
     </div>
   );
 }

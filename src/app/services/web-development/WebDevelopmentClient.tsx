@@ -1,5 +1,6 @@
 "use client";
 
+import { ServiceCtaProps } from "@/components/services/ServiceCta";
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
 import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
@@ -206,6 +207,14 @@ const scenariosProps: ServiceScenariosProps = {
   ],
 };
 
+const ctaProps: ServiceCtaProps = {
+  header: "Define the Right Scope for",
+  headerGlow: "Your Web System",
+  subheader:
+    "Whether you are building a new platform from scratch or addressing failure points in an existing system, start with a technical scoping call. We will define the architecture, integration requirements, and delivery approach.",
+  ctaButtonText: "Book a Technical Consultation",
+};
+
 export default function WebDevelopmentClient() {
   return (
     <ServiceTemplate
@@ -213,6 +222,7 @@ export default function WebDevelopmentClient() {
       hero={heroData}
       operations={operationsProps}
       scenarios={scenariosProps}
+      cta={ctaProps}
     />
   );
 }

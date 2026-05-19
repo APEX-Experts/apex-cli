@@ -1,5 +1,6 @@
 "use client";
 
+import { ServiceCtaProps } from "@/components/services/ServiceCta";
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
 import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
@@ -205,6 +206,14 @@ const scenariosProps: ServiceScenariosProps = {
   ],
 };
 
+const ctaProps: ServiceCtaProps = {
+  header: "Connect Your Field Operations to",
+  headerGlow: "Your Core Systems",
+  subheader:
+    "Start with a technical scoping call. We will review your current field operation workflow, identify the backend integration points, and define a mobile application architecture that addresses the real operational gap.",
+  ctaButtonText: "Book a Technical Consultation",
+};
+
 export default function MobileDevelopmentClient() {
   return (
     <ServiceTemplate
@@ -212,6 +221,7 @@ export default function MobileDevelopmentClient() {
       hero={heroData}
       operations={operationsProps}
       scenarios={scenariosProps}
+      cta={ctaProps}
     />
   );
 }

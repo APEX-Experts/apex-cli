@@ -1,21 +1,28 @@
 "use client";
 
 import { GitBranchIcon } from "@/components/Icons";
+import { ServiceCtaProps } from "@/components/services/ServiceCta";
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
+import { ServicePrinciplesProps } from "@/components/services/ServicePrinciples";
 import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
 import ServiceTemplate from "@/components/services/ServiceTemplate";
 import {
   AlertTriangle,
   BarChart3,
   BookOpen,
+  Boxes,
   BrainCircuit,
+  CheckCircle2,
   Database,
   FileCheck,
+  Layers,
   Lock,
   MessagesSquare,
   Network,
+  Shield,
   ShieldCheck,
+  UserCheck,
   Users,
   Workflow,
 } from "lucide-react";
@@ -216,6 +223,48 @@ const scenariosProps: ServiceScenariosProps = {
   ],
 };
 
+const principlesProps: ServicePrinciplesProps = {
+  badge: "AI ARCHITECTURE // PRODUCTION PRINCIPLES",
+  header: "What Separates Our AI Practice",
+  subheader:
+    "Our AI systems are engineered for operational reliability, governance alignment, and production deployment inside enterprise environments.",
+  items: [
+    {
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      title: "Production-Only AI Systems",
+      desc: "We only deploy AI systems proven in operational environments, not experimental or research-grade models.",
+    },
+    {
+      icon: <Layers className="w-5 h-5" />,
+      title: "Schema-Aware Intelligence Layer",
+      desc: "AI trained on your data models, business terminology, and operational relationships.",
+    },
+    {
+      icon: <Shield className="w-5 h-5" />,
+      title: "Full Data Sovereignty",
+      desc: "All AI operations execute within your infrastructure boundaries without external data transfer.",
+    },
+    {
+      icon: <UserCheck className="w-5 h-5" />,
+      title: "Human-Led Approvals",
+      desc: "Critical workflows require explicit human approval with full audit trails and governance controls.",
+    },
+    {
+      icon: <Boxes className="w-5 h-5" />,
+      title: "Proven AI Products in Production",
+      desc: "Our implementations leverage enterprise-grade AI products already operating at scale.",
+    },
+  ],
+};
+
+const ctaProps: ServiceCtaProps = {
+  header: "Assess Whether AI Is Ready to",
+  headerGlow: "Operate in Your Environment",
+  subheader:
+    "Start with an AI integration assessment. We evaluate your current infrastructure, workflow architecture, governance requirements, and security constraints to define where AI can operate safely and deliver operational value.",
+  ctaButtonText: "Book a Technical Consultation",
+};
+
 export default function AIAutomationClient() {
   return (
     <ServiceTemplate
@@ -223,6 +272,8 @@ export default function AIAutomationClient() {
       hero={heroProps}
       operations={operationsProps}
       scenarios={scenariosProps}
+      principles={principlesProps}
+      cta={ctaProps}
     />
   );
 }

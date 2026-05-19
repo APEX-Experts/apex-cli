@@ -1,5 +1,6 @@
 "use client";
 
+import { ServiceCtaProps } from "@/components/services/ServiceCta";
 import { ServiceHeroProps } from "@/components/services/ServiceHero";
 import { ServiceOperationsProps } from "@/components/services/ServiceOperations";
 import { ServiceScenariosProps } from "@/components/services/ServiceScenarios";
@@ -245,6 +246,14 @@ const scenariosProps: ServiceScenariosProps = {
   ],
 };
 
+const ctaProps: ServiceCtaProps = {
+  header: "Assess Your",
+  headerGlow: "Oracle APEX Environment",
+  subheader:
+    "Start with a 30-minute technical call. We will review your current APEX state, Oracle Forms exposure, or modernization requirements, and define a practical scope for engagement.",
+  ctaButtonText: "Book a Technical Consultation",
+};
+
 export default function OracleApexClient() {
   return (
     <ServiceTemplate
@@ -252,6 +261,7 @@ export default function OracleApexClient() {
       hero={heroData}
       operations={operationsProps}
       scenarios={scenariosProps}
+      cta={ctaProps}
     />
   );
 }
