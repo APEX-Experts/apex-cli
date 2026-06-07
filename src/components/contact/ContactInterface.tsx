@@ -619,7 +619,7 @@ export function ContactInterface() {
                         {isSubmitting ? (
                           <>
                             <Loader2
-                              className={`w-5 h-5 md:w-6 md:h-6 text-white ${effectiveReduceMotion ? "" : "animate-spin"}`}
+                              className={`w-5 h-5 md:w-6 md:h-6 text-white animate-spin`}
                             />
                             <span>Sending...</span>
                           </>

@@ -1,4 +1,5 @@
 # ◢ APEX EXPERTS AI SOLUTIONS
+
 ### Cinematic Engineering • Production-Grade Intelligence • Elite Web Architecture
 
 ![Branding](https://img.shields.io/badge/VERSION-v4.0.2-F2A24B?style=for-the-badge&labelColor=0c0c0e)
@@ -8,6 +9,7 @@
 ---
 
 ## ▣ THE VISION
+
 APEX Experts AI Solutions is not a template. It is a **technically elite digital environment** designed to reflect the mastery of autonomous intelligence engineering. Built for high-performance impact, the platform fuses **Quiet Luxury aesthetics** with a **Cinematic CLI Hero experience**, setting a new standard for AI-native marketing interfaces.
 
 > [!IMPORTANT]
@@ -18,27 +20,30 @@ APEX Experts AI Solutions is not a template. It is a **technically elite digital
 ## ▣ TECHNICAL SPECIFICATIONS
 
 ### THE CORE ENGINE
-| Component | Technology | Rationale |
-| :--- | :--- | :--- |
-| **Framework** | Next.js 16.2.4 (App Router) | Static-first delivery with server-side performance. |
-| **Library** | React 19.2.4 | Bleeding-edge hydration safety & concurrent rendering. |
-| **Styling** | Tailwind CSS v4 | Custom design system tokens & JIT utility orchestration. |
-| **Motion** | Framer Motion 12 + GSAP | Complex state-driven animations & scroll-triggered reveals. |
-| **Typography** | JetBrains Mono & Inter | Fusion of engineering precision & modern readability. |
+
+| Component      | Technology                  | Rationale                                                   |
+| :------------- | :-------------------------- | :---------------------------------------------------------- |
+| **Framework**  | Next.js 16.2.4 (App Router) | Static-first delivery with server-side performance.         |
+| **Library**    | React 19.2.4                | Bleeding-edge hydration safety & concurrent rendering.      |
+| **Styling**    | Tailwind CSS v4             | Custom design system tokens & JIT utility orchestration.    |
+| **Motion**     | Framer Motion 12 + GSAP     | Complex state-driven animations & scroll-triggered reveals. |
+| **Typography** | JetBrains Mono & Inter      | Fusion of engineering precision & modern readability.       |
 
 ### SECURITY PROTOCOL
-| Feature | Implementation | Purpose |
-| :--- | :--- | :--- |
-| **Rate Limiting** | Upstash Redis | Sliding window protection (3 req / 10 min). |
-| **Spam Defense** | Cloudflare Turnstile | Invisible, frictionless AI bot detection. |
-| **Validation** | Zod | Strict schema enforcement for server actions. |
-| **Email Relay** | Resend | Enterprise-grade SMTP for reliable engagement. |
+
+| Feature           | Implementation       | Purpose                                        |
+| :---------------- | :------------------- | :--------------------------------------------- |
+| **Rate Limiting** | Upstash Redis        | Sliding window protection (3 req / 10 min).    |
+| **Spam Defense**  | Cloudflare Turnstile | Invisible, frictionless AI bot detection.      |
+| **Validation**    | Zod                  | Strict schema enforcement for server actions.  |
+| **Email Relay**   | Nodemailer (SMTP)    | Enterprise-grade SMTP for reliable engagement. |
 
 ---
 
 ## ▣ SYSTEM ARCHITECTURE
 
 ### Directory Mapping: `ROOT_PROTOCOL`
+
 ```text
 src/
 ├── app/                  # APPLICATION GATEWAY
@@ -59,6 +64,7 @@ src/
 ---
 
 ## ▣ THE CLI HERO ENGINE
+
 The signature experience of APEX Experts is the **Autonomous Intelligence Engine** terminal. It is a highly optimized state machine (`TerminalHero.tsx`) that executes the following protocol:
 
 1.  **BOOT_INIT**: Sequential log stream simulating system verification.
@@ -67,6 +73,7 @@ The signature experience of APEX Experts is the **Autonomous Intelligence Engine
 4.  **MENU_REVEAL**: Interactive navigation nodes with keyboard + mouse support.
 
 **Optimization Layers:**
+
 - **Hydration Guard**: Uses `requestAnimationFrame` for React 19-safe state mounting.
 - **Accessibility**: Native `prefers-reduced-motion` support skips the sequence for sensitive users.
 - **Interactivity**: Keyboard navigation (Arrows/Enter) integrated directly into the terminal state.
@@ -76,6 +83,7 @@ The signature experience of APEX Experts is the **Autonomous Intelligence Engine
 ## ▣ INITIALIZATION PROTOCOL
 
 ### Local Environment Setup
+
 ```bash
 # Clone the encrypted registry
 git clone https://github.com/apexexperts/apex-cli.git
@@ -88,11 +96,19 @@ npm run dev
 ```
 
 ### Environment Configuration (`.env.local`)
+
 To activate the security and engagement modules, the following environment keys are required:
 
 ```env
+# EMAIL CONFIGURATION (SMTP)
+EMAIL_HOST=mail.example.com
+EMAIL_PORT=465
+EMAIL_SECURE=true
+EMAIL_USER=noreply@example.com
+EMAIL_PASS=your_smtp_password
+EMAIL_TO=admin@example.com,info@example.com
+
 # SECURITY PROTOCOLS
-RESEND_API_KEY=re_...
 UPSTASH_REDIS_REST_URL=https://...
 UPSTASH_REDIS_REST_TOKEN=...
 NEXT_PUBLIC_TURNSTILE_SITE_KEY=...
@@ -104,6 +120,7 @@ TURNSTILE_SECRET_KEY=...
 ## ▣ CONTENT MANAGEMENT
 
 ### Updating Copy & Data
+
 The platform is built with **Placeholder-Safe Architecture**. To update company data, modify the following registry files:
 
 - **Services**: `src/components/sections/ServicesSection.tsx`
@@ -112,13 +129,16 @@ The platform is built with **Placeholder-Safe Architecture**. To update company 
 - **Contact**: `src/components/Footer.tsx` & `ContactInterface.tsx`
 
 ### SEO Mastery
-Metadata is managed dynamically at the layout and page level. 
+
+Metadata is managed dynamically at the layout and page level.
+
 - **Global Config**: `src/app/layout.tsx`
 - **Search Optimization**: `src/app/sitemap.ts` & `src/app/robots.ts`
 
 ---
 
 ## ▣ PERFORMANCE MATRICS
+
 - **Lighthouse Score**: Target 95+ (Performance, Accessibility, SEO).
 - **Core Web Vitals**: Optimized for LCP < 1.2s and CLS = 0.
 - **Animation**: 60FPS consistent frame rate across modern hardware.

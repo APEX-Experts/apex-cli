@@ -1,22 +1,21 @@
 "use server";
 
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 import { z } from "zod";
 import { Ratelimit } from "@upstash/ratelimit";
 import { Redis } from "@upstash/redis";
 import { headers } from "next/headers";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // ── Rate Limiter Setup (3 requests per 10 minutes per IP) ──
-const redis = (process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN) 
-  ? new Redis({
-      url: process.env.UPSTASH_REDIS_REST_URL,
-      token: process.env.UPSTASH_REDIS_REST_TOKEN,
-    })
-  : null;
+const redis =
+  process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN
+    ? new Redis({
+        url: process.env.UPSTASH_REDIS_REST_URL,
+        token: process.env.UPSTASH_REDIS_REST_TOKEN,
+      })
+    : null;
 
-const ratelimit = redis 
+const ratelimit = redis
   ? new Ratelimit({
       redis: redis,
       limiter: Ratelimit.slidingWindow(3, "10 m"),
@@ -36,7 +35,7 @@ const ContactSchema = z.object({
   service: z.string().min(1, "Please select a service"),
   message: z.string().min(10, "Message must be at least 10 characters"),
   honeypot: z.string().max(0, "Spam detected"),
-  turnstileToken: z.string().min(1, "Verification required"),
+  turnstileToken: z.string(),
 });
 
 const HTML_ESCAPE_LOOKUP: Record<string, string> = {
@@ -48,7 +47,10 @@ const HTML_ESCAPE_LOOKUP: Record<string, string> = {
 };
 
 function escapeHtml(value: string) {
-  return value.replace(/[&<>"']/g, (character) => HTML_ESCAPE_LOOKUP[character]);
+  return value.replace(
+    /[&<>"']/g,
+    (character) => HTML_ESCAPE_LOOKUP[character]
+  );
 }
 
 function emailFallback(value: string | undefined, fallback: string) {
@@ -73,10 +75,13 @@ async function verifyTurnstile(token: string) {
   formData.append("response", token);
 
   try {
-    const result = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
-      body: formData,
-      method: "POST",
-    });
+    const result = await fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        body: formData,
+        method: "POST",
+      }
+    );
     const outcome = await result.json();
     return outcome.success;
   } catch {
@@ -86,7 +91,7 @@ async function verifyTurnstile(token: string) {
 
 export async function submitContactForm(formData: FormData) {
   const rawData = Object.fromEntries(formData.entries());
-  
+
   try {
     // 1. Rate Limiting Check
     if (ratelimit) {
@@ -94,7 +99,10 @@ export async function submitContactForm(formData: FormData) {
       const ip = headerList.get("x-forwarded-for") || "anonymous";
       const { success } = await ratelimit.limit(`contact_${ip}`);
       if (!success) {
-        return { success: false, error: "Too many requests. Please wait 10 minutes before retrying." };
+        return {
+          success: false,
+          error: "Too many requests. Please wait 10 minutes before retrying.",
+        };
       }
     }
 
@@ -104,19 +112,30 @@ export async function submitContactForm(formData: FormData) {
     // 3. Turnstile Verification
     const isHuman = await verifyTurnstile(validatedData.turnstileToken);
     if (!isHuman) {
-      return { success: false, error: "Security verification failed. Please try again." };
+      return {
+        success: false,
+        error: "Security verification failed. Please try again.",
+      };
     }
 
     // 4. Simulate network delay (Keep for UX feel)
     await new Promise((resolve) => setTimeout(resolve, 800));
 
     // 5. Transmission Logic
-    if (process.env.RESEND_API_KEY) {
+    if (
+      process.env.EMAIL_HOST &&
+      process.env.EMAIL_USER &&
+      process.env.EMAIL_PASS
+    ) {
       const emailHtml = {
         name: escapeHtml(validatedData.name),
         email: escapeHtml(validatedData.email),
-        company: escapeHtml(emailFallback(validatedData.company, "Not provided")),
-        jobTitle: escapeHtml(emailFallback(validatedData.job_title, "No Title")),
+        company: escapeHtml(
+          emailFallback(validatedData.company, "Not provided")
+        ),
+        jobTitle: escapeHtml(
+          emailFallback(validatedData.job_title, "No Title")
+        ),
         country: escapeHtml(validatedData.country),
         countryCode: escapeHtml(validatedData.country_code),
         phone: escapeHtml(validatedData.phone),
@@ -124,33 +143,48 @@ export async function submitContactForm(formData: FormData) {
         message: formatEmailMessage(validatedData.message),
       };
 
-      const { error } = await resend.emails.send({
-        from: process.env.CONTACT_FORM_FROM || "onboarding@resend.dev",
-        to: [process.env.CONTACT_FORM_TO || "hello@apexexperts.net"],
-        subject: `[Lead] ${sanitizeSubjectPart(validatedData.service)} request from ${sanitizeSubjectPart(validatedData.name)}`,
-        replyTo: validatedData.email,
-        html: `
-          <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
-            <h2 style="color: #f2a24b;">New Contact Request</h2>
-            <p><strong>From:</strong> ${emailHtml.name} (${emailHtml.email})</p>
-            <p><strong>Company:</strong> ${emailHtml.company} - ${emailHtml.jobTitle}</p>
-            <p><strong>Location:</strong> ${emailHtml.country} (${emailHtml.countryCode})</p>
-            <p><strong>Phone:</strong> ${emailHtml.phone}</p>
-            <p><strong>Service:</strong> ${emailHtml.service}</p>
-            <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 4px solid #f2a24b;">
-              <strong>Message:</strong><br />
-              ${emailHtml.message}
-            </div>
-            <p style="font-size: 10px; color: #999; margin-top: 30px;">
-              Submitted via APEX Experts AI Solutions CLI Interface.
-            </p>
-          </div>
-        `,
-      });
+      try {
+        const transporter = nodemailer.createTransport({
+          host: process.env.EMAIL_HOST,
+          port: parseInt(process.env.EMAIL_PORT || "465", 10),
+          secure: process.env.EMAIL_SECURE === "true",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
 
-      if (error) {
-        console.error("Transmission Error (Resend):", error);
-        return { success: false, error: "System congestion. Please try again later." };
+        const to = process.env.EMAIL_TO?.split(",") || "admin@apexexperts.net";
+
+        await transporter.sendMail({
+          from: `"APEX Experts" <${process.env.EMAIL_USER}>`,
+          to,
+          replyTo: validatedData.email,
+          subject: `[Lead] ${sanitizeSubjectPart(validatedData.service)} request from ${sanitizeSubjectPart(validatedData.name)}`,
+          html: `
+            <div style="font-family: sans-serif; line-height: 1.6; color: #333;">
+              <h2 style="color: #f2a24b;">New Contact Request</h2>
+              <p><strong>From:</strong> ${emailHtml.name} (${emailHtml.email})</p>
+              <p><strong>Company:</strong> ${emailHtml.company} - ${emailHtml.jobTitle}</p>
+              <p><strong>Location:</strong> ${emailHtml.country} (${emailHtml.countryCode})</p>
+              <p><strong>Phone:</strong> ${emailHtml.phone}</p>
+              <p><strong>Service:</strong> ${emailHtml.service}</p>
+              <div style="margin-top: 20px; padding: 15px; background: #f9f9f9; border-left: 4px solid #f2a24b;">
+                <strong>Message:</strong><br />
+                ${emailHtml.message}
+              </div>
+              <p style="font-size: 10px; color: #999; margin-top: 30px;">
+                Submitted via APEX Experts AI Solutions CLI Interface.
+              </p>
+            </div>
+          `,
+        });
+      } catch (error) {
+        console.error("Transmission Error (Nodemailer):", error);
+        return {
+          success: false,
+          error: "System congestion. Please try again later.",
+        };
       }
     } else {
       console.log("Transmission Simulation (DEV):", validatedData);
@@ -162,6 +196,9 @@ export async function submitContactForm(formData: FormData) {
       return { success: false, error: err.errors[0].message };
     }
     console.error("Contact Form Critical Error:", err);
-    return { success: false, error: "Protocol mismatch. Please refresh and try again." };
+    return {
+      success: false,
+      error: "Protocol mismatch. Please refresh and try again.",
+    };
   }
 }
